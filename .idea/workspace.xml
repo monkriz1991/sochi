@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/yandex_4f736c3860d5e815.htm" afterDir="false" />
+    <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="static validation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CWDComponentFull.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/CWDComponentFull.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CWoDComponentFull.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/CWoDComponentFull.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/rent/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/rent/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/static/sitemap.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +15,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Alex Chow &lt;cat@9h0st.ru&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZONHFdRYaHJMhTHgKtdPPLWqVh" />
@@ -33,6 +42,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/assets/images" />
     </key>
   </component>
@@ -65,18 +75,30 @@
       <updated>1584706090979</updated>
       <workItem from="1584706092450" duration="53000" />
       <workItem from="1584706150393" duration="2591000" />
-      <workItem from="1584710474557" duration="1014000" />
+      <workItem from="1584710474557" duration="2436000" />
     </task>
+    <task id="LOCAL-00001" summary="static validation">
+      <created>1584715522689</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1584715522689</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="static validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="static validation" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1584710484156">
+    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1584715540923">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1584710484156" />
+    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1584715540923" />
     <state width="1259" height="178" key="GridCell.Tab.0.bottom" timestamp="1584710469453">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -93,6 +115,10 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1259" height="178" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1584710469453" />
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1584715537686">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1584715537686" />
     <state x="480" y="379" width="858" height="582" key="find.popup" timestamp="1584710281456">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>

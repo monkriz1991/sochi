@@ -855,11 +855,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://sochirentacar.ru/rent/mercedes-benz_s500,_w222</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://sochirentacar.ru/service/</loc>
     <changefreq>daily</changefreq>
     <priority>1</priority>

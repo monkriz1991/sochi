@@ -4,7 +4,7 @@
       main.py-3
         div.container
           BreadCrumbs(:items="bcItems")
-          h1.text-center="Аренда авто в Сочи"
+          h1="Аренда авто в Сочи"
           div(v-if="loaded")
             c-wo-d-component-full(:items="CWoD")
           div(v-else)

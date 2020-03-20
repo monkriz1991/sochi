@@ -1,7 +1,7 @@
 <template lang="pug">
   div.cwod-wrapper
     b-row
-      b-col(sm="6" md="6" lg="6" v-for="(i, idx) in items" :key="idx").my-3
+      b-col(sm="6" md="6" lg="6" v-for="(i, idx) in withPagen" :key="idx").my-3
         nuxt-link(:to="`/service/${i.self_data.slug}`").no_dec
           div.el
             b-row
@@ -32,6 +32,9 @@
                   div.item-info.my-2
                     p.l="Год выпуска:"
                     p.r="{{i.car_data.godvypuska}}"
+    hr.mt-2
+    div.d-flex.justify-content-center.align-items-center
+      b-pagination(v-model="currentPage" :total-rows="items.length" :per-page="perPage")
 </template>
 
 <script>
@@ -40,6 +43,26 @@
     props:{
       items: {
         type: Array
+      }
+    },
+    data(){
+      return {
+        currentPage: 1,
+        perPage: 10,
+      }
+    },
+    watch:{
+      currentPage(){
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        })
+      }
+    },
+    computed:{
+      withPagen() {
+        return this.items.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
       }
     },
     methods:{
