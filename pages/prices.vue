@@ -113,7 +113,7 @@
         return res
       },
       async makeReq(){
-        this.$axios.get('totalTable?city=Sochi')
+        this.$axios.get('totalTable?city=sochi')
           .then((result)=>{
             if (result.data.status === 'success'){
               this.arri = result.data.data;
