@@ -112,20 +112,20 @@
       prices(){
         let data = [];
         if (this.loaded){
-          let s1 = this.item.car_data.stoimost - ((this.item.car_data.stoimost/ 100) * this.item.car_data.skidka_1)
-          let s2 = this.item.car_data.stoimost - ((this.item.car_data.stoimost/ 100) * this.item.car_data.skidka_2)
+          let s1 = this.item.car_data.stoimost - ((this.item.car_data.stoimost/ 100) * this.item.car_data.skidka_1);
+          let s2 = this.item.car_data.stoimost - ((this.item.car_data.stoimost/ 100) * this.item.car_data.skidka_2);
           data = [
             {
               text: '1 сутки',
-              value: this.item.car_data.stoimost
+              value: this.$assets.toMoney(this.item.car_data.stoimost)
             },
             {
               text: 'от 3 до 6 суток',
-              value: s1,
+              value: this.$assets.toMoney(s1),
             },
             {
               text: 'от 7 суток',
-              value: s2,
+              value: this.$assets.toMoney(s2),
             },
           ]
         }
