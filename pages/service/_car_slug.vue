@@ -24,17 +24,20 @@
                       h6.m-0.text-uppercase="Стоимость"
                     hr
                     div.item-info
-                      p.l="Гостиницы города Симферополь"
-                      p.r="3600₽"
+                      p.l="МЕЖДУНАРОДНЫЙ АЭРОПОРТ СОЧИ"
+                      p.r="Бесплатно"
                     div.item-info
-                      p.l="Ялта, Евпатория, Севастополь"
-                      p.r="4800₽"
+                      p.l="СОЧИ ЖД ВОКЗАЛ"
+                      p.r="2500₽"
                     div.item-info
-                      p.l="Судак, Коктебель, Феодосия"
-                      p.r="7200₽"
+                      p.l="СОЧИ, ЦЕНТР"
+                      p.r="2500₽"
                     div.item-info
-                      p.l="Керчь, Армянск, Джанкой"
-                      p.r="9600₽"
+                      p.l="АДЛЕР ЖД ВОКЗАЛ"
+                      p.r="1000₽"
+                    div.item-info
+                      p.l="СОЧИ, КРАСНАЯ ПОЛЯНА"
+                      p.r="2000₽"
                 div.mt-2
                   div(v-html="$assets.generate_text_transfer(item.self_data.text_transfer, item.self_data.title)")
                 div.py-2
