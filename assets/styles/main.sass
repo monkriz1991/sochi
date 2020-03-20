@@ -1,0 +1,240 @@
+@import "variables"
+@import "fonts"
+@import "mixins"
+html
+  body
+    *
+      font-family: $font
+      box-sizing: border-box
+    h1,h2,h3,h4,h5,h6
+      font-family: $font_header
+    a
+      color: $primary
+      text-decoration: none
+      &:hover
+        color: $primary_hover
+        text-decoration: underline
+    a.btn.main, button.btn.main
+      background: $primary
+      color: #fff
+      margin: 2px 0px
+      border: 3px solid $primary
+      transition: 0.3s
+      &:before
+        margin-right: 5px
+      &:hover
+        background: $primary_hover
+        border: 3px solid $primary_hover
+        transition: 0.3s
+        color: #fff
+    a.btn.cancel
+      background: #fff
+      color: $primary
+      margin: 2px 0px
+      transition: 0.3s
+      border: 3px solid $primary
+      &:before
+        margin-right: 5px
+      &:hover
+        background: $primary_hover
+        border: 3px solid $primary_hover
+        transition: 0.3s
+        color: #fff
+    .menu-item
+      background: $primary
+      color: #fff
+      transition: 0.3s
+      cursor: pointer
+      padding: 7px 10px
+      @media screen and (max-width: 991px)
+        margin: 1px 0px
+      &:hover
+        background: $primary_hover
+        transition: 0.3s
+        color: #fff
+  .vdatetime-popup__header
+    padding: 18px 30px
+    color: #fff
+    font-size: 32px
+    background: $primary!important
+  .vdatetime-calendar__month__day--selected > span > span, .vdatetime-calendar__month__day--selected:hover > span > span
+    color: #fff
+    background: $primary!important
+  .vdatetime-popup__actions__button
+    display: inline-block
+    border: none
+    padding: 10px 20px
+    background: transparent
+    font-size: 16px
+    color: $primary!important
+    cursor: pointer
+    transition: color .3s
+  .vdatetime-time-picker__item--selected
+    color: $primary!important
+    font-size: 32px
+  .carousel-indicators li
+    box-sizing: content-box
+    flex: 0 1 auto
+    width: 10px
+    height: 10px
+    margin-right: 3px
+    margin-left: 3px
+    text-indent: -999px
+    cursor: pointer
+    border: 1px solid $primary
+    border-radius: 50px
+    background-color: #fff
+    background-clip: padding-box
+    opacity: 1
+    transition: opacity 0.6s ease
+    &.active
+      background-color: $primary
+  .custom-control-input:focus:not(:checked) ~ .custom-control-label::before
+    border-color: $primary
+  .custom-control-input:focus ~ .custom-control-label::before
+    box-shadow: 0 0 0 0 transparent
+  .lp-checkbox
+    label
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: flex-start
+      font-family: "Roboto", sans-serif
+      padding-left: 5px
+  .custom-control-label
+    position: relative
+    margin-bottom: 0
+    vertical-align: top
+    width: auto
+    @media screen and (max-width: 955px)
+      width: auto
+    @media screen and (max-width: 500px)
+      width: 200px
+    @media screen and (max-width: 375px)
+      width: 170px
+  .form-control:focus, .custom-select:focus
+    color: #495057
+    background-color: #fff
+    border-color: $primary
+    outline: 0
+    box-shadow: 0 0 0 0 transparent
+  .custom-control-label::before
+    position: absolute
+    top: 0.15rem
+    left: -1.5rem
+    display: block
+    width: 1.25rem
+    height: 1.25rem
+    pointer-events: none
+    content: ""
+    background-color: #fff
+    border: #adb5bd solid 1px
+  .custom-control-label::after
+    position: absolute
+    top: 0
+    left: -1.65rem
+    display: block
+    width: 1.50rem
+    height: 1.50rem
+    content: ""
+    background: no-repeat 50% / 50% 50%
+  .custom-control-input:checked ~ .custom-control-label::before
+    color: #fff
+    border-color: $primary
+    background-color: $primary
+  .features-list-icos
+    list-style: none
+    .features-list-block
+      margin: 10px 0
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      min-height: 50px
+      @media screen and (max-width: 375px)
+        margin: 0
+      span
+        font-family: $font
+        font-style: normal
+        font-weight: 300
+        font-size: 16px
+        line-height: 16px
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        &:before
+          font-size: 24px
+          display: inline-block
+          float: left
+          margin-right: 10px
+          color: $primary
+        &.bag
+          &:before
+            content: '\E808'
+            font-family: $f-icons
+        &.pass
+          &:before
+            content: '\E81A'
+            font-family: $f-icons
+        &.dors
+          &:before
+            content: '\E807'
+            font-family: $f-icons
+        &.temp
+          &:before
+            content: '\E804'
+            font-family: $f-icons
+        &.benz
+          &:before
+            content: '\E801'
+            font-family: $f-icons-n
+        &.gear
+          &:before
+            content: '\E819'
+            font-family: $f-icons
+span.blues
+  background: #0039A6
+span.green
+  background: #38A61D
+span.red
+  background: #868DD5
+span.orange
+  background: #F89406
+span.blood
+  background: #d50000
+span.rec
+  background: #8962b9
+span.eco
+  background: #67d50a
+span.none
+  background: #0039A6
+
+hr.dashed
+  border-top: 1px dashed #808080
+
+*:focus
+  outline: none
+.page-item.active .page-link
+  z-index: 3
+  color: #fff
+  background-color: $primary
+  border-color: $primary
+.page-link
+  position: relative
+  display: block
+  padding: 0.5rem 0.75rem
+  margin-left: -1px
+  line-height: 1.25
+  color: $primary
+  background-color: #fff
+  border: 1px solid #dee2e6
+.page-link:hover
+  z-index: 2
+  color: #fff
+  text-decoration: none
+  background-color: $primary_hover
+  border-color: $primary_hover
+
+.inform
+  *
+    margin-bottom: 0
+@import "media"

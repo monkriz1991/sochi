@@ -1,0 +1,11 @@
+User-Agent: *
+Disallow: /booking-online
+Disallow: /booking-online?*
+Disallow: /booking-online/*
+Disallow: /*openstat*
+Disallow: /*utm*
+Disallow: /*from*
+Disallow: /*gclid*
+Disallow: /*yclid*
+Sitemap: https://sochirentacar.ru/sitemap.xml
+Host: sochirentacar.ru

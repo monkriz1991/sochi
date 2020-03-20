@@ -1,0 +1,185 @@
+<template lang="pug">
+  div.container
+    div#form-wrapper
+      div.switcher
+        nuxt-link(to="/rent/").driver_switch.active="АВТОМОБИЛИ БЕЗ ВОДИТЕЛЯ"
+        nuxt-link(to="/service/").driver_switch.active="АВТОМОБИЛИ С ВОДИТЕЛЕМ"
+      div.fields_form.p-2
+        b-row
+          b-col(sm="12" md="12" lg="9")
+            b-row
+              b-col(sm="12" md="6" lg="3")
+                div.form-group
+                  label="Место подачи:"
+                  b-form-select(v-model="place" :options="placeOptions")#place.form-control
+              b-col(sm="12" md="6" lg="3")
+                div.form-group
+                  label()="Дата с:"
+                  datetime(
+                    type="datetime"
+                    placeholder="Дата по"
+                    v-model="start_date"
+                    format="yyyy-MM-dd HH:mm"
+                    :week-start="1"
+                    :minute-step="10"
+                    :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+                    :min-datetime="$assets.genNowSpec(1)"
+                    :zone="'Europe/Moscow'"
+                    :value-zone="'Europe/Moscow'"
+                    input-class="form-control"
+                    input-id="from"
+                  )
+              b-col(sm="12" md="6" lg="3")
+                div.form-group
+                  label="Дата по:"
+                  datetime(
+                    type="datetime"
+                    placeholder="Дата по"
+                    v-model="end_date"
+                    format="yyyy-MM-dd HH:mm"
+                    :week-start="1"
+                    :minute-step="10"
+                    :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+                    :min-datetime="start_date"
+                    :zone="'Europe/Moscow'"
+                    :value-zone="'Europe/Moscow'"
+                    input-class="form-control"
+                    input-id="to"
+                  )
+              b-col(sm="12" md="6" lg="3")
+                div.form-group
+                  label="Класс авто:"
+                  b-form-select(v-model="carClass" :options="carClassOption")#class.form-control
+          b-col(sm="12" md="12" lg="3")
+            b-row
+              b-col(sm="12" md="12" lg="12")
+                div.form-group.pt-4
+                  button(role="button" @click="onSearch").go-search.btn.mt-2="НАЙТИ АВТОМОБИЛЬ"
+</template>
+
+<script>
+  import { mapActions } from 'vuex';
+  import { Datetime } from 'vue-datetime';
+  export default {
+    name: "searchForm",
+    components: {
+      datetime: Datetime,
+    },
+    data(){
+      return {
+        place: this.$config.default_place,
+        placeOptions: [],
+        places: [],
+        start_date: this.$assets.genNowSpec(2),
+        end_date: this.$assets.genNowSpec(9),
+        carClass: 5,
+        carClassOption: [
+          { value: 5, text: 'Все классы' },
+          { value: 3, text: 'Комфорт' },
+          { value: 1, text: 'Бизнес' },
+          { value: 4, text: 'Кроссоверы' },
+          { value: 2, text: 'Минивены' },
+          { value: 6, text: 'Кабриолеты' },
+          { value: 0, text: 'Электросамокаты' },
+        ],
+        isDriver: false
+      }
+    },
+    updated: function () {
+      this.$nextTick(function () {
+        this.checkItem();
+      })
+    },
+    methods:{
+      ...mapActions(['setSearchForm']),
+      onSearch(){
+        let form = {
+          df: this.start_date,
+          dt: this.end_date,
+          ac: this.carClass,
+          place: this.currentPlace(),
+          isDriver: this.isDriver,
+        };
+        this.setSearchForm(form).then(() => {
+          this.$root.$emit('onSearch');
+        });
+      },
+      currentPlace(){
+        let place = this.places.filter(el => {
+          return el.id === parseInt(this.place)
+        });
+        return place[0]
+      },
+      checkItem(){
+        if (new Date(this.start_date) > new Date(this.end_date)){
+          this.end_date = this.$assets.genNowSpecFromDate(new Date(this.start_date), 7)
+        }
+        if(new Date(this.$assets.genNowSpec(1)) > new Date(this.start_date)){
+          this.start_date = this.$assets.genNowSpec(1);
+        }else{
+        }
+      },
+      fetchPoints(){
+        this.$axios(`fetchPoints/${this.$config.station}`)
+        .then(result => {
+          if(result.data.status === 'success'){
+            let res = [];
+            result.data.data.map(el => {
+              res.push({
+                value: el.id,
+                text: `${el.point_name}${el.price > 0 ? ` - ${el.price}р` : ''}`
+              })
+            });
+            this.placeOptions = res;
+            this.places = result.data.data;
+            this.onSearch();
+          }
+        })
+      }
+    },
+    mounted() {
+      this.place = this.$route.query.place ? this.$route.query.place : this.$config.default_place;
+      this.start_date = this.$route.query.df ? this.$route.query.df.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(2);
+      this.end_date = this.$route.query.dt ? this.$route.query.dt.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(9);
+      this.carClass = this.$route.query.ac ? this.$route.query.ac : 5;
+      this.fetchPoints()
+    }
+  }
+</script>
+
+<style lang="sass" scoped>
+  @import "../assets/styles/variables"
+  #form-wrapper
+    background-color: rgba(255,255,255,0.7)
+    border: 1px solid rgba(205,205,205,0.5)
+    -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+  .switcher
+    width: 100%
+    display: flex
+    flex-direction: row
+    .driver_switch
+      width: 50%
+      text-align: center
+      padding: 10px
+      font-size: 24px
+      font-family: 'Roboto Condensed', sans-serif
+      background-color: rgba(255,255,255,0.9)
+      cursor: pointer
+      border-right: 1px solid #ffffff
+      border-left: 1px solid #ffffff
+      @media screen and (max-width: 991px)
+        font-size: 18px
+      &.active
+        background-color: $primary
+        color: #fff
+  .go-search
+    background-color: $primary
+    color: #fff
+    width: 100%
+    text-align: center
+    transition: 0.3s
+    &:hover
+      background-color: $primary_hover
+</style>

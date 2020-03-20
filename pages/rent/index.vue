@@ -1,0 +1,70 @@
+<template lang="pug">
+    section#rent
+      devider
+      main.py-3
+        div.container
+          BreadCrumbs(:items="bcItems")
+          h1.text-center="Аренда авто в Сочи"
+          div(v-if="loaded")
+            c-wo-d-component-full(:items="CWoD")
+          div(v-else)
+            loader
+
+</template>
+
+<script>
+  import BreadCrumbs from "../../components/BreadCrumbs";
+  import loader from "../../components/loader";
+  import CWoDComponentFull from "../../components/CWoDComponentFull";
+  import devider from "../../components/devider";
+  export default {
+    head () {
+      return {
+        title: 'Аренда авто в Сочи | Прокат машин по низким ценам',
+        meta: [
+          {hid: 'description', name: 'description', content: 'Аренда авто в Сочи: ✮ без ограничения пробега ✮ скидки до 25% ✮ 250 машин в автопарке ✮ бесплатная подача в аэропорт ✮ Бронируй онлайн!⭐'}
+        ]
+      }
+    },
+    components:{
+      devider,
+      BreadCrumbs,
+      loader,
+      CWoDComponentFull
+    },
+    data(){
+      return {
+        CWoD: [],
+        loaded: false,
+        bcItems: [
+          {
+            text: 'Главная страница',
+            to: '/'
+          },
+          {
+            text: 'Аренда авто без водителя',
+            active: true
+          }
+        ],
+      }
+    },
+    methods:{
+      fetchCWoD(){
+        this.$axios.post('sun/carsWithoutDrivers', {city: this.$config.station})
+          .then(result => {
+            if (result.data.status === 'success'){
+              this.CWoD = result.data.data;
+              this.loaded = true
+            }
+          }).catch(err => console.error(err));
+      },
+    },
+    mounted() {
+      this.fetchCWoD();
+    }
+  }
+</script>
+
+<style lang="sass" scoped>
+
+</style>

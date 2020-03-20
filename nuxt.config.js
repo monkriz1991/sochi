@@ -1,0 +1,101 @@
+const env = require('dotenv').config();
+
+const yaMapSettings = {
+  apiKey: env.parsed.YAMAP_KEY,
+  lang: 'ru_RU',
+  coordorder: 'latlong',
+  version: '2.1'
+};
+
+module.exports = {
+
+  env: env.parsed,
+
+  head: {
+    title: 'Прокат авто в Сочи без водителя | Sochi Rent-a-Car',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: 'Прокат авто в Сочи без водителя, компания «Sochi Rent-a-Car» Здесь вы найдете идеальную машину для себя. Не жертвуйте своим комфортом! Выбирайте только лучший прокат авто в Сочи!' }
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: `https://booking.autopilot.rent/sun/fetchSettings/${process.env.STATION}` },
+    ]
+  },
+
+  cache: true,
+
+  css: [
+    {
+      src: '@/assets/styles/main.sass',
+      lang: 'sass'
+    }
+  ],
+
+  plugins: [
+    {src:'~plugins/DatetimePlugin', ssr: false},
+    {src:'~plugins/Assets'},
+    {src:'~plugins/AppConfig'},
+    {src: '~/plugins/VuexPersist', ssr: false},
+    {src: '~/plugins/MaskPlugin', ssr: false},
+    {src: '~/plugins/PhoneComponent', ssr: false},
+  ],
+
+  modules: [
+    '@nuxtjs/bootstrap-vue',
+    '@nuxtjs/axios',
+    'nuxt-lazy-load',
+    ['vue-yandex-maps/nuxt', yaMapSettings],
+    'nuxt-webfontloader',
+  ],
+
+  webfontloader: {
+    custom: {
+      families: [
+        'Roboto:n3,n4,n7',
+        'Roboto+Condensed:n7',
+      ],
+      urls: [
+        'https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap&subset=cyrillic',
+        'https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap&subset=cyrillic',
+      ]
+    }
+  },
+
+  axios: {
+    baseURL: env.parsed.API_BASE_URL,
+    timeout: 10000,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${env.parsed.API_TOKEN}`,
+    },
+  },
+
+  loading: { color: '#ff6a28' },
+
+  serverMiddleware: [
+    '~/middleware/seo.js'
+  ],
+
+  build: {
+    extend (config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
+    }
+  },
+
+  server: {
+    port: 25700, // default: 3000
+    host: '0.0.0.0', // default: localhost,
+    timing: false
+  }
+
+};
+
