@@ -48,7 +48,7 @@
                   li
                     a(href="https://avtopilot.com/")="Владивосток"
                   li
-                    a(href="https://sochirentacar.ru/")="Сочи"
+                    a(href="https://crimearentacar.su/")="Крым"
 </template>
 
 <script>

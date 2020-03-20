@@ -40,7 +40,7 @@
                 div.menu-block-cities
                   a(href="https://avtopilot.com/").menu-item="Владивосток"
                   a(href="https://spbrentacar.ru/").menu-item="Санкт-Петербург"
-                  a(href="https://sochirentacar.ru/").menu-item="Сочи"
+                  a(href="https://crimearentacar.su/").menu-item="Крым"
       b-modal(title="Обратный звонок" hide-footer)#callback
         b-form-group.mb-0(description="Введите Ваше имя")
           b-form-input(v-model="callback_form.name" placeholder="ФИО")#callback_name
