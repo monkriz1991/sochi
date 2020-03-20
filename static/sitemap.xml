@@ -265,11 +265,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://sochirentacar.ru/news/dalyniy_vostok,_my_rasshiryaem_gorizonty</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://sochirentacar.ru/news/nazvany_goroda_v_rossii,_dlya_testa_bespilotnikov.</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
