@@ -254,5 +254,6 @@
   { "from": "/conditions", "to": "/conditions/" },
   { "from": "/prices", "to": "/prices/" },
   { "from": "/contacts", "to": "/contacts/" },
-  { "from": "/payment", "to": "/payment/" }
+  { "from": "/payment", "to": "/payment/" },
+  { "from": "/adler", "to": "/adler/" }
 ]
