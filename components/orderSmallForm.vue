@@ -107,7 +107,7 @@
             Коментарий - ${this.comment}`;
               this.$axios.post("sendMessageToChanel", {message})
                 .then((res)=>{
-                  yaCounter33072038.reachGoal('Payforcar');
+                  yaCounter33072038.reachGoal('online-zayavka');
                   this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                     title: 'Заявка отправлена',
                     variant: 'success',

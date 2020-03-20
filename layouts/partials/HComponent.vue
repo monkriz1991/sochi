@@ -109,7 +109,7 @@
           let message = `на сайте sochirentacar.ru Пользователь ${this.callback_form.name} заказал обратный звонок на номер телефона: ${this.callback_form.phone}`;
           this.$axios.post("sendMessageToChanel", {message})
             .then((res)=>{
-              yaCounter33072038.reachGoal('Callbacksend');
+              yaCounter33072038.reachGoal('zakaz-zvonka');
               this.hideModal();
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                 title: 'Заявка отправлена',
