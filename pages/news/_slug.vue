@@ -47,7 +47,7 @@
           },
           {
             text: 'Новости',
-            to: '/news'
+            to: '/news/'
           }
         ];
         if (this.loaded) {
