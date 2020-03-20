@@ -12,11 +12,11 @@ module.exports = {
   env: env.parsed,
 
   head: {
-    title: 'Прокат авто в Сочи без водителя | Sochi Rent-a-Car',
+    title: 'Прокат машин без водителя в Сочи',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Прокат авто в Сочи без водителя, компания «Sochi Rent-a-Car» Здесь вы найдете идеальную машину для себя. Не жертвуйте своим комфортом! Выбирайте только лучший прокат авто в Сочи!' }
+      {hid: 'description', name: 'description', content: 'Прокат машин в Сочи: *✮* без ограничения пробега *✮* скидки до 25% *✮* 350 машин в автопарке *✮* бесплатная подача в аэропорт*✮* Бронируй онлайн!⭐'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

@@ -413,7 +413,7 @@
         bodyFormData.set('options', JSON.stringify(this.options));
         bodyFormData.set('period', `${parseInt(this.period)} ${this.$assets.getName(parseInt(this.period))}`);
         bodyFormData.set('features', this.features);
-        this.$axios.post('https://booking.autopilot.rent/mail_Sochi.php', bodyFormData, {headers: {}}).catch(err => console.error(err));
+        this.$axios.post('https://booking.autopilot.rent/mail_sochi.php', bodyFormData, {headers: {}}).catch(err => console.error(err));
         let broadcaster = {
           sitename: `https://sochirentacar.ru/ \n`,
           fio: this.orderName,

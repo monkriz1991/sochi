@@ -4,7 +4,7 @@
       main.py-3
         div.container
           BreadCrumbs(:items="bcItems")
-          h1="Аренда авто в Сочи"
+          h1="Аренда авто в Адлере"
           div(v-if="loaded")
             c-wo-d-component-full(:items="CWoD")
           div(v-else)
@@ -19,9 +19,9 @@
   export default {
     head () {
       return {
-        title: 'Аренда авто в Сочи | Прокат машин по низким ценам',
+        title: 'Аренда авто в Адлере по низким ценам',
         meta: [
-          {hid: 'description', name: 'description', content: 'Аренда авто в Сочи: ✮ без ограничения пробега ✮ скидки до 25% ✮ 250 машин в автопарке ✮ бесплатная подача в аэропорт ✮ Бронируй онлайн!⭐'}
+          {hid: 'description', name: 'description', content: 'Аренда авто в Адлере: *✮* без ограничения пробега *✮* скидки до 25% *✮* 350 машин в автопарке *✮* бесплатная подача в аэропорт*✮* Бронируй онлайн!⭐'}
         ]
       }
     },
