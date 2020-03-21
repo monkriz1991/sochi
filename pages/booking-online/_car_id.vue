@@ -41,9 +41,10 @@
                       hr.mt-0.mb-3
                     div(v-for="(o, odx) in options" :key="odx").option
                       div.option-item.my-2
-                        b-form-checkbox(v-model="o.value").lp-checkbox
+                        b-form-checkbox(v-model="o.value" v-bind="{disabled: $assets.checkAbhazAvailable(o.name)}").lp-checkbox
                           |{{o.name}}
                           span(v-if="o.name === 'Дозаправка' || o.name === 'Мойка' || o.name === 'Крымский мост'").inform-now-dozo="{{o.desc}}"
+                          span(v-if="$assets.checkAbhazAvailable(o.name)").inform-now-dozo="Опция выезд в Абхазию временно не доступна, уточняйте информацию у менеджера"
                         span.text-right.position-relative
                           span(v-if="o.old_price !== o.price").old_price="{{o.old_price}}₽"
                             span(v-html="o.type === 'day' ? '/сутки':''")

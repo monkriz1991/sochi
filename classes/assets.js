@@ -261,7 +261,19 @@ class Assets {
       case 'december':
         return 'декабря';
     }
-  }
+  };
+
+  checkAbhazAvailable = name =>{
+    if (name === "Выезд в Абхазию"){
+      if (Date.parse(this.df) > Date.parse('2020-05-01')){
+        return false
+      }else{
+        return true
+      }
+    }else{
+      return false
+    }
+  };
 }
 
 export default Assets

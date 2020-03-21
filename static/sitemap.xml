@@ -575,6 +575,11 @@
     <priority>1</priority>
   </url>
   <url>
+    <loc>https://sochirentacar.ru/adler/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
     <loc>https://sochirentacar.ru/rent/mercedes-benz_e200</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
