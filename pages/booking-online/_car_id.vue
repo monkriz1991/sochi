@@ -307,7 +307,9 @@
           cs = this.car_photos;
           cs.reverse()
         }
-        cs.push(this.car_data.car_image);
+        if(!this.car_photos.length){
+          cs.push(this.car_data.car_image);
+        }
         cs.reverse();
         return cs;
       },
