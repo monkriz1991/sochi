@@ -68,7 +68,7 @@
                       b-col(sm="12" md="6" lg="4").features-list-block
                         span.gear='{{item.car_data.kpp}}'
                   div(v-html="$assets.generate_text_tth(item.self_data.text_tth_bottom)")
-          order-small-form(:places="points" :carName="item.car_data.naimenovanie" typeOrder="посуточная аренда")
+          order-small-form(:places="points" :carName="item.self_data.title" typeOrder="посуточная аренда")
           hr
           banners-section
         div(v-else)

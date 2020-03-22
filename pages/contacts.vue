@@ -138,6 +138,16 @@
           телефон - ${this.feedback.email}
           сообщение - ${this.feedback.message}
           `;
+          let bodyFormData = new FormData();
+          bodyFormData.set('station', this.$config.station);
+          bodyFormData.set('type', 'feedback');
+          bodyFormData.set('row_data', JSON.stringify({
+            name: this.feedback.name,
+            phone: this.feedback.email,
+            email: this.feedback.phone,
+            comment  : this.feedback.message,
+          }));
+          this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).catch(err => console.error(err));
           this.$axios.post("sendMessageToChanel", {message})
             .then((res)=>{
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {

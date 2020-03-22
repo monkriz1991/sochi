@@ -99,22 +99,36 @@
             ДАННЫЕ ЗАЯВКИ:
             Автомобиль - ${this.carName},
             Тип заявки - ${this.typeOrder},
-            Дата подачи - ${this.date},
+            Дата подачи - ${this.$assets.formatDate(new Date(this.date))},
             Место подачи - ${this.selectedPlace.point_name},
             ФИО - ${this.fio},
             Телефон - ${this.phone},
             Е-mail - ${this.email},
             Коментарий - ${this.comment}`;
-              this.$axios.post("sendMessageToChanel", {message})
-                .then((res)=>{
-                  yaCounter33072038.reachGoal('online-zayavka');
-                  this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
-                    title: 'Заявка отправлена',
-                    variant: 'success',
-                    solid: true
-                  });
-                  this.errorstry++
-                }).catch((err)=>{console.error(err)})
+            let bodyFormData = new FormData();
+            bodyFormData.set('station', this.$config.station);
+            bodyFormData.set('type', 'smallform');
+            bodyFormData.set('row_data', JSON.stringify({
+              car_name: this.carName,
+              date: this.$assets.formatDate(new Date(this.date)),
+              place: this.selectedPlace.point_name,
+              rent_type: this.typeOrder,
+              name: this.fio,
+              phone: this.phone,
+              email: this.email,
+              comment: this.comment,
+            }));
+            this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).catch(err => console.error(err));
+            this.$axios.post("sendMessageToChanel", {message})
+              .then((res)=>{
+                yaCounter33072038.reachGoal('online-zayavka');
+                this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
+                  title: 'Заявка отправлена',
+                  variant: 'success',
+                  solid: true
+                });
+                this.errorstry++
+              }).catch((err)=>{console.error(err)})
           }
         }else{
           this.$bvToast.toast('Вы уже отправляли заявку', {

@@ -302,16 +302,20 @@
         return this.period_sum + this.options_price + this.priceOfPlace + this.priceOfPlaceCompack;
       },
       images(){
-        let cs = [];
-        if (this.car_photos.length){
-          cs = this.car_photos;
-          cs.reverse()
+        if (this.loaded){
+          let cs = [];
+          if (this.car_photos.length){
+            cs = this.car_photos;
+            cs.reverse()
+          }
+          if(!this.car_photos.length){
+            cs.push(this.car_data.car_image);
+          }
+          cs.reverse();
+          return cs;
+        }else{
+          return [];
         }
-        if(!this.car_photos.length){
-          cs.push(this.car_data.car_image);
-        }
-        cs.reverse();
-        return cs;
       },
       bcItems(){
         let crumbs = [
