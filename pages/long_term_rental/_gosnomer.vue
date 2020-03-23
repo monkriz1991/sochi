@@ -113,28 +113,6 @@
         item: [],
         errors: [],
         allready: false,
-        conditions: [
-          {
-            title: 'Возраст водителя',
-            text: 'с 26 года',
-            class_name: 'cond_1'
-          },
-          {
-            title: 'Стаж',
-            text: 'не менее 5ти лет',
-            class_name: 'cond_2'
-          },
-          {
-            title: 'Залог на автомобиль',
-            text: 'от 5000₽',
-            class_name: 'cond_3'
-          },
-          {
-            title: 'Пробег/Перепробег',
-            text: '3000 км / от 3₽ - км',
-            class_name: 'cond_4'
-          },
-        ],
       }
     },
     computed:{
@@ -157,6 +135,30 @@
         }
         return crumbs
       },
+      conditions(){
+        return [
+          {
+            title: 'Возраст водителя',
+            text: 'с 26 лет',
+            class_name: 'cond_1'
+          },
+          {
+            title: 'Стаж',
+            text: 'не менее 5ти лет',
+            class_name: 'cond_2'
+          },
+          {
+            title: 'Залог на автомобиль',
+            text: `от ${this.item.cd.zalog}₽`,
+            class_name: 'cond_3'
+          },
+          {
+            title: 'Пробег/Перепробег',
+            text: `3000 км / ${this.item.limits.over_limit_price}₽ - км`,
+            class_name: 'cond_4'
+          },
+        ]
+      }
     },
     methods: {
       onSubmit(){
