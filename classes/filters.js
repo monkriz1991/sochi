@@ -69,10 +69,10 @@ class Filters{
   };
 
   compareLT = (a, b) => {
-    if (a.raw.base_price < b.raw.base_price) {
+    if (a.cd.stoimost < b.cd.stoimost) {
       return -1;
     }
-    if (a.raw.base_price > b.raw.base_price) {
+    if (a.cd.stoimost > b.cd.stoimost) {
       return 1;
     }
     // a должно быть равным b
