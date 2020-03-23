@@ -263,6 +263,28 @@ class Assets {
     }
   };
 
+  validateOrderFormLT = data => {
+    let errors = [];
+    if(data.phone === '' || data.phone === undefined){
+      errors.push('Телефон не может быть пустым');
+    }
+    if (data.email === ''){
+      errors.push('Email не может быть пустым');
+    }else{
+      let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(!re.test(String(data.email).toLowerCase())){
+        errors.push('E-Mail введен не корректно');
+      }
+    }
+    if (data.surname === ''){
+      errors.push('Фамилия не может быть пустым');
+    }
+    if (data.name === ''){
+      errors.push('Имя не может быть пустым');
+    }
+    return errors
+  };
+
   checkAbhazAvailable = (name, df) =>{
     if (name === "Выезд в Абхазию"){
       if (Date.parse(df) > Date.parse('2018-05-01')){
