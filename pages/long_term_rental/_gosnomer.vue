@@ -5,7 +5,7 @@
       div.container
         BreadCrumbs(:items="bcItems" :withBack="false")
         div(v-if="loaded")
-          h1="Долгосрочная аренда {{item.cd.naimenovanie}} в Санкт-Петербурге"
+          h1="Долгосрочная аренда {{item.cd.naimenovanie}} в Сочи"
           b-row
             b-col(sm="12" md="12" lg="6")
               div.block-container
@@ -172,7 +172,7 @@
             return false
           }else{
             this.allready = true;
-            let message = `ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ САНКТ-ПЕТЕРБУРГ\nПользователь ${this.userData.surname} ${this.userData.name} ${this.userData.fathername} сделал заявку на автомобиль ${this.item.cd.naimenovanie}\nНомер телефона: ${this.userData.phone}\nE-mail: ${this.userData.phone}\nКомментарий: ${this.userData.comment}`;
+            let message = `ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.userData.surname} ${this.userData.name} ${this.userData.fathername} сделал заявку на автомобиль ${this.item.cd.naimenovanie}\nНомер телефона: ${this.userData.phone}\nE-mail: ${this.userData.phone}\nКомментарий: ${this.userData.comment}`;
             this.$axios.post("sendMessageToChanel", {message})
               .then((res)=>{
                 this.hideModal(carId)

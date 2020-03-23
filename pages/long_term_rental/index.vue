@@ -150,7 +150,7 @@
       submitModal(carName, carId){
         console.log(carName);
         if (this.phone !== '' && this.name !== '' && this.phone !== undefined){
-          let message = `БЫСТРАЯ ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ САНКТ-ПЕТЕРБУРГ\nПользователь ${this.name} сделал заявку на автомобиль ${carName} номер телефона: ${this.phone}`;
+          let message = `БЫСТРАЯ ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.name} сделал заявку на автомобиль ${carName} номер телефона: ${this.phone}`;
           this.$axios.post("sendMessageToChanel", {message})
             .then((res)=>{
               this.hideModal(carId)
