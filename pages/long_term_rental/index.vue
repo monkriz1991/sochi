@@ -62,7 +62,7 @@
                           span.new_price="{{genNewPrice(card.cd.stoimost)}}₽/сутки"
                       b-col(sm="12" md="12" lg="4").py-1
                         nuxt-link(:to="`/long_term_rental/${card.cd['1cID']}`").btn.main.w-100="ЗАБРОНИРОВАТЬ"
-                        b-button(@click="$bvModal.show(card.cd['1cID'])").btn.cancel.w-100="УЗНАТЬ ДЕТАЛИ"
+                        b-button(@click="showModal(card.cd['1cID'])").btn.cancel.w-100="УЗНАТЬ ДЕТАЛИ"
                   b-modal(:id="card.cd['1cID']" hide-footer hide-header)
                     h5.text-center="Долгосрочное бронирование - {{card.cd.naimenovanie}}"
                     b-form-group.mb-0(description="Введите Ваше имя")
@@ -147,12 +147,17 @@
       calcMonth(price){
         return ((parseInt(price)/2) * 30.5).toFixed(2);
       },
+      showModal(id){
+        yaCounter34578255.reachGoal('longrentalquickform');
+        this.$bvModal.show(id)
+      },
       submitModal(carName, carId){
         console.log(carName);
         if (this.phone !== '' && this.name !== '' && this.phone !== undefined){
           let message = `БЫСТРАЯ ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.name} сделал заявку на автомобиль ${carName} номер телефона: ${this.phone}`;
           this.$axios.post("sendMessageToChanel", {message})
             .then((res)=>{
+              yaCounter34578255.reachGoal('longrentalquickformsend');
               this.hideModal(carId)
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                 title: 'Заявка отправлена',

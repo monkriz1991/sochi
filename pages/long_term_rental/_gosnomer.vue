@@ -178,6 +178,7 @@
             this.$axios.post("sendMessageToChanel", {message})
               .then((res)=>{
                 this.hideModal(carId)
+                yaCounter34578255.reachGoal('sendcardlongrental');
                 this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                   title: 'Заявка отправлена',
                   variant: 'success',
@@ -206,6 +207,7 @@
         this.$axios.get(`https://booking.autopilot.rent/api/sun/longTermSingle/${this.$route.params.gosnomer}`)
           .then(result => {
             if (result.data.status === 'success'){
+              yaCounter34578255.reachGoal('opencardlongrental');
               this.item = result.data.data;
               this.loaded = true;
             }
