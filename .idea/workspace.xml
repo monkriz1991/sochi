@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/long_term_rental/_gosnomer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/long_term_rental/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/assets.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/assets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/filters.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/filters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/partials/HComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/partials/HComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/booking-online/_car_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/booking-online/_car_id.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/long_term_rental.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +33,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages/adler" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -38,12 +43,13 @@
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/pages/adler" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/assets/images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages" />
+      <recent name="$PROJECT_DIR$/pages/adler" />
     </key>
   </component>
   <component name="RunManager">
@@ -77,7 +83,7 @@
       <workItem from="1584706150393" duration="2591000" />
       <workItem from="1584710474557" duration="13102000" />
       <workItem from="1584775332030" duration="7712000" />
-      <workItem from="1584945373084" duration="53000" />
+      <workItem from="1584945373084" duration="2889000" />
     </task>
     <task id="LOCAL-00001" summary="static validation">
       <created>1584715522689</created>
@@ -261,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584894442098</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix">
+      <created>1584945450159</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1584945450159</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,9 +287,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1584894441690">
+    <state x="437" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584970710979">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
+    <state x="437" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1584970710979" />
+    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1584945449505">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1584945449505" />
     <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1584894441690" />
     <state width="1377" height="260" key="GridCell.Tab.0.bottom" timestamp="1584907540741">
       <screen x="0" y="23" width="1680" height="1027" />
@@ -294,13 +312,26 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1377" height="260" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1584907540740" />
-    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1584894444019">
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1584945453505">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1584945453505" />
     <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1584894444019" />
     <state x="480" y="379" width="858" height="582" key="find.popup" timestamp="1584892256060">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="480" y="379" width="858" height="582" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1584892256060" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/long_term_rental/index.vue</url>
+          <line>7</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

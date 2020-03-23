@@ -68,6 +68,16 @@ class Filters{
     return 0;
   };
 
+  compareLT = (a, b) => {
+    if (a.raw.base_price < b.raw.base_price) {
+      return -1;
+    }
+    if (a.raw.base_price > b.raw.base_price) {
+      return 1;
+    }
+    // a должно быть равным b
+    return 0;
+  };
 
   comparePrice = (a, b) => {
     if (a['1day'] < b['1day']) {

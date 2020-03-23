@@ -420,29 +420,30 @@
         bodyFormData.set('options', JSON.stringify(this.options));
         bodyFormData.set('period', `${parseInt(this.period)} ${this.$assets.getName(parseInt(this.period))}`);
         bodyFormData.set('features', this.features);
-        this.$axios.post('https://booking.autopilot.rent/mail_sochi.php', bodyFormData, {headers: {}}).catch(err => console.error(err));
-        let broadcaster = {
-          sitename: `https://sochirentacar.ru/ \n`,
-          fio: this.orderName,
-          naimenovanie: this.car_data.naimenovanie,
-          period: `${parseInt(this.period)} ${this.$assets.getName(parseInt(this.period))}`,
-          dateFrom: this.$assets.formatDate(new Date(this.userData.df)),
-          dateTo: this.$assets.formatDate(new Date(this.userData.dt)),
-          sum: `\nполная сумма - ${this.total_sum} \n предоплата 20% - ${parseInt(this.online_sum)}\n`,
-          email: this.userData.email,
-          phone: this.userData.phone,
-          options: JSON.stringify(this.options),
-          options_summ: this.options_price,
-          features: this.features,
-          comment: this.userData.comment
-        };
-        this.$axios.post('sendTgBroadcast', broadcaster)
-          .then((result)=>{
-            if (result){
-              callback_func()
-            }
-          })
-          .catch(err => console.error(err))
+        this.$axios.post('https://booking.autopilot.rent/mail_sochi.php', bodyFormData, {headers: {}}).then(res => {
+          let broadcaster = {
+            sitename: `https://sochirentacar.ru/ \n`,
+            fio: this.orderName,
+            naimenovanie: this.car_data.naimenovanie,
+            period: `${parseInt(this.period)} ${this.$assets.getName(parseInt(this.period))}`,
+            dateFrom: this.$assets.formatDate(new Date(this.userData.df)),
+            dateTo: this.$assets.formatDate(new Date(this.userData.dt)),
+            sum: `\nполная сумма - ${this.total_sum} \n предоплата 20% - ${parseInt(this.online_sum)}\n`,
+            email: this.userData.email,
+            phone: this.userData.phone,
+            options: JSON.stringify(this.options),
+            options_summ: this.options_price,
+            features: this.features,
+            comment: this.userData.comment
+          };
+          this.$axios.post('sendTgBroadcast', broadcaster)
+            .then((result)=>{
+              if (result){
+                callback_func()
+              }
+            })
+            .catch(err => console.error(err))
+        }).catch(err => console.error(err));
       },
       onSubmitOrder(){
         if (!this.allready){

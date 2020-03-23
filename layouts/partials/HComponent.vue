@@ -12,6 +12,7 @@
                   p.notes="Мы работаем {{settings.time}}"
                   p.main_phone
                     a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
+                  nuxt-link(to="/long_term_rental/").btn.main="Долгосрочная аренда"
               b-col(sm="12" md="12" lg="4" order="1" order-sm="1" order-md="1" order-lg="2").d-flex.justify-content-center.align-content-center
                 div.logo
                   nuxt-link(to="/")
