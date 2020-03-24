@@ -204,6 +204,7 @@
         is_same_comeback: true,
         period: 0,
         allready: false,
+        images: [],
         userData: {
           df: '',
           dt: '',
@@ -300,22 +301,6 @@
       },
       total_sum(){
         return this.period_sum + this.options_price + this.priceOfPlace + this.priceOfPlaceCompack;
-      },
-      images(){
-        if (this.loaded){
-          let cs = [];
-          if (this.car_photos.length){
-            cs = this.car_photos;
-            cs.reverse()
-          }else{
-            cs.push(this.car_data.car_image);
-          }
-          return cs;
-        }else{
-          if(!this.car_photos.length){
-            cs.push(this.car_data.car_image);
-          }
-        }
       },
       bcItems(){
         let crumbs = [
@@ -505,13 +490,14 @@
           city: this.$config.station
         }).then((result)=>{
           if (result.data.data != null){
-            this.loader_step = this.loader_step + 1;
             this.car_data  = result.data.data;
             this.car_data.stoimost = this.car_data.car_actual.PriceDiscount;
             this.period = this.car_data.car_actual.Period;
             this.$axios.post('getSunPhotos',{gosnomer: result.data.data.gosnomer, sun:1, city: this.$config.station})
               .then((result)=>{
-                this.car_photos = result.data.data
+                this.car_photos = result.data.data;
+                this.images = this.car_photos.length > 0 ? this.car_photos : [this.car_data.car_image];
+                this.loader_step = this.loader_step + 1;
               })
           }else{
             this.$router.push('/')
