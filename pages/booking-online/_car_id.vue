@@ -307,8 +307,9 @@
           if (this.car_photos.length){
             cs = this.car_photos;
             cs.reverse()
+          }else{
+            cs.push(this.car_data.car_image);
           }
-          cs.reverse();
           return cs;
         }else{
           if(!this.car_photos.length){
