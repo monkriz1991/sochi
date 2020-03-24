@@ -177,7 +177,6 @@
             let message = `ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.userData.surname} ${this.userData.name} ${this.userData.fathername} сделал заявку на автомобиль ${this.item.cd.naimenovanie}\nНомер телефона: ${this.userData.phone}\nE-mail: ${this.userData.email}\nКомментарий: ${this.userData.comment}`;
             this.$axios.post("sendMessageToChanel", {message})
               .then((res)=>{
-                this.hideModal(carId)
                 yaCounter33072038.reachGoal('sendcardlongrental');
                 this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                   title: 'Заявка отправлена',
