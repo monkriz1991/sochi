@@ -5,13 +5,94 @@
       div.container
         BreadCrumbs(:items="bcItems" :withBack="false")
         div(v-if="loaded")
-          h1="Долгосрочная аренда {{item.cd.naimenovanie}} в Сочи"
+          h1="Долгосрочная аренда {{item.cd.naimenovanie}} в Крыму"
           b-row
             b-col(sm="12" md="12" lg="6")
               div.block-container
                 b-o-image-slider(:items="item.photos.length > 0 ? item.photos : [item.cd.car_image]")
+              hr
+              div.garant
+                div.grant-item
+                  div
+                    p.m-0='Мы гарантируем именно выбранный вами автомобиль и его стоимость'
+                div.grant-item
+                  div
+                    p.m-0='Все виды страхования и большой выбор дополнительных опций'
+              hr
+              h3="Характеристики автомобиля"
+              div.item-content
+                div.info_lap
+                  p.l="Год выпуска:"
+                  p.r="{{item.cd.godvypuska}}"
+                div.info_lap
+                  p.l="КПП:"
+                  p.r="{{item.cd.kpp}}"
+                div.info_lap
+                  p.l="Топливо:"
+                  p.r="{{item.cd.toplivo}}"
+                div.info_lap
+                  p.l="Двигатель:"
+                  p.r(v-html="`${item.cd.dvigatel}л.`")
+                div.info_lap
+                  p.l="Цвет:"
+                  p.r="{{item.cd.cvet}}"
+              div.py-1
+                b-row.features-list-icos
+                  b-col(sm="12" md="6" lg="4").features-list-block
+                    span.bag(v-html="`${$assets.getBagsData(item.cd.bags, item.cd.bigbag)}`")
+                  b-col(sm="12" md="6" lg="4").features-list-block
+                    span.pass='{{item.cd.passa}} пассажиров'
+                  b-col(sm="12" md="6" lg="4").features-list-block
+                    span.dors='{{ $assets.getDoors(item.cd.dors) }}'
+                  b-col(sm="12" md="6" lg="4").features-list-block
+                    span.temp='{{item.cd.klimat}}'
+                  b-col(sm="12" md="6" lg="4").features-list-block
+                    span.benz='{{item.cd.rashod}}л/100км'
+                  b-col(sm="12" md="6" lg="4").features-list-block
+                    span.gear='{{item.cd.kpp}}'
             b-col(sm="12" md="12" lg="6")
               div.block-container
+                h3="Данные аренды:"
+                b-row
+                  b-col(sm="12" md="12" lg="6")
+                    b-form-group(description="Дата подачи")
+                      datetime(
+                        type="datetime"
+                        placeholder="Дата по"
+                        v-model="df"
+                        format="yyyy-MM-dd HH:mm"
+                        :week-start="1"
+                        :minute-step="10"
+                        :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+                        :min-datetime="df"
+                        :zone="'Europe/Moscow'"
+                        :value-zone="'Europe/Moscow'"
+                        input-class="form-control"
+                        input-id="from"
+                        :readonly="true"
+                      )
+                  b-col(sm="12" md="12" lg="6")
+                    b-form-group(description="Дата возврата")
+                      datetime(
+                        type="datetime"
+                        placeholder="Дата по"
+                        v-model="dt"
+                        format="yyyy-MM-dd HH:mm"
+                        :week-start="1"
+                        :minute-step="10"
+                        :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+                        :min-datetime="minDate"
+                        :zone="'Europe/Moscow'"
+                        :value-zone="'Europe/Moscow'"
+                        input-class="form-control"
+                        input-id="to"
+                        :readonly="true"
+                      )
+                  b-col(sm="12" md="12" lg="12")
+                    div.price_string
+                      h5="СТОИМОСТЬ ПЕРИОДА:"
+                      h5="{{lastPrice}}₽"
+                hr
                 h3="Ваши данные:"
                 h5="ФИО"
                 b-row
@@ -38,42 +119,6 @@
                   b-col(sm="12" md="12" lg="12")
                     b-form-group
                       b-button(@click="onSubmit").btn.main.w-100.text-uppercase="Забронировать"
-          hr
-          b-row
-            b-col(sm="12" md="12" lg="6")
-              h3="Характеристики автомобиля"
-              div.item-content
-                div.info_lap
-                  p.l="Год выпуска:"
-                  p.r="{{item.cd.godvypuska}}"
-                div.info_lap
-                  p.l="КПП:"
-                  p.r="{{item.cd.kpp}}"
-                div.info_lap
-                  p.l="Топливо:"
-                  p.r="{{item.cd.toplivo}}"
-                div.info_lap
-                  p.l="Двигатель:"
-                  p.r(v-html="`${item.cd.dvigatel}л.`")
-                div.info_lap
-                  p.l="Цвет:"
-                  p.r="{{item.cd.cvet}}"
-              hr
-              div.py-1
-                b-row.features-list-icos
-                  b-col(sm="12" md="6" lg="4").features-list-block
-                    span.bag(v-html="`${$assets.getBagsData(item.cd.bags, item.cd.bigbag)}`")
-                  b-col(sm="12" md="6" lg="4").features-list-block
-                    span.pass='{{item.cd.passa}} пассажиров'
-                  b-col(sm="12" md="6" lg="4").features-list-block
-                    span.dors='{{ $assets.getDoors(item.cd.dors) }}'
-                  b-col(sm="12" md="6" lg="4").features-list-block
-                    span.temp='{{item.cd.klimat}}'
-                  b-col(sm="12" md="6" lg="4").features-list-block
-                    span.benz='{{item.cd.rashod}}л/100км'
-                  b-col(sm="12" md="6" lg="4").features-list-block
-                    span.gear='{{item.cd.kpp}}'
-            b-col(sm="12" md="12" lg="6")
               h3="Условия бронирования"
               b-row
                 b-col(sm="12" md="12" lg="6" v-for="(ci, cidx) in conditions" :key="cidx")
@@ -82,6 +127,7 @@
                     div.text
                       h6="{{ci.title}}"
                       p="{{ci.text}}"
+          hr
         div(v-else)
           loader
 </template>
@@ -91,15 +137,19 @@
   import BreadCrumbs from "../../components/BreadCrumbs";
   import loader from "../../components/loader";
   import BOImageSlider from "../../components/BOImageSlider";
+  import { Datetime } from 'vue-datetime';
   export default {
     components:{
       devider,
       BreadCrumbs,
+      Datetime,
       loader,
       BOImageSlider
     },
     data(){
       return {
+        df: this.$assets.genNowSpec(1),
+        dt: this.$assets.genNowSpec(31),
         userData: {
           phone: '',
           email: '',
@@ -113,9 +163,16 @@
         item: [],
         errors: [],
         allready: false,
+        minDate: this.$assets.genNowSpec(31)
       }
     },
     computed:{
+      lastPrice(){
+        let date1 = new Date(this.df);
+        let date2 = new Date(this.dt);
+        let daysLag = Math.ceil(Math.abs(date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
+        return parseInt(this.item.cd.stoimost / 2) * daysLag;
+      },
       bcItems(){
         let crumbs = [
           {
@@ -160,6 +217,12 @@
         ]
       }
     },
+    watch:{
+      df(){
+        this.minDate = this.$assets.genNowSpecFromDate(new Date(this.df), 30)
+        this.dt = this.$assets.genNowSpecFromDate(new Date(this.df), 30)
+      }
+    },
     methods: {
       onSubmit(){
         if (!this.allready){
@@ -174,7 +237,7 @@
             return false
           }else{
             this.allready = true;
-            let message = `ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.userData.surname} ${this.userData.name} ${this.userData.fathername} сделал заявку на автомобиль ${this.item.cd.naimenovanie}\nНомер телефона: ${this.userData.phone}\nE-mail: ${this.userData.email}\nКомментарий: ${this.userData.comment}`;
+            let message = `ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.userData.surname} ${this.userData.name} ${this.userData.fathername} сделал заявку на автомобиль ${this.item.cd.naimenovanie}\nДаты:\nc - ${this.$assets.formatDate(new Date(this.df))}\nпо - ${this.$assets.formatDate(new Date(this.dt))}\nСтоимость периода - ${this.lastPrice}₽\n\nНомер телефона: ${this.userData.phone}\nE-mail: ${this.userData.email}\nКомментарий: ${this.userData.comment}`;
             this.$axios.post("sendMessageToChanel", {message})
               .then((res)=>{
                 yaCounter33072038.reachGoal('sendcardlongrental');
@@ -221,6 +284,24 @@
 
 <style lang="sass" scoped>
   @import "../../assets/styles/variables.sass"
+  .grant-item
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    &:before
+      font-weight: bold
+      display: block
+      font-size: 32px
+      content: '\E805'
+      margin-right: 10px
+      font-family: 'Icons', monospace
+      color: $primary
+  .price_string
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
   textarea
     resize: none
   .item-content
