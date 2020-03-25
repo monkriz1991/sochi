@@ -287,7 +287,7 @@ class Assets {
 
   checkAbhazAvailable = (name, df) =>{
     if (name === "Выезд в Абхазию"){
-      if (Date.parse(df) > Date.parse('2018-05-01')){
+      if (Date.parse(df) > Date.parse('2020-05-01')){
         return false
       }else{
         return true
