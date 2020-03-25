@@ -10,14 +10,15 @@
 
 <style lang="sass" scoped>
   .loader
-    border: 16px solid #f3f3f3
-    border-top: 16px solid #ff6a28
-    border-bottom: 16px solid #ff6a28
     border-radius: 50%
     width: 120px
     height: 120px
     animation: spin 2s linear infinite
     margin: 10px auto
+    background-image: url("../assets/images/loader2.png")
+    background-position: center
+    background-repeat: no-repeat
+    background-size: contain
     @keyframes spin
       0%
         transform: rotate(0deg)
