@@ -51,11 +51,28 @@
                           b(v-html="o.price ? o.price+\"₽\" : \"Бесплатно\"")
                           span(v-if="o.price > 0"  v-html="o.type === 'day' ? '/сутки':''")
                       hr(v-if="(odx+1) !== options.length").cbt
+                  div.p-3.info-inside.wbb
+                    h4="ПРОБЕГ"
+                    b-form-group
+                      b-row
+                        b-col(sm="12" md="6" lg="6")
+                          b-form-radio(v-model="is_limit" name="some-radios" :value="true")="Лимитрированный пробег 100км/сутки"
+                        b-col(sm="12" md="6" lg="6")
+                          b-form-radio(v-model="is_limit" name="some-radios" :value="false")="Без ограничений по пробегу"
+                    div
+                      p
+                        |Берете автомобиль в аренду, но не планируете совершать длительные поездки? Тогда у вас есть отличный шанс
+                        b=" снизить стоимость аренды на 15%. "
+                        |Для получения скидки вам необходимо будет просто включить ограничение пробега до 100 км/сутки. Пробег
+                        b=" суммируется "
+                        |за весь период аренды.
                   div.p-3.info-inside
                     h4="ОБЩАЯ СТОИМОСТЬ"
                     div.price_string
                       h5.text-black-50="ЗА ВЕСЬ ПЕРИОД:"
-                      h5.text-black-50="{{period_sum}}₽"
+                      h5.text-black-50
+                        span(v-if="is_limit").old_price="{{period_sum_before_sale}}₽"
+                        |{{period_sum}}₽
                     div.price_string
                       h5.text-black-50="ЗА ДОП.ОПЦИИ:"
                       h5.text-black-50="{{options_price}}₽"
@@ -65,6 +82,9 @@
                     div.price_string(v-if="priceOfPlaceCompack > 0")
                       h5.text-black-50="ВОЗВРАТ АВТО:"
                       h5.text-black-50="{{priceOfPlaceCompack}}₽"
+                    div.price_string(v-if="is_limit")
+                      h5.text-black-50="ПРОБЕГ:"
+                      h5.text-black-50="{{limit_distance}}км"
                     div.price_string
                       h5="К ОПЛАТЕ ОНЛАЙН:"
                       h5="{{online_sum}}₽"
@@ -205,6 +225,7 @@
         period: 0,
         allready: false,
         images: [],
+        is_limit: false,
         userData: {
           df: '',
           dt: '',
@@ -233,6 +254,16 @@
     },
     computed:{
       ...mapGetters(['searchForm']),
+      limit_distance_message(){
+        if(this.is_limit){
+          return `Выбрано ограничение пробега применена скидка 15%\nпробег - ${this.limit_distance}км\nЦена без скидки - ${this.period_sum_before_sale}₽\nЦена со скидкой - ${this.period_sum}₽\n\n`
+        }else{
+          return 'Без ограничения пробега\n\n';
+        }
+      },
+      limit_distance(){
+        return 100*this.period
+      },
       backStringHref(){
         return `?dt=${this.userData.dt}&df=${this.userData.df}&ac=${this.fetchClassForBack()[this.car_data.klassavtomobilya]}&place=${this.userData.place}`
       },
@@ -294,6 +325,14 @@
         return sum;
       },
       period_sum(){
+        let ps = parseInt(this.car_data.stoimost) * parseInt(this.period)
+        if (this.is_limit){
+          return this.$assets.toMoney(ps - ((ps/100)*15));
+        }else{
+          return this.$assets.toMoney(ps);
+        }
+      },
+      period_sum_before_sale(){
         return parseInt(this.car_data.stoimost) * parseInt(this.period);
       },
       online_sum(){
@@ -446,7 +485,7 @@
             if (this.userData.promocode !== ''){
               this.userData.comment = `${this.userData.comment}, был введен промокод "${this.userData.promocode}"`
             }
-            this.userData.comment = `${this.userData.comment}, \nПодача и возврат ${this.addPlaces_str}`
+            this.userData.comment = `${this.userData.comment}, \nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}`
             this.makeMessageToBroadCasting(()=>{
               this.$refs.form.submit();
               yaCounter33072038.reachGoal('Payforcar');
@@ -571,6 +610,15 @@
       flex-direction: row
       justify-content: space-between
       align-items: center
+      h5
+        position: relative
+        span.old_price
+          position: absolute
+          font-size: 14px
+          text-decoration: line-through
+          text-decoration-color: red
+          ::before
+            content: '-'
     .old_price
       font-weight: bold
       display: block
