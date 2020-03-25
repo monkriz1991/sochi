@@ -12,7 +12,23 @@
           div.divider
         div.item-features.px-1
           span(v-for="(f, fdx) in item.features_options" :key="fdx" v-bind:class="$assets.fetchFeatureClass(f.name)")="{{f.name}}"
-      div.item-content
+      div(v-if="item.naimenovanie === 'Xiaomi MiJia Electric Scooter M365'").item-content
+        div.info_lap
+          p.l="Год выпуска:"
+          p.r="{{item.godvypuska}}"
+        div.info_lap
+          p.l="Нагрузка:"
+          p.r="100кг"
+        div.info_lap
+          p.l="Запас хода:"
+          p.r="30км"
+        div.info_lap
+          p.l="Мощность:"
+          p.r="250 Вт"
+        div.info_lap
+          p.l="Макс. скорость:"
+          p.r="25 км/ч"
+      div(v-else).item-content
         div.info_lap
           p.l="Год выпуска:"
           p.r="{{item.godvypuska}}"

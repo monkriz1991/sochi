@@ -51,7 +51,7 @@
                           b(v-html="o.price ? o.price+\"₽\" : \"Бесплатно\"")
                           span(v-if="o.price > 0"  v-html="o.type === 'day' ? '/сутки':''")
                       hr(v-if="(odx+1) !== options.length").cbt
-                  div.p-3.info-inside.wbb
+                  div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365'").p-3.info-inside.wbb
                     h4="ПРОБЕГ"
                     b-form-group
                       b-row
