@@ -148,7 +148,9 @@
         return ((parseInt(price)/2) * 30.5).toFixed(2);
       },
       showModal(id){
-        yaCounter33072038.reachGoal('longrentalquickform');
+        if (yaCounter33072038){
+          yaCounter33072038.reachGoal('longrentalquickform');
+        }
         this.$bvModal.show(id)
       },
       submitModal(carName, carId){
@@ -157,7 +159,9 @@
           let message = `БЫСТРАЯ ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.name} сделал заявку на автомобиль ${carName} номер телефона: ${this.phone}`;
           this.$axios.post("sendMessageToChanel", {message})
             .then((res)=>{
-              yaCounter33072038.reachGoal('longrentalquickformsend');
+              if (yaCounter33072038){
+                yaCounter33072038.reachGoal('longrentalquickformsend');
+              }
               this.hideModal(carId)
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                 title: 'Заявка отправлена',

@@ -488,7 +488,9 @@
             this.userData.comment = `${this.userData.comment}, \nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}`
             this.makeMessageToBroadCasting(()=>{
               this.$refs.form.submit();
-              yaCounter33072038.reachGoal('Payforcar');
+              if (yaCounter33072038){
+                yaCounter33072038.reachGoal('Payforcar');
+              }
               this.$bvToast.toast('Заявка отправлена', {
                 title: 'Успех',
                 variant: 'success',
@@ -569,7 +571,9 @@
         console.error(err)
       });
       this.fetchPoints().then(()=>{
-        yaCounter33072038.reachGoal('Bookacar');
+        if (yaCounter33072038){
+          yaCounter33072038.reachGoal('Bookacar');
+        }
         this.loader_step = this.loader_step + 1;
       });
     }
