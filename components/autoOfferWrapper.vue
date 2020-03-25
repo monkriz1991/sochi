@@ -85,7 +85,9 @@
           this.loading = true;
           this.$axios.post('cars', this.$assets.prepareForm(this.searchForm))
             .then(result => {
-              yaCounter33072038.reachGoal('Findаcar');
+              if (yaCounter33072038){
+                yaCounter33072038.reachGoal('Findаcar');
+              }
               if (result.data.status === 'success'){
                 this.cars = result.data.data;
                 this.loading = false;
