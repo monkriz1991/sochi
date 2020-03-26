@@ -126,7 +126,7 @@
                     div(v-bind:class="ci.class_name").ico
                     div.text
                       h6="{{ci.title}}"
-                      p="{{ci.text}}"
+                      p.ci-text="{{ci.text}}"
           hr
         div(v-else)
           loader

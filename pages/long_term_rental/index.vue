@@ -13,7 +13,7 @@
                   div(v-bind:class="ci.class_name").ico
                   div.text
                     h6="{{ci.title}}"
-                    p="{{ci.text}}"
+                    p.ci-text="{{ci.text}}"
         p
           |Часто задаваемые
           nuxt-link(to="/about/faq/")=" вопросы по аренде "
