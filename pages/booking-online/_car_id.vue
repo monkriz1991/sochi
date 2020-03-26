@@ -12,7 +12,7 @@
                   div.p-3.info-inside.wbb
                     p.auto-class.m-0="{{car_data.klassavtomobilya}}"
                     h1="{{car_data.naimenovanie}}"
-                    div.py-2
+                    div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365'").py-2
                       b-row.features-list-icos
                         b-col(sm="12" md="6" lg="4").features-list-block
                           span.bag(v-html="`${$assets.getBagsData(car_data.bags, car_data.bigbag)}`")
@@ -33,7 +33,31 @@
                       div.grant-item
                         div
                           p.m-0='Мы гарантируем именно выбранный вами автомобиль и его стоимость'
-                  div.p-3.info-inside.wbb
+                  div(v-if="car_data.naimenovanie === 'Xiaomi MiJia Electric Scooter M365'").p-3.info-inside.wbb
+                    div.option
+                      div.option-item.mt-2.mb-0
+                        h4="ОПЦИЯ"
+                        h4="СТОИМОСТЬ"
+                      hr.mt-0.mb-3
+                    div(v-for="(o, odx) in options" :key="odx" v-if="o.option_name === 'Защита Бронирования'").option
+                      div.option-item.my-2
+                        b-form-checkbox(v-model="o.value" v-bind="{disabled: $assets.checkAbhazAvailable(o.option_name, userData.df)}").lp-checkbox
+                          div
+                            a(v-if="o.photos" @click.prevent="$bvModal.show(`bv-modal-${o.id}`)").hidden_info
+                            b-modal(v-if="o.photos"  :id="`bv-modal-${o.id}`" hide-footer hide-header)
+                              b-o-image-slider(:items="o.photos")
+                            |{{o.option_name}}
+                          span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{o.option_description}}"
+                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="В связи с COVID-19 опция выезд в Абхазию временно не доступна, уточняйте информацию у менеджера."
+                        span.text-right.position-relative
+                          b-form-select(v-model="o.quantity" v-if="o.value && o.count > 1").w-10
+                            option(v-for="i in o.count" :key="i")="{{i}}"
+                          span(v-if="o.old_price" v-html="`${gen_sum(o.old_price, o.quantity)}₽`").old_price
+                            span(v-html="o.type === 'day' ? '/сутки':''")
+                          b(v-html="gen_sum_price(o.price, o.old_price, o.quantity)")
+                          span(v-if="o.price > 0"  v-html="o.price_type === 'day' ? '/сутки':''")
+                      hr(v-if="(odx+1) !== options.length").cbt
+                  div(v-else).p-3.info-inside.wbb
                     div.option
                       div.option-item.mt-2.mb-0
                         h4="ОПЦИЯ"
@@ -207,7 +231,7 @@
                       b-col(sm="12" md="12" lg="12")
                         b-form-group
                           b-form-textarea(placeholder="Комментарий" v-model="userData.comment" @input="clearErrors")
-                      b-col(sm="12" md="12" lg="12")
+                      b-col(v-if="car_data.zalog > 0" sm="12" md="12" lg="12")
                         div.option
                           div.option-item.my-2
                             b="Залог {{car_data.zalog}}₽"
