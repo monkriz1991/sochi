@@ -75,7 +75,7 @@
                               b-o-image-slider(:items="o.photos")
                             |{{o.option_name}}
                           span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{o.option_description}}"
-                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="В связи с COVID-19 опция выезд в Абхазию временно не доступна, уточняйте информацию у менеджера"
+                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="В связи с COVID-19 опция выезд в Абхазию временно не доступна, уточняйте информацию у менеджера."
                         span.text-right.position-relative
                           b-form-select(v-model="o.quantity" v-if="o.value && o.count > 1").w-10
                             option(v-for="i in o.count" :key="i")="{{i}}"
@@ -207,6 +207,10 @@
                       b-col(sm="12" md="12" lg="12")
                         b-form-group
                           b-form-textarea(placeholder="Комментарий" v-model="userData.comment" @input="clearErrors")
+                      b-col(sm="12" md="12" lg="12")
+                        div.option
+                          div.option-item.my-2
+                            b="Залог {{car_data.zalog}}₽"
                       b-col(sm="12" md="12" lg="12")
                         div.option
                           div.option-item.my-2
