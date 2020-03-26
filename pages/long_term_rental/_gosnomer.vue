@@ -211,7 +211,7 @@
           },
           {
             title: 'Пробег/Перепробег',
-            text: `3000 км / ${this.item.limits.over_limit_price}₽ - 1км`,
+            text: `3000 км / ${this.item.limits.over_limit_price}₽ - 1 км`,
             class_name: 'cond_4'
           },
         ]
