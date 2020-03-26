@@ -30,7 +30,7 @@ html
     a.btn.cancel
       background: #fff
       color: $primary
-      margin: 2px 0px
+      margin: 2px 0
       transition: 0.3s
       border: 3px solid $primary
       &:before
@@ -93,6 +93,9 @@ html
     border-color: $primary
   .custom-control-input:focus ~ .custom-control-label::before
     box-shadow: 0 0 0 0 transparent
+  .w-10
+    width: 50px
+    margin-right: 10px
   .lp-checkbox
     label
       display: flex
@@ -101,6 +104,13 @@ html
       align-items: flex-start
       font-family: "Roboto", sans-serif
       padding-left: 5px
+      word-break: break-word
+      cursor: pointer
+      .name
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
   .custom-control-label
     position: relative
     margin-bottom: 0

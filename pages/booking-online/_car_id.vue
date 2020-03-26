@@ -40,16 +40,49 @@
                         h4="СТОИМОСТЬ"
                       hr.mt-0.mb-3
                     div(v-for="(o, odx) in options" :key="odx").option
-                      div.option-item.my-2
-                        b-form-checkbox(v-model="o.value" v-bind="{disabled: $assets.checkAbhazAvailable(o.name, userData.df)}").lp-checkbox
-                          |{{o.name}}
-                          span(v-if="o.name === 'Дозаправка' || o.name === 'Мойка' || o.name === 'Крымский мост'").inform-now-dozo="{{o.desc}}"
-                          span(v-if="$assets.checkAbhazAvailable(o.name, userData.df)").inform-now-dozo="Опция выезд в Абхазию временно не доступна, уточняйте информацию у менеджера"
+                      div(v-if="o.has_childs")
+                        div(:class="o.value ? null : 'collapsed'" :aria-expanded="o.value ? 'true' : 'false'" :aria-controls="`ido-${o.id}`" @click="o.value = !o.value").parrent_option
+                          div.info
+                            img(:src="angle" v-bind:class="{in: o.value}")
+                            p
+                              |{{o.option_name}}
+                          div.price
+                            span="от "
+                            b(v-html="o.price ? o.price+\"₽\" : \"Бесплатно\"")
+                            span(v-if="o.price > 0"  v-html="o.price_type === 'day' ? '/сутки':''")
+                        b-collapse(:id="`ido-${o.id}`" v-model="o.value" class="mt-4")
+                          div(v-for="(so, sodx) in o.sub_items" :key="sodx")
+                            div.option-item.my-2.px-2
+                              b-form-checkbox(v-model="so.value").lp-checkbox
+                                div
+                                  a(v-if="so.photos" @click.prevent="$bvModal.show(`bv-modal-${so.id}`)").hidden_info
+                                  b-modal(v-if="so.photos"  :id="`bv-modal-${so.id}`" hide-footer hide-header)
+                                    b-o-image-slider(:items="so.photos")
+                                  |{{so.option_name}}
+                              span.text-right.position-relative
+                                b-form-select(v-model="so.quantity" v-if="so.value && so.count > 1").w-10
+                                  option(v-for="i in so.count" :key="i")="{{i}}"
+                                span(v-if="so.old_price" v-html="`${gen_sum(so.old_price, so.quantity)}₽`").old_price
+                                  span(v-html="so.type === 'day' ? '/сутки':''")
+                                b(v-html="gen_sum_price(so.price, so.old_price, so.quantity)")
+                                span(v-if="so.price > 0"  v-html="so.price_type === 'day' ? '/сутки':''")
+                            hr(v-if="(sodx+1) !== o.sub_items.length").cbt
+                      div(v-else).option-item.my-2
+                        b-form-checkbox(v-model="o.value" v-bind="{disabled: $assets.checkAbhazAvailable(o.option_name, userData.df)}").lp-checkbox
+                          div
+                            a(v-if="o.photos" @click.prevent="$bvModal.show(`bv-modal-${o.id}`)").hidden_info
+                            b-modal(v-if="o.photos"  :id="`bv-modal-${o.id}`" hide-footer hide-header)
+                              b-o-image-slider(:items="o.photos")
+                            |{{o.option_name}}
+                          span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{o.option_description}}"
+                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="В связи с COVID-19 опция выезд в Абхазию временно не доступна, уточняйте информацию у менеджера"
                         span.text-right.position-relative
-                          span(v-if="o.old_price !== o.price").old_price="{{o.old_price}}₽"
+                          b-form-select(v-model="o.quantity" v-if="o.value && o.count > 1").w-10
+                            option(v-for="i in o.count" :key="i")="{{i}}"
+                          span(v-if="o.old_price" v-html="`${gen_sum(o.old_price, o.quantity)}₽`").old_price
                             span(v-html="o.type === 'day' ? '/сутки':''")
-                          b(v-html="o.price ? o.price+\"₽\" : \"Бесплатно\"")
-                          span(v-if="o.price > 0"  v-html="o.type === 'day' ? '/сутки':''")
+                          b(v-html="gen_sum_price(o.price, o.old_price, o.quantity)")
+                          span(v-if="o.price > 0"  v-html="o.price_type === 'day' ? '/сутки':''")
                       hr(v-if="(odx+1) !== options.length").cbt
                   div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365'").p-3.info-inside.wbb
                     h4="ПРОБЕГ"
@@ -211,6 +244,7 @@
     },
     data(){
       return {
+        angle: require('../../assets/images/angle-arrow-down.svg'),
         ph: "",
         car_id: this.$route.params.car_id,
         car_data: {},
@@ -254,6 +288,29 @@
     },
     computed:{
       ...mapGetters(['searchForm']),
+      generated_options(){
+        let res = [];
+        this.options.map(el => {
+          if (el.has_childs){
+            el.sub_items.map(eli => {
+              res.push({
+                name: `${eli.quantity} x ${eli.option_name}`,
+                type: eli.price_type,
+                value: eli.value,
+                price: this.gen_sum_price_to_opt(eli.price, eli.old_price, eli.quantity)
+              })
+            })
+          }else{
+            res.push({
+              name: `${el.quantity} x ${el.option_name}`,
+              type: el.price_type,
+              value: el.value,
+              price: this.gen_sum_price_to_opt(el.price, el.old_price, el.quantity)
+            })
+          }
+        });
+        return res
+      },
       limit_distance_message(){
         if(this.is_limit){
           return `Выбрано ограничение пробега применена скидка 15%\nпробег - ${this.limit_distance}км\nЦена без скидки - ${this.period_sum_before_sale}₽\nЦена со скидкой - ${this.period_sum}₽\n\n`
@@ -314,11 +371,23 @@
       options_price(){
         let sum = 0;
         this.options.map(el => {
-          if(el.value){
-            if (el.type === 'full'){
-              sum = sum + parseInt(el.price)
-            }else{
-              sum = sum + parseInt(el.price) * parseInt(this.period)
+          if (el.has_childs){
+            el.sub_items.map(eli => {
+              if(eli.value){
+                if (eli.price_type === 'full'){
+                  sum = sum + this.gen_sum_price_to_opt(eli.price, eli.old_price, eli.quantity)
+                }else{
+                  sum = sum + (this.gen_sum_price_to_opt(eli.price, eli.old_price, eli.quantity) * parseInt(this.period))
+                }
+              }
+            })
+          }else{
+            if(el.value){
+              if (el.price_type === 'full'){
+                sum = sum + this.gen_sum_price_to_opt(el.price, el.old_price, el.quantity)
+              }else{
+                sum = sum + (this.gen_sum_price_to_opt(el.price, el.old_price, el.quantity) * parseInt(this.period))
+              }
             }
           }
         })
@@ -375,6 +444,35 @@
     },
     methods:{
       ...mapActions(['setSearchForm']),
+      gen_sum(price, quantity){
+        return price*quantity;
+      },
+      gen_sum_price(p, op, q){
+        if(parseInt(q) > 1){
+          if(op > 0){
+            return `${op*(parseInt(q)-1)}₽`
+          }else{
+            return `${p*q}₽`
+          }
+        }else{
+          if(p > 0){
+            return `${p}₽`
+          }else{
+            return "Бесплатно"
+          }
+        }
+      },
+      gen_sum_price_to_opt(p, op, q){
+        if(parseInt(q) > 1){
+          if(op && op > 0){
+            return op*(parseInt(q)-1)
+          }else{
+            return p*q
+          }
+        }else{
+          return p
+        }
+      },
       fetchClassForBack(){
         return {
           'Все классы': 5,
@@ -441,7 +539,7 @@
         bodyFormData.set('dt', this.$assets.formatDate(new Date(this.userData.dt)));
         bodyFormData.set('place', this.specify_place(this.userData.place).point_name);
         bodyFormData.set('color', this.car_data.cvet);
-        bodyFormData.set('options', JSON.stringify(this.options));
+        bodyFormData.set('options', JSON.stringify(this.generated_options));
         bodyFormData.set('period', `${parseInt(this.period)} ${this.$assets.getName(parseInt(this.period))}`);
         bodyFormData.set('features', this.features);
         this.$axios.post('https://booking.autopilot.rent/mail_sochi.php', bodyFormData, {headers: {}}).then(res => {
@@ -455,7 +553,7 @@
             sum: `\nполная сумма - ${this.total_sum} \n предоплата 20% - ${parseInt(this.online_sum)}\n`,
             email: this.userData.email,
             phone: this.userData.phone,
-            options: JSON.stringify(this.options),
+            options: JSON.stringify(this.generated_options),
             options_summ: this.options_price,
             features: this.features,
             comment: this.userData.comment
@@ -561,15 +659,13 @@
       },
     },
     mounted() {
-      this.$axios.post('fetchOptions', {car_id: this.car_id})
-        .then((result)=>{
-          if (result.data.status === 'success'){
+      this.$axios.post('sun/options', {car_id: this.car_id, station: this.$config.station})
+        .then(res => {
+          if(res.data.status === 'success'){
             this.loader_step = this.loader_step + 1;
-            this.options = result.data.data;
+            this.options = res.data.data;
           }
-        }).catch((err)=>{
-        console.error(err)
-      });
+        }).catch((err)=>{console.error(err)});
       this.fetchPoints().then(()=>{
         if (yaCounter33072038){
           yaCounter33072038.reachGoal('Bookacar');
@@ -583,6 +679,51 @@
 
 <style lang="sass" scoped>
   @import "../../assets/styles/variables"
+  .hidden_info
+    &::after
+      content: '\003F'
+      width: 18px
+      height: 18px
+      background-color: transparent
+      border-radius: 50px
+      display: inline-flex
+      justify-content: center
+      align-items: center
+      cursor: pointer
+      color: $primary
+      border: 1px solid $primary
+      font-size: 15px
+      margin: 0 5px
+      transition: 0.3s
+    &:hover
+      &::after
+        background-color: $primary
+        color: #fff
+        transition: 0.3s
+  .parrent_option
+    cursor: pointer
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .info
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      &:hover
+        p
+          transition: 0.3s
+          color: $primary
+      img
+        width: 20px
+        height: 10px
+        transform: rotate(180deg)
+        transition: 0.6s
+        &.in
+          transform: rotate(0deg)
+          transition: 0.6s
+    p
+      margin: 0
+      padding-left: 10px
   .info_part
     border: 1px solid $primary
     border-radius: 25px
