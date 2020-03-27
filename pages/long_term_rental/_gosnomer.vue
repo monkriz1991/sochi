@@ -5,7 +5,7 @@
       div.container
         BreadCrumbs(:items="bcItems" :withBack="false")
         div(v-if="loaded")
-          h1="Долгосрочная аренда {{item.cd.naimenovanie}} в Крыму"
+          h1="Долгосрочная аренда {{item.cd.naimenovanie}} в Сочи"
           b-row
             b-col(sm="12" md="12" lg="6")
               div.block-container
