@@ -234,7 +234,7 @@
                       b-col(v-if="car_data.zalog > 0" sm="12" md="12" lg="12")
                         div.option
                           div.option-item.my-2
-                            b="Залог {{car_data.zalog}}₽"
+                            b="Залог: {{car_data.zalog}}₽"
                       b-col(sm="12" md="12" lg="12")
                         div.option
                           div.option-item.my-2
