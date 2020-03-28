@@ -10,8 +10,8 @@
             b-col(sm="12" md="12" lg="6")
               div.slider-wrapper
                 b-o-image-slider(:items="item.self_data.photos")
-              div(v-if="item.self_data.youtube_video").slider-wrapper.mt-3.bblack
-                youtube-media(v-if="item.self_data.youtube_video" :video-id="$videoId(item.self_data.youtube_videos)" player-width="100%" player-height="400").w-100
+              div(v-if="item.self_data.youtube_videos !== '' && item.self_data.youtube_videos !== undefined").slider-wrapper.mt-3.bblack
+                youtube-media(:video-id="$videoId(item.self_data.youtube_videos)" player-width="100%" player-height="400").w-100
             b-col(sm="12" md="12" lg="6")
               div.information
                 h3="{{$t('cwd11')}}"

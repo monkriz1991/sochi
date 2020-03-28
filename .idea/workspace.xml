@@ -2,59 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/mainPageArticleEn.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lang/translation.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/VueYouTube.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/main.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/main.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cars.json" beforeDir="false" afterPath="$PROJECT_DIR$/cars.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/assets.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/assets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/BannersSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/BannersSection.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/BreadCrumbs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/BreadCrumbs.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CWDComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/CWDComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CWDComponentFull.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/CWDComponentFull.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CWoDComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/CWoDComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CWoDComponentFull.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/CWoDComponentFull.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/aboutSidebarMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/aboutSidebarMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/autoOfferCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/autoOfferCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/autoOfferWrapper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/autoOfferWrapper.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/devider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/devider.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/mainPageArticle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/mainPageArticle.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/mainPageFeatures.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/mainPageFeatures.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/newsMainPageWrapper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/newsMainPageWrapper.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/orderSmallForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/orderSmallForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/searchForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/searchForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/error.vue" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/error.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/partials/FComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/partials/FComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/partials/HComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/partials/HComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news.json" beforeDir="false" afterPath="$PROJECT_DIR$/news.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/discounts/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/discounts/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/drivers/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/drivers/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/events/_event_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/events/_event_id.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/events/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/events/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/faq/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/faq/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/partners/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/partners/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/adler/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/adler/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/booking-online/_car_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/booking-online/_car_id.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/conditions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/conditions.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/contacts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/contacts.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/long_term_rental/_gosnomer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/long_term_rental/_gosnomer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/long_term_rental/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/long_term_rental/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/news/_slug.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/news/_slug.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/news/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/news/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/payment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/payment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/prices.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/prices.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/rent/_car_slug.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/rent/_car_slug.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/rent/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/rent/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/service/_car_slug.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/service/_car_slug.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/service/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/service/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn-error.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,14 +99,7 @@
       <workItem from="1585383549326" duration="98000" />
       <workItem from="1585385004685" duration="36000" />
       <workItem from="1585386715708" duration="10225000" />
-      <workItem from="1585414802982" duration="11112000" />
-    </task>
-    <task id="LOCAL-00007" summary="static validation">
-      <created>1584732522083</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1584732522083</updated>
+      <workItem from="1585414802982" duration="11637000" />
     </task>
     <task id="LOCAL-00008" summary="static validation">
       <created>1584734941786</created>
@@ -495,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585307097185</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="full translations">
+      <created>1585429509156</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1585429509158</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,16 +462,18 @@
     <MESSAGE value="new options system" />
     <MESSAGE value="hotfix xiaomi ninja" />
     <MESSAGE value="hotfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="hotfix" />
+    <MESSAGE value="full translations" />
+    <option name="LAST_COMMIT_MESSAGE" value="full translations" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584970710979">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="437" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1584970710979" />
-    <state x="2622" y="-159" key="CommitChangelistDialog2" timestamp="1585307096642">
-      <screen x="1680" y="-218" width="1920" height="1057" />
+    <state x="588" y="23" key="CommitChangelistDialog2" timestamp="1585429508416">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
+    <state x="588" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1585429508416" />
     <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585237463800" />
     <state x="2622" y="-159" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307096642" />
     <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1584992596051" />
@@ -558,9 +509,10 @@
     <state width="1377" height="260" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1584983584437" />
     <state width="1377" height="196" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585323575503" />
     <state width="1377" height="196" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1585337081369" />
-    <state x="2174" y="143" key="Vcs.Push.Dialog.v2" timestamp="1585307098563">
-      <screen x="1680" y="-218" width="1920" height="1057" />
+    <state x="371" y="323" key="Vcs.Push.Dialog.v2" timestamp="1585429511644">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
+    <state x="371" y="323" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1585429511644" />
     <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585237467142" />
     <state x="2174" y="143" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307098563" />
     <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1584992598491" />
