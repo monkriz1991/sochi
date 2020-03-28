@@ -4,7 +4,7 @@
     main.py-3
       div.container
         BreadCrumbs(:items="bcItems")
-        h1(v-html="`${this.loaded ? this.item.self_data.title : this.seo['CWD'][this.$route.params.car_slug].title} с водителем`")
+        h1(v-html="`${this.loaded ? this.item.self_data.title : this.seo['CWD'][this.$route.params.car_slug].title} ${$t('cwd1')}`")
         div(v-if="loaded")
           b-row
             b-col(sm="12" md="12" lg="6")
@@ -12,53 +12,41 @@
                 b-o-image-slider(:items="item.self_data.photos")
             b-col(sm="12" md="12" lg="6")
               div.information
-                h3="Стоимость"
+                h3="{{$t('cwd2')}}"
                 div.prices.my-3
                   div
-                    h6="Аренда автомобиля с водителем: от {{item.self_data.price_hour}}₽ в час без ограничения по пробегу."
+                    h6="{{$t('cwd3')}} {{item.self_data.price_hour}}₽ {{$t('cwd4')}}"
                 div.py-2
-                  h3="Трансфер"
+                  h3="{{$t('cwd5')}}"
                   div.prices.my-3
                     div.d-flex.justify-content-between.align-items-center
-                      h6.m-0.text-uppercase="Населенный пункт"
-                      h6.m-0.text-uppercase="Стоимость"
+                      h6.m-0.text-uppercase="{{$t('cwd6')}}"
+                      h6.m-0.text-uppercase="{{$t('cwd7')}}"
                     hr
-                    div.item-info
-                      p.l="МЕЖДУНАРОДНЫЙ АЭРОПОРТ СОЧИ"
-                      p.r="Бесплатно"
-                    div.item-info
-                      p.l="СОЧИ ЖД ВОКЗАЛ"
-                      p.r="2500₽"
-                    div.item-info
-                      p.l="СОЧИ, ЦЕНТР"
-                      p.r="2500₽"
-                    div.item-info
-                      p.l="АДЛЕР ЖД ВОКЗАЛ"
-                      p.r="1000₽"
-                    div.item-info
-                      p.l="СОЧИ, КРАСНАЯ ПОЛЯНА"
-                      p.r="2000₽"
+                    div(v-for="(point, idx) in places" :key="idx").item-info
+                      p.l="{{$t(point.point_name)}}"
+                      p.r(v-html="point.price > 0 ? point.price+'₽' : $t('bocid2')")
                 div.mt-2
-                  div(v-html="$assets.generate_text_transfer(item.self_data.text_transfer, item.self_data.title)")
+                  div(v-html="$assets.generate_text_transfer(item.self_data.text_transfer, item.self_data.title, $i18n.locale)")
                 div.py-2
-                  h3.m-0="Водители"
-                  div(v-html="$assets.generate_text_drivers(item.self_data.text_drivers)")
+                  h3.m-0="{{$t('cwd8')}}"
+                  div(v-html="$assets.generate_text_drivers(item.self_data.text_drivers, $i18n.locale)")
                 div.py-2
-                  h3.m-0="Характеристики"
+                  h3.m-0="{{$t('cwd9')}}"
                   div.py-1
                     b-row.features-list-icos
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.bag(v-html="`${$assets.getBagsData(item.tth.bags, item.tth.bigbag)}`")
+                        span.bag(v-html="`${$assets.getBagsData(item.tth.bags, item.tth.bigbag, $i18n.locale)}`")
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.pass='{{item.tth.passa}} пассажиров'
+                        span.pass='{{$assets.getPassa(item.tth.passa, $i18n.locale) }}'
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.dors='{{ $assets.getDoors(item.tth.dors) }}'
+                        span.dors='{{ $assets.getDoors(item.tth.dors, $i18n.locale) }}'
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.temp='{{item.tth.klimat}}'
+                        span.temp='{{$t(item.tth.klimat)}}'
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.benz='{{item.tth.rashod}}л/100км'
+                        span.benz="{{item.tth.rashod}}{{$t('p2')}}"
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.gear='{{item.car_data.kpp}}'
+                        span.gear='{{$t(item.car_data.kpp)}}'
                   div(v-html="$assets.generate_text_tth(item.self_data.text_tth_bottom)")
           order-small-form(:places="points" :carName="item.self_data.title" typeOrder="почасовая аренда")
           hr
@@ -93,6 +81,7 @@
     },
     data(){
       return {
+        places: [],
         item: [],
         car_slug: this.$route.params.car_slug,
         loaded: false,
@@ -104,12 +93,12 @@
       bcItems() {
         let crumbs = [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Аренда авто без водителя',
-            to: '/service/'
+            text: this.$t('breadcrumbs13'),
+            to: { name: this.$assets.prefix('service', this.$i18n.locale) }
           }
         ];
         if (this.loaded) {
@@ -126,6 +115,13 @@
         city: this.$config.station,
         slug: this.$route.params.car_slug
       };
+      this.$axios(`fetchPoints/${this.$config.station}`)
+        .then(result => {
+          if(result.data.status === 'success'){
+            this.places = result.data.data;
+            this.fetchOptions();
+          }
+        }).catch(err=>console.error(err));
       this.$axios.post('sun/CWDgetBySlug', data)
         .then(res => {
           if (res.data.status === 'success'){

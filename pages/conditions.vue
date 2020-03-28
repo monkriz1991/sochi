@@ -4,46 +4,43 @@
     main.py-3
       div.container
         BreadCrumbs(:items="bcItems")
-        h1="Условия аренды"
+        h1="{{$t('s22')}}"
         div.conditions
           div.my-5
             b-row
-              b-col(sm="12" md="6" lg="3" v-for="(ci, cidx) in conditions" :key="cidx")
+              b-col(sm="12" md="6" lg="3" v-for="(ci, cidx) in conditions[$i18n.locale]" :key="cidx")
                 div.condition
                   div(v-bind:class="ci.class_name").ico
                   div.text
                     h6="{{ci.title}}"
                     p="{{ci.text}}"
         p
-          |Часто задаваемые
-          nuxt-link(to="/about/faq/")=" вопросы по аренде "
-          |автомобиля.
-        h3="Необходимые документы"
+          |{{$t('bc8')}}
+          nuxt-link(:to="{name: $assets.prefix('about-faq', $i18n.locale)}")=" {{$t('bc9')}} "
+          |{{$t('bc10')}}
+        h3="{{$t('bc7')}}"
         p.mb-1
-          strong.text-uppercase="- для граждан РФ: "
-          |Паспорт РФ, действующая прописка, Водительское удостоверение
+          strong.text-uppercase="- {{$t('bc5')}} "
+          |{{$t('bc6')}}
         p.mb-1
-          strong.text-uppercase="- для иностранных граждан: "
-          |Заграничный паспорт, Водительское удостоверение международного образца
+          strong.text-uppercase="- {{$t('bc3')}} "
+          |{{$t('bc4')}}
         div.clearfix
         hr
         div.py-3
           div(v-if="loaded")
             div.places.py-3
-              h2
-                |Подача
-                span(v-html="' / '")
-                |Прием автомобилей
+              h2="{{$t('bc2')}}"
               div.points
                 div(v-for="(point, idx) in places" :key="idx").item-info
-                  p.l="{{point.point_name}}"
-                  p.r(v-html="point.price > 0 ? point.price+'₽' : 'Бесплатно'")
+                  p.l="{{$t(point.point_name)}}"
+                  p.r(v-html="point.price > 0 ? point.price+'₽' : $t('bocid2')")
             div.places.py-3
-              h2="Дополнительные услуги"
+              h2="{{$t('bc1')}}"
               div.points
                 div(v-for="(ad, idx) in options" :key="idx").item-info
-                  p.l="{{ad.name}}"
-                  p.r(v-html="`${ad.name === 'Мойка' || ad.name === 'Дозаправка' ? 'от ' : ''}${ad.price > 0 ? ad.price+'₽' : 'Бесплатно'}`")
+                  p.l="{{$t(ad.name.toUpperCase())}}"
+                  p.r(v-html="`${ad.name === 'Мойка' || ad.name === 'Дозаправка' ? $t('s23') : ''}${ad.price > 0 ? ad.price+'₽' : $t('bocid2')}`")
           div(v-else)
             loader
         hr
@@ -72,36 +69,60 @@
       return {
         bcItems: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Условия аренды',
+            text: this.$t('breadcrumbs10'),
             active: true
           }
         ],
-        conditions: [
-          {
-            title: 'Возраст водителя',
-            text: 'с 22 лет',
-            class_name: 'cond_1'
-          },
-          {
-            title: 'Стаж',
-            text: 'не менее 3х лет',
-            class_name: 'cond_2'
-          },
-          {
-            title: 'Залог на автомобиль',
-            text: 'от 5 000 рублей',
-            class_name: 'cond_3'
-          },
-          {
-            title: 'Пробег',
-            text: 'без ограничений',
-            class_name: 'cond_4'
-          },
-        ],
+        conditions: {
+          ru: [
+            {
+              title: 'Возраст водителя',
+              text: 'с 22 лет',
+              class_name: 'cond_1'
+            },
+            {
+              title: 'Стаж',
+              text: 'не менее 3х лет',
+              class_name: 'cond_2'
+            },
+            {
+              title: 'Залог на автомобиль',
+              text: 'от 5 000 рублей',
+              class_name: 'cond_3'
+            },
+            {
+              title: 'Пробег',
+              text: 'без ограничений',
+              class_name: 'cond_4'
+            },
+          ],
+          en: [
+            {
+              title: 'Driver age',
+              text: 'from 22 years old',
+              class_name: 'cond_1'
+            },
+            {
+              title: 'Staff',
+              text: 'more then 3 years',
+              class_name: 'cond_2'
+            },
+            {
+              title: 'Loan on car',
+              text: 'from 5 000 rubles',
+              class_name: 'cond_3'
+            },
+            {
+              title: 'Mileage',
+              text: 'unlimited',
+              class_name: 'cond_4'
+            },
+          ]
+        },
         options:[],
         places:[],
         loaded: false

@@ -11,25 +11,26 @@
                 about-sidebar-menu
           b-col(sm="12" md="9" lg="9")
             article
-              h1="Мероприятия"
-              p="Мы с гордостью можем сказать о том, что ни одно крупное событие проходившее в Сочи не обошлось без нашей профессиональной помощи и поддержки. Официальные лица и делегации, звезды зарубежной  и российской эстрады, группы иностранных туристов, гости конгрессов, форумов, фестивалей различного уровня - это наши клиенты."
+              h1="{{$t('faq7')}}"
+              p="{{$t('faq8')}}"
               div(v-if="loaded")
-                p.my-5="За время работы в Сочи наша компания провела более 150 мероприятий, наиболее значимые среди них:"
-                div.news_container
-                  div(v-for="(n, ndx) in eventsWithPagen" :key="ndx").ely
-                    div.card.mb-5
-                      div.date-badge="{{$assets.t_date(n.event_date)}}"
-                      b-row
-                        b-col(sm="12" md="12" lg="4")
-                          div(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/storage/${n.image})`}").img
-                        b-col(sm="12" md="12" lg="8")
-                          b-card-text.p-2
-                            nuxt-link(:to="`/about/events/${n.id}`")
-                              h4="{{n.title}}"
-                            div(v-html="n.text_preview")
-                hr.mt-2
-                div.d-flex.justify-content-center.align-items-center
-                  b-pagination(v-model="currentPage" :total-rows="events.length" :per-page="perPage")
+                div(v-if="eventsWithPagen.length")
+                  p.my-5="{{$t('faq9')}}"
+                  div.news_container
+                    div(v-for="(n, ndx) in eventsWithPagen" :key="ndx").ely
+                      div.card.mb-5
+                        div.date-badge="{{$assets.t_date(n.event_date)}}"
+                        b-row
+                          b-col(sm="12" md="12" lg="4")
+                            div(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/storage/${n.image})`}").img
+                          b-col(sm="12" md="12" lg="8")
+                            b-card-text.p-2
+                              nuxt-link(:to="`/about/events/${n.id}`")
+                                h4="{{n.title}}"
+                              div(v-html="n.text_preview")
+                  hr.mt-2
+                  div.d-flex.justify-content-center.align-items-center
+                    b-pagination(v-model="currentPage" :total-rows="events.length" :per-page="perPage")
               div(v-else)
                 loader
 </template>
@@ -62,15 +63,15 @@
         events: [],
         bcItems: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'О компании',
-            to: '/about'
+            text: this.$t('breadcrumbs4'),
+            to: { name: this.$assets.prefix('about', this.$i18n.locale) }
           },
           {
-            text: 'Мероприятия',
+            text: this.$t('breadcrumbs7'),
             active: true
           }
         ],

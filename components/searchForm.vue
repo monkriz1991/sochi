@@ -2,27 +2,27 @@
   div.container
     div#form-wrapper
       div.switcher
-        nuxt-link(to="/rent/").driver_switch.active="АВТОМОБИЛИ БЕЗ ВОДИТЕЛЯ"
-        nuxt-link(to="/service/").driver_switch.active="АВТОМОБИЛИ С ВОДИТЕЛЕМ"
+        nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").driver_switch.active.text-uppercase="{{$t('s7')}}"
+        nuxt-link(:to="{name: $assets.prefix('service', $i18n.locale)}").driver_switch.active.text-uppercase="{{$t('s8')}}"
       div.fields_form.p-2
         b-row
           b-col(sm="12" md="12" lg="9")
             b-row
               b-col(sm="12" md="6" lg="3")
                 div.form-group
-                  label="Место подачи:"
+                  label="{{$t('s11')}}"
                   b-form-select(v-model="place" :options="placeOptions")#place.form-control
               b-col(sm="12" md="6" lg="3")
                 div.form-group
-                  label()="Дата с:"
+                  label()="{{$t('s12')}}"
                   datetime(
                     type="datetime"
-                    placeholder="Дата по"
+                    :placeholder="$t('s13')"
                     v-model="start_date"
                     format="yyyy-MM-dd HH:mm"
                     :week-start="1"
                     :minute-step="10"
-                    :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+                    :phrases="{ok: $t('s15'), cancel: $t('s16')}"
                     :min-datetime="$assets.genNowSpec(1)"
                     :zone="'Europe/Moscow'"
                     :value-zone="'Europe/Moscow'"
@@ -31,15 +31,15 @@
                   )
               b-col(sm="12" md="6" lg="3")
                 div.form-group
-                  label="Дата по:"
+                  label="{{$t('s13')}}"
                   datetime(
                     type="datetime"
-                    placeholder="Дата по"
+                    :placeholder="$t('s13')"
                     v-model="end_date"
                     format="yyyy-MM-dd HH:mm"
                     :week-start="1"
                     :minute-step="10"
-                    :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+                    :phrases="{ok: $t('s15'), cancel: $t('s16')}"
                     :min-datetime="start_date"
                     :zone="'Europe/Moscow'"
                     :value-zone="'Europe/Moscow'"
@@ -48,13 +48,13 @@
                   )
               b-col(sm="12" md="6" lg="3")
                 div.form-group
-                  label="Класс авто:"
+                  label="{{$t('s14')}}"
                   b-form-select(v-model="carClass" :options="carClassOption")#class.form-control
           b-col(sm="12" md="12" lg="3")
             b-row
               b-col(sm="12" md="12" lg="12")
                 div.form-group.pt-4
-                  button(role="button" @click="onSearch").go-search.btn.mt-2="НАЙТИ АВТОМОБИЛЬ"
+                  button(role="button" @click="onSearch").go-search.btn.mt-2.text-uppercase="{{$t('s10')}}"
 </template>
 
 <script>
@@ -74,13 +74,13 @@
         end_date: this.$assets.genNowSpec(9),
         carClass: 5,
         carClassOption: [
-          { value: 5, text: 'Все классы' },
-          { value: 3, text: 'Комфорт' },
-          { value: 1, text: 'Бизнес' },
-          { value: 4, text: 'Кроссоверы' },
-          { value: 2, text: 'Минивены' },
-          { value: 6, text: 'Кабриолеты' },
-          { value: 0, text: 'Электросамокаты' },
+          { value: 5, text: this.$t('class_all') },
+          { value: 3, text: this.$t('class2') },
+          { value: 1, text: this.$t('class4') },
+          { value: 4, text: this.$t('class0') },
+          { value: 2, text: this.$t('class1') },
+          { value: 6, text: this.$t('class8') },
+          { value: 0, text: this.$t('class6') },
         ],
         isDriver: false
       }
@@ -127,7 +127,7 @@
             result.data.data.map(el => {
               res.push({
                 value: el.id,
-                text: `${el.point_name}${el.price > 0 ? ` - ${el.price}р` : ''}`
+                text: `${this.$t(el.point_name)}${el.price > 0 ? ` - ${el.price}₽` : ''}`
               })
             });
             this.placeOptions = res;

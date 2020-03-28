@@ -4,10 +4,10 @@
     main.py-3
       div.container
         BreadCrumbs(:items="bcItems")
-        h1="Онлайн оплата"
+        h1="{{$t('payment1')}}"
         p
-          strong.red="ВНИМАНИЕ: "
-          |Все поля обязательны для заполнения!
+          strong.red="{{$t('payment2')}}"
+          |{{$t('payment3')}}
         form(name="ShopForm" method="POST" action="https://money.yandex.ru/eshop.xml" validator="full" _lpchecked="1")#pay-y
           input(type="hidden" name="scid" :value="$config.scid")
           input(type="hidden" name="ShopID" :value="$config.ShopID")
@@ -19,23 +19,23 @@
           input(name="ym_merchant_receipt" v-model="reciept" type="hidden" required="required")
           b-row
             b-col(sm="12" md="6" lg="6")
-              b-form-group.mb-0( description="Введите марку и модель выбранного авто").py-2
-                b-form-input(v-model="payment_form.car" placeholder="Марка авто")
+              b-form-group.mb-0( :description="$t('payment4')").py-2
+                b-form-input(v-model="payment_form.car" :placeholder="$t('payment10')")
             b-col(sm="12" md="6" lg="6")
-              b-form-group.mb-0( description="Введите Ваш Ф.И.О").py-2
-                b-form-input(v-model="payment_form.name" placeholder="Ф.И.О")
+              b-form-group.mb-0( :description="$t('payment5')").py-2
+                b-form-input(v-model="payment_form.name" :placeholder="$t('payment11')")
             b-col(sm="12" md="6" lg="6")
-              b-form-group.mb-0( description="Введите Ваш телефон").py-2
-                vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: 'Код страны',countrySelectorError: 'Неверный выбор',phoneNumberLabel: 'Номер телефона',example: 'Пример :'}")
+              b-form-group.mb-0( :description="$t('payment6')").py-2
+                vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
             b-col(sm="12" md="6" lg="6")
-              b-form-group.mb-0( description="Введите Ваш e-mail").py-2
+              b-form-group.mb-0( :description="$t('payment7')").py-2
                 b-form-input(v-model="payment_form.email" placeholder="e-mail")
             b-col(sm="12" md="12" lg="12")
-              b-form-group.mb-0( description="Введите сумму").py-2
-                b-form-input(v-model="payment_form.sum" type="number" placeholder="сумма")
+              b-form-group.mb-0( :description="$t('payment8')").py-2
+                b-form-input(v-model="payment_form.sum" type="number" :placeholder="$t('payment12')")
             b-col(sm="12" md="12" lg="12")
               div.py-2
-                button(type="submit").btn.main.w-100.icon-credit-card="ОПЛАТИТЬ"
+                button(type="submit").btn.main.w-100.icon-credit-card="{{$t('payment9')}}"
         hr
         div.my-5.py-3
 </template>
@@ -86,11 +86,11 @@
         ph: "",
         bcItems: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Онлайн оплата',
+            text: this.$t('breadcrumbs16'),
             active: true
           }
         ],

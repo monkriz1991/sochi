@@ -3,9 +3,9 @@
     div.error-wrapper.py-5
       div(v-if="error.statusCode === 404").py-4
         b-img(:src="c404" fluid).my-3
-        h1.text-center="страница не найдена"
-      h1(v-else)="К сожалению произршла ошибка"
-      nuxt-link(to="/")="вернутся на главную"
+        h1.text-center="{{$t('errorPage1')}}"
+      h1(v-else)="{{$t('errorPage2')}}"
+      nuxt-link(to="/")="{{$t('errorPage3')}}"
 </template>
 
 <script>

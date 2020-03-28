@@ -1,6 +1,6 @@
 <template lang="pug">
     section#online_form_order
-      h2="Онлайн заявка"
+      h2="{{$t('s19')}}"
       b-row
         b-col(sm="12" md="6" lg="6")
           b-form-group
@@ -10,12 +10,12 @@
           b-form-group
             datetime(
               type="datetime"
-              placeholder="Дата по"
+              :placeholder="$t('s12')"
               v-model="date"
               format="yyyy-MM-dd HH:mm"
               :week-start="1"
               :minute-step="10"
-              :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+              :phrases="{ok: $t('s15'), cancel: $t('s16')}"
               :min-datetime="min_date"
               :zone="'Europe/Moscow'"
               :value-zone="'Europe/Moscow'"
@@ -23,16 +23,16 @@
               input-id="from"
             )
           b-form-group
-            b-form-input(v-model="fio" placeholder="ФИО:")
+            b-form-input(v-model="fio" :placeholder="$t('osm1')")
         b-col(sm="12" md="6" lg="6")
           b-form-group
-            vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: 'Код страны',countrySelectorError: 'Неверный выбор',phoneNumberLabel: 'Номер телефона',example: 'Пример :'}")
+            vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
           b-form-group
             b-input(v-model="email" placeholder="E-Mail:")
           b-form-group
-            b-textarea(v-model="comment" placeholder="Комментарий:")
+            b-textarea(v-model="comment" :placeholder="$t('osm2')")
           div.form-group
-            a(role="button" @click="onSubmit").w-100.btn.main.my-2.cbl="Отправить"
+            a(role="button" @click="onSubmit").w-100.btn.main.my-2.cbl="{{$t('osm3')}}"
 
 </template>
 
@@ -68,7 +68,7 @@
         this.places.map(el => {
           res.push({
             value: el.id,
-            text: `${el.point_name}${el.price > 0 ? ` - ${el.price}р` : ''}`
+            text: `${this.$t(el.point_name)}${el.price > 0 ? ` - ${el.price}₽` : ''}`
           })
         });
         return res;

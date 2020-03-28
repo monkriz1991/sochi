@@ -70,16 +70,28 @@ class Assets {
     }
   }
 
-  getDoors = (doors) => {
-    if (parseInt(doors) <= 4){
-      return doors + ' двери';
-    } else if(parseInt(doors) > 4){
-      return doors + ' дверей';
+  getDoors = (doors, locale) => {
+    if(locale === 'ru'){
+      return `${doors} ${this.getNameCoint(parseInt(doors), 'дверь', 'двери', 'дверей')}`;
+    }else{
+      return `${doors} ${this.getNameCoint(parseInt(doors), 'door', 'doors', 'doors')}`;
     }
   };
 
-  getBagsData = (bags, bigbag) => {
-    return `${bags} ${this.getNameCoint(parseInt(bags), 'сумка', 'сумки', 'сумок')}, ${bigbag} ${this.getNameCoint(parseInt(bigbag), 'чемодан', 'чемодана', 'чемоданов')}`
+  getPassa = (passa, locale) => {
+    if(locale === 'ru'){
+      return `${passa} ${this.getNameCoint(parseInt(passa), 'пассажир', 'пассажира', 'пассажиров')}`;
+    }else{
+      return `${passa} ${this.getNameCoint(parseInt(passa), 'passenger', 'passengers', 'passengers')}`;
+    }
+  };
+
+  getBagsData = (bags, bigbag, locale) => {
+    if (locale === 'ru'){
+      return `${bags} ${this.getNameCoint(parseInt(bags), 'сумка', 'сумки', 'сумок')}, ${bigbag} ${this.getNameCoint(parseInt(bigbag), 'чемодан', 'чемодана', 'чемоданов')}`
+    }else{
+      return `${bags} ${this.getNameCoint(parseInt(bags), 'bag', 'bags', 'bags')}, ${bigbag} ${this.getNameCoint(parseInt(bigbag), 'trunk', 'trunks', 'trunks')}`
+    }
   };
 
   getNameCoint = (n, word1, word2, word3) => {
@@ -176,39 +188,63 @@ class Assets {
     return day + ' ' + monthNames[monthIndex] + ' ' + year + ' ' + date.getHours()+':'+ mins;
   }
 
-  generate_text_drivers = sd => {
+  generate_text_drivers = (sd, locale) => {
     if(sd && sd !== ''){
       return sd
     }else{
-      return "<p>Наши водители профессионалы высокого класса, которым доверяют обслуживание первых лиц государства. Они сделают Вашу поездку комфортной, приятной и абсолютно безопасной. С ними вы можете ознакомится в разделе водители</p>"
+      if (locale === 'ru'){
+        return "<p>Наши водители профессионалы высокого класса, которым доверяют обслуживание первых лиц государства. Они сделают Вашу поездку комфортной, приятной и абсолютно безопасной. С ними вы можете ознакомится в разделе водители</p>"
+      }else{
+        return "<p>Our drivers are high-class professionals who are trusted to serve top officials of the state. They will make your trip comfortable, pleasant and absolutely safe. You can find them in the drivers section</p>"
+      }
     }
   };
 
-  generate_text_transfer = (sd, name) => {
+  generate_text_transfer = (sd, name, locale) => {
     if(sd && sd !== ''){
       return sd
     }else{
-      return "<p>" +
-        "Минимальное время привлечения транспортного средства к оказанию транспортных услуг составляет 3 (три) часа. В нашем автопарке несколько подобных автомобилей." +
-        "</p>"+
-        "<p>"+
-        `Если Вы планируете взять автомобиль ${name} в прокат без водителя, пожалуйста, пожалуйста, перейдите по `+
-        "<a href='/rent/'>ссылке.</a>"+
-        "</p>"
+      if (locale === 'ru'){
+        return "<p>" +
+          "Минимальное время привлечения транспортного средства к оказанию транспортных услуг составляет 3 (три) часа. В нашем автопарке несколько подобных автомобилей." +
+          "</p>"+
+          "<p>"+
+          `Если Вы планируете взять автомобиль ${name} в прокат без водителя, пожалуйста, пожалуйста, перейдите по `+
+          "<a href='/rent/'>ссылке.</a>"+
+          "</p>"
+      }else{
+        return "<p>" +
+          "The minimum time for attracting a vehicle to provide transport services is 3 (three) hours. We have several similar vehicles in our fleet." +
+          "</p>"+
+          "<p>"+
+          `If you are planning to rent a ${name} car without a driver, please follow this `+
+          "<a href='/rent/'>link.</a>"+
+          "</p>"
+      }
     }
   };
 
-  generate_text_docs = sd => {
+  generate_text_docs = (sd, locale) => {
     if(sd && sd !== ''){
       return sd
-    }else{
-      return "" +
-        "<p>" +
-        "<strong>Для граждан РФ: </strong>" +
-        "Паспорт РФ, действующая прописка, Водительское удостоверение</p>"+
-        "<p>" +
-        "<strong>Для иностранных граждан: </strong>" +
-        "Заграничный паспорт, Водительское удостоверение международного образца</p>"
+    }else {
+      if (locale === 'ru') {
+        return "" +
+          "<p>" +
+          "<strong>Для граждан РФ: </strong>" +
+          "Паспорт РФ, действующая прописка, Водительское удостоверение</p>" +
+          "<p>" +
+          "<strong>Для иностранных граждан: </strong>" +
+          "Заграничный паспорт, Водительское удостоверение международного образца</p>"
+      } else {
+        return "" +
+          "<p>" +
+          "<strong>FOR CITIZENS OF RUSSIAN FEDERATION: </strong>" +
+          "Russian passport, valid residence permit, Driver's license</p>" +
+          "<p>" +
+          "<strong>FOR FOREIGN CITIZENS: </strong>" +
+          "International passport, Driver's license of international standard</p>"
+      }
     }
   };
 
@@ -296,6 +332,38 @@ class Assets {
       return false
     }
   };
+
+  prefix = (name, locale) => {
+    return `${name}___${locale}`
+  }
+
+  rus_to_latin = (str, locale) => {
+    if (locale === 'ru'){
+      return str
+    }else{
+      let ru = {
+        'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+        'е': 'e', 'ё': 'e', 'ж': 'j', 'з': 'z', 'и': 'i',
+        'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
+        'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
+        'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh',
+        'щ': 'shch', 'ы': 'y', 'э': 'e', 'ю': 'u', 'я': 'ya'
+      }, n_str = [];
+
+      str = str.replace(/[ъь]+/g, '').replace(/й/g, 'i');
+
+      for ( var i = 0; i < str.length; ++i ) {
+        n_str.push(
+          ru[ str[i] ]
+          || ru[ str[i].toLowerCase() ] == undefined && str[i]
+          || ru[ str[i].toLowerCase() ].replace(/^(.)/, function ( match ) { return match.toUpperCase() })
+        );
+      }
+
+      return n_str.join('');
+    }
+  }
+
 }
 
 export default Assets

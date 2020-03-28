@@ -4,7 +4,7 @@
     main.py-3
       div.container
         BreadCrumbs(:items="bc")
-        h1="Цены на аренду авто в Сочи без водителя"
+        h1="{{$t('price10')}}"
         div(v-if="loaded")
           div.table-responsive
             table.table.table-striped
@@ -13,23 +13,23 @@
                   th
                     strong="№"
                   th(style="text-align: center")
-                    strong="Марка, Модель"
+                    strong="{{$t('price1')}}"
                   th(style="text-align: center")
-                    strong="Залог, рублей"
+                    strong="{{$t('price2')}}"
                   th(style="text-align: center")
-                    strong="Аренда за 1 сутки, рублей"
+                    strong="{{$t('price3')}}"
                   th(style="text-align: center")
-                    strong="Стоимость 1 суток при аренде от 3 дней"
+                    strong="{{$t('price4')}}"
                   th(style="text-align: center")
-                    strong="Стоимость 1 суток при аренде от 7 дней"
+                    strong="{{$t('price5')}}"
                   th(style="text-align: center")
-                    strong="Возраст, лет"
+                    strong="{{$t('price6')}}"
                   th(style="text-align: center")
-                    strong="Стаж, лет"
+                    strong="{{$t('price7')}}"
                   th(style="text-align: center")
-                    strong="Кол-во мест"
+                    strong="{{$t('price8')}}"
                   th(style="text-align: center")
-                    strong="Год выпуска"
+                    strong="{{$t('price9')}}"
                 tr(v-for="(i, idx) in list" v-bind:key="i.idx")
                   td.text-center="{{idx+1}}"
                   td.text-center="{{i['brand-model']}}"
@@ -72,11 +72,11 @@
         loaded: false,
         bc: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Цены',
+            text: this.$t('breadcrumbs2'),
             active: true
           }
         ],

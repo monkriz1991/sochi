@@ -6,8 +6,12 @@ const yaMapSettings = {
   coordorder: 'latlong',
   version: '2.1'
 };
-
+const  translation = require('./lang/translation');
 module.exports = {
+
+  router: {
+    trailingSlash: true
+  },
 
   env: env.parsed,
 
@@ -40,6 +44,7 @@ module.exports = {
     {src: '~/plugins/VuexPersist', ssr: false},
     {src: '~/plugins/MaskPlugin', ssr: false},
     {src: '~/plugins/PhoneComponent', ssr: false},
+    {src: '~/plugins/VueYouTube', ssr: false},
   ],
 
   modules: [
@@ -48,6 +53,15 @@ module.exports = {
     'nuxt-lazy-load',
     ['vue-yandex-maps/nuxt', yaMapSettings],
     'nuxt-webfontloader',
+    ['nuxt-i18n', {
+        locales: ['ru', 'en'],
+        defaultLocale: 'ru',
+        vueI18n: {
+          fallbackLocale: 'ru',
+          messages: translation
+        }
+      }
+    ]
   ],
 
   webfontloader: {

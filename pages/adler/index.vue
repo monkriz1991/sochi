@@ -37,11 +37,11 @@
         loaded: false,
         bcItems: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Аренда авто в Адлере',
+            text: this.$t('breadcrumbs17'),
             active: true
           }
         ],

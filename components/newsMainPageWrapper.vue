@@ -1,16 +1,16 @@
 <template lang="pug">
     section.my-3
       div.container
-        h3="Последние новости:"
+        h3="{{$t('s17')}}"
         b-row
           b-col(sm="12" md="12" lg="6" v-for="(i, idx) in items" :key="idx")
-            nuxt-link(:to="`/news/${i.slug}`" :key="i.id").news-el.my-2
+            nuxt-link(:to="{name: $assets.prefix('news-slug', $i18n.locale), params: {slug: i.slug}}").news-el.my-2
               div(:lazy-background="`https://booking.autopilot.rent/storage/${i.preview_image}`").img
               div.inform
                 h5="{{i.title}}"
                 div(v-html="i.preview_text").p-0.data
         div.d-flex.justify-content-center.align-content-center.align-items-center.my-3
-          nuxt-link(to="/news/").btn.main="Все новости"
+          nuxt-link(:to="{name: $assets.prefix('news', $i18n.locale)}").btn.main="{{$t('s9')}}"
         hr
 </template>
 

@@ -5,7 +5,7 @@
       div.container
         BreadCrumbs(:items="bcItems" :withBack="false")
         div(v-if="loaded")
-          h1="Долгосрочная аренда {{item.cd.naimenovanie}} в Сочи"
+          h1="{{$t('ltrd1')}} {{item.cd.naimenovanie}} {{$t('ltrd2')}}"
           b-row
             b-col(sm="12" md="12" lg="6")
               div.block-container
@@ -14,56 +14,56 @@
               div.garant
                 div.grant-item
                   div
-                    p.m-0='Мы гарантируем именно выбранный вами автомобиль и его стоимость'
+                    p.m-0="{{$t('ltrd3')}}"
                 div.grant-item
                   div
-                    p.m-0='Все виды страхования и большой выбор дополнительных опций'
+                    p.m-0="{{$t('ltrd4')}}"
               hr
-              h3="Характеристики автомобиля"
+              h3="{{$t('ltrd5')}}"
               div.item-content
                 div.info_lap
-                  p.l="Год выпуска:"
+                  p.l="{{$t('aoc2')}}"
                   p.r="{{item.cd.godvypuska}}"
                 div.info_lap
-                  p.l="КПП:"
-                  p.r="{{item.cd.kpp}}"
+                  p.l="{{$t('aoc7')}}"
+                  p.r="{{$t(item.cd.kpp)}}"
                 div.info_lap
-                  p.l="Топливо:"
-                  p.r="{{item.cd.toplivo}}"
+                  p.l="{{$t('aoc8')}}"
+                  p.r="{{$t(item.cd.toplivo)}}"
                 div.info_lap
-                  p.l="Двигатель:"
-                  p.r(v-html="`${item.cd.dvigatel}л.`")
+                  p.l="{{$t('aoc9')}}"
+                  p.r(v-html="`${item.cd.dvigatel}${$t('p1')}.`")
                 div.info_lap
-                  p.l="Цвет:"
-                  p.r="{{item.cd.cvet}}"
+                  p.l="{{$t('aoc10')}}"
+                  p.r="{{$t(item.cd.cvet)}}"
               div.py-1
                 b-row.features-list-icos
                   b-col(sm="12" md="6" lg="4").features-list-block
-                    span.bag(v-html="`${$assets.getBagsData(item.cd.bags, item.cd.bigbag)}`")
+                    span.bag(v-html="`${$assets.getBagsData(item.cd.bags, item.cd.bigbag, $i18n.locale)}`")
                   b-col(sm="12" md="6" lg="4").features-list-block
-                    span.pass='{{item.cd.passa}} пассажиров'
+                    span.pass='{{$assets.getPassa(item.cd.passa, $i18n.locale) }}'
                   b-col(sm="12" md="6" lg="4").features-list-block
-                    span.dors='{{ $assets.getDoors(item.cd.dors) }}'
+                    span.dors='{{ $assets.getDoors(item.cd.dors, $i18n.locale) }}'
                   b-col(sm="12" md="6" lg="4").features-list-block
-                    span.temp='{{item.cd.klimat}}'
+                    span.temp='{{$t(item.cd.klimat)}}'
                   b-col(sm="12" md="6" lg="4").features-list-block
-                    span.benz='{{item.cd.rashod}}л/100км'
+                    span.benz="{{item.cd.rashod}}{{$t('p2')}}"
                   b-col(sm="12" md="6" lg="4").features-list-block
-                    span.gear='{{item.cd.kpp}}'
+                    span.gear='{{$t(item.cd.kpp)}}'
             b-col(sm="12" md="12" lg="6")
               div.block-container
-                h3="Данные аренды:"
+                h3="{{$t('ltrd6')}}"
                 b-row
                   b-col(sm="12" md="12" lg="6")
-                    b-form-group(description="Дата подачи")
+                    b-form-group(:description="$t('s12')")
                       datetime(
                         type="datetime"
-                        placeholder="Дата по"
+                        :placeholder="$t('s12')"
                         v-model="df"
                         format="yyyy-MM-dd HH:mm"
                         :week-start="1"
                         :minute-step="10"
-                        :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+                        :phrases="{ok: $t('s15'), cancel: $t('s16')}"
                         :min-datetime="df"
                         :zone="'Europe/Moscow'"
                         :value-zone="'Europe/Moscow'"
@@ -72,15 +72,15 @@
                         :readonly="true"
                       )
                   b-col(sm="12" md="12" lg="6")
-                    b-form-group(description="Дата возврата")
+                    b-form-group(:description="$t('s13')")
                       datetime(
                         type="datetime"
-                        placeholder="Дата по"
+                        :placeholder="$t('s13')"
                         v-model="dt"
                         format="yyyy-MM-dd HH:mm"
                         :week-start="1"
                         :minute-step="10"
-                        :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+                        :phrases="{ok: $t('s15'), cancel: $t('s16')}"
                         :min-datetime="minDate"
                         :zone="'Europe/Moscow'"
                         :value-zone="'Europe/Moscow'"
@@ -90,38 +90,38 @@
                       )
                   b-col(sm="12" md="12" lg="12")
                     div.price_string
-                      h5="СТОИМОСТЬ ПЕРИОДА:"
+                      h5="{{$t('ltrd7')}}"
                       h5="{{lastPrice}}₽"
                 hr
-                h3="Ваши данные:"
-                h5="ФИО"
+                h3="{{$t('bocid34')}}"
+                h5="{{$t('bocid33')}}"
                 b-row
                   b-col(sm="12" md="12" lg="4")
                     b-form-group
-                      b-form-input(placeholder="Фамилия" v-model="userData.surname" @input="clearErrors")
+                      b-form-input(:placeholder="$t('bocid32')" v-model="userData.surname" @input="clearErrors")
                   b-col(sm="12" md="12" lg="4")
                     b-form-group
-                      b-form-input(placeholder="Имя" v-model="userData.name" @input="clearErrors")
+                      b-form-input(:placeholder="$t('bocid31')" v-model="userData.name" @input="clearErrors")
                   b-col(sm="12" md="12" lg="4")
                     b-form-group
-                      b-form-input(placeholder="Отчество" v-model="userData.fathername" @input="clearErrors")
-                h5="Контактные данные"
+                      b-form-input(:placeholder="$t('bocid30')" v-model="userData.fathername" @input="clearErrors")
+                h5="{{$t('bocid29')}}"
                 b-row
                   b-col(sm="12" md="12" lg="12")
                     b-form-group
-                      vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: 'Код страны',countrySelectorError: 'Неверный выбор',phoneNumberLabel: 'Номер телефона',example: 'Пример :'}")
+                      vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
                   b-col(sm="12" md="12" lg="12")
                     b-form-group
                       b-form-input(placeholder="E-mail" v-model="userData.email" @input="clearErrors")
                   b-col(sm="12" md="12" lg="12")
                     b-form-group
-                      b-form-textarea(placeholder="Комментарий" v-model="userData.comment" @input="clearErrors" rows="3")
+                      b-form-textarea(:placeholder="$t('bocid28')" v-model="userData.comment" @input="clearErrors" rows="3")
                   b-col(sm="12" md="12" lg="12")
                     b-form-group
-                      b-button(@click="onSubmit").btn.main.w-100.text-uppercase="Забронировать"
-              h3="Условия бронирования"
+                      b-button(@click="onSubmit").btn.main.w-100.text-uppercase="{{$t('ltr1')}}"
+              h3="{{$t('m3')}}"
               b-row
-                b-col(sm="12" md="12" lg="6" v-for="(ci, cidx) in conditions" :key="cidx")
+                b-col(sm="12" md="12" lg="6" v-for="(ci, cidx) in conditions[$i18n.locale]" :key="cidx")
                   div.condition
                     div(v-bind:class="ci.class_name").ico
                     div.text
@@ -176,12 +176,12 @@
       bcItems(){
         let crumbs = [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Долгосрочная аренда',
-            to: '/long_term_rental'
+            text: this.$t('breadcrumbs15'),
+            to: { name: this.$assets.prefix('long_term_rental', this.$i18n.locale) }
           }
         ];
         if (this.loaded) {
@@ -193,28 +193,52 @@
         return crumbs
       },
       conditions(){
-        return [
-          {
-            title: 'Возраст водителя',
-            text: 'с 26 лет',
-            class_name: 'cond_1'
-          },
-          {
-            title: 'Стаж',
-            text: 'не менее 5ти лет',
-            class_name: 'cond_2'
-          },
-          {
-            title: 'Залог на автомобиль',
-            text: `от ${this.item.cd.zalog}₽`,
-            class_name: 'cond_3'
-          },
-          {
-            title: 'Пробег/Перепробег',
-            text: `3000 км / ${this.item.limits.over_limit_price}₽ - 1 км`,
-            class_name: 'cond_4'
-          },
-        ]
+        return {
+          en: [
+            {
+              title: 'Driver age',
+              text: 'from 26 y.o',
+              class_name: 'cond_1'
+            },
+            {
+              title: 'Experience',
+              text: 'more then 5 years',
+              class_name: 'cond_2'
+            },
+            {
+              title: 'Pledge for car',
+              text: `from ${this.item.cd.zalog}₽`,
+              class_name: 'cond_3'
+            },
+            {
+              title: 'Meliage/OverMeliage',
+              text: `3000km / from ${this.item.limits.over_limit_price}₽ - 1km`,
+              class_name: 'cond_4'
+            },
+          ],
+          ru: [
+            {
+              title: 'Возраст водителя',
+              text: 'с 26 лет',
+              class_name: 'cond_1'
+            },
+            {
+              title: 'Стаж',
+              text: 'не менее 5ти лет',
+              class_name: 'cond_2'
+            },
+            {
+              title: 'Залог на автомобиль',
+              text: `от ${this.item.cd.zalog}₽`,
+              class_name: 'cond_3'
+            },
+            {
+              title: 'Пробег/Перепробег',
+              text: `3000 км / ${this.item.limits.over_limit_price}₽ - 1 км`,
+              class_name: 'cond_4'
+            },
+          ]
+        }
       }
     },
     watch:{

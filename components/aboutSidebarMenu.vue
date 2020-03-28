@@ -2,15 +2,15 @@
   div
     ul.list-unstyled.side-menu
       li
-        nuxt-link(to="/about/events/")="Мероприятия"
+        nuxt-link(:to="{name: $assets.prefix('about-events', $i18n.locale)}")="{{$t('m11')}}"
       li
-        nuxt-link(to="/about/drivers/")="Водители"
+        nuxt-link(:to="{name: $assets.prefix('about-drivers', $i18n.locale)}")="{{$t('m12')}}"
       li
-        nuxt-link(to="/about/partners/")="Партнеры"
+        nuxt-link(:to="{name: $assets.prefix('about-partners', $i18n.locale)}")="{{$t('m13')}}"
       li
-        nuxt-link(to="/about/faq/")="FAQ"
+        nuxt-link(:to="{name: $assets.prefix('about-faq', $i18n.locale)}")="{{$t('m14')}}"
       li
-        nuxt-link(to="/about/discounts/")="Условия получения дополнительных скидок"
+        nuxt-link(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}")="{{$t('m15')}}"
 </template>
 
 <script>

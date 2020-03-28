@@ -7,14 +7,14 @@
         div(v-if="timeFalse")
           div.offer.m-5.p-5
             h4.text-center.text-uppercase
-              |Для того, чтобы сделать заказ на арнеду автомобиля менее, чем 24 часа, пожалуйста свяжитесь с колл-центром по телефону &nbsp;
+              |{{$t('s1')}}
               br
               a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
         div(v-else)
           div(v-if="searchForm.isDriver")
             div.offer.m-5.p-5
               h4.text-center.text-uppercase
-                |Для получения персонального предложения пожалуйста свяжитесь с нами по номеру телефона &nbsp;
+                |{{$t('s2')}}
                 br
                 a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
           div(v-else)
@@ -25,7 +25,7 @@
             div(v-else)
               div.offer.m-5.p-5
                 h4.text-center.text-uppercase
-                  |К сожалению по вашему запросу ничего не найдено. Для получения персонального предложения пожалуйста свяжитесь с нами по номеру телефона &nbsp;
+                  |{{$t('s3')}}
                   br
                   a(href="tel:+74951084848")="+7 (495) 108-48-48"
     hr(v-if="!loading").dashed

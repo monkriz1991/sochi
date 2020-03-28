@@ -6,7 +6,7 @@
             div.image
               img(:data-src="`https://booking.autopilot.rent/storage/${f.image}`" v-lazy-load)
             div.text
-              p="{{f.text}}"
+              p="{{$t(f.text)}}"
           hr
 </template>
 

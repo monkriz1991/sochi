@@ -2,12 +2,12 @@
   div.cwod-wrapper
     b-row
       b-col(sm="6" md="6" lg="6" v-for="(i, idx) in withPagen" :key="idx").my-3
-        nuxt-link(:to="`/rent/${i.self_data.slug}`").no_dec
+        nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").no_dec
           div.el
             b-row
               b-col(sm="12" md="12" lg="6")
                 div.el-wrapper
-                  div.price-badge="{{i.car_data.stoimost}}₽/сутки"
+                  div.price-badge="{{i.car_data.stoimost}}₽/{{$t('cwod7')}}"
                   div.main-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[0]}`")
                   div.flox-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[1]}`")
                   div.flox-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[2]}`")
@@ -15,22 +15,22 @@
                 div.el-info-wrapper.pr-lg-3.px-md-2.px-sm-2.px-2.py-3
                   h5="{{i.self_data.title}}"
                     div.item-info.my-2
-                      p.l="Класс:"
-                      p.r="{{i.car_data.klassavtomobilya}}"
+                      p.l="{{$t('cwod1')}}"
+                      p.r="{{$t(i.car_data.klassavtomobilya)}}"
                     div.item-info.my-2
-                      p.l="Количество мест:"
+                      p.l="{{$t('cwod2')}}"
                       p.r="{{i.tth.passa}}"
                     div.item-info.my-2
-                      p.l="Тип топлива:"
-                      p.r="{{i.car_data.toplivo}}"
+                      p.l="{{$t('cwod3')}}"
+                      p.r="{{$t(i.car_data.toplivo)}}"
                     div.item-info.my-2
-                      p.l="Средний расход:"
+                      p.l="{{$t('cwod4')}}"
                       p.r="{{i.tth.rashod}}"
                     div.item-info.my-2
-                      p.l="Объём двигателя:"
+                      p.l="{{$t('cwod5')}}"
                       p.r="{{makeEngine(i.car_data.dvigatel)}}"
                     div.item-info.my-2
-                      p.l="Год выпуска:"
+                      p.l="{{$t('cwod6')}}"
                       p.r="{{i.car_data.godvypuska}}"
     hr.mt-2
     div.d-flex.justify-content-center.align-items-center

@@ -11,7 +11,7 @@
                 about-sidebar-menu
           b-col(sm="12" md="9" lg="9")
             article
-              h1="Наши партнеры"
+              h1="{{$t('faq10')}}"
 </template>
 
 <script>
@@ -36,15 +36,15 @@
       return {
         bcItems: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'О компании',
-            to: '/about'
+            text: this.$t('breadcrumbs4'),
+            to: { name: this.$assets.prefix('about', this.$i18n.locale) }
           },
           {
-            text: 'Партнеры',
+            text: this.$t('breadcrumbs8'),
             active: true
           }
         ],

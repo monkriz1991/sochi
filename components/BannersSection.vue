@@ -3,13 +3,13 @@
       b-container
         b-row
           b-col(sm="12" md="6" lg="6")
-            nuxt-link(to="/long_term_rental/").nodec
+            nuxt-link(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").nodec
               div(:lazy-background="longterm").acia.longterm.d-flex.justify-content-center.align-items-center.my-2
-                h2.text-uppercase="Долгосрочная аренда"
+                h2.text-uppercase="{{$t('s4')}}"
           b-col(sm="12" md="6" lg="6")
-            nuxt-link(to="/about/discounts/").nodec
+            nuxt-link(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").nodec
               div(:lazy-background="actia").acia.actia.d-flex.justify-content-center.align-items-center.my-2
-                h2.text-uppercase="Акции и предложения"
+                h2.text-uppercase="{{$t('s5')}}"
 </template>
 
 <script>

@@ -4,13 +4,13 @@
     main.py-3
       div.container
         BreadCrumbs(:items="bcItems")
-        h1="Новости"
+        h1="{{$t('faq11')}}"
         div(v-if="loaded")
           div.news_container
             div(v-for="(n, ndx) in newsWithPagen" :key="ndx").ely
               b-card(:img-src="`https://booking.autopilot.rent/storage/${n.preview_image}`" img-alt="title" img-left).mb-3
                 b-card-text
-                  nuxt-link(:to="`/news/${n.slug}`")
+                  nuxt-link(:to="{name: $assets.prefix('news-slug', $i18n.locale), params: {slug: n.slug}}")
                     h3="{{n.title}}"
                   div(v-html="n.preview_text")
           hr.mt-2
@@ -45,11 +45,11 @@
         loaded: false,
         bcItems: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Новости',
+            text: this.$t('breadcrumbs11'),
             active: true
           }
         ],

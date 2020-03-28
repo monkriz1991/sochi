@@ -8,21 +8,21 @@
             div.bottom_menu
               ul.list-unstyled
                 li
-                  nuxt-link(to="/about/")="О компании"
+                  nuxt-link(:to="{name: $assets.prefix('about', $i18n.locale)}")="{{ $t('m1')}}"
                 li
-                  nuxt-link(to="/news/")="Новости"
+                  nuxt-link(:to="{name: $assets.prefix('news', $i18n.locale)}")="{{ $t('m2')}}"
                 li
-                  nuxt-link(to="/contacts/")="Контакты"
+                  nuxt-link(:to="{name: $assets.prefix('contacts', $i18n.locale)}")="{{ $t('m6')}}"
                 li
-                  nuxt-link(to="/conditions/")="Условия аренды"
+                  nuxt-link(:to="{name: $assets.prefix('conditions', $i18n.locale)}")="{{ $t('m3')}}"
                 li
-                  nuxt-link(to="/about/discounts/")="Акции"
+                  nuxt-link(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}")="{{ $t('m4')}}"
       div.main_footer.py-5
         div.container
           b-row
             b-col(sm="12" md="6" lg="6")
               div.info.info-left
-                p="{{settings.address}}"
+                p="{{$t(settings.address)}}"
                 br
                 br
                 span
@@ -33,22 +33,22 @@
                 span
                   |Sochi Rent-a-Car -
                   |&nbsp;
-                  a(href="/")="Прокат и аренда авто в Сочи"
+                  nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")="{{$t('pis')}}"
             b-col(sm="12" md="6" lg="6")
               div.info.info-right
-                p="{{settings.time}}"
-                p="Звоните: "
+                p="{{$t(settings.time)}}"
+                p="{{$t('call')}} "
                   a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`").mgo-number="{{settings.main_phone}}"
                 br
                 br
-                p.bold="Мы в других городах:"
+                p.bold="{{$t('ac')}}"
                 ul.list-unstyled
                   li
-                    a(href="https://spbrentacar.ru/")="Санкт-Петербург"
+                    a(href="https://spbrentacar.ru/")="{{$t('m7')}}"
                   li
-                    a(href="https://avtopilot.com/")="Владивосток"
+                    a(href="https://avtopilot.com/")="{{$t('m8')}}"
                   li
-                    a(href="https://crimearentacar.su/")="Крым"
+                    a(href="https://crimearentacar.su/")="{{$t('m9')}}"
 </template>
 
 <script>

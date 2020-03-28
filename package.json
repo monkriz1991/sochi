@@ -25,6 +25,7 @@
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
     "nuxt-google-maps-module": "^1.6.0",
+    "nuxt-i18n": "^6.7.0",
     "nuxt-lazy-load": "^1.1.0",
     "nuxt-webfontloader": "^1.1.0",
     "pug": "^2.0.4",
@@ -36,6 +37,7 @@
     "vue-datetime": "^1.0.0-beta.11",
     "vue-phone-number-input": "^1.1.6",
     "vue-yandex-maps": "^0.10.6",
+    "vue-youtube-embed": "^2.2.2",
     "vue2-google-maps": "^0.10.7",
     "vuex-persist": "^2.2.0"
   },

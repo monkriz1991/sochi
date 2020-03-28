@@ -1,8 +1,8 @@
 <template lang="pug">
     div.item-card.p-2.w-100.h-100
       div.price-badge
-        span(v-if="item.Price > item.PriceDiscount").old="{{item.Price}}руб./сутки"
-        span="{{item.PriceDiscount}}руб./сутки"
+        span(v-if="item.Price > item.PriceDiscount").old="{{item.Price}}₽/{{$t('aoc1')}}"
+        span="{{item.PriceDiscount}}₽/{{$t('aoc1')}}"
       div.item-header
         div.media
           div.preview(:lazy-background="item.img")
@@ -11,41 +11,41 @@
           h3.m-0="{{item.naimenovanie}}"
           div.divider
         div.item-features.px-1
-          span(v-for="(f, fdx) in item.features_options" :key="fdx" v-bind:class="$assets.fetchFeatureClass(f.name)")="{{f.name}}"
+          span(v-for="(f, fdx) in item.features_options" :key="fdx" v-bind:class="$assets.fetchFeatureClass(f.name)")="{{$t(f.name)}}"
       div(v-if="item.naimenovanie === 'Xiaomi MiJia Electric Scooter M365'").item-content
         div.info_lap
-          p.l="Год выпуска:"
+          p.l="{{$t('aoc2')}}"
           p.r="{{item.godvypuska}}"
         div.info_lap
-          p.l="Нагрузка:"
-          p.r="100кг"
+          p.l="{{$t('aoc3')}}"
+          p.r="100{{$t('p6')}}"
         div.info_lap
-          p.l="Запас хода:"
-          p.r="30км"
+          p.l="{{$t('aoc4')}}"
+          p.r="30{{$t('p3')}}"
         div.info_lap
-          p.l="Мощность:"
-          p.r="250 Вт"
+          p.l="{{$t('aoc5')}}"
+          p.r="250 {{$t('p5')}}"
         div.info_lap
-          p.l="Макс. скорость:"
-          p.r="25 км/ч"
+          p.l="{{$t('aoc6')}}"
+          p.r="25 {{$t('p4')}}"
       div(v-else).item-content
         div.info_lap
-          p.l="Год выпуска:"
+          p.l="{{$t('aoc2')}}"
           p.r="{{item.godvypuska}}"
         div.info_lap
-          p.l="КПП:"
-          p.r="{{item.kpp}}"
+          p.l="{{$t('aoc7')}}"
+          p.r="{{$t(item.kpp)}}"
         div.info_lap
-          p.l="Топливо:"
-          p.r="{{item.toplivo}}"
+          p.l="{{$t('aoc8')}}"
+          p.r="{{$t(item.toplivo)}}"
         div.info_lap
-          p.l="Двигатель:"
-          p.r(v-html="`${item.dvigatel.toFixed(1)}л.`")
+          p.l="{{$t('aoc9')}}"
+          p.r(v-html="`${item.dvigatel.toFixed(1)}${$t('p1')}.`")
         div.info_lap
-          p.l="Цвет:"
-          p.r="{{item.cvet}}"
+          p.l="{{$t('aoc10')}}"
+          p.r="{{$t(item.cvet)}}"
       div.item-action
-        nuxt-link(:to="makeLink(item.ID)")="ПОДРОБНЕЕ"
+        nuxt-link(:to="{name: $assets.prefix('booking-online-car_id', $i18n.locale), params: {car_id: item.ID}}")="{{$t('aoc11')}}"
 </template>
 
 <script>
@@ -62,12 +62,6 @@
         required: true
       }
     },
-    methods:{
-      makeLink($slug){
-        return `/booking-online/${$slug}`
-      }
-    },
-    mounted() {}
   }
 </script>
 

@@ -1,7 +1,7 @@
 <template lang="pug">
     div.d-flex.flex-wrap
         div(v-if="withBack").b-slash
-            nuxt-link(:to="`/${backStringHref}`").btn.main="Назад"
+            nuxt-link(:to="`${$i18n.locale === 'ru'? '' : '/en'}/${backStringHref}`").btn.main="{{$t('s6')}}"
         div
             b-breadcrumb(:items="items").px-1
 </template>

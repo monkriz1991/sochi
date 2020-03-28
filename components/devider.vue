@@ -4,9 +4,9 @@
         hr.m-0
         b-row
           b-col(sm="12" md="6" lg="6").d-flex.justify-content-center.align-items-center.align-content-center
-            nuxt-link(to="/rent/").link.text-center="Автомобили без водителя"
+            nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").link.text-center="{{$t('s7')}}"
           b-col(sm="12" md="6" lg="6").d-flex.justify-content-center.align-items-center.align-content-center
-            nuxt-link(to="/service/").link.text-center="Автомобили с водителем"
+            nuxt-link(:to="{name: $assets.prefix('service', $i18n.locale)}").link.text-center="{{$t('s8')}}"
 </template>
 
 <script>

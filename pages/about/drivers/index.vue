@@ -12,15 +12,15 @@
           b-col(sm="12" md="9" lg="9")
             article
               div(v-if="loaded")
-                h1="Наши Водители"
+                h1="{{$t('faq4')}}"
                 b-row
                   b-col(sm="12" md="6" lg="6" v-for="(d, ddx) in drivers" :key="ddx")
                     div.card-driver.my-3
                       div.card-driver-header.d-flex.justify-content-center.align-content-center
                         b-img(:src="`https://booking.autopilot.rent/storage/${d.photo}`" rounded="circle" :alt="d.name")
                       div.card-driver-body
-                        h4.text-center="{{d.name}}"
-                        p="Категории:"
+                        h4.text-center.text-capitalize="{{$assets.rus_to_latin(d.name, $i18n.locale)}}"
+                        p="{{$t('faq6')}}"
                           span(v-for="(c, cdx) in d.category" :key="cdx").category-span="{{c}}"
               div(v-else)
                 loader
@@ -52,15 +52,15 @@
         loaded: false,
         bcItems: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'О компании',
-            to: '/about'
+            text: this.$t('breadcrumbs4'),
+            to: { name: this.$assets.prefix('about', this.$i18n.locale) }
           },
           {
-            text: 'Водители',
+            text: this.$t('breadcrumbs6'),
             active: true
           }
         ],

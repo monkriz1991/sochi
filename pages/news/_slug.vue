@@ -42,12 +42,12 @@
       bcItems(){
         let crumbs = [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Новости',
-            to: '/news/'
+            text: this.$t('breadcrumbs11'),
+            to: { name: this.$assets.prefix('news', this.$i18n.locale) }
           }
         ];
         if (this.loaded) {

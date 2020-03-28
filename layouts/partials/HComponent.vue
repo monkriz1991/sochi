@@ -9,49 +9,54 @@
             b-row
               b-col(sm="6" md="6" lg="4" order="2" order-sm="2" order-md="2" order-lg="1")
                 div.infobox.py-1.infobox.py-1.d-flex.justify-content-start.flex-column.align-content-start.align-items-center.align-items-sm-center.align-items-md-start.align-items-lg-start
-                  p.notes="Мы работаем {{settings.time}}"
+                  p.notes="{{ $t('ww') }} {{$t(settings.time)}}"
                   p.main_phone
                     a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
-                  nuxt-link(to="/long_term_rental/").btn.main="Долгосрочная аренда"
+                  nuxt-link(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").btn.main.slim="{{ $t('long_term_rental') }}"
               b-col(sm="12" md="12" lg="4" order="1" order-sm="1" order-md="1" order-lg="2").d-flex.justify-content-center.align-content-center
                 div.logo
-                  nuxt-link(to="/")
+                  nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")
                     img(:src="logo" fluid alt="Sochi rent a car")
               b-col(sm="6" md="6" lg="4" order="3" order-sm="3" order-md="3" order-lg="3")
                 div.infobox.py-1.d-flex.justify-content-end.flex-column.align-content-end.align-items-center.align-items-sm-center.align-items-md-end.align-items-lg-end
-                  a(role="button" v-b-modal.callback).btn.main.icon-phone="Заказать звонок"
-                  nuxt-link(to="/payment/").btn.main.icon-credit-card="Онлайн оплата"
+                  a(role="button" v-b-modal.callback).btn.main.slim.icon-phone="{{ $t('callback') }}"
+                  nuxt-link(:to="{name: $assets.prefix('payment', $i18n.locale)}").btn.main.slim.icon-credit-card="{{ $t('op') }}"
+                  nuxt-link(v-if="$i18n.locale !== 'en'" :to="switchLocalePath('en')").btn.main.slim="English Version"
+                  nuxt-link(v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')").btn.main.slim="Русская версия"
           b-navbar(toggleable="lg").p-0
             b-navbar-brand(href="#").d-flex.d-sm-flex.d-md-flex.d-lg-none
-              nuxt-link(to="/")
+              nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")
                 img(:src="logo" fluid alt="Sochi rent a car" height="55")
             b-navbar-toggle(target="nav-collapse")
             b-collapse(is-nav ref="navbarnav")#nav-collapse
               div.menu.mt-3
                 div.menu-block
-                  nuxt-link(to="/about/").menu-item="О компании"
-                  nuxt-link(to="/news/").menu-item="Новости"
-                  nuxt-link(to="/conditions/").menu-item="Условия аренды"
-                  nuxt-link(to="/about/discounts/").menu-item="Акции"
-                  nuxt-link(to="/prices/").menu-item="Цены"
-                  nuxt-link(to="/contacts/").menu-item="Контакты"
+                  nuxt-link(:to="{name: $assets.prefix('about', $i18n.locale)}").menu-item="{{ $t('m1') }}"
+                  nuxt-link(:to="{name: $assets.prefix('news', $i18n.locale)}").menu-item="{{ $t('m2') }}"
+                  nuxt-link(:to="{name: $assets.prefix('conditions', $i18n.locale)}").menu-item="{{ $t('m3') }}"
+                  nuxt-link(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").menu-item="{{ $t('m4') }}"
+                  nuxt-link(:to="{name: $assets.prefix('prices', $i18n.locale)}").menu-item="{{ $t('m5') }}"
+                  nuxt-link(:to="{name: $assets.prefix('contacts', $i18n.locale)}").menu-item="{{ $t('m6') }}"
                 div.d-flex.d-sm-flex.d-md-flex.d-lg-none.flex-column
-                  a(role="button" v-b-modal.callback).btn.main.icon-phone.w-100="Заказать звонок"
-                  nuxt-link(to="/payment/").btn.main.icon-credit-card.w-100="Онлайн оплата"
+                  a(role="button" v-b-modal.callback).btn.main.icon-phone.w-100="{{ $t('callback') }}"
+                  nuxt-link(:to="{name: $assets.prefix('payment', $i18n.locale)}").btn.main.icon-credit-card.w-100="{{ $t('op') }}"
+                  nuxt-link(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").btn.main.slim="{{ $t('long_term_rental') }}"
+                  nuxt-link(v-if="$i18n.locale !== 'en'" :to="switchLocalePath('en')").btn.main="English Version"
+                  nuxt-link(v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')").btn.main="Русская версия"
                 div.menu-block-cities
-                  a(href="https://avtopilot.com/").menu-item="Владивосток"
-                  a(href="https://spbrentacar.ru/").menu-item="Санкт-Петербург"
-                  a(href="https://crimearentacar.su/").menu-item="Крым"
-      b-modal(title="Обратный звонок" hide-footer)#callback
-        b-form-group.mb-0(description="Введите Ваше имя")
-          b-form-input(v-model="callback_form.name" placeholder="ФИО")#callback_name
-        b-form-group.mb-0( description="Введите Ваш телефон")
-          vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" id="callback_phone" :clearable="true" :translations="{countrySelectorLabel: 'Код страны',countrySelectorError: 'Неверный выбор',phoneNumberLabel: 'Номер телефона',example: 'Пример :'}")
+                  a(href="https://avtopilot.com/").menu-item="{{ $t('m7') }}"
+                  a(href="https://spbrentacar.ru/").menu-item="{{ $t('m8') }}"
+                  a(href="https://crimearentacar.su/").menu-item="{{ $t('m9') }}"
+      b-modal(:title="$t('cb1')" hide-footer)#callback
+        b-form-group.mb-0(:description="$t('cb2')")
+          b-form-input(v-model="callback_form.name" :placeholder="$t('cb3')")#callback_name
+        b-form-group.mb-0( :description="$t('cb4')")
+          vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" id="callback_phone" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
         b-row
           b-col(sm="12" md="6" lg="6")
-            a(role="button" @click="hideModal").btn.cancel.w-100="Отмена"
+            a(role="button" @click="hideModal").btn.cancel.w-100="{{$t('cb5')}}"
           b-col(sm="12" md="6" lg="6")
-            a(role="button" @click="submitModal").btn.main.w-100="Заказать"
+            a(role="button" @click="submitModal").btn.main.w-100="{{$t('cb6')}}"
 </template>
 
 <script>

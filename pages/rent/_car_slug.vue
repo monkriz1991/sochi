@@ -10,63 +10,65 @@
             b-col(sm="12" md="12" lg="6")
               div.slider-wrapper
                 b-o-image-slider(:items="item.self_data.photos")
+              div(v-if="item.self_data.youtube_video").slider-wrapper.mt-3.bblack
+                youtube-media(v-if="item.self_data.youtube_video" :video-id="$videoId(item.self_data.youtube_videos)" player-width="100%" player-height="400").w-100
             b-col(sm="12" md="12" lg="6")
               div.information
-                h3="Тарифы"
+                h3="{{$t('cwd11')}}"
                 div.blockquote-info.p-3
                   p.m-0
-                    |Внимание! Указаны справочные цены! Стоимость аренды данного автомобиля на интересующие Вас даты уточняйте
-                    nuxt-link(to="/")=" в системе бронирования"
+                    |{{$t('cwd12')}}
+                    nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")=" {{$t('cwd13')}}"
                     |.
                 div.prices.my-3
                   div.d-flex.justify-content-between.align-items-center
-                    h6.m-0.text-uppercase="Продолжительность"
-                    h6.m-0.text-uppercase="Стоимость"
+                    h6.m-0.text-uppercase="{{$t('cwd14')}}"
+                    h6.m-0.text-uppercase="{{$t('cwd15')}}"
                   hr
                   div(v-for="(p, pdx) in prices" :key="pdx").item-info
                     p.l="{{p.text}}"
-                    p.r="{{p.value}}₽/сутки"
+                    p.r="{{p.value}}₽/{{$t('cwod7')}}"
                 div.py-2
-                  h3="Условия аренды"
+                  h3="{{$t('cwd16')}}"
                   div
                     div.item-info
-                      p.l="Возраст"
-                      p.r="с {{item.ALS.age}} {{$assets.getNameCoint(parseInt(item.ALS.age), 'год', 'года', 'лет')}}"
+                      p.l="{{$t('cwd17')}}"
+                      p.r="с {{item.ALS.age}} {{$assets.getNameCoint(parseInt(item.ALS.age), $t('cwd23'), $t('cwd24'), $t('cwd25'))}}"
                     div.item-info
-                      p.l="Стаж"
-                      p.r="не менее {{item.ALS.staff}} {{$assets.getNameCoint(parseInt(item.ALS.staff), 'год', 'года', 'лет')}}"
+                      p.l="{{$t('cwd18')}}"
+                      p.r="{{$t('cwd19')}} {{item.ALS.staff}} {{$assets.getNameCoint(parseInt(item.ALS.staff), $t('cwd23'), $t('cwd24'), $t('cwd25'))}}"
                     div.item-info
-                      p.l="Залог"
-                      p.r="{{item.car_data.zalog}} рублей"
+                      p.l="{{$t('cwd20')}}"
+                      p.r="{{item.car_data.zalog}} {{$t('cwd26')}}"
                     div.item-info
-                      p.l="Пробег"
-                      p.r="без ограничений"
+                      p.l="{{$t('cwd21')}}"
+                      p.r="{{$t('cwd22')}}"
                   div(v-html="$assets.generate_text_conditions(item.self_data.text_conditions_bottom)")
                 div.py-2
-                  h3="Необходимые документы"
-                  div(v-html="$assets.generate_text_docs(item.self_data.text_docs)")
+                  h3="{{$t('bc7')}}"
+                  div(v-html="$assets.generate_text_docs(item.self_data.text_docs, $i18n.locale)")
                 div.py-2
-                  h3="Подача/Прием автомобиля"
+                  h3="{{$t('bc2')}}"
                   div.points
                     div(v-for="(point, idx) in points" :key="idx").item-info
-                      p.l="{{point.point_name}}"
-                      p.r(v-html="point.price > 0 ? point.price+'₽' : 'Бесплатно'")
+                      p.l="{{$t(point.point_name)}}"
+                      p.r(v-html="point.price > 0 ? point.price+'₽' : $t('bocid2')")
                 div.py-2
-                  h3.m-0="Характеристики"
+                  h3.m-0="{{$t('cwd9')}}"
                   div.py-1
                     b-row.features-list-icos
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.bag(v-html="`${$assets.getBagsData(item.tth.bags, item.tth.bigbag)}`")
+                        span.bag(v-html="`${$assets.getBagsData(item.tth.bags, item.tth.bigbag, $i18n.locale)}`")
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.pass='{{item.tth.passa}} пассажиров'
+                        span.pass='{{$assets.getPassa(item.tth.passa, $i18n.locale) }}'
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.dors='{{ $assets.getDoors(item.tth.dors) }}'
+                        span.dors='{{ $assets.getDoors(item.tth.dors, $i18n.locale) }}'
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.temp='{{item.tth.klimat}}'
+                        span.temp='{{$t(item.tth.klimat)}}'
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.benz='{{item.tth.rashod}}л/100км'
+                        span.benz="{{item.tth.rashod}}{{$t('p2')}}"
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.gear='{{item.car_data.kpp}}'
+                        span.gear='{{$t(item.car_data.kpp)}}'
                   div(v-html="$assets.generate_text_tth(item.self_data.text_tth_bottom)")
           order-small-form(:places="points" :carName="item.self_data.title" typeOrder="посуточная аренда")
           hr
@@ -116,15 +118,15 @@
           let s2 = this.item.car_data.stoimost - ((this.item.car_data.stoimost/ 100) * this.item.car_data.skidka_2);
           data = [
             {
-              text: '1 сутки',
+              text: `1 ${this.$t('cwod7')}`,
               value: this.$assets.toMoney(this.item.car_data.stoimost)
             },
             {
-              text: 'от 3 до 6 суток',
+              text: `${this.$t('cwd27')} 3 ${this.$t('cwd28')} 6 ${this.$t('cwd29')}`,
               value: this.$assets.toMoney(s1),
             },
             {
-              text: 'от 7 суток',
+              text: `${this.$t('cwd27')} 7 ${this.$t('cwd29')}`,
               value: this.$assets.toMoney(s2),
             },
           ]
@@ -134,12 +136,12 @@
       bcItems(){
         let crumbs = [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Аренда авто в Сочи',
-            to: '/rent/'
+            text: this.$t('breadcrumbs12'),
+            to: { name: this.$assets.prefix('rent', this.$i18n.locale) }
           }
         ];
         if (this.loaded) {
@@ -225,7 +227,8 @@
       padding-left: 5px
       margin: 0
       font-size: 14px
-
+  .bblack
+    background-color: #222222
   .points
     .item-info
       @media screen and (max-width: 1200px)

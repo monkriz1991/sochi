@@ -4,29 +4,29 @@
     main.py-3
       div.container
         BreadCrumbs(:items="bc")
-        h1="Контактная информация"
+        h1="{{$t('contacts1')}}"
         b-row.mb-5
           b-col(sm="12" md="6" lg="6")
             div#form-feedback
-              h3="Обратная связь"
-              b-form-group.mb-0(description="Введите Ваше имя")
-                b-form-input(v-model="feedback.name" placeholder="ФИО")
-              b-form-group.mb-0( description="Введите Ваш телефон")
-                vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: 'Код страны',countrySelectorError: 'Неверный выбор',phoneNumberLabel: 'Номер телефона',example: 'Пример :'}")
-              b-form-group.mb-0( description="Введите Ваш e-mail")
+              h3="{{$t('contacts2')}}"
+              b-form-group.mb-0(:description="$t('contacts3')")
+                b-form-input(v-model="feedback.name" :placeholder="$t('contacts4')")
+              b-form-group.mb-0( :description="$t('contacts5')")
+                vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
+              b-form-group.mb-0( :description="$t('contacts10')")
                 b-form-input(v-model="feedback.email" placeholder="e-mail")
-              b-form-group.mb-0( description="Введите Вашe сообщение")
-                b-form-textarea(v-model="feedback.message" placeholder="сообщение")
-              a(role="button" @click="submitFeedback").btn.main.w-100="Отправить"
+              b-form-group.mb-0( :description="$t('contacts11')")
+                b-form-textarea(v-model="feedback.message" :placeholder="$t('contacts12')")
+              a(role="button" @click="submitFeedback").btn.main.w-100="{{$t('contacts13')}}"
 
           b-col(sm="12" md="6" lg="6")
             div#info-contacts
-              h3="Контакты"
+              h3="{{$t('contacts14')}}"
               p.m-0
-                strong="Наш адрес:"
-              div(v-html="settings.address_in_contacts").pt-1.pb-3
+                strong="{{$t('contacts15')}}"
+              div(v-html="$t(settings.address_in_contacts)").pt-1.pb-3
               p
-                strong="Телефон: "
+                strong="{{$t('contacts16')}}"
                 a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`").mgo-number="{{settings.main_phone}}"
               p
                 strong="E-mail: "
@@ -36,11 +36,11 @@
                 span.wa.ico-mess
                 span.vb.ico-mess
                 span=": +7 (988) 282-97-97"
-              p.m-0="Мы работаем для Вас ежедневно, круглосуточно"
-              p.m-0="Прием и выдача автомобилей в нерабочее время осуществляется БЕСПЛАТНО"
+              p.m-0="{{$t('contacts17')}}"
+              p.m-0="{{$t('contacts18')}}"
         div
           hr
-          h2.mb-3="Карта проезда:"
+          h2.mb-3="{{$t('contacts19')}}"
     yandex-map(
       :coords="coords"
       :zoom="18")#map
@@ -79,11 +79,11 @@
         },
         bc: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Контакты',
+            text: this.$t('breadcrumbs3'),
             active: true
           }
         ],

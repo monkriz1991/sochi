@@ -4,32 +4,32 @@
     main.py-3
       div.container
         BreadCrumbs(:items="bcItems")
-        h1="Условия долгосрочной аренды"
+        h1="{{$t('faq12')}}"
         div.conditions
           div.my-5
             b-row
-              b-col(sm="12" md="6" lg="3" v-for="(ci, cidx) in conditions" :key="cidx")
+              b-col(sm="12" md="6" lg="3" v-for="(ci, cidx) in conditions[$i18n.locale]" :key="cidx")
                 div.condition
                   div(v-bind:class="ci.class_name").ico
                   div.text
                     h6="{{ci.title}}"
                     p.ci-text="{{ci.text}}"
         p
-          |Часто задаваемые
-          nuxt-link(to="/about/faq/")=" вопросы по аренде "
-          |автомобиля.
-        h3="Необходимые документы"
+          |{{$t('bc8')}}
+          nuxt-link(:to="{name: $assets.prefix('about-faq', $i18n.locale)}")=" {{$t('bc9')}} "
+          |{{$t('bc10')}}
+        h3="{{$t('bc7')}}"
         p.mb-1
-          strong.text-uppercase="- для граждан РФ: "
-          |Паспорт РФ, действующая прописка, Водительское удостоверение
-        p.mb-5
-          strong.text-uppercase="- для иностранных граждан: "
-          |Заграничный паспорт, Водительское удостоверение международного образца
+          strong.text-uppercase="- {{$t('bc5')}} "
+          |{{$t('bc6')}}
+        p.mb-1
+          strong.text-uppercase="- {{$t('bc3')}} "
+          |{{$t('bc4')}}
         div.clearfix
         div(v-if="loaded")
-          h2="Предложния по долгосрочной аренде"
+          h2="{{$t('faq13')}}"
           div(v-for="card in filteredList" :key="card.raw.id").row_card
-            div.badge(v-html="`от ${calcMonth(card.cd.stoimost)}₽/месяц`")
+            div.badge(v-html="`${$t('ltr8')} ${calcMonth(card.cd.stoimost)}₽/${$t('ltr7')}`")
             b-row
               b-col(sm="12" md="6" lg="4")
                 div(v-bind:style="{backgroundImage: `url(${card.cd.car_image})`}").preview
@@ -38,42 +38,42 @@
                   h3="{{card.cd.naimenovanie}} {{card.cd.godvypuska}}"
                   div.item-content
                     div.info_lap
-                      p.l="Год выпуска:"
+                      p.l="{{$t('aoc2')}}"
                       p.r="{{card.cd.godvypuska}}"
                     div.info_lap
-                      p.l="КПП:"
-                      p.r="{{card.cd.kpp}}"
+                      p.l="{{$t('aoc7')}}"
+                      p.r="{{$t(card.cd.kpp)}}"
                     div.info_lap
-                      p.l="Топливо:"
-                      p.r="{{card.cd.toplivo}}"
+                      p.l="{{$t('aoc8')}}"
+                      p.r="{{$t(card.cd.toplivo)}}"
                     div.info_lap
-                      p.l="Двигатель:"
-                      p.r(v-html="`${card.cd.dvigatel}л.`")
+                      p.l="{{$t('aoc9')}}"
+                      p.r(v-html="`${card.cd.dvigatel}${$t('p1')}.`")
                     div.info_lap
-                      p.l="Цвет:"
-                      p.r="{{card.cd.cvet}}"
+                      p.l="{{$t('aoc10')}}"
+                      p.r="{{$t(card.cd.cvet)}}"
                   div.devider
                   div.actions
                     b-row
                       b-col(sm="12" md="12" lg="8").limits
-                        p.heading="Стоимость"
+                        p.heading="{{$t('ltr6')}}"
                         p.prices
-                          span.old_price="{{card.cd.stoimost}}₽/сутки"
-                          span.new_price="{{genNewPrice(card.cd.stoimost)}}₽/сутки"
+                          span.old_price="{{card.cd.stoimost}}₽/{{$t('cwod7')}}"
+                          span.new_price="{{genNewPrice(card.cd.stoimost)}}₽/{{$t('cwod7')}}"
                       b-col(sm="12" md="12" lg="4").py-1
-                        nuxt-link(:to="`/long_term_rental/${card.cd['1cID']}`").btn.main.w-100="ЗАБРОНИРОВАТЬ"
-                        b-button(@click="showModal(card.cd['1cID'])").btn.cancel.w-100="УЗНАТЬ ДЕТАЛИ"
+                        nuxt-link(:to="{name: $assets.prefix('long_term_rental-gosnomer', $i18n.locale), params: {gosnomer: card.cd['1cID']} }").btn.main.w-100="{{$t('ltr5')}}"
+                        b-button(@click="showModal(card.cd['1cID'])").btn.cancel.w-100="{{$t('ltr4')}}"
                   b-modal(:id="card.cd['1cID']" hide-footer hide-header)
-                    h5.text-center="Долгосрочное бронирование - {{card.cd.naimenovanie}}"
-                    b-form-group.mb-0(description="Введите Ваше имя")
-                      b-form-input(v-model="name" placeholder="ФИО")#callback_name
-                    b-form-group.mb-0( description="Введите Ваш телефон")
-                      vue-phone-number-input(@input="onPhoneChange(`phoneInput_${card.cd['1cID']}`)" :ref="`phoneInput_${card.cd['1cID']}`" v-model="ph" id="callback_phone" :clearable="true" :translations="{countrySelectorLabel: 'Код страны',countrySelectorError: 'Неверный выбор',phoneNumberLabel: 'Номер телефона',example: 'Пример :'}")
+                    h5.text-center="$t('ltr3') - {{card.cd.naimenovanie}}"
+                    b-form-group.mb-0(:description="$t('cb2')")
+                      b-form-input(v-model="name" :placeholder="$t('cb3')")#callback_name
+                    b-form-group.mb-0( :description="$t('cb4')")
+                      vue-phone-number-input(@input="onPhoneChange(`phoneInput_${card.cd['1cID']}`)" :ref="`phoneInput_${card.cd['1cID']}`" v-model="ph" id="callback_phone" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
                     b-row
                       b-col(sm="12" md="6" lg="6")
-                        a(role="button" @click="hideModal(card.cd['1cID'])").btn.cancel.w-100="Отмена"
+                        a(role="button" @click="hideModal(card.cd['1cID'])").btn.cancel.w-100="{{$t('ltr2')}}"
                       b-col(sm="12" md="6" lg="6")
-                        a(role="button" @click="submitModal(card.cd.naimenovanie, card.cd['1cID'])").btn.main.w-100="Забронировать"
+                        a(role="button" @click="submitModal(card.cd.naimenovanie, card.cd['1cID'])").btn.main.w-100="{{$t('ltr1')}}"
         div(v-else)
           loader
 </template>
@@ -105,36 +105,60 @@
         lt_cards:[],
         bcItems: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Долгосрочная аренда',
+            text: this.$t('breadcrumbs15'),
             active: true
           }
         ],
-        conditions: [
-          {
-            title: 'Возраст водителя',
-            text: 'с 26 лет',
-            class_name: 'cond_1'
-          },
-          {
-            title: 'Стаж',
-            text: 'не менее 5ти лет',
-            class_name: 'cond_2'
-          },
-          {
-            title: 'Залог на автомобиль',
-            text: 'от 5000₽',
-            class_name: 'cond_3'
-          },
-          {
-            title: 'Пробег/Перепробег',
-            text: '3000 км / от 3₽ - 1 км',
-            class_name: 'cond_4'
-          },
-        ],
+        conditions: {
+          en: [
+            {
+              title: 'Driver age',
+              text: 'from 26 y.o',
+              class_name: 'cond_1'
+            },
+            {
+              title: 'Experience',
+              text: 'more then 5 years',
+              class_name: 'cond_2'
+            },
+            {
+              title: 'Pledge for car',
+              text: 'from 5000₽',
+              class_name: 'cond_3'
+            },
+            {
+              title: 'Meliage/OverMeliage',
+              text: '3000km / from 3₽ - 1km',
+              class_name: 'cond_4'
+            },
+          ],
+          ru: [
+            {
+              title: 'Возраст водителя',
+              text: 'с 26 лет',
+              class_name: 'cond_1'
+            },
+            {
+              title: 'Стаж',
+              text: 'не менее 5ти лет',
+              class_name: 'cond_2'
+            },
+            {
+              title: 'Залог на автомобиль',
+              text: 'от 5000₽',
+              class_name: 'cond_3'
+            },
+            {
+              title: 'Пробег/Перепробег',
+              text: '3000 км / от 3₽ - 1 км',
+              class_name: 'cond_4'
+            },
+          ]
+        },
       }
     },
     computed:{

@@ -50,16 +50,16 @@
       bcItems(){
         let items = [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'О компании',
-            to: '/about'
+            text: this.$t('breadcrumbs4'),
+            to: { name: this.$assets.prefix('about', this.$i18n.locale) }
           },
           {
-            text: 'Мероприятия',
-            to: '/about/events'
+            text: this.$t('breadcrumbs7'),
+            to: { name: this.$assets.prefix('about-events', this.$i18n.locale) }
           }
         ];
         if (this.loaded){

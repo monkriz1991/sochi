@@ -10,34 +10,34 @@
                 div.info_part.mt-2
                   b-o-image-slider(:items="images")
                   div.p-3.info-inside.wbb
-                    p.auto-class.m-0="{{car_data.klassavtomobilya}}"
+                    p.auto-class.m-0="{{$t(car_data.klassavtomobilya)}}"
                     h1="{{car_data.naimenovanie}}"
                     div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365'").py-2
                       b-row.features-list-icos
                         b-col(sm="12" md="6" lg="4").features-list-block
-                          span.bag(v-html="`${$assets.getBagsData(car_data.bags, car_data.bigbag)}`")
+                          span.bag(v-html="`${$assets.getBagsData(car_data.bags, car_data.bigbag, $i18n.locale)}`")
                         b-col(sm="12" md="6" lg="4").features-list-block
-                          span.pass='{{car_data.passa}} пассажиров'
+                          span.pass='{{$assets.getPassa(car_data.passa, $i18n.locale) }}'
                         b-col(sm="12" md="6" lg="4").features-list-block
-                          span.dors='{{ $assets.getDoors(car_data.dors) }}'
+                          span.dors='{{ $assets.getDoors(car_data.dors, $i18n.locale) }}'
                         b-col(sm="12" md="6" lg="4").features-list-block
-                          span.temp='{{car_data.klimat}}'
+                          span.temp='{{$t(car_data.klimat)}}'
                         b-col(sm="12" md="6" lg="4").features-list-block
-                          span.benz='{{car_data.rashod}}л/100км'
+                          span.benz="{{car_data.rashod}}{{$t('p2')}}"
                         b-col(sm="12" md="6" lg="4").features-list-block
-                          span.gear='{{car_data.kpp}}'
+                          span.gear='{{$t(car_data.kpp)}}'
                     div.py-1
-                      span(v-for="(f, fdx) in car_data.features_options" v-bind:key="fdx" v-html="f.name").badge_feature
+                      span(v-for="(f, fdx) in car_data.features_options" v-bind:key="fdx" v-html="$t(f.name)").badge_feature
                   div.p-3.info-inside.wbb
                     div.garant
                       div.grant-item
                         div
-                          p.m-0='Мы гарантируем именно выбранный вами автомобиль и его стоимость'
+                          p.m-0="{{$t('bocid6')}}"
                   div(v-if="car_data.naimenovanie === 'Xiaomi MiJia Electric Scooter M365'").p-3.info-inside.wbb
                     div.option
                       div.option-item.mt-2.mb-0
-                        h4="ОПЦИЯ"
-                        h4="СТОИМОСТЬ"
+                        h4="{{$t('bocid3')}}"
+                        h4="{{$t('bocid4')}}"
                       hr.mt-0.mb-3
                     div(v-for="(o, odx) in options" :key="odx" v-if="o.option_name === 'Защита Бронирования'").option
                       div.option-item.my-2
@@ -46,22 +46,22 @@
                             a(v-if="o.photos" @click.prevent="$bvModal.show(`bv-modal-${o.id}`)").hidden_info
                             b-modal(v-if="o.photos"  :id="`bv-modal-${o.id}`" hide-footer hide-header)
                               b-o-image-slider(:items="o.photos")
-                            |{{o.option_name}}
-                          span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{o.option_description}}"
-                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="В связи с COVID-19 опция выезд в Абхазию временно не доступна, уточняйте информацию у менеджера."
+                            |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
+                          span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{$i18n.locale === 'ru' ? o.option_description : o.option_description_eng}}"
+                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="{{$t('covid')}}"
                         span.text-right.position-relative
                           b-form-select(v-model="o.quantity" v-if="o.value && o.count > 1").w-10
                             option(v-for="i in o.count" :key="i")="{{i}}"
                           span(v-if="o.old_price" v-html="`${gen_sum(o.old_price, o.quantity)}₽`").old_price
-                            span(v-html="o.type === 'day' ? '/сутки':''")
+                            span(v-html="o.type === 'day' ? '/'+$t('aoc1'):''")
                           b(v-html="gen_sum_price(o.price, o.old_price, o.quantity)")
-                          span(v-if="o.price > 0"  v-html="o.price_type === 'day' ? '/сутки':''")
+                          span(v-if="o.price > 0"  v-html="o.price_type === 'day' ? '/'+$t('aoc1'):''")
                       hr(v-if="(odx+1) !== options.length").cbt
                   div(v-else).p-3.info-inside.wbb
                     div.option
                       div.option-item.mt-2.mb-0
-                        h4="ОПЦИЯ"
-                        h4="СТОИМОСТЬ"
+                        h4="{{$t('bocid3')}}"
+                        h4="{{$t('bocid4')}}"
                       hr.mt-0.mb-3
                     div(v-for="(o, odx) in options" :key="odx").option
                       div(v-if="o.has_childs")
@@ -69,11 +69,11 @@
                           div.info
                             img(:src="angle" v-bind:class="{in: o.value}")
                             p
-                              |{{o.option_name}}
+                              |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
                           div.price
-                            span="от "
-                            b(v-html="o.price ? o.price+\"₽\" : \"Бесплатно\"")
-                            span(v-if="o.price > 0"  v-html="o.price_type === 'day' ? '/сутки':''")
+                            span="{{$t('bocid1')}} "
+                            b(v-html="o.price ? o.price+\"₽\" : $t('bocid2')")
+                            span(v-if="o.price > 0"  v-html="o.price_type === 'day' ? '/'+$t('aoc1'):''")
                         b-collapse(:id="`ido-${o.id}`" v-model="o.value" class="mt-4")
                           div(v-for="(so, sodx) in o.sub_items" :key="sodx")
                             div.option-item.my-2.px-2
@@ -82,14 +82,14 @@
                                   a(v-if="so.photos" @click.prevent="$bvModal.show(`bv-modal-${so.id}`)").hidden_info
                                   b-modal(v-if="so.photos"  :id="`bv-modal-${so.id}`" hide-footer hide-header)
                                     b-o-image-slider(:items="so.photos")
-                                  |{{so.option_name}}
+                                  |{{$i18n.locale === 'ru' ? so.option_name : so.option_name_eng}}
                               span.text-right.position-relative
                                 b-form-select(v-model="so.quantity" v-if="so.value && so.count > 1").w-10
                                   option(v-for="i in so.count" :key="i")="{{i}}"
                                 span(v-if="so.old_price" v-html="`${gen_sum(so.old_price, so.quantity)}₽`").old_price
-                                  span(v-html="so.type === 'day' ? '/сутки':''")
+                                  span(v-html="so.type === 'day' ? '/'+$t('aoc1'):''")
                                 b(v-html="gen_sum_price(so.price, so.old_price, so.quantity)")
-                                span(v-if="so.price > 0"  v-html="so.price_type === 'day' ? '/сутки':''")
+                                span(v-if="so.price > 0"  v-html="so.price_type === 'day' ? '/'+$t('aoc1'):''")
                             hr(v-if="(sodx+1) !== o.sub_items.length").cbt
                       div(v-else).option-item.my-2
                         b-form-checkbox(v-model="o.value" v-bind="{disabled: $assets.checkAbhazAvailable(o.option_name, userData.df)}").lp-checkbox
@@ -97,57 +97,57 @@
                             a(v-if="o.photos" @click.prevent="$bvModal.show(`bv-modal-${o.id}`)").hidden_info
                             b-modal(v-if="o.photos"  :id="`bv-modal-${o.id}`" hide-footer hide-header)
                               b-o-image-slider(:items="o.photos")
-                            |{{o.option_name}}
-                          span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{o.option_description}}"
-                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="В связи с COVID-19 опция выезд в Абхазию временно не доступна, уточняйте информацию у менеджера."
+                            |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
+                          span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{$i18n.locale === 'ru' ? o.option_description : o.option_description_eng}}"
+                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="{{$t('covid')}}"
                         span.text-right.position-relative
                           b-form-select(v-model="o.quantity" v-if="o.value && o.count > 1").w-10
                             option(v-for="i in o.count" :key="i")="{{i}}"
                           span(v-if="o.old_price" v-html="`${gen_sum(o.old_price, o.quantity)}₽`").old_price
-                            span(v-html="o.type === 'day' ? '/сутки':''")
+                            span(v-html="o.type === 'day' ? '/'+$t('aoc1'):''")
                           b(v-html="gen_sum_price(o.price, o.old_price, o.quantity)")
-                          span(v-if="o.price > 0"  v-html="o.price_type === 'day' ? '/сутки':''")
+                          span(v-if="o.price > 0"  v-html="o.price_type === 'day' ? '/'+$t('aoc1'):''")
                       hr(v-if="(odx+1) !== options.length").cbt
                   div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365'").p-3.info-inside.wbb
-                    h4="ПРОБЕГ"
+                    h4="{{$t('bocid12')}}"
                     b-form-group
                       b-row
                         b-col(sm="12" md="6" lg="6")
-                          b-form-radio(v-model="is_limit" name="some-radios" :value="true")="Лимитрированный пробег 100км/сутки"
+                          b-form-radio(v-model="is_limit" name="some-radios" :value="true")="{{$t('bocid20')}}"
                         b-col(sm="12" md="6" lg="6")
-                          b-form-radio(v-model="is_limit" name="some-radios" :value="false")="Без ограничений по пробегу"
+                          b-form-radio(v-model="is_limit" name="some-radios" :value="false")="{{$t('bocid21')}}"
                     div
                       p
-                        |Берете автомобиль в аренду, но не планируете совершать дальние поездки? Тогда у вас есть отличный шанс
-                        b=" снизить стоимость аренды на 15%. "
-                        |Для получения скидки вам необходимо будет просто включить ограничение пробега до 100 км/сутки. Пробег
-                        b=" суммируется "
-                        |за весь период аренды.
+                        |{{$t('bocid15')}}
+                        b="{{$t('bocid16')}}"
+                        |{{$t('bocid17')}}
+                        b="{{$t('bocid18')}}"
+                        |{{$t('bocid19')}}
                   div.p-3.info-inside
-                    h4="ОБЩАЯ СТОИМОСТЬ"
+                    h4="{{$t('bocid7')}}"
                     div.price_string
-                      h5.text-black-50="ЗА ВЕСЬ ПЕРИОД:"
+                      h5.text-black-50="{{$t('bocid8')}}"
                       h5.text-black-50
                         span(v-if="is_limit").old_price="{{period_sum_before_sale}}₽"
                         |{{period_sum}}₽
                     div.price_string
-                      h5.text-black-50="ЗА ДОП.ОПЦИИ:"
+                      h5.text-black-50="{{$t('bocid9')}}"
                       h5.text-black-50="{{options_price}}₽"
                     div.price_string(v-if="priceOfPlace > 0")
-                      h5.text-black-50="ПОДАЧА АВТО:"
+                      h5.text-black-50="{{$t('bocid10')}}"
                       h5.text-black-50="{{priceOfPlace}}₽"
                     div.price_string(v-if="priceOfPlaceCompack > 0")
-                      h5.text-black-50="ВОЗВРАТ АВТО:"
+                      h5.text-black-50="{{$t('bocid11')}}"
                       h5.text-black-50="{{priceOfPlaceCompack}}₽"
                     div.price_string(v-if="is_limit")
-                      h5.text-black-50="ПРОБЕГ:"
-                      h5.text-black-50="{{limit_distance}}км"
+                      h5.text-black-50="{{$t('bocid12')}}"
+                      h5.text-black-50="{{limit_distance}}{{$t('p3')}}"
                     div.price_string
-                      h5="К ОПЛАТЕ ОНЛАЙН:"
+                      h5="{{$t('bocid13')}}"
                       h5="{{online_sum}}₽"
                     hr
                     div.price_string
-                      h5="ИТОГО:"
+                      h5="{{$t('bocid14')}}"
                       h5="{{total_sum}}₽"
               b-col(sm="12" md="12" lg="6")
                 form(ref="form" id="pay-y" name=ShopForm method="POST" action="https://money.yandex.ru/eshop.xml").form_part
@@ -160,18 +160,18 @@
                     input(name="sum" v-model="online_sum" type="hidden")
                     input(name="CustomerNumber" value="" type="hidden")
                     input(name="ym_merchant_receipt" v-model="reciept" type="hidden" required="required")
-                    h3="Данные бронирования:"
+                    h3="{{$t('bocid36')}}"
                     b-row
                       b-col(sm="12" md="12" lg="6")
-                        b-form-group(description="Дата подачи")
+                        b-form-group(:description="$t('s12')")
                           datetime(
                             type="datetime"
-                            placeholder="Дата по"
+                            :placeholder="$t('s12')"
                             v-model="userData.df"
                             format="yyyy-MM-dd HH:mm"
                             :week-start="1"
                             :minute-step="10"
-                            :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+                            :phrases="{ok: $t('s15'), cancel: $t('s16')}"
                             :min-datetime="userData.df"
                             :max-datetime="userData.df"
                             :zone="'Europe/Moscow'"
@@ -181,15 +181,15 @@
                             :readonly="true"
                           )
                       b-col(sm="12" md="12" lg="6")
-                        b-form-group(description="Дата возврата")
+                        b-form-group(:description="$t('s13')")
                           datetime(
                             type="datetime"
-                            placeholder="Дата по"
+                            :placeholder="$t('s13')"
                             v-model="userData.dt"
                             format="yyyy-MM-dd HH:mm"
                             :week-start="1"
                             :minute-step="10"
-                            :phrases="{ok: 'Продолжить', cancel: 'Отмена'}"
+                            :phrases="{ok: $t('s15'), cancel: $t('s16')}"
                             :min-datetime="userData.dt"
                             :max-datetime="userData.dt"
                             :zone="'Europe/Moscow'"
@@ -204,52 +204,52 @@
                       b-col(sm="12" md="12" lg="12")
                         div.option
                           div.option-item.mb-2
-                            b-form-checkbox(v-model="is_same_comeback").lp-checkbox="Возврат в том же месте"
+                            b-form-checkbox(v-model="is_same_comeback").lp-checkbox="{{$t('bocid35')}}"
                       b-col(sm="12" md="12" lg="12")
                         b-form-group(v-if="!is_same_comeback")
                           b-form-select(v-model="userData.place_comeback" :options="placeOptions")
-                    h3="Ваши данные:"
-                    h5="ФИО"
+                    h3="{{$t('bocid34')}}"
+                    h5="{{$t('bocid33')}}"
                     b-row
                       b-col(sm="12" md="12" lg="4")
                         b-form-group
-                          b-form-input(placeholder="Фамилия" v-model="userData.surname" @input="clearErrors")
+                          b-form-input(:placeholder="$t('bocid32')" v-model="userData.surname" @input="clearErrors")
                       b-col(sm="12" md="12" lg="4")
                         b-form-group
-                          b-form-input(placeholder="Имя" v-model="userData.name" @input="clearErrors")
+                          b-form-input(:placeholder="$t('bocid31')" v-model="userData.name" @input="clearErrors")
                       b-col(sm="12" md="12" lg="4")
                         b-form-group
-                          b-form-input(placeholder="Отчество" v-model="userData.fathername" @input="clearErrors")
-                    h5="Контактные данные"
+                          b-form-input(:placeholder="$t('bocid30')" v-model="userData.fathername" @input="clearErrors")
+                    h5="{{$t('bocid29')}}"
                     b-row
                       b-col(sm="12" md="12" lg="12")
                         b-form-group
-                          vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: 'Код страны',countrySelectorError: 'Неверный выбор',phoneNumberLabel: 'Номер телефона',example: 'Пример :'}")
+                          vue-phone-number-input(@input="onPhoneChange" ref="phoneInput" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
                       b-col(sm="12" md="12" lg="12")
                         b-form-group
                           b-form-input(placeholder="E-mail" v-model="userData.email" @input="clearErrors")
                       b-col(sm="12" md="12" lg="12")
                         b-form-group
-                          b-form-textarea(placeholder="Комментарий" v-model="userData.comment" @input="clearErrors")
+                          b-form-textarea(:placeholder="$t('bocid28')" v-model="userData.comment" @input="clearErrors")
                       b-col(v-if="car_data.zalog > 0" sm="12" md="12" lg="12")
                         div.option
                           div.option-item.my-2
-                            b="Залог: {{car_data.zalog}}₽"
+                            b="{{$t('bocid27')}} {{car_data.zalog}}₽"
                       b-col(sm="12" md="12" lg="12")
                         div.option
                           div.option-item.my-2
-                            b-form-checkbox(v-model="is_promocode").lp-checkbox="У вас есть промокод?"
+                            b-form-checkbox(v-model="is_promocode").lp-checkbox="{{$t('bocid26')}}"
                       b-col(sm="12" md="12" lg="12")
                         b-form-group(v-if="is_promocode")
-                          b-form-input(placeholder="Промокод" v-model="userData.promocode")
+                          b-form-input(:placeholder="$t('bocid25')" v-model="userData.promocode")
                       b-col(sm="12" md="12" lg="12" v-if="errors.length")
                         div.errors-block
-                          h6="Обнаружены ошибки"
+                          h6="{{$t('bocid24')}}"
                           p(v-for="(e, edx) in errors" :key="edx" v-html="e").error.m-0
                       b-col(sm="12" md="12" lg="6")
-                        a(role="button" @click="onSubmitOrder").btn.cancel.main.w-100="ЗАБРОНИРОВАТЬ"
+                        a(role="button" @click="onSubmitOrder").btn.cancel.main.w-100="{{$t('bocid23')}}"
                       b-col(sm="12" md="12" lg="6")
-                        a(role="button" @click="onSubmitOrder").btn.main.w-100="ОПЛАТИТЬ"
+                        a(role="button" @click="onSubmitOrder").btn.main.w-100="{{$t('bocid22')}}"
           div(v-else).my-5.py-5
             loader
 </template>
@@ -441,11 +441,11 @@
       bcItems(){
         let crumbs = [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'Онлайн бронирование',
+            text: this.$t('breadcrumbs14'),
           }
         ];
         if (this.loaded) {
@@ -486,7 +486,7 @@
           if(p > 0){
             return `${p}₽`
           }else{
-            return "Бесплатно"
+            return this.$t('bocid2');
           }
         }
       },
@@ -640,7 +640,7 @@
               result.data.data.map(el => {
                 res.push({
                   value: el.id,
-                  text: `${el.point_name}${el.price > 0 ? ` - ${el.price}р` : ''}`
+                  text: `${this.$t(el.point_name)}${el.price > 0 ? ` - ${el.price}₽` : ''}`
                 })
               });
               this.placeOptions = res;

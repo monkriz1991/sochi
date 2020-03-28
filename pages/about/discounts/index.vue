@@ -11,13 +11,12 @@
                 about-sidebar-menu
           b-col(sm="12" md="9" lg="9")
             article
-              h1="Дополнительные скидки"
+              h1="{{$t('faq3')}}"
               div
-                div(v-for="(i, idx) in discounts" :key="idx").discount.my-3
+                div(v-for="(i, idx) in discounts[$i18n.locale]" :key="idx").discount.my-3
                   h6(v-html="i.title").mb-1
                   p(v-html="i.desc")
-              h4.text-center="Спешим напомнить Вам о том, что все Дополнительные скидки суммируются."
-
+              h4.text-center="{{$t('faq5')}}"
 </template>
 
 <script>
@@ -42,40 +41,64 @@
       return {
         bcItems: [
           {
-            text: 'Главная страница',
-            to: '/'
+            text: this.$t('breadcrumbs1'),
+            to: { name: this.$assets.prefix('index', this.$i18n.locale) }
           },
           {
-            text: 'О компании',
-            to: '/about'
+            text: this.$t('breadcrumbs4'),
+            to: { name: this.$assets.prefix('about', this.$i18n.locale) }
           },
           {
-            text: 'Акции',
+            text: this.$t('breadcrumbs5'),
             active: true
           }
         ],
-        discounts: [
-          {
-            title: "Дополнительная скидка 3% на аренду любого автомобиля для предъявителей брони из отеля или санатория.",
-            desc: "Для получения скидки Вам необходимо предъявить нашему менеджеру отдела бронирования ваучер на проживание в отеле, пансионате или санатории, либо направить его заблаговременно по электронной почте или любым другим удобным для Вас способом."
-          },
-          {
-            title: "Дополнительная скидка 3% на аренду любого автомобиля для участников программы Аэрофлот Бонус уровня Elit Plus.",
-            desc: "Для получения скидки Вам необходимо подтвердить свою причастность к программе, предъявив нашему менеджеру отдела бронирования карту участника и сообщив о ней предварительно любым удобным для Вас способом."
-          },
-          {
-            title: "Дополнительная скидка 3% на аренду любого автомобиля для наших подписчиков в социальных сетях.",
-            desc: "Для получения скидки Вам необходимо подтвердить свою причастность к любой группе нашей компании в социальных сетях менеджеру отдела бронирования и написать краткий отзыв о Вашем путешествии в Сочи."
-          },
-          {
-            title: "Дополнительная скидка 3% на аренду любого автомобиля для путешественников с детьми.",
-            desc: "Для получения скидки Вам необходимо предъявить копию авиабилета на ребенка (или ваучер из отеля на семейный номер) и его свидетельство о рождении. В Акции принимают участие дети до 7 лет."
-          },
-          {
-            title: "Уникальная акция! Мгновенный Кэшбэк в размере 3% от суммы платежа.",
-            desc: "Для участия в Акции необходимо сообщить менеджеру отдела бронирования о Вашем желании оплатить аренду автомобиля наличными. Кэшбэк можно получить мгновенно, сразу после подписания Договора аренды. В акции принимают участие все автомобили из нашего автопарка."
-          }
-        ]
+        discounts: {
+          ru: [
+            {
+              title: "Дополнительная скидка 3% на аренду любого автомобиля для предъявителей брони из отеля или санатория.",
+              desc: "Для получения скидки Вам необходимо предъявить нашему менеджеру отдела бронирования ваучер на проживание в отеле, пансионате или санатории, либо направить его заблаговременно по электронной почте или любым другим удобным для Вас способом."
+            },
+            {
+              title: "Дополнительная скидка 3% на аренду любого автомобиля для участников программы Аэрофлот Бонус уровня Elit Plus.",
+              desc: "Для получения скидки Вам необходимо подтвердить свою причастность к программе, предъявив нашему менеджеру отдела бронирования карту участника и сообщив о ней предварительно любым удобным для Вас способом."
+            },
+            {
+              title: "Дополнительная скидка 3% на аренду любого автомобиля для наших подписчиков в социальных сетях.",
+              desc: "Для получения скидки Вам необходимо подтвердить свою причастность к любой группе нашей компании в социальных сетях менеджеру отдела бронирования и написать краткий отзыв о Вашем путешествии в Сочи."
+            },
+            {
+              title: "Дополнительная скидка 3% на аренду любого автомобиля для путешественников с детьми.",
+              desc: "Для получения скидки Вам необходимо предъявить копию авиабилета на ребенка (или ваучер из отеля на семейный номер) и его свидетельство о рождении. В Акции принимают участие дети до 7 лет."
+            },
+            {
+              title: "Уникальная акция! Мгновенный Кэшбэк в размере 3% от суммы платежа.",
+              desc: "Для участия в Акции необходимо сообщить менеджеру отдела бронирования о Вашем желании оплатить аренду автомобиля наличными. Кэшбэк можно получить мгновенно, сразу после подписания Договора аренды. В акции принимают участие все автомобили из нашего автопарка."
+            }
+          ],
+          en: [
+            {
+              title: "Additional 3% discount on any car rental for hotel or sanatorium booking bearers.",
+              desc: "to get a discount, you need to present a voucher for hotel, boarding house or sanatorium accommodation to our booking Manager, or send it in advance by email or any other convenient way."
+            },
+            {
+              title: "Additional 3% discount on any car rental for members of the Aeroflot Bonus program at the Elit Plus level.",
+              desc: "To get a discount, you need to confirm your participation in the program by presenting your membership card to our booking Department Manager and informing us about it in advance in any way convenient for You."
+            },
+            {
+              title: "Additional 3% discount on any car rental for our social media followers.",
+              desc: "to get a discount, you need to confirm your participation in any group of our company in social networks to the Manager of the booking Department and write a short review about Your trip to Sochi."
+            },
+            {
+              title: "Additional 3% discount on any car rental for travelers with children.",
+              desc: "to get a discount, you must present a copy of your child's air ticket (or hotel voucher for a family room) and their birth certificate. Children up to 7 years old take part in the Campaign."
+            },
+            {
+              title: "Unique promotion! Instant Cashback of 3% of the payment amount.",
+              desc: "to participate in the Promotion, you must inform the booking Manager of Your desire to pay for the car rental in cash. Cashback can be received instantly, immediately after signing the lease Agreement. All cars from our fleet take part in the campaign."
+            }
+          ]
+        }
       }
     }
   }
