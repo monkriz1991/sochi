@@ -40,7 +40,7 @@
                 div.d-flex.d-sm-flex.d-md-flex.d-lg-none.flex-column
                   a(role="button" v-b-modal.callback).btn.main.icon-phone.w-100="{{ $t('callback') }}"
                   nuxt-link(:to="{name: $assets.prefix('payment', $i18n.locale)}").btn.main.icon-credit-card.w-100="{{ $t('op') }}"
-                  nuxt-link(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").btn.main.slim="{{ $t('long_term_rental') }}"
+                  nuxt-link(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").btn.main.w-100="{{ $t('long_term_rental') }}"
                   nuxt-link(v-if="$i18n.locale !== 'en'" :to="switchLocalePath('en')").btn.main.w-100="English Version"
                   nuxt-link(v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')").btn.main.w-100="Русская версия"
                 div.menu-block-cities
