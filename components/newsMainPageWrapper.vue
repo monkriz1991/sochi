@@ -3,12 +3,11 @@
       div.container
         h3="{{$t('s17')}}"
         b-row
-          b-col(sm="12" md="12" lg="6" v-for="(i, idx) in items" :key="idx")
+          b-col(sm="12" md="6" lg="3" v-for="(i, idx) in items" :key="idx")
             nuxt-link(:to="{name: $assets.prefix('news-slug', $i18n.locale), params: {slug: i.slug}}").news-el.my-2
               div(:lazy-background="`https://booking.autopilot.rent/storage/${i.preview_image}`").img
               div.inform
                 h5="{{i.title}}"
-                div(v-html="i.preview_text").p-0.data
         div.d-flex.justify-content-center.align-content-center.align-items-center.my-3
           nuxt-link(:to="{name: $assets.prefix('news', $i18n.locale)}").btn.main="{{$t('s9')}}"
         hr
@@ -28,6 +27,7 @@
   .news-el
     display: flex
     justify-content: flex-start
+    flex-direction: column
     align-items: center
     border: 1px solid rgba(205,205,205,0.5)
     -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
@@ -40,13 +40,18 @@
     div
       padding: 10px
     .img
-      width: 20%
-      height: 100px
+      width: 100%
+      height: 150px
       background-repeat: no-repeat
       background-size: cover
-      background-position: center
+      background-position: center bottom
+      @media screen and (max-width: 760px)
+        height: 250px
     .inform
-      width: 80%
+      width: 100%
+      min-height: 150px
+      @media screen and (max-width: 760px)
+        min-height: 80px
       *
         margin-bottom: 0
       .data
