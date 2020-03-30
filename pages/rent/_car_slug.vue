@@ -11,7 +11,7 @@
               div.slider-wrapper
                 b-o-image-slider(:items="item.self_data.photos")
               div(v-if="item.self_data.youtube_videos !== '' && item.self_data.youtube_videos !== undefined").slider-wrapper.mt-3.bblack
-                youtube-media(:video-id="$videoId(item.self_data.youtube_videos)" player-width="100%" player-height="400").w-100
+                youtube-media(:video-id="$videoId(item.self_data.youtube_videos)" player-width="100%" player-height="400").w-100.d-flex.p-2
             b-col(sm="12" md="12" lg="6")
               div.information
                 h3="{{$t('cwd11')}}"
@@ -228,7 +228,7 @@
       margin: 0
       font-size: 14px
   .bblack
-    background-color: #222222
+    background-color: #000
   .points
     .item-info
       @media screen and (max-width: 1200px)
