@@ -68,16 +68,47 @@ class Filters{
     return 0;
   };
 
-  compareLT = (a, b) => {
+  compareLT_more = (a, b) => {
+    if (a.cd.stoimost > b.cd.stoimost) {
+      return -1;
+    }
+    if (a.cd.stoimost < b.cd.stoimost) {
+      return 1;
+    }
+    return 0;
+  };
+
+  compareLT_less = (a, b) => {
     if (a.cd.stoimost < b.cd.stoimost) {
       return -1;
     }
     if (a.cd.stoimost > b.cd.stoimost) {
       return 1;
     }
-    // a должно быть равным b
     return 0;
   };
+
+  prepareLT = (data, price_filter, class_filter) => {
+    let filtered = [];
+    if (class_filter === 'cargo'){
+      filtered = data.filter(el => {
+        return el.cd.naimenovanie === 'Citroen Jumpy L2'
+      })
+    }else{
+      if (class_filter === 'all'){
+        filtered = data
+      }else{
+        filtered = data.filter(el => {
+          return el.cd.klassavtomobilya === class_filter
+        })
+      }
+    }
+    if (price_filter === 'price_asc'){
+      return filtered.sort(this.compareLT_less)
+    }else{
+      return filtered.sort(this.compareLT_more)
+    }
+  }
 
   comparePrice = (a, b) => {
     if (a['1day'] < b['1day']) {

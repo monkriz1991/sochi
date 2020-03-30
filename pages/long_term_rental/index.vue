@@ -26,8 +26,14 @@
           strong.text-uppercase="- {{$t('bc3')}} "
           |{{$t('bc4')}}
         div.clearfix
-        div(v-if="loaded")
-          h2="{{$t('faq13')}}"
+        div(v-if="loaded").py-3
+          h2.py-2="{{$t('faq13')}}"
+          div.filter
+            b-row
+              b-col(sm="12" md="6" lg="4")
+                b-form-select(v-model="filter" :options="filterOptions")
+              b-col(sm="12" md="6" lg="4" offset-lg="4")
+                b-form-select(v-model="filter_price" :options="filterPrice")
           div(v-for="card in filteredList" :key="card.raw.id").row_card
             div.badge(v-html="`${$t('ltr8')} ${calcMonth(card.cd.stoimost)}₽/${$t('ltr7')}`")
             b-row
@@ -103,6 +109,21 @@
         phone: '',
         loaded: false,
         lt_cards:[],
+        filterOptions: [
+          {value: 'all', text: "Все классы"},
+          {value: 'Комфорт класс', text: "Комфорт Класс"},
+          {value: 'Кроссоверы', text: "Кроссоверы"},
+          {value: 'Минивены', text: "Минивены"},
+          {value: 'Кабриолет', text: "Кабриолеты"},
+          {value: 'Бизнес', text: "Бизнесс Класс"},
+          {value: 'cargo', text: "Грузовые"},
+        ],
+        filterPrice: [
+          {value: 'price_asc', text: "По убыванию цены"},
+          {value: 'price_desc', text: "По возрастанию цены"},
+        ],
+        filter: 'all',
+        filter_price: 'price_asc',
         bcItems: [
           {
             text: this.$t('breadcrumbs1'),
@@ -164,7 +185,7 @@
     computed:{
       filteredList(){
         let data = this.lt_cards;
-        return data.sort(this.$filters.compareLT)
+        return this.$filters.prepareLT(data, this.filter_price, this.filter);
       }
     },
     methods:{
