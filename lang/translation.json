@@ -339,8 +339,8 @@
     "filters5": "Cabriolet",
     "filters6": "Business Class",
     "filters7": "Cargovan",
-    "filters8": "Price low-high",
-    "filters9": "Price high-low"
+    "filters8": "Descending price",
+    "filters9": "Ascending price"
   },
   "ru": {
     "op": "Онлайн оплата",
