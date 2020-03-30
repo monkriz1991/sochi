@@ -331,7 +331,16 @@
     "ltrd4": "All types of insurance and a large selection of additional options",
     "ltrd5": "Specifications of the car",
     "ltrd6": "Rent data:",
-    "ltrd7": "COST OF PERIOD:"
+    "ltrd7": "COST OF PERIOD:",
+    "filters1": "All classes",
+    "filters2": "Comfort class",
+    "filters3": "Crossover",
+    "filters4": "Minivan",
+    "filters5": "Cabriolet",
+    "filters6": "Business Class",
+    "filters7": "Cargovan",
+    "filters8": "Price low-high",
+    "filters9": "Price high-low"
   },
   "ru": {
     "op": "Онлайн оплата",
@@ -664,6 +673,15 @@
     "ltrd4": "Все виды страхования и большой выбор дополнительных опций",
     "ltrd5": "Характеристики автомобиля",
     "ltrd6": "Данные аренды:",
-    "ltrd7": "СТОИМОСТЬ ПЕРИОДА:"
+    "ltrd7": "СТОИМОСТЬ ПЕРИОДА:",
+    "filters1": "Все классы",
+    "filters2": "Комфорт Класс",
+    "filters3": "Кроссоверы",
+    "filters4": "Минивены",
+    "filters5": "Кабриолеты",
+    "filters6": "Бизнесс Класс",
+    "filters7": "Грузовые",
+    "filters8": "По убыванию цены",
+    "filters9": "По возрастанию цены"
   }
 }
