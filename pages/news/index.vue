@@ -8,11 +8,15 @@
         div(v-if="loaded")
           div.news_container
             div(v-for="(n, ndx) in newsWithPagen" :key="ndx").ely
-              b-card(:img-src="`https://booking.autopilot.rent/storage/${n.preview_image}`" img-alt="title" img-left).mb-3
-                b-card-text
-                  nuxt-link(:to="{name: $assets.prefix('news-slug', $i18n.locale), params: {slug: n.slug}}")
-                    h3="{{n.title}}"
-                  div(v-html="n.preview_text")
+              div.card.mb-5
+                b-row
+                  b-col(sm="12" md="12" lg="4")
+                    div(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/storage/${n.preview_image})`}").img
+                  b-col(sm="12" md="12" lg="8")
+                    b-card-text.p-2
+                      nuxt-link(:to="{name: $assets.prefix('news-slug', $i18n.locale), params: {slug: n.slug}}")
+                        h4="{{n.title}}"
+                      div(v-html="n.preview_text")
           hr.mt-2
           div.d-flex.justify-content-center.align-items-center
             b-pagination(v-model="currentPage" :total-rows="news.length" :per-page="perPage")
@@ -81,23 +85,30 @@
 </script>
 
 <style lang="sass" scoped>
+  @import "../../assets/styles/variables"
   .card
     -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
-    display: flex
-    align-items: center
-    img
-      width: 150px
-      height: 150px
-      @media screen and (max-width: 991px)
-        width: 120px
-        height: 120px
-      @media screen and (max-width: 500px)
-        width: 100px
-        height: 100px
-      @media screen and (max-width: 375px)
-        width: 80px
-        height: 80px
+    position: relative
+    .date-badge
+      position: absolute
+      color: #ffffff
+      background: $primary_hover
+      padding: 3px 10px
+      border-radius: 50px
+      top: -12px
+      left: -10px
+      z-index: 2
+      width: 160px
+      text-align: center
+      -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
+      -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
+      box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
+    .img
+      background-repeat: no-repeat
+      background-position: center
+      background-size: cover
+      min-height: 250px
 
 </style>

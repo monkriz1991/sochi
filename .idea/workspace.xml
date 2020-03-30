@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/newsMainPageWrapper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/newsMainPageWrapper.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/news/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/news/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,14 +102,7 @@
       <workItem from="1585414802982" duration="11772000" />
       <workItem from="1585470494232" duration="1540000" />
       <workItem from="1585496219357" duration="98000" />
-      <workItem from="1585552330961" duration="410000" />
-    </task>
-    <task id="LOCAL-00012" summary="static validation">
-      <created>1584739203091</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1584739203091</updated>
+      <workItem from="1585552330961" duration="997000" />
     </task>
     <task id="LOCAL-00013" summary="static validation">
       <created>1584740082096</created>
@@ -447,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585496243918</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="full translations">
+      <created>1585552779233</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1585552779234</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,11 +473,11 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="437" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1584970710979" />
-    <state x="588" y="23" key="CommitChangelistDialog2" timestamp="1585496243395">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1585552778789">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="588" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1585496243395" />
-    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585473935934" />
+    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585552778789" />
     <state x="2622" y="-159" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307096642" />
     <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1584992596051" />
     <state width="1259" height="196" key="GridCell.Tab.0.bottom" timestamp="1585430397877">
@@ -512,11 +512,11 @@
     <state width="1377" height="260" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1584983584437" />
     <state width="1377" height="196" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585323575503" />
     <state width="1377" height="196" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1585337081369" />
-    <state x="371" y="323" key="Vcs.Push.Dialog.v2" timestamp="1585496247386">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1585552781003">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="371" y="323" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1585496247386" />
-    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585473940405" />
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585552781003" />
     <state x="2174" y="143" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307098563" />
     <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1584992598491" />
     <state x="480" y="379" width="858" height="582" key="find.popup" timestamp="1585552670716">
