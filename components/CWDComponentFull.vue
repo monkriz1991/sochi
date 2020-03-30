@@ -8,9 +8,9 @@
               b-col(sm="12" md="12" lg="6")
                 div.el-wrapper
                   div.price-badge="{{i.self_data.price_hour}}₽/{{$t('cwod8')}}"
-                  div.main-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[0]}`")
-                  div.flox-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[1]}`")
-                  div.flox-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[2]}`")
+                  div.main-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[0]})`}")
+                  div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[1]})`}")
+                  div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[2]})`}")
               b-col(sm="12" md="12" lg="6")
                 div.el-info-wrapper.pr-lg-3.px-md-2.px-sm-2.px-2.py-3
                   h5="{{i.self_data.title}}"
