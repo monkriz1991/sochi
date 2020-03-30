@@ -8,6 +8,8 @@
               div.main-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[0]}`")
               div.flox-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[1]}`")
               div.flox-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[2]}`")
+              div.bch.p-2
+                h5.text-center="{{i.self_data.title}}"
 </template>
 
 <script>
@@ -23,6 +25,21 @@
 
 <style lang="sass" scoped>
   @import "../assets/styles/variables"
+  .bch
+    background-color: $primary
+    width: 100%
+    border: 1px solid rgba(205,205,205,0.5)
+    -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    display: flex
+    justify-content: center
+    align-items: center
+    min-height: 65px
+    h5
+      color: #fff
+      margin: 0
+      font-size: 16px
   .no_dec
     color: #222222
     text-decoration: none
