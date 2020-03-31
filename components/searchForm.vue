@@ -139,8 +139,8 @@
     },
     mounted() {
       this.place = this.$route.query.place ? this.$route.query.place : this.$config.default_place;
-      this.start_date = this.$route.query.df ? this.$route.query.df.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(2);
-      this.end_date = this.$route.query.dt ? this.$route.query.dt.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(9);
+      this.start_date = this.$route.query.df ? this.$route.query.df.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(6);
+      this.end_date = this.$route.query.dt ? this.$route.query.dt.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(13);
       this.carClass = this.$route.query.ac ? this.$route.query.ac : 5;
       this.fetchPoints()
     }
