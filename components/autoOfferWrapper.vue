@@ -101,6 +101,7 @@
                   this.cars = result.data.data;
                   this.loading = false;
                   this.timeFalse = false;
+                  this.coronaFalse = false;
                 }
               })
               .catch(err => console.error(err))
