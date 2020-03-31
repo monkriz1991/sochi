@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/autoOfferWrapper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/autoOfferWrapper.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lang/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/lang/translation.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,21 +105,8 @@
       <workItem from="1585470494232" duration="1540000" />
       <workItem from="1585496219357" duration="98000" />
       <workItem from="1585552330961" duration="8654000" />
-      <workItem from="1585642489639" duration="925000" />
-    </task>
-    <task id="LOCAL-00022" summary="mail to forms addon">
-      <created>1584876291679</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1584876291679</updated>
-    </task>
-    <task id="LOCAL-00023" summary="mail to forms addon">
-      <created>1584891969551</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1584891969551</updated>
+      <workItem from="1585642489639" duration="1292000" />
+      <workItem from="1585648138633" duration="543000" />
     </task>
     <task id="LOCAL-00024" summary="mail to forms addon">
       <created>1584892113489</created>
@@ -449,7 +437,21 @@
       <option name="project" value="LOCAL" />
       <updated>1585647173916</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="l3 fix">
+      <created>1585647374317</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1585647374317</updated>
+    </task>
+    <task id="LOCAL-00072" summary="l3 fix">
+      <created>1585647394318</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1585647394319</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,11 +480,11 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="437" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1584970710979" />
-    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1585647373939">
+    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1585647393872">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="588" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1585496243395" />
-    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585647373939" />
+    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585647393872" />
     <state x="2622" y="-159" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307096642" />
     <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1584992596051" />
     <state width="1259" height="196" key="GridCell.Tab.0.bottom" timestamp="1585577356342">
@@ -517,11 +519,11 @@
     <state width="1259" height="196" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585577356341" />
     <state width="1377" height="196" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585323575503" />
     <state width="1377" height="196" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1585337081369" />
-    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1585647376003">
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1585647395930">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="371" y="323" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1585496247386" />
-    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585647376003" />
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585647395930" />
     <state x="2174" y="143" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307098563" />
     <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1584992598491" />
     <state x="480" y="379" width="858" height="582" key="find.popup" timestamp="1585647085660">
