@@ -70,8 +70,8 @@
         place: this.$config.default_place,
         placeOptions: [],
         places: [],
-        start_date: this.$assets.genNowSpec(2),
-        end_date: this.$assets.genNowSpec(9),
+        start_date: this.$assets.genNowSpec(6),
+        end_date: this.$assets.genNowSpec(13),
         carClass: 5,
         carClassOption: [
           { value: 5, text: this.$t('class_all') },
