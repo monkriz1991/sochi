@@ -70,7 +70,7 @@
                         nuxt-link(:to="{name: $assets.prefix('long_term_rental-gosnomer', $i18n.locale), params: {gosnomer: card.cd['1cID']} }").btn.main.w-100="{{$t('ltr5')}}"
                         b-button(@click="showModal(card.cd['1cID'])").btn.cancel.w-100="{{$t('ltr4')}}"
                   b-modal(:id="card.cd['1cID']" hide-footer hide-header)
-                    h5.text-center="$t('ltr3') - {{card.cd.naimenovanie}}"
+                    h5.text-center="{{$t('ltr3')}} - {{card.cd.naimenovanie}}"
                     b-form-group.mb-0(:description="$t('cb2')")
                       b-form-input(v-model="name" :placeholder="$t('cb3')")#callback_name
                     b-form-group.mb-0( :description="$t('cb4')")
