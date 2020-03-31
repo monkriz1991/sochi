@@ -92,7 +92,7 @@ class Filters{
     let filtered = [];
     if (class_filter === 'cargo'){
       filtered = data.filter(el => {
-        return el.cd.naimenovanie === 'Citroen Jumpy L2'
+        return el.cd.naimenovanie === 'Citroen Jumpy L3'
       })
     }else{
       if (class_filter === 'all'){
