@@ -45,6 +45,8 @@
                           div
                             a(v-if="o.photos" @click.prevent="$bvModal.show(`bv-modal-${o.id}`)").hidden_info
                             b-modal(v-if="o.photos"  :id="`bv-modal-${o.id}`" hide-footer hide-header)
+                              p(v-html="$i18n.locale === 'ru' ? o.option_description : o.option_description_eng")
+                              hr
                               b-o-image-slider(:items="o.photos")
                             |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
                           span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{$i18n.locale === 'ru' ? o.option_description : o.option_description_eng}}"
@@ -81,6 +83,8 @@
                                 div
                                   a(v-if="so.photos" @click.prevent="$bvModal.show(`bv-modal-${so.id}`)").hidden_info
                                   b-modal(v-if="so.photos"  :id="`bv-modal-${so.id}`" hide-footer hide-header)
+                                    p(v-html="$i18n.locale === 'ru' ? so.option_description : so.option_description_eng")
+                                    hr
                                     b-o-image-slider(:items="so.photos")
                                   |{{$i18n.locale === 'ru' ? so.option_name : so.option_name_eng}}
                               span.text-right.position-relative
@@ -96,6 +100,8 @@
                           div
                             a(v-if="o.photos" @click.prevent="$bvModal.show(`bv-modal-${o.id}`)").hidden_info
                             b-modal(v-if="o.photos"  :id="`bv-modal-${o.id}`" hide-footer hide-header)
+                              p(v-html="$i18n.locale === 'ru' ? o.option_description : o.option_description_eng")
+                              hr
                               b-o-image-slider(:items="o.photos")
                             |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
                           span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{$i18n.locale === 'ru' ? o.option_description : o.option_description_eng}}"
