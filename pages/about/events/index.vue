@@ -124,7 +124,7 @@
       top: -12px
       left: -10px
       z-index: 2
-      width: 160px
+      width: 180px
       text-align: center
       -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
       -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
