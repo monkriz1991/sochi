@@ -89,7 +89,7 @@
         let df_sec = (new Date(this.searchForm.df)).getTime();
         let now_sec = (new Date()).getTime();
         let od = 86400000;
-        if (Date.parse(this.searchForm.df) > Date.parse('2020-04-05')){
+        if (Date.parse(this.searchForm.df) > Date.parse('2019-04-05')){
           if((df_sec - now_sec) > od){
             this.loading = true;
             this.$axios.post('cars', this.$assets.prepareForm(this.searchForm))
