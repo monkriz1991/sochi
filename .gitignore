@@ -11,5 +11,10 @@ npm-debug.log
 dist
 
 .env
-cars.json
+
+.idea
+
 news.json
+cars.json
+static/sitemap.xml
+static/robots.txt
