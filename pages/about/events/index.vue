@@ -25,7 +25,7 @@
                             div(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/storage/${n.image})`}").img
                           b-col(sm="12" md="12" lg="8")
                             b-card-text.p-2
-                              nuxt-link(:to="`/about/events/${n.id}`")
+                              nuxt-link(:to="{name: $assets.prefix('about-events-event_id', $i18n.locale), params: {event_id: n.id}}")
                                 h4="{{n.title}}"
                               div(v-html="n.text_preview")
                   hr.mt-2
