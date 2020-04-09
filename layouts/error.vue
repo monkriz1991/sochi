@@ -5,7 +5,7 @@
         b-img(:src="c404" fluid).my-3
         h1.text-center="{{$t('errorPage1')}}"
       h1(v-else)="{{$t('errorPage2')}}"
-      nuxt-link(to="/")="{{$t('errorPage3')}}"
+      nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")="{{$t('errorPage3')}}"
 </template>
 
 <script>

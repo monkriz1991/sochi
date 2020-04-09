@@ -212,7 +212,7 @@
             },
             {
               title: 'Meliage/OverMeliage',
-              text: `3000km / from ${this.item.limits.over_limit_price}₽ - 1km`,
+              text: `3000km / ${this.item.limits.over_limit_price}₽ - 1km`,
               class_name: 'cond_4'
             },
           ],
