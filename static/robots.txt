@@ -7,5 +7,6 @@ Disallow: /*utm*
 Disallow: /*from*
 Disallow: /*gclid*
 Disallow: /*yclid*
+Disallow /en/*
 Sitemap: https://sochirentacar.ru/sitemap.xml
 Host: sochirentacar.ru
