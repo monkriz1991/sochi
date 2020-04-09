@@ -6,7 +6,9 @@ const yaMapSettings = {
   coordorder: 'latlong',
   version: '2.1'
 };
+
 const  translation = require('./lang/translation');
+
 module.exports = {
 
   router: {

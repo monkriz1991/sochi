@@ -44,9 +44,9 @@
                 p.bold="{{$t('ac')}}"
                 ul.list-unstyled
                   li
-                    a(href="https://spbrentacar.ru/")="{{$t('m7')}}"
+                    a(href="https://spbrentacar.ru/")="{{$t('m8')}}"
                   li
-                    a(href="https://avtopilot.com/")="{{$t('m8')}}"
+                    a(href="https://avtopilot.com/")="{{$t('m7')}}"
                   li
                     a(href="https://crimearentacar.su/")="{{$t('m9')}}"
 </template>
