@@ -16,5 +16,7 @@ dist
 
 news.json
 cars.json
+long.json
+events.json
 static/sitemap.xml
 static/robots.txt

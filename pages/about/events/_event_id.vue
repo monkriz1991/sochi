@@ -11,8 +11,8 @@
                 about-sidebar-menu
           b-col(sm="12" md="9" lg="9")
             article
+              h1="{{seo[$route.params.event_id].h1}}"
               div(v-if="loaded")
-                h1="{{event.title}}"
                 div.news
                   img(:src="`https://booking.autopilot.rent/storage/${event.image}`" alt="event.title").news-image
                   div(v-html="event.text_details")
@@ -28,9 +28,9 @@
   export default {
     head () {
       return {
-        title: 'Мероприятия',
+        title: this.seo[this.$route.params.event_id].title,
         meta: [
-          {hid: 'description', name: 'description', content: 'Аренда авто в компании "Sochi Rent-a-Car": ✮ без ограничения пробега ✮ скидки до 25% ✮ 250 машин в автопарке ✮ бесплатная подача в аэропорт ✮ Бронируй онлайн!⭐'}
+          {hid: 'description', name: 'description', content: this.seo[this.$route.params.event_id].description}
         ]
       }
     },
@@ -42,6 +42,7 @@
     },
     data(){
       return {
+        seo: require('../../../events'),
         loaded: false,
         event: {},
       }

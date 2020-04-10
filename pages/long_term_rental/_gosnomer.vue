@@ -4,8 +4,8 @@
     main.py-3
       div.container
         BreadCrumbs(:items="bcItems" :withBack="false")
+        h1="{{$t('ltrd1')}} {{seo[$route.params.gosnomer].h1}} {{$t('ltrd2')}}"
         div(v-if="loaded")
-          h1="{{$t('ltrd1')}} {{item.cd.naimenovanie}} {{$t('ltrd2')}}"
           b-row
             b-col(sm="12" md="12" lg="6")
               div.block-container
@@ -139,6 +139,14 @@
   import BOImageSlider from "../../components/BOImageSlider";
   import { Datetime } from 'vue-datetime';
   export default {
+    head () {
+      return {
+        title: this.seo[this.$route.params.gosnomer].title,
+        meta: [
+          {hid: 'description', name: 'description', content: this.seo[this.$route.params.gosnomer].description}
+        ]
+      }
+    },
     components:{
       devider,
       BreadCrumbs,
@@ -148,6 +156,7 @@
     },
     data(){
       return {
+        seo: require('../../long'),
         df: this.$assets.genNowSpec(1),
         dt: this.$assets.genNowSpec(31),
         userData: {
