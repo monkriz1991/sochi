@@ -5,6 +5,14 @@
       div.container
         BreadCrumbs(:items="bcItems")
         h1="{{$t('faq12')}}"
+        div
+          p
+            |{{$t('af2')}}
+            nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")="{{$t('af3')}}"
+            br
+            br
+            |{{$t('af4')}}
+            a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`").mgo-number="{{settings.main_phone}}"
         div.conditions
           div.my-5
             b-row
@@ -186,7 +194,29 @@
       filteredList(){
         let data = this.lt_cards;
         return this.$filters.prepareLT(data, this.filter_price, this.filter);
-      }
+      },
+      settings(){
+        let settings = this.$parent.$parent.set_data
+        if (settings){
+          return settings
+        }else{
+          return {
+            id: '',
+            station: '',
+            main_phone: '',
+            address: '',
+            address_in_contacts: '',
+            map_lat: '',
+            map_lng: '',
+            time: '',
+            main_email: '',
+            soc_vk: '',
+            soc_insta: '',
+            soc_fb: '',
+            soc_youtube: '',
+          }
+        }
+      },
     },
     methods:{
       calcMonth(price){
