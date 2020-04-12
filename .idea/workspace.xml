@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CWoDComponentFull.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/CWoDComponentFull.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/lang/translation.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,14 +128,7 @@
       <workItem from="1586514381216" duration="655000" />
       <workItem from="1586520329150" duration="20000" />
       <workItem from="1586531030280" duration="1906000" />
-      <workItem from="1586690002094" duration="261000" />
-    </task>
-    <task id="LOCAL-00043" summary="hotfix">
-      <created>1585131594118</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1585131594118</updated>
+      <workItem from="1586690002094" duration="443000" />
     </task>
     <task id="LOCAL-00044" summary="hotfix">
       <created>1585131871587</created>
@@ -473,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586532296530</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="price from">
+      <created>1586690282890</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1586690282890</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,20 +498,21 @@
     <MESSAGE value="translation" />
     <MESSAGE value="minor fixes" />
     <MESSAGE value="events and long seo" />
-    <option name="LAST_COMMIT_MESSAGE" value="events and long seo" />
+    <MESSAGE value="price from" />
+    <option name="LAST_COMMIT_MESSAGE" value="price from" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584970710979">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="437" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1584970710979" />
-    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1586532296055">
+    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1586690282154">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="588" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1585771713165" />
     <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585657992944" />
     <state x="2622" y="-159" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307096642" />
-    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1586532296055" />
+    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1586690282154" />
     <state width="1259" height="196" key="GridCell.Tab.0.bottom" timestamp="1586371516921">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -544,20 +545,20 @@
     <state width="1259" height="196" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585657633911" />
     <state width="1377" height="196" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585323575503" />
     <state width="1259" height="196" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1586371516920" />
-    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1586532298307">
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1586690285105">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="371" y="323" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1585771715409" />
     <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585657995630" />
     <state x="2174" y="143" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307098563" />
-    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1586532298307" />
-    <state x="480" y="379" width="858" height="582" key="find.popup" timestamp="1586431800452">
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1586690285105" />
+    <state x="480" y="379" width="858" height="582" key="find.popup" timestamp="1586690442183">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="366" y="282" width="703" height="518" key="find.popup/0.23.1280.777@0.23.1280.777" timestamp="1585380320391" />
     <state x="412" y="315" width="791" height="585" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1585429368528" />
     <state x="480" y="379" width="858" height="582" key="find.popup/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585647085660" />
     <state x="2229" y="148" width="981" height="520" key="find.popup/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585131855369" />
-    <state x="480" y="379" width="858" height="582" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1586431800452" />
+    <state x="480" y="379" width="858" height="582" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1586690442183" />
   </component>
 </project>
