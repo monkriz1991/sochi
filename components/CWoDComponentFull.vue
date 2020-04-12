@@ -7,7 +7,7 @@
             b-row
               b-col(sm="12" md="12" lg="6")
                 div.el-wrapper
-                  div.price-badge="{{i.car_data.stoimost}}₽/{{$t('cwod7')}}"
+                  div.price-badge(v-html="`${$t('cwd27')} ${$assets.toMoney(i.car_data.stoimost - ((i.car_data.stoimost/ 100) * i.car_data.skidka_2))}₽/${$t('cwod7')}`")
                   div.main-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[0]})`}")
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[1]})`}")
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[2]})`}")

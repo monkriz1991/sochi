@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_seo.sh" beforeDir="false" afterPath="$PROJECT_DIR$/get_seo.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/events/_event_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/events/_event_id.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/long_term_rental/_gosnomer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/long_term_rental/_gosnomer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rebuild.sh" beforeDir="false" afterPath="$PROJECT_DIR$/rebuild.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CWoDComponentFull.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/CWoDComponentFull.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,14 +127,8 @@
       <workItem from="1586463710423" duration="581000" />
       <workItem from="1586514381216" duration="655000" />
       <workItem from="1586520329150" duration="20000" />
-      <workItem from="1586531030280" duration="1221000" />
-    </task>
-    <task id="LOCAL-00042" summary="hotfix">
-      <created>1585128874847</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1585128874847</updated>
+      <workItem from="1586531030280" duration="1906000" />
+      <workItem from="1586690002094" duration="261000" />
     </task>
     <task id="LOCAL-00043" summary="hotfix">
       <created>1585131594118</created>
@@ -476,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586520188885</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="events and long seo">
+      <created>1586532296530</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1586532296530</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,20 +497,21 @@
     <MESSAGE value="l3 fix" />
     <MESSAGE value="translation" />
     <MESSAGE value="minor fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fixes" />
+    <MESSAGE value="events and long seo" />
+    <option name="LAST_COMMIT_MESSAGE" value="events and long seo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584970710979">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="437" y="194" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1584970710979" />
-    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1586520188438">
+    <state x="824" y="80" key="CommitChangelistDialog2" timestamp="1586532296055">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="588" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1585771713165" />
     <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585657992944" />
     <state x="2622" y="-159" key="CommitChangelistDialog2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307096642" />
-    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1586520188438" />
+    <state x="824" y="80" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1586532296055" />
     <state width="1259" height="196" key="GridCell.Tab.0.bottom" timestamp="1586371516921">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -546,13 +544,13 @@
     <state width="1259" height="196" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585657633911" />
     <state width="1377" height="196" key="GridCell.Tab.0.right/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585323575503" />
     <state width="1259" height="196" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1586371516920" />
-    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1586520331177">
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1586532298307">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="371" y="323" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1585771715409" />
     <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585657995630" />
     <state x="2174" y="143" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307098563" />
-    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1586520331177" />
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1586532298307" />
     <state x="480" y="379" width="858" height="582" key="find.popup" timestamp="1586431800452">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
