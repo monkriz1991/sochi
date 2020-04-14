@@ -43,24 +43,11 @@
               span.gas="Полный/Полный"
             div.rate-item
               span.aitport="Встреча в аэропорту"
-        div(v-if="loaded").b-wrapper.gr
-          p.header="В аренду включено"
-          div.rate
-            div.rate-item
-              span.okyes="Пробег: 200 км в день"
-            div.rate-item
-              span.okyes="Страхование от ДТП"
-            div.rate-item
-              span.okyes="Страхование от угона"
-            div.rate-item
-              span.okyes="Помощь на дороге"
-            div.rate-item
-              span.okyes="Полная защита"
         b-row
           b-col(sm="12" md="6" lg="6")
             div.b-wrapper.transpar
               p.header="Об автомобиле"
-              div.mb-5
+              div.mb-2
                 div.item-info
                   p.l="Пробег"
                   p.r="114 000 км"
@@ -85,7 +72,26 @@
                       span.star-f
                       span.star-o
                       span.star-o
-              p="Разнообразный и богатый опыт постоянное обеспечение нашей деятельности требуют определения и уточнения существенных финансовых и административных условий. Равным образом консультация с широким активом требуют от нас анализа модели развития. Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности требуют определения"
+              div(v-if="loaded")
+                div.py-2
+                  h3="{{$t('cwd16')}}"
+                  div
+                    div.item-info
+                      p.l="{{$t('cwd17')}}"
+                      p.r="с {{item.ALS.age}} {{$assets.getNameCoint(parseInt(item.ALS.age), $t('cwd23'), $t('cwd24'), $t('cwd25'))}}"
+                    div.item-info
+                      p.l="{{$t('cwd18')}}"
+                      p.r="{{$t('cwd19')}} {{item.ALS.staff}} {{$assets.getNameCoint(parseInt(item.ALS.staff), $t('cwd23'), $t('cwd24'), $t('cwd25'))}}"
+                    div.item-info
+                      p.l="{{$t('cwd20')}}"
+                      p.r="{{item.car_data.zalog}} {{$t('cwd26')}}"
+                    div.item-info
+                      p.l="{{$t('cwd21')}}"
+                      p.r="{{$t('cwd22')}}"
+                  div(v-html="$assets.generate_text_conditions(item.self_data.text_conditions_bottom)")
+                div.py-2
+                  h3="{{$t('bc7')}}"
+                  div(v-html="$assets.generate_text_docs(item.self_data.text_docs, $i18n.locale)")
           b-col(sm="12" md="6" lg="6")
             div.b-wrapper.shield
               p.header="Защита автомобиля"
@@ -96,8 +102,27 @@
                 li="✓ Стёкла, зеркала, колёса"
                 li="✓ Буксировка автомобиля"
                 li="✓ Административные сборы"
-              div
-                p.text-right.header.m-0="+ 990₽"
+            div.py-2
+              h3="{{$t('bc2')}}"
+              div.points
+                div(v-for="(point, idx) in points" :key="idx").item-info
+                  p.l="{{$t(point.point_name)}}"
+                  p.r(v-html="point.price > 0 ? point.price+'₽' : $t('bocid2')")
+        div(v-if="loaded").b-wrapper.gr
+          p.header="В аренду включено"
+          div.rate
+            div.rate-item
+              span.okyes="Пробег: 200 км в день"
+            div.rate-item
+              span.okyes="Страхование от ДТП"
+            div.rate-item
+              span.okyes="Страхование от угона"
+            div.rate-item
+              span.okyes="Помощь на дороге"
+            div.rate-item
+              span.okyes="Полная защита"
+        div(v-if="loaded").b-wrapper
+          order-small-form(:places="points" :carName="item.self_data.title" typeOrder="посуточная аренда")
         div(v-if="loaded").b-wrapper.gr_total
           div.icons-row
             div.featch-data
@@ -115,8 +140,6 @@
             div.featch-data
               span.ico.ren
               p.m-0="Аренда за рубежом"
-        div(v-if="loaded").b-wrapper
-          order-small-form(:places="points" :carName="item.self_data.title" typeOrder="посуточная аренда")
         hr
         banners-section
 </template>
