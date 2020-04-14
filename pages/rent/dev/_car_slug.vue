@@ -68,10 +68,10 @@
                   p.l="Безопасность"
                   p.r
                     span.stars
-                      span.star
-                      span.star
-                      span.star
-                      span.star
+                      span.star-f
+                      span.star-f
+                      span.star-f
+                      span.star-f
                       span.star-o
                 div.item-info
                   p.l="Вместительность"
@@ -80,9 +80,9 @@
                   p.l="Комфорт"
                   p.r
                     span.stars
-                      span.star
-                      span.star
-                      span.star
+                      span.star-f
+                      span.star-f
+                      span.star-f
                       span.star-o
                       span.star-o
               p="Разнообразный и богатый опыт постоянное обеспечение нашей деятельности требуют определения и уточнения существенных финансовых и административных условий. Равным образом консультация с широким активом требуют от нас анализа модели развития. Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности требуют определения"
@@ -98,6 +98,23 @@
                 li="✓ Административные сборы"
               div
                 p.text-right.header.m-0="+ 990₽"
+        div(v-if="loaded").b-wrapper.gr_total
+          div.icons-row
+            div.featch-data
+              span.ico.car
+              p.m-0="Новые автомобили"
+            div.featch-data
+              span.ico.dtp
+              p.m-0="Страховка на случай ДТП"
+            div.featch-data
+              span.ico.way
+              p.m-0="Удобное расположение"
+            div.featch-data
+              span.ico.h24
+              p.m-0="24-часа поддержка"
+            div.featch-data
+              span.ico.ren
+              p.m-0="Аренда за рубежом"
         div(v-if="loaded").b-wrapper
           order-small-form(:places="points" :carName="item.self_data.title" typeOrder="посуточная аренда")
         hr
@@ -224,7 +241,7 @@
     background: rgba(255,106,40,0.2)
     border-radius: 25px
     border: 1px solid $primary
-  .star:before
+  .star-f:before
     font-family: 'icons_nova1', monospace
     content: '\E807'
     color: $primary
@@ -234,6 +251,41 @@
     content: '\E80D'
     color: $primary
     margin-right: 2px
+  .icons-row
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    align-items: center
+    .featch-data
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      max-width: 20%
+      padding: 0 15px
+      p
+        font-weight: bold
+      .ico
+        &:before
+          font-family: 'icons_nova1', monospace
+          margin-right: 10px
+          font-size: 40px
+          color: #2AA30C
+        &.car
+          &:before
+            content: '\E801'
+            font-size: 30px
+        &.dtp
+          &:before
+            content: '\E802'
+        &.way
+          &:before
+            content: '\E803'
+        &.h24
+          &:before
+            content: '\E804'
+        &.ren
+          &:before
+            content: '\E805'
   .rate
     width: 100%
     display: flex
@@ -279,6 +331,11 @@
       background-position: 85% 75%
     &.transpar
       border: 1px solid transparent
+    &.gr_total
+      border: 1px solid #2AA30C
+      background-color: rgba(42,163,12,0.05)
+      p.header
+        color: #fff
     &.gr
       border: 1px solid #2AA30C
       p.header
