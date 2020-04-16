@@ -36,23 +36,23 @@
             div.rate-item
               span.star="9.1/10"
             div.rate-item
-              span.video="Видео"
+              span.video="{{$t('af56')}}"
             div.rate-item
-              span.about="Условия аренды"
+              span.about="{{$t('af57')}}"
             div.rate-item
-              span.gas="Полный/Полный"
+              span.gas="{{$t('af58')}}"
             div.rate-item
-              span.aitport="Встреча в аэропорту"
+              span.aitport="{{$t('af59')}}"
         b-row
           b-col(sm="12" md="6" lg="6")
-            div.b-wrapper.transpar
-              p.header="Об автомобиле"
+            div(v-if="loaded").b-wrapper.transpar
+              p.header="{{$t('af55')}}"
               div.mb-2
                 div.item-info
-                  p.l="Пробег"
-                  p.r="114 000 км"
+                  p.l="{{$t('af48')}}"
+                  p.r="{{item.car_data.probeg}} км"
                 div.item-info
-                  p.l="Безопасность"
+                  p.l="{{$t('af49')}}"
                   p.r
                     span.stars
                       span.star-f
@@ -61,10 +61,10 @@
                       span.star-f
                       span.star-o
                 div.item-info
-                  p.l="Вместительность"
-                  p.r="6 человек"
+                  p.l="{{$t('af50')}}"
+                  p.r="{{item.tth.passa}} {{$assets.getNameCoint(item.tth.passa, $t('af52'), $t('af53'), $t('af54'))}}"
                 div.item-info
-                  p.l="Комфорт"
+                  p.l="{{$t('af51')}}"
                   p.r
                     span.stars
                       span.star-f
@@ -94,14 +94,43 @@
                   div(v-html="$assets.generate_text_docs(item.self_data.text_docs, $i18n.locale)")
           b-col(sm="12" md="6" lg="6")
             div.b-wrapper.shield
-              p.header="Защита автомобиля"
+              p.header
+                span.b-text="AUTOPILOT"
+                span="."
+                span.r-text="PROTECTION"
               ul.list-ok-yes.list-unstyled.mb-5
-                li="✓ Повреждение арендованного автомобиля"
-                li="✓ Угон автомобиля"
-                li="✓ Утеря или кража ключей"
-                li="✓ Стёкла, зеркала, колёса"
-                li="✓ Буксировка автомобиля"
-                li="✓ Административные сборы"
+                li(v-b-modal.mi1)="{{$t('af5')}}"
+                li(v-b-modal.mi2)="{{$t('af6')}}"
+                li(v-b-modal.mi3)="{{$t('af7')}}"
+                li(v-b-modal.mi4)="{{$t('af8')}}"
+              b-modal(centered :title="$t('af5')" hide-footer)#mi1
+                div.py-4
+                  p="{{$t('af9')}}"
+                    ul
+                      li="{{$t('af10')}}"
+                      li="{{$t('af11')}}"
+                      li="{{$t('af12')}}"
+              b-modal(centered :title="$t('af6')" hide-footer)#mi2
+                div.py-4
+                  p.m-0="{{$t('af13')}}"
+                  ul
+                    li="{{$t('af14')}}"
+                    li="{{$t('af15')}}"
+                    li="{{$t('af16')}}"
+                    li="{{$t('af17')}}"
+                    li="{{$t('af18')}}"
+                  p="{{$t('af19')}}"
+                  p.m-0.text-red="{{$t('af20')}}"
+                  ul
+                    li="{{$t('af21')}}"
+                    li="{{$t('af22')}}"
+              b-modal(centered :title="$t('af7')" hide-footer)#mi3
+                div.py-4
+                  p="{{$t('af23')}}"
+                  p="{{$t('af24')}}"
+              b-modal(centered :title="$t('af8')" hide-footer)#mi4
+                div.py-4
+                  p="{{$t('af25')}}"
             div.py-2
               h3="{{$t('bc2')}}"
               div.points
@@ -109,37 +138,57 @@
                   p.l="{{$t(point.point_name)}}"
                   p.r(v-html="point.price > 0 ? point.price+'₽' : $t('bocid2')")
         div(v-if="loaded").b-wrapper.gr
-          p.header="В аренду включено"
-          div.rate
-            div.rate-item
-              span.okyes="Пробег: 200 км в день"
-            div.rate-item
-              span.okyes="Страхование от ДТП"
-            div.rate-item
-              span.okyes="Страхование от угона"
-            div.rate-item
-              span.okyes="Помощь на дороге"
-            div.rate-item
-              span.okyes="Полная защита"
+          p.header="{{$t('af26')}}"
+          div.rate.gr
+            div(v-b-modal.ma1).rate-item
+              span.okyes="{{$t('af27')}}"
+            div(v-b-modal.ma2).rate-item
+              span.okyes="{{$t('af28')}}"
+            div(v-b-modal.ma3).rate-item
+              span.okyes="{{$t('af29')}}"
+            div(v-b-modal.ma4).rate-item
+              span.okyes="{{$t('af30')}}"
+            div(v-b-modal.ma5).rate-item
+              span.okyes="{{$t('af31')}}"
+            div(v-b-modal.ma6).rate-item
+              span.okyes="{{$t('af32')}}"
+          b-modal(centered :title="$t('af27')" hide-footer)#ma1
+            p.my-4="{{$t('af33')}}"
+          b-modal(centered :title="$t('af28')" hide-footer)#ma2
+            div.my-4
+              p="{{$t('af34')}}"
+              p="{{$t('af35')}}"
+          b-modal(centered :title="$t('af29')" hide-footer)#ma3
+            div.my-4
+              p="{{$t('af36')}}"
+              p="{{$t('af37')}}"
+          b-modal(centered :title="$t('af30')" hide-footer)#ma4
+            p.my-4="{{$t('47')}}"
+          b-modal(centered :title="$t('af31')" hide-footer)#ma5
+            div.my-4
+              p="{{$t('af38')}}"
+              p="{{$t('af39')}}"
+          b-modal(centered :title="$t('af32')" hide-footer)#ma6
+            p.my-4="{{$t('af40')}}"
         div(v-if="loaded").b-wrapper
           order-small-form(:places="points" :carName="item.self_data.title" typeOrder="посуточная аренда")
         div(v-if="loaded").b-wrapper.gr_total
           div.icons-row
             div.featch-data
               span.ico.car
-              p.m-0="Новые автомобили"
+              p.m-0="{{$t('af41')}}"
             div.featch-data
               span.ico.dtp
-              p.m-0="Страховка на случай ДТП"
+              p.m-0="{{$t('af42')}}"
             div.featch-data
               span.ico.way
-              p.m-0="Удобное расположение"
+              p.m-0="{{$t('af44')}}"
             div.featch-data
               span.ico.h24
-              p.m-0="24-часа поддержка"
+              p.m-0="{{$t('af45')}}"
             div.featch-data
               span.ico.ren
-              p.m-0="Аренда за рубежом"
+              p.m-0="{{$t('af46')}}"
         hr
         banners-section
 </template>
@@ -309,6 +358,27 @@
         &.ren
           &:before
             content: '\E805'
+  .r-text
+    color: #d52b1e
+  .b-text
+    color: #0039a6
+  .text-red
+    color: red
+    font-weight: bold
+  .list-ok-yes
+    li
+      width: 75%
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      margin-bottom: 5px
+      cursor: pointer
+      &:before
+        content: '✓'
+        color: $primary
+        font-size: 24px
+        line-height: 1
+        margin-right: 5px
   .rate
     width: 100%
     display: flex
@@ -316,6 +386,26 @@
     justify-content: space-around
     align-items: center
     flex-wrap: wrap
+    &.gr
+      .rate-item
+        padding: 5px 10px
+        background:
+        border-radius: 25px
+        margin: 5px 0px 0px
+        background-color: #2AA30C
+        width: 33%
+        text-align: center
+        @media screen and (max-width: 990px)
+          width: auto
+        @media screen and (max-width: 760px)
+          width: 100%
+        span
+          cursor: pointer
+          color: #ffffff
+          font-weight: bold
+          &.okyes
+            &:before
+              color: #ffffff
     .rate-item
       padding: 5px 10px
       span
@@ -348,7 +438,7 @@
     border-radius: 15px
     margin: 1rem 0
     &.shield
-      background-image: url('../../../assets/images/surface.svg')
+      background-image: url('../../../assets/images/surface.png')
       background-repeat: no-repeat
       background-size: 25%
       background-position: 85% 75%

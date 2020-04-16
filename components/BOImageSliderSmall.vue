@@ -15,12 +15,18 @@
       )
       b-carousel-slide(v-for="(i, idx) in items" :key="idx" img-blank)
         template(v-slot:img)
-          div(v-bind:style="{backgroundImage: `url(${i})`}").carousel-item-ins
+          div(v-bind:style="{backgroundImage: `url(${i})`}" v-b-modal.big-slides).carousel-item-ins
+    b-modal(centered hide-footer hide-header)#big-slides
+      b-o-image-slider(:items="items")
 </template>
 
 <script>
+  import BOImageSlider from "./BOImageSlider";
   export default {
-    name: "BOImageSlider",
+    name: "BOImageSliderSmall",
+    components: {
+      BOImageSlider
+    },
     props: {
       items: {
         type: Array,
