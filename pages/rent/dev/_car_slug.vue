@@ -33,24 +33,102 @@
                     p.r="{{p.value}}₽/{{$t('cwod7')}}"
         div(v-if="loaded").b-wrapper.blockquote-info
           div.rate
+            div(v-if="item.self_data.youtube_videos !== '' && item.self_data.youtube_videos !== undefined").rate-item
+              span(v-b-modal.vedeo-modal).video="{{$t('af56')}}"
             div.rate-item
-              span.star="9.1/10"
+              span(v-b-modal.conditions-modal).about="{{$t('af57')}}"
             div.rate-item
-              span.video="{{$t('af56')}}"
+              span(v-b-modal.fuel-modal).gas="{{$t('af58')}}"
             div.rate-item
-              span.about="{{$t('af57')}}"
-            div.rate-item
-              span.gas="{{$t('af58')}}"
-            div.rate-item
-              span.aitport="{{$t('af59')}}"
+              span(v-b-modal.arival-modal).aitport="{{$t('af59')}}"
+          b-modal(centered hide-footer :title="$t('df60')")#arival-modal
+            div.py-2
+              p="{{$t('df62')}}"
+          b-modal(centered hide-footer :title="$t('df61')")#fuel-modal
+            div.py-2
+              p="{{$t('df63')}}"
+          b-modal(v-if="item.self_data.youtube_videos !== '' && item.self_data.youtube_videos !== undefined" size="lg" centered hide-footer hide-header)#vedeo-modal
+            youtube-media(:video-id="$videoId(item.self_data.youtube_videos)" player-width="100%" player-height="500").w-100.d-flex.p-2
+          b-modal(size="lg" centered hide-footer hide-header)#conditions-modal
+            div.py-4
+              div(role="tablist")
+                b-card(no-body).mb-1
+                  b-card-header(header-tag="header" role="tab").p-1
+                    b-button(block href="#" v-b-toggle.accordion-1 variant="info")="{{$t('df64')}}"
+                  b-collapse(visible accordion="my-accordion" role="tabpanel")#accordion-1
+                    b-card-body
+                      div
+                        p="{{$t('df65')}} {{$t('cwd27')}} {{item.ALS.age}} {{$assets.getNameCoint(parseInt(item.ALS.age), $t('cwd23'), $t('cwd24'), $t('cwd25'))}}."
+                        p="{{$t('df66')}}"
+                        p="{{$t('df67')}} {{$t('cwd19')}} {{item.ALS.staff}} {{$assets.getNameCoint(parseInt(item.ALS.staff), $t('cwd23'), $t('cwd24'), $t('cwd25'))}}."
+                        p="{{$t('df68')}}"
+                        p="{{$t('df69')}}"
+                b-card(no-body).mb-1
+                  b-card-header(header-tag="header" role="tab").p-1
+                    b-button(block href="#" v-b-toggle.accordion-2 variant="info")="{{$t('df70')}}"
+                  b-collapse(visible accordion="my-accordion" role="tabpanel")#accordion-2
+                    b-card-body
+                      div
+                        p="{{$t('df71')}}"
+                b-card(no-body).mb-1
+                  b-card-header(header-tag="header" role="tab").p-1
+                    b-button(block href="#" v-b-toggle.accordion-3 variant="info")="{{$t('df72')}}"
+                  b-collapse(visible accordion="my-accordion" role="tabpanel")#accordion-3
+                    b-card-body
+                      div
+                        p="{{$t('df73')}}"
+                        p
+                          b="{{$t('df74')}}"
+                        p
+                          b="{{$t('df75')}}"
+                b-card(no-body).mb-1
+                  b-card-header(header-tag="header" role="tab").p-1
+                    b-button(block href="#" v-b-toggle.accordion-4 variant="info")="{{$t('df76')}}"
+                  b-collapse(visible accordion="my-accordion" role="tabpanel")#accordion-4
+                    b-card-body
+                      div
+                        p="{{$t('df77')}}"
+                        ul
+                          li="{{$t('df78')}}"
+                          li="{{$t('df79')}}"
+                          li="{{$t('df80')}}"
+                          li="{{$t('df81')}}"
+                        p="{{$t('df82')}}"
+                        p="{{$t('df83')}}"
+                        ul
+                          li="{{$t('df84')}}"
+                          li="{{$t('df85')}}"
+                          li="{{$t('df86')}}"
+                        p="{{$t('df87')}}"
+                        p="{{$t('df88')}}"
+                b-card(no-body).mb-1
+                  b-card-header(header-tag="header" role="tab").p-1
+                    b-button(block href="#" v-b-toggle.accordion-5 variant="info")="{{$t('df89')}}"
+                  b-collapse(visible accordion="my-accordion" role="tabpanel")#accordion-5
+                    b-card-body
+                      div
+                        p
+                          b
+                            |{{$t('df90')}}
+                            a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`").mgo-number="{{settings.main_phone}}"
+                            |{{$t('df90_1')}}
+                        p
+                          b="{{$t('df91')}}"
+                b-card(no-body).mb-1
+                  b-card-header(header-tag="header" role="tab").p-1
+                    b-button(block href="#" v-b-toggle.accordion-6 variant="info")="{{$t('df92')}}"
+                  b-collapse(visible accordion="my-accordion" role="tabpanel")#accordion-6
+                    b-card-body
+                      div
+                        p="{{$t('df93')}}"
         b-row
           b-col(sm="12" md="6" lg="6")
             div(v-if="loaded").b-wrapper.transpar
-              p.header="{{$t('af55')}}"
+              h3="{{$t('af55')}}"
               div.mb-2
                 div.item-info
                   p.l="{{$t('af48')}}"
-                  p.r="{{item.car_data.probeg}} км"
+                  p.r="{{item.car_data.probeg}} {{$t('p3')}}"
                 div.item-info
                   p.l="{{$t('af49')}}"
                   p.r
@@ -227,6 +305,28 @@
       }
     },
     computed:{
+      settings(){
+        let settings = this.$parent.$parent.set_data
+        if (settings){
+          return settings
+        }else{
+          return {
+            id: '',
+            station: '',
+            main_phone: '',
+            address: '',
+            address_in_contacts: '',
+            map_lat: '',
+            map_lng: '',
+            time: '',
+            main_email: '',
+            soc_vk: '',
+            soc_insta: '',
+            soc_fb: '',
+            soc_youtube: '',
+          }
+        }
+      },
       prices(){
         let data = [];
         if (this.loaded){
