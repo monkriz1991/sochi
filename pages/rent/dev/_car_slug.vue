@@ -12,7 +12,7 @@
             h1(v-html="this.loaded ? this.item.self_data.title : this.seo['CWoD'][this.$route.params.car_slug].title")
             b-row
               b-col(sm="12" mc="12" lg="7")
-                div(v-if="loaded").py-1
+                div(v-if="loaded").py-3
                   b-row.features-list-icos
                     b-col(sm="6" md="4" lg="4").features-list-block
                       span.bag(v-html="`${$assets.getBagsData(item.tth.bags, item.tth.bigbag, $i18n.locale)}`")
@@ -27,10 +27,13 @@
                     b-col(sm="6" md="4" lg="4").features-list-block
                       span.gear='{{$t(item.car_data.kpp)}}'
               b-col(sm="12" mc="12" lg="5")
-                div.b-wrapper
+                div(v-if="loaded").b-wrapper.slim
                   div(v-for="(p, pdx) in prices" :key="pdx").item-info
                     p.l="{{p.text}}"
                     p.r="{{p.value}}₽/{{$t('cwod7')}}"
+                  div.item-info
+                    p.l="{{$t('cwd20')}}"
+                    p.r="{{item.car_data.zalog}}₽"
         div(v-if="loaded").b-wrapper.blockquote-info
           div.rate
             div(v-if="item.self_data.youtube_videos !== '' && item.self_data.youtube_videos !== undefined").rate-item
@@ -128,7 +131,7 @@
               div.mb-2
                 div.item-info
                   p.l="{{$t('af48')}}"
-                  p.r="{{item.car_data.probeg}} {{$t('p3')}}"
+                  p.r="{{item.car_data.probeg}}{{$t('p3')}}"
                 div.item-info
                   p.l="{{$t('af49')}}"
                   p.r
@@ -139,9 +142,6 @@
                       span.star-f
                       span.star-o
                 div.item-info
-                  p.l="{{$t('af50')}}"
-                  p.r="{{item.tth.passa}} {{$assets.getNameCoint(item.tth.passa, $t('af52'), $t('af53'), $t('af54'))}}"
-                div.item-info
                   p.l="{{$t('af51')}}"
                   p.r
                     span.stars
@@ -150,6 +150,28 @@
                       span.star-f
                       span.star-o
                       span.star-o
+                div.item-info
+                  p.l="{{$t('af50')}}"
+                  p.r="{{item.tth.passa}} {{$assets.getNameCoint(item.tth.passa, $t('af52'), $t('af53'), $t('af54'))}}"
+                div.item-info
+                  p.l="{{$t('df94')}}"
+                  p.r="{{item.car_data.dvigatel}}{{$t('p1')}}"
+                div.item-info
+                  p.l="{{$t('df95')}}"
+                  p.r="{{item.car_data.moshhnost}}{{$t('p7')}}"
+                div.item-info
+                  p.l="{{$t('df96')}}"
+                  p.r="{{$t(item.car_data.unit)}}"
+                div.item-info
+                  p.l="{{$t('df97')}}"
+                  p.r="{{item.car_data.tankVolume}}{{$t('p1')}}"
+                div(v-if="item.car_data.luggageCapacity > 0").item-info
+                  p.l="{{$t('df98')}}"
+                  p.r="{{item.car_data.luggageCapacity}}{{$t('p1')}}"
+                div.item-info
+                  p.l="{{$t('df99')}}"
+                  p.r(v-html="item.car_data.tinting ? $t('p8'):$t('p9')")
+
               div(v-if="loaded")
                 div.py-2
                   h3="{{$t('cwd16')}}"
@@ -537,6 +559,8 @@
     border: 1px solid $primary
     border-radius: 15px
     margin: 1rem 0
+    &.slim
+      padding: 10px 20px
     &.shield
       background-image: url('../../../assets/images/surface.png')
       background-repeat: no-repeat

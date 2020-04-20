@@ -85,6 +85,9 @@
     "p4": "km/h",
     "p5": "Вт",
     "p6": "kg",
+    "p7": "hp",
+    "p8": "Yes",
+    "p9": "No",
     "Красный": "Red",
     "ТемноСиний": "Navy blue",
     "Оранжевый": "Orange",
@@ -390,7 +393,7 @@
     "af45": "24-hour support",
     "af46": "Rent abroad",
     "af47": "This service allows the Renter to hand over the car during non-working hours. For these purposes, the Lessee agrees with the Lessor in advance the place of return, date and time of return.",
-    "af48": "Run",
+    "af48": "Mileage",
     "af49": "Security",
     "af50": "Spaciousness",
     "af51": "Comfort",
@@ -436,7 +439,16 @@
     "df90_1": " no later than 24 hours before the start of the lease. Please note that any changes to the reservation, including changes to the pick-up or return location, vehicle class, rental duration, and driver's personal information, may affect the rental price, so the final price after changes may differ from the one indicated at the time of booking.",
     "df91": "Please note: prices are based on the time and date of receipt and return of the car, which you choose when booking. If you receive the car later or return it earlier than the specified time, there is no refund for unused hours or days of rental.",
     "df92": "CAR GROUP / MODEL",
-    "df93": "We guarantee a specific brand of car and can guarantee the type of fuel."
+    "df93": "We guarantee a specific brand of car and can guarantee the type of fuel.",
+    "df94": "Engine",
+    "df95": "Engine power",
+    "df96": "Drive unit",
+    "df97": "Fuel tank volume",
+    "df98": "Luggage capacity",
+    "df99": "Tinting",
+    "Полный": "AWD",
+    "Передний": "Front drive",
+    "Задний": "Rear wheel drive"
   },
   "ru": {
     "op": "Онлайн оплата",
@@ -523,6 +535,9 @@
     "p4": "км/ч",
     "p5": "W",
     "p6": "кг",
+    "p7": "лс",
+    "p8": "Да",
+    "p9": "Нет",
     "Красный": "Красный",
     "ТемноСиний": "ТемноСиний",
     "Оранжевый": "Оранжевый",
@@ -874,6 +889,15 @@
     "df90_1": " не позднее чем за 24 часа до начала аренды. Обратите внимание, что любое изменение бронирования, включая изменение места получения или возврата автомобиля, класса автомобиля, продолжительности аренды, а также личных данных водителя, может повлиять на цену аренды, поэтому итоговая стоимость после изменений может отличаться от указанной при бронировании.",
     "df91": "Обратите внимание: цены указаны из расчета времени и даты получения и возврата автомобиля, которые вы выбираете при бронировании. Если вы получаете автомобиль позже или возвращаете раньше указанного срока, возврат денежных средств за неиспользованные часы или дни аренды невозможен.",
     "df92": "ГРУППА АВТОМОБИЛЯ/МОДЕЛЬ",
-    "df93": "Мы гарантируем конкретную марку автомобиля и можем гарантировать тип топлива."
+    "df93": "Мы гарантируем конкретную марку автомобиля и можем гарантировать тип топлива.",
+    "df94": "Двигатель",
+    "df95": "Мощность двигателя",
+    "df96": "Привод",
+    "df97": "Объем бака",
+    "df98": "Объем багажника",
+    "df99": "Тонировка",
+    "Полный": "Полный",
+    "Передний": "Передний",
+    "Задний": "Задний"
   }
 }
