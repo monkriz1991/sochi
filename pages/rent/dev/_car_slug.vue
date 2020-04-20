@@ -534,6 +534,8 @@
               color: #ffffff
     .rate-item
       padding: 5px 10px
+      @media screen and (max-width: 640px)
+        padding: 5px
       span
         cursor: pointer
         &:before
@@ -565,6 +567,8 @@
     margin: 1rem 0
     &.slim
       padding: 10px 20px
+    @media screen and (max-width: 640px)
+      padding: 10px 5px
     &.shield
       background-image: url('../../../assets/images/surface.png')
       background-repeat: no-repeat
