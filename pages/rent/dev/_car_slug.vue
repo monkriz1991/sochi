@@ -12,7 +12,21 @@
             h1(v-html="this.loaded ? this.item.self_data.title : this.seo['CWoD'][this.$route.params.car_slug].title")
             b-row
               b-col(sm="12" mc="12" lg="7")
-                div(v-if="loaded").py-3
+                div(v-if="loaded").py-3.d-block.d-sm-none.d-md-none.d-lg-none
+                  div.features-list-icos.features-small
+                    div.features-list-block
+                      span.bag(v-html="`${$assets.getBagsData(item.tth.bags, item.tth.bigbag, $i18n.locale)}`")
+                    div.features-list-block
+                      span.pass='{{$assets.getPassa(item.tth.passa, $i18n.locale) }}'
+                    div.features-list-block
+                      span.dors='{{ $assets.getDoors(item.tth.dors, $i18n.locale) }}'
+                    div.features-list-block
+                      span.temp='{{$t(item.tth.klimat)}}'
+                    div.features-list-block
+                      span.benz="{{item.tth.rashod}}{{$t('p2')}}"
+                    div.features-list-block
+                      span.gear='{{$t(item.car_data.kpp)}}'
+                div(v-if="loaded").py-3.d-none.d-sm-block.d-md-block.d-lg-block
                   b-row.features-list-icos
                     b-col(sm="6" md="4" lg="4").features-list-block
                       span.bag(v-html="`${$assets.getBagsData(item.tth.bags, item.tth.bigbag, $i18n.locale)}`")
