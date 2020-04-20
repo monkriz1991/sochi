@@ -456,6 +456,10 @@
       align-items: center
       max-width: 20%
       padding: 0 15px
+      @media screen and (max-width: 990px)
+        max-width: 50%
+      @media screen and (max-width: 760px)
+        max-width: 100%
       p
         font-weight: bold
       .ico
