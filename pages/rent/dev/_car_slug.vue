@@ -11,7 +11,7 @@
           b-col(sm="12" mc="6" lg="9")
             h1(v-html="this.loaded ? this.item.self_data.title : this.seo['CWoD'][this.$route.params.car_slug].title")
             b-row
-              b-col(sm="12" mc="12" lg="7")
+              b-col(sm="12" mc="12" lg="7" order="2"	order-sm="2"	order-md="1"	order-lg="1"	order-xl="1")
                 div(v-if="loaded").py-3.d-block.d-sm-none.d-md-none.d-lg-none
                   div.features-list-icos.features-small
                     div.features-list-block
@@ -40,7 +40,7 @@
                       span.benz="{{item.tth.rashod}}{{$t('p2')}}"
                     b-col(sm="6" md="4" lg="4").features-list-block
                       span.gear='{{$t(item.car_data.kpp)}}'
-              b-col(sm="12" mc="12" lg="5")
+              b-col(sm="12" mc="12" lg="5" order="1"	order-sm="1"	order-md="2"	order-lg="2"	order-xl="2")
                 div(v-if="loaded").b-wrapper.slim
                   div(v-for="(p, pdx) in prices" :key="pdx").item-info
                     p.l="{{p.text}}"
