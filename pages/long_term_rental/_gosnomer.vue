@@ -64,7 +64,7 @@
                         :week-start="1"
                         :minute-step="10"
                         :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-                        :min-datetime="df"
+                        :min-datetime="this.$assets.genNowSpec(1)"
                         :zone="'Europe/Moscow'"
                         :value-zone="'Europe/Moscow'"
                         input-class="form-control"
@@ -89,9 +89,11 @@
                         :readonly="true"
                       )
                   b-col(sm="12" md="12" lg="12")
-                    div.price_string
+                    div(v-if="!priceLoading").price_string
                       h5="{{$t('ltrd7')}}"
                       h5="{{lastPrice}}₽"
+                    div(v-else).price_string
+                      h5.text-center.text-uppercase="{{$t('df100')}}"
                 hr
                 h3="{{$t('bocid34')}}"
                 h5="{{$t('bocid33')}}"
@@ -172,7 +174,10 @@
         item: [],
         errors: [],
         allready: false,
-        minDate: this.$assets.genNowSpec(31)
+        minDate: this.$assets.genNowSpec(31),
+        priceLoaded: false,
+        priceLoading: false,
+        priceOnDate: 0
       }
     },
     computed:{
@@ -180,7 +185,14 @@
         let date1 = new Date(this.df);
         let date2 = new Date(this.dt);
         let daysLag = Math.ceil(Math.abs(date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
-        return parseInt(this.item.cd.stoimost / 2) * daysLag;
+        return parseInt(this.price / 2) * daysLag;
+      },
+      price(){
+        if (this.priceLoaded){
+          return this.priceOnDate;
+        }else{
+          return this.item.cd.stoimost;
+        }
       },
       bcItems(){
         let crumbs = [
@@ -254,9 +266,24 @@
       df(){
         this.minDate = this.$assets.genNowSpecFromDate(new Date(this.df), 30)
         this.dt = this.$assets.genNowSpecFromDate(new Date(this.df), 30)
+        this.makeRequestToBaseForPrice()
       }
     },
     methods: {
+      makeRequestToBaseForPrice(){
+        this.priceLoading = true;
+        this.$axios.post('/sun/longTermActualPrice' , {
+          car_id: this.$route.params.gosnomer,
+          station: this.$config.station,
+          date: this.$assets.makeDateForRequest(this.df)
+        }).then(response => {
+          if(response.data.status === 'success'){
+            this.priceOnDate = response.data.data.CarPrice;
+            this.priceLoaded = true;
+            this.priceLoading = false;
+          }
+        })
+      },
       onSubmit(){
         if (!this.allready){
           let errors = this.$assets.validateOrderFormLT(this.userData);
@@ -301,7 +328,7 @@
         this.clearErrors()
       },
       fetchSingleItem(){
-        this.$axios.get(`https://booking.autopilot.rent/api/sun/longTermSingle/${this.$route.params.gosnomer}`)
+        this.$axios.get(`/sun/longTermSingle/${this.$route.params.gosnomer}`)
           .then(result => {
             if (result.data.status === 'success'){
               if (yaCounter33072038){
