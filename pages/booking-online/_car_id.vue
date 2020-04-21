@@ -134,8 +134,11 @@
                     div.price_string
                       h5.text-black-50="{{$t('bocid8')}}"
                       h5.text-black-50
-                        span(v-if="is_limit").old_price="{{period_sum_before_sale}}₽"
+                        span(v-if="period_sum < period_sum_before_sale").old_price="{{period_sum_before_sale}}₽"
                         |{{period_sum}}₽
+                    div(v-if="promocode_sale > 0").price_string
+                      h5.text-black-50="{{$t('df105')}}"
+                      h5.text-black-50="-{{promocode_sale}}%"
                     div.price_string
                       h5.text-black-50="{{$t('bocid9')}}"
                       h5.text-black-50="{{options_price}}₽"
@@ -247,7 +250,23 @@
                             b-form-checkbox(v-model="is_promocode").lp-checkbox="{{$t('bocid26')}}"
                       b-col(sm="12" md="12" lg="12")
                         b-form-group(v-if="is_promocode")
-                          b-form-input(:placeholder="$t('bocid25')" v-model="userData.promocode")
+                          b-row
+                            b-col(sm="12" md="6" lg="6")
+                              b-form-input(:placeholder="$t('bocid25')" v-model="userData.promocode")
+                            b-col(sm="12" md="6" lg="6")
+                              a(role="button" @click="onSubmitPromo()").btn.cancel.main.w-100="{{$t('df104')}}"
+                          hr
+                          div(v-if="promocode_loaded")
+                            div(v-if="promocode_valid")
+                              div(v-if="promocode_sale > 0")
+                                p.text-green="{{$t('df101')}} {{promocode_sale}}%"
+                                hr
+                              div(v-else)
+                                p.text-green.text-center="{{$t('df102')}}"
+                                hr
+                            div(v-else)
+                              p.text-red.text-center="{{$t('df103')}}"
+                              hr
                       b-col(sm="12" md="12" lg="12" v-if="errors.length")
                         div.errors-block
                           h6="{{$t('bocid24')}}"
@@ -289,6 +308,9 @@
         loaded: false,
         loader_step: 0,
         is_promocode: false,
+        promocode_valid: false,
+        promocode_loaded: false,
+        promocode_sale: 0,
         is_same_comeback: true,
         period: 0,
         allready: false,
@@ -315,6 +337,12 @@
         if (this.loader_step === 3){
           this.loaded = true
         }
+      },
+      is_promocode(){
+        this.userData.promocode = '';
+        this.promocode_valid = false;
+        this.promocode_loaded = false;
+        this.promocode_sale = 0;
       },
       is_same_comeback(){
         this.checkPlaseOnChange()
@@ -429,10 +457,16 @@
       },
       period_sum(){
         let ps = parseInt(this.car_data.stoimost) * parseInt(this.period)
+        let total_sum;
         if (this.is_limit){
-          return this.$assets.toMoney(ps - ((ps/100)*15));
+          total_sum = this.$assets.toMoney(ps - ((ps/100)*15));
         }else{
-          return this.$assets.toMoney(ps);
+          total_sum = this.$assets.toMoney(ps);
+        }
+        if(this.promocode_valid){
+          return total_sum - parseInt(total_sum/100 * this.promocode_sale);
+        }else{
+          return total_sum
         }
       },
       period_sum_before_sale(){
@@ -478,6 +512,21 @@
     },
     methods:{
       ...mapActions(['setSearchForm']),
+      onSubmitPromo(){
+        this.promocode_loaded = false
+        this.promocode_valid = false
+        this.promocode_sale = 0
+        this.$axios.post('sun/promocheck', {code: this.userData.promocode, station: this.$config.station})
+          .then(res => {
+            if (res.data.status === 'success'){
+              this.promocode_valid = true
+              this.promocode_loaded = true
+              this.promocode_sale = res.data.data
+            }else{
+              this.promocode_loaded = true
+            }
+          })
+      },
       gen_sum(price, quantity){
         return price*quantity;
       },
@@ -614,8 +663,13 @@
             return false
           }else{
             this.allready = true;
-            if (this.userData.promocode !== ''){
-              this.userData.comment = `${this.userData.comment}, был введен промокод "${this.userData.promocode}"`
+            if (this.promocode_valid){
+              if (this.userData.promocode !== ''){
+                this.userData.comment = `${this.userData.comment}, был введен промокод "${this.userData.promocode}"`
+                if (this.promocode_sale > 0){
+                  this.userData.comment = `${this.userData.comment}, \nскидка по промокоду "${this.promocode_sale}%"`
+                }
+              }
             }
             this.userData.comment = `${this.userData.comment}, \nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}`
             this.makeMessageToBroadCasting(()=>{
@@ -713,6 +767,10 @@
 
 <style lang="sass" scoped>
   @import "../../assets/styles/variables"
+  .text-green
+    color: #2AA30C
+  .text-red
+    color: #d52b1e
   .hidden_info
     &::after
       content: '\003F'

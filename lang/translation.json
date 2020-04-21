@@ -447,6 +447,11 @@
     "df98": "Luggage capacity",
     "df99": "Tinting",
     "df100": "Loading...",
+    "df101": "Your promo code discount is ",
+    "df102": "Promocode is accepted",
+    "df103": "The promocode is invalid or entered with an error.",
+    "df104": "Apply",
+    "df105": "PROMOCODE DISCOUNT",
     "Полный": "AWD",
     "Передний": "Front drive",
     "Задний": "Rear wheel drive"
@@ -898,6 +903,11 @@
     "df98": "Объем багажника",
     "df99": "Тонировка",
     "df100": "Загрузка...",
+    "df101": "Ваша скидка по промокоду составляет ",
+    "df102": "Ваш промокод учтен.",
+    "df103": "Промокод не действителен или введен с ошибкой.",
+    "df104": "Применить",
+    "df105": "СКИДКА ПО ПРОМОКОДУ",
     "Полный": "Полный",
     "Передний": "Передний",
     "Задний": "Задний"
