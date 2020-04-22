@@ -149,21 +149,15 @@
                 div.item-info
                   p.l="{{$t('af49')}}"
                   p.r
-                    span.stars
-                      span.star-f
-                      span.star-f
-                      span.star-f
-                      span.star-f
-                      span.star-o
+                    span(v-b-modal.rate).stars
+                      span(v-for="(i, key) in item.self_data.safety" :key="`f${i}`").star-f
+                      span(v-for="(i, key) in (5 - item.self_data.safety)" :key="`s${i}`").star-o
                 div.item-info
                   p.l="{{$t('af51')}}"
                   p.r
-                    span.stars
-                      span.star-f
-                      span.star-f
-                      span.star-f
-                      span.star-o
-                      span.star-o
+                    span(v-b-modal.rate).stars
+                      span(v-for="(i, key) in item.self_data.comfort" :key="`f${i}`").star-f
+                      span(v-for="(i, key) in (5 - item.self_data.comfort)" :key="`s${i}`").star-o
                 div.item-info
                   p.l="{{$t('af50')}}"
                   p.r="{{item.tth.passa}} {{$assets.getNameCoint(item.tth.passa, $t('af52'), $t('af53'), $t('af54'))}}"
@@ -206,6 +200,8 @@
                 div.py-2
                   h3="{{$t('bc7')}}"
                   div(v-html="$assets.generate_text_docs(item.self_data.text_docs, $i18n.locale)")
+            b-modal(centered hide-header hide-footer)#rate
+              p.my-4.text-center="{{$t('df107')}}"
           b-col(sm="12" md="6" lg="6")
             div.b-wrapper.shield
               p.header
@@ -304,6 +300,12 @@
               span.ico.ren
               p.m-0="{{$t('af46')}}"
         hr
+        div(v-if="upperLoaded")
+          div(v-if="upperClass.length")
+            h3="{{$t('df106')}}"
+            upper-class-c-wo-d(:items="upperClass")
+        div(v-else)
+          loader
         banners-section
 </template>
 
@@ -314,6 +316,7 @@
   import BOImageSliderSmall from "../../../components/BOImageSliderSmall";
   import orderSmallForm from "../../../components/orderSmallForm";
   import BannersSection from "../../../components/BannersSection";
+  import upperClassCWoD from "../../../components/upperClassCWoD";
   export default {
     head () {
       return {
@@ -325,6 +328,7 @@
     },
     components:{
       BannersSection,
+      upperClassCWoD,
       BOImageSliderSmall,
       loader,
       devider,
@@ -338,6 +342,8 @@
         loaded: false,
         points: [],
         seo: require('../../../cars.json'),
+        upperClass: [],
+        upperLoaded: false
       }
     },
     computed:{
@@ -419,8 +425,19 @@
                 if(result.data.status === 'success'){
                   this.points = result.data.data;
                   this.loaded = true;
+                  this.$axios.post('sun/getUpperClassData', {
+                    station: this.$config.station,
+                    car_id_selected: this.item.self_data.car_id,
+                    car_id_raw: this.item.self_data.id,
+                    type: 'cwod'
+                  }).then(res => {
+                    if(res.data.status === 'success'){
+                      this.upperClass = res.data.data
+                      this.upperLoaded = true
+                    }
+                  }).catch(err => console.error(err))
                 }
-              })
+              }).catch(err => console.error(err))
           }else{
             this.$router.push('/rent');
           }
@@ -443,6 +460,8 @@
 
 <style lang="sass" scoped>
   @import "../../../assets/styles/variables"
+  .stars
+    cursor: pointer
   .slider-wrapper
     overflow: hidden
   .blockquote-info

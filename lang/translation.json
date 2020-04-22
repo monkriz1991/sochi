@@ -452,6 +452,8 @@
     "df103": "The promocode is invalid or entered with an error.",
     "df104": "Apply",
     "df105": "PROMOCODE DISCOUNT",
+    "df106": "Upgrade your car class",
+    "df107": "Relative rating of car users in this class",
     "Полный": "AWD",
     "Передний": "Front drive",
     "Задний": "Rear wheel drive"
@@ -908,6 +910,8 @@
     "df103": "Промокод не действителен или введен с ошибкой.",
     "df104": "Применить",
     "df105": "СКИДКА ПО ПРОМОКОДУ",
+    "df106": "Повысьте класс автомобиля",
+    "df107": "Относительная оценка пользователей автомобилей данного класса",
     "Полный": "Полный",
     "Передний": "Передний",
     "Задний": "Задний"
