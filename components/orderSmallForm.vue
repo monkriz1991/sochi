@@ -7,21 +7,39 @@
             b-input(readonly="readonly" :value="carName")
           b-form-group
             b-form-select(v-model="place" :options="placesOptions")#place.form-control
-          b-form-group
-            datetime(
-              type="datetime"
-              :placeholder="$t('s12')"
-              v-model="date"
-              format="yyyy-MM-dd HH:mm"
-              :week-start="1"
-              :minute-step="10"
-              :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-              :min-datetime="min_date"
-              :zone="'Europe/Moscow'"
-              :value-zone="'Europe/Moscow'"
-              input-class="form-control"
-              input-id="from"
-            )
+          b-row
+            b-col(sm="6" md="6" lg="6")
+              b-form-group
+                datetime(
+                  type="datetime"
+                  :placeholder="$t('s12')"
+                  v-model="date_from"
+                  format="yyyy-MM-dd HH:mm"
+                  :week-start="1"
+                  :minute-step="10"
+                  :phrases="{ok: $t('s15'), cancel: $t('s16')}"
+                  :min-datetime="min_date"
+                  :zone="'Europe/Moscow'"
+                  :value-zone="'Europe/Moscow'"
+                  input-class="form-control"
+                  input-id="from"
+                )
+            b-col(sm="6" md="6" lg="6")
+              b-form-group
+                datetime(
+                  type="datetime"
+                  :placeholder="$t('s13')"
+                  v-model="date_to"
+                  format="yyyy-MM-dd HH:mm"
+                  :week-start="1"
+                  :minute-step="10"
+                  :phrases="{ok: $t('s15'), cancel: $t('s16')}"
+                  :min-datetime="date_from"
+                  :zone="'Europe/Moscow'"
+                  :value-zone="'Europe/Moscow'"
+                  input-class="form-control"
+                  input-id="to"
+                )
           b-form-group
             b-form-input(v-model="fio" :placeholder="$t('osm1')")
         b-col(sm="12" md="6" lg="6")
@@ -50,10 +68,31 @@
         phone: '',
         place: this.$config.default_place,
         email: '',
-        date: this.$assets.genNowSpec(2),
+        date_from: this.$assets.genNowSpec(2),
+        date_to: this.$assets.genNowSpec(9),
         min_date: this.$assets.genNowSpec(1),
         comment: '',
         errorstry: 0
+      }
+    },
+    watch:{
+      date_from(){
+        if (new Date(this.date_from) > new Date(this.date_to)){
+          this.date_to = this.$assets.genNowSpecFromDate(new Date(this.date_from), 7)
+        }
+        if(new Date(this.$assets.genNowSpec(1)) > new Date(this.date_from)){
+          this.date_to = this.$assets.genNowSpec(1);
+        }else{
+        }
+      },
+      date_to(){
+        if (new Date(this.date_from) > new Date(this.date_to)){
+          this.date_to = this.$assets.genNowSpecFromDate(new Date(this.date_from), 7)
+        }
+        if(new Date(this.$assets.genNowSpec(1)) > new Date(this.date_from)){
+          this.date_to = this.$assets.genNowSpec(1);
+        }else{
+        }
       }
     },
     computed: {
@@ -99,7 +138,8 @@
             ДАННЫЕ ЗАЯВКИ:
             Автомобиль - ${this.carName},
             Тип заявки - ${this.typeOrder},
-            Дата подачи - ${this.$assets.formatDate(new Date(this.date))},
+            Дата подачи - ${this.$assets.formatDate(new Date(this.date_from))},
+            Дата возврата - ${this.$assets.formatDate(new Date(this.date_to))},
             Место подачи - ${this.selectedPlace.point_name},
             ФИО - ${this.fio},
             Телефон - ${this.phone},
@@ -110,7 +150,8 @@
             bodyFormData.set('type', 'smallform');
             bodyFormData.set('row_data', JSON.stringify({
               car_name: this.carName,
-              date: this.$assets.formatDate(new Date(this.date)),
+              date_from: this.$assets.formatDate(new Date(this.date_from)),
+              date_to: this.$assets.formatDate(new Date(this.date_to)),
               place: this.selectedPlace.point_name,
               rent_type: this.typeOrder,
               name: this.fio,
