@@ -81,6 +81,7 @@
           { value: 2, text: this.$t('class1') },
           { value: 6, text: this.$t('class8') },
           { value: 0, text: this.$t('class6') },
+          { value: 7, text: this.$t('classPromo') },
         ],
         isDriver: false
       }
