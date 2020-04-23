@@ -277,7 +277,6 @@
           b-modal(centered :title="$t('af31')" hide-footer)#ma5
             div.my-4
               p="{{$t('af38')}}"
-              p="{{$t('af39')}}"
           b-modal(centered :title="$t('af32')" hide-footer)#ma6
             p.my-4="{{$t('af40')}}"
         div(v-if="loaded").b-wrapper
