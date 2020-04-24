@@ -8,10 +8,12 @@
               b-col(sm="12" md="12" lg="6")
                 div.el-wrapper
                   div.price-badge="{{i.self_data.price_hour}}₽/{{$t('cwod8')}}"
+                  span(v-if="i.self_data.is_blocked").badge-status.no="{{$t('df108')}}"
+                  span(v-else).badge-status.yes="{{$t('df109')}}"
                   div.main-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[0]})`}")
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[1]})`}")
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[2]})`}")
-              b-col(sm="12" md="12" lg="6")
+              b-col(sm="12" md="12" lg="6").pl-0
                 div.el-info-wrapper.pr-lg-3.px-md-2.px-sm-2.px-2.py-3
                   h5="{{i.self_data.title}}"
                   div.item-info.my-2
@@ -75,6 +77,21 @@
 
 <style lang="sass" scoped>
   @import "../assets/styles/variables"
+  .badge-status
+    text-transform: uppercase
+    font-size: 12px
+    padding: 1px 5px
+    color: #fff
+    font-weight: bold
+    position: absolute
+    top: 1px
+    left: 1px
+    &.yes
+      border: 1px solid green
+      background-color: green
+    &.no
+      border: 1px solid red
+      background-color: red
   .no_dec
     color: #222222
     text-decoration: none

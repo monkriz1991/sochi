@@ -8,10 +8,12 @@
               b-col(sm="12" md="12" lg="6")
                 div.el-wrapper
                   div.price-badge(v-html="`${$t('cwd27')} ${$assets.toMoney(i.car_data.stoimost - ((i.car_data.stoimost/ 100) * i.car_data.skidka_2))}₽/${$t('cwod7')}`")
+                  span(v-if="i.self_data.is_blocked").badge-status.no="{{$t('df108')}}"
+                  span(v-else).badge-status.yes="{{$t('df109')}}"
                   div.main-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[0]})`}")
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[1]})`}")
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[2]})`}")
-              b-col(sm="12" md="12" lg="6")
+              b-col(sm="12" md="12" lg="6").pl-0
                 div.el-info-wrapper.pr-lg-3.px-md-2.px-sm-2.px-2.py-3
                   div.wrao
                     div
@@ -35,7 +37,7 @@
                         p.l="{{$t('cwod6')}}"
                         p.r="{{i.car_data.godvypuska}}"
                     div.action.w-100
-                      nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").btn.main.w-100="{{$t('af1')}}"
+                      nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").btn.main.w-100.slim="{{$t('af1')}}"
     hr.mt-2
     div.d-flex.justify-content-center.align-items-center
       b-pagination(v-model="currentPage" :total-rows="items.length" :per-page="perPage")
@@ -79,6 +81,21 @@
 
 <style lang="sass" scoped>
   @import "../assets/styles/variables"
+  .badge-status
+    text-transform: uppercase
+    font-size: 12px
+    padding: 1px 5px
+    color: #fff
+    font-weight: bold
+    position: absolute
+    top: 1px
+    left: 1px
+    &.yes
+      border: 1px solid green
+      background-color: green
+    &.no
+      border: 1px solid red
+      background-color: red
   .wrao
     display: flex
     flex-direction: column
