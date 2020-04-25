@@ -186,7 +186,7 @@
                   div
                     div.item-info
                       p.l="{{$t('cwd17')}}"
-                      p.r="с {{item.ALS.age}} {{$assets.getNameCoint(parseInt(item.ALS.age), $t('cwd23'), $t('cwd24'), $t('cwd25'))}}"
+                      p.r="{{$t('cwd27')}} {{item.ALS.age}} {{$assets.getNameCoint(parseInt(item.ALS.age), $t('cwd23'), $t('cwd24'), $t('cwd25'))}}"
                     div.item-info
                       p.l="{{$t('cwd18')}}"
                       p.r="{{$t('cwd19')}} {{item.ALS.staff}} {{$assets.getNameCoint(parseInt(item.ALS.staff), $t('cwd23'), $t('cwd24'), $t('cwd25'))}}"
