@@ -399,7 +399,8 @@
         return price;
       },
       orderNumber(){
-        return Date.now();
+        let timestamp = Date.now();
+        return `sch-${timestamp}`;
       },
       orderName(){
         return `${this.userData.surname} ${this.userData.name} ${this.userData.fathername}`;
@@ -607,48 +608,70 @@
         }
       },
       makeMessageToBroadCasting(callback_func){
-        let bodyFormData = new FormData();
-        bodyFormData.set('car', this.car_data.naimenovanie);
-        bodyFormData.set('name', this.orderName);
-        bodyFormData.set('phone', this.userData.phone);
-        bodyFormData.set('sum', parseInt(this.online_sum));
-        bodyFormData.set('day_sum', parseInt(this.car_data.stoimost));
-        bodyFormData.set('total_sum', parseInt(this.total_sum));
-        bodyFormData.set('option_sum', parseInt(this.options_price));
-        bodyFormData.set('period_sum', parseInt(this.period_sum));
-        bodyFormData.set('email', this.userData.email);
-        bodyFormData.set('comment', this.userData.comment);
-        bodyFormData.set('df', this.$assets.formatDate(new Date(this.userData.df)));
-        bodyFormData.set('dt', this.$assets.formatDate(new Date(this.userData.dt)));
-        bodyFormData.set('place', this.specify_place(this.userData.place).point_name);
-        bodyFormData.set('color', this.car_data.cvet);
-        bodyFormData.set('options', JSON.stringify(this.generated_options));
-        bodyFormData.set('period', `${parseInt(this.period)} ${this.$assets.getName(parseInt(this.period))}`);
-        bodyFormData.set('features', this.features);
-        this.$axios.post('https://booking.autopilot.rent/mail_sochi.php', bodyFormData, {headers: {}}).then(res => {
-          let broadcaster = {
-            sitename: `https://sochirentacar.ru/ \n`,
-            fio: this.orderName,
-            naimenovanie: this.car_data.naimenovanie,
-            period: `${parseInt(this.period)} ${this.$assets.getName(parseInt(this.period))}`,
-            dateFrom: this.$assets.formatDate(new Date(this.userData.df)),
-            dateTo: this.$assets.formatDate(new Date(this.userData.dt)),
-            sum: `\nполная сумма - ${this.total_sum} \n предоплата 20% - ${parseInt(this.online_sum)}\n`,
-            email: this.userData.email,
-            phone: this.userData.phone,
-            options: JSON.stringify(this.generated_options),
-            options_summ: this.options_price,
-            features: this.features,
-            comment: this.userData.comment
-          };
-          this.$axios.post('sendTgBroadcast', broadcaster)
-            .then((result)=>{
-              if (result){
-                callback_func()
-              }
-            })
-            .catch(err => console.error(err))
-        }).catch(err => console.error(err));
+        let promo = '';
+        if (this.promocode_valid){
+          if (this.userData.promocode !== ''){
+            promo = `\n\n${promo}Был введен промокод "${this.userData.promocode}"`
+            if (this.promocode_sale > 0){
+              promo = `${promo}, \nскидка по промокоду "${this.promocode_sale}%"`
+            }
+          }
+        }
+        let payData = "";
+        payData = `${payData}Данные по оплате отображенные пользователю\n`;
+        payData = `${payData}Стоимость периода со скидкой - ${this.period_sum}руб.\n`;
+        payData = `${payData}Стоимость периода без скидки - ${this.period_sum_before_sale}руб.\n`;
+        payData = `${payData}Стоимость опций - ${this.options_price}руб.\n`;
+        payData = `${payData}Стоимость подачи - ${this.specify_place(this.userData.place).price}руб.\n`;
+        payData = `${payData}Стоимость возврата - ${this.specify_place(this.userData.place_comeback).price}руб.\n`;
+        payData = `${payData}Полная стоимость - ${this.total_sum}руб.\n`;
+        payData = `${payData}Размер предоплаты - ${this.online_sum}руб.`;
+        let orderData = {
+          station : this.$config.station,
+          car_id : this.car_id,
+          order_id_1c : null,
+          order_id_site : this.orderNumber,
+          name : this.userData.name,
+          fathername : this.userData.fathername,
+          surname : this.userData.surname,
+          email : this.userData.email,
+          phone : this.userData.phone,
+          comment : this.userData.comment,
+          place_from_id : this.specify_place(this.userData.place).id,
+          place_to_id : this.specify_place(this.userData.place_comeback).id,
+          date_from : this.userData.df,
+          date_to : this.userData.dt,
+          date_from_fo1 : this.$assets.makeDateForRequest(this.userData.df),
+          date_to_fo1 : this.$assets.makeDateForRequest(this.userData.dt),
+          date_from_ftg : this.$assets.formatDate(new Date(this.userData.df)),
+          date_to_ftg : this.$assets.formatDate(new Date(this.userData.dt)),
+          color: this.car_data.cvet,
+          fio: this.orderName,
+          naimenovanie: this.car_data.naimenovanie,
+          period: `${parseInt(this.period)} ${this.$assets.getName(parseInt(this.period))}`,
+          site: 'https://sochirentacar.ru/',
+          options : JSON.stringify(this.generated_options),
+          total_price : this.period_sum_before_sale,
+          discounted_price : this.total_sum,
+          option_price : this.options_price,
+          online_price : this.online_sum,
+          delivery_price : this.specify_place(this.userData.place).price,
+          return_price : this.specify_place(this.userData.place_comeback).price,
+          is_payed : false,
+          is_limited : this.is_limit,
+          mileage_limit : this.limit_distance,
+          promocode : this.promocode_valid ? this.userData.promocode : '',
+          discount : this.promocode_valid ? this.promocode_sale : 0,
+          insurance : JSON.stringify([]),
+          features: this.features,
+          delivery_reverse: `${payData}\n${promo}\n\nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}\n`
+        }
+        this.$axios.post('sun/placeOrder', orderData)
+          .then(res => {
+            if (res.data.status === 'success'){
+              callback_func()
+            }
+          }).catch(err => console.error(err))
       },
       onSubmitOrder(){
         if (!this.allready){
@@ -663,15 +686,6 @@
             return false
           }else{
             this.allready = true;
-            if (this.promocode_valid){
-              if (this.userData.promocode !== ''){
-                this.userData.comment = `${this.userData.comment}, был введен промокод "${this.userData.promocode}"`
-                if (this.promocode_sale > 0){
-                  this.userData.comment = `${this.userData.comment}, \nскидка по промокоду "${this.promocode_sale}%"`
-                }
-              }
-            }
-            this.userData.comment = `${this.userData.comment}, \nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}`
             this.makeMessageToBroadCasting(()=>{
               this.$refs.form.submit();
               if (yaCounter33072038){
@@ -928,5 +942,4 @@
           color: #d50000
         p
           color: #d50000
-
 </style>
