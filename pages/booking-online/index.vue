@@ -4,7 +4,7 @@
     main.py-3
       div.container
         BreadCrumbs(:items="bcItems")
-        h1="{{$t('breadcrumbs14')}}"
+        h1.text-uppercase="{{$t('breadcrumbs14')}}"
       search-form
       auto-offer-wrapper
 </template>
