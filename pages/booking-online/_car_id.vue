@@ -13,6 +13,21 @@
                     p.auto-class.m-0="{{$t(car_data.klassavtomobilya)}}"
                     h1="{{car_data.naimenovanie}}"
                     div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365'").py-2
+                    div.d-block.d-sm-none.d-md-none.d-lg-none
+                      div.features-list-icos.features-small
+                        div.features-list-block
+                          span.bag(v-html="`${$assets.getBagsData(car_data.bags, car_data.bigbag, $i18n.locale)}`")
+                        div.features-list-block
+                          span.pass='{{$assets.getPassa(car_data.passa, $i18n.locale) }}'
+                        div.features-list-block
+                          span.dors='{{ $assets.getDoors(car_data.dors, $i18n.locale) }}'
+                        div.features-list-block
+                          span.temp='{{$t(car_data.klimat)}}'
+                        div.features-list-block
+                          span.benz="{{car_data.rashod}}{{$t('p2')}}"
+                        div.features-list-block
+                          span.gear='{{$t(car_data.kpp)}}'
+                    div.d-none.d-sm-block.d-md-block.d-lg-block
                       b-row.features-list-icos
                         b-col(sm="12" md="6" lg="4").features-list-block
                           span.bag(v-html="`${$assets.getBagsData(car_data.bags, car_data.bigbag, $i18n.locale)}`")
@@ -173,40 +188,10 @@
                     b-row
                       b-col(sm="12" md="12" lg="6")
                         b-form-group(:description="$t('s12')")
-                          datetime(
-                            type="datetime"
-                            :placeholder="$t('s12')"
-                            v-model="userData.df"
-                            format="yyyy-MM-dd HH:mm"
-                            :week-start="1"
-                            :minute-step="10"
-                            :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-                            :min-datetime="userData.df"
-                            :max-datetime="userData.df"
-                            :zone="'Europe/Moscow'"
-                            :value-zone="'Europe/Moscow'"
-                            input-class="form-control"
-                            input-id="from"
-                            :readonly="true"
-                          )
+                          b-form-input(:value="$assets.formatDate(new Date(this.userData.df))" :readonly="true" :placeholder="$t('s12')")
                       b-col(sm="12" md="12" lg="6")
                         b-form-group(:description="$t('s13')")
-                          datetime(
-                            type="datetime"
-                            :placeholder="$t('s13')"
-                            v-model="userData.dt"
-                            format="yyyy-MM-dd HH:mm"
-                            :week-start="1"
-                            :minute-step="10"
-                            :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-                            :min-datetime="userData.dt"
-                            :max-datetime="userData.dt"
-                            :zone="'Europe/Moscow'"
-                            :value-zone="'Europe/Moscow'"
-                            input-class="form-control"
-                            input-id="to"
-                            :readonly="true"
-                          )
+                          b-form-input(:value="$assets.formatDate(new Date(this.userData.dt))" :readonly="true" :placeholder="$t('s13')")
                       b-col(sm="12" md="12" lg="12")
                         b-form-group
                           b-form-select(v-model="userData.place" :options="placeOptions" @change="checkPlaseOnChange")
