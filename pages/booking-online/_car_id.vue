@@ -270,15 +270,13 @@
   import BreadCrumbs from "../../components/BreadCrumbs";
   import loader from "../../components/loader";
   import BOImageSlider from "../../components/BOImageSlider";
-  import { Datetime } from 'vue-datetime';
   export default {
     name: "carDetails",
     components: {
       devider,
       BreadCrumbs,
       loader,
-      BOImageSlider,
-      Datetime
+      BOImageSlider
     },
     data(){
       return {
