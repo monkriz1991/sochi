@@ -192,6 +192,8 @@
                       b-col(sm="12" md="12" lg="6")
                         b-form-group(:description="$t('s13')")
                           b-form-input(:value="$assets.formatDate(new Date(this.userData.dt))" :readonly="true" :placeholder="$t('s13')")
+                      b-col(sm="12" md="12" lg="12").text-center.pb-2
+                        nuxt-link(:to="{name: this.$assets.prefix('booking-online', this.$i18n.locale) }")="{{$t('chd')}}"
                       b-col(sm="12" md="12" lg="12")
                         b-form-group
                           b-form-select(v-model="userData.place" :options="placeOptions" @change="checkPlaseOnChange")
@@ -470,6 +472,7 @@
           },
           {
             text: this.$t('breadcrumbs14'),
+            to: {name: this.$assets.prefix('booking-online', this.$i18n.locale) }
           }
         ];
         if (this.loaded) {
