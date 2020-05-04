@@ -91,10 +91,10 @@
       img
         width: 20px
         height: 10px
-        transform: rotate(180deg)
         transition: 0.6s
+        transform: rotate(0deg)
         &.in
-          transform: rotate(0deg)
+          transform: rotate(180deg)
           transition: 0.6s
     p
       margin: 0
