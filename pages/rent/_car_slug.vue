@@ -247,6 +247,8 @@
                 div(v-for="(point, idx) in points" :key="idx").item-info
                   p.l="{{$t(point.point_name)}}"
                   p.r(v-html="point.price > 0 ? point.price+'₽' : $t('bocid2')")
+        div(v-if="loaded")
+          options-wrapper(:car_id="item.car_data['1cID']")
         div(v-if="loaded").b-wrapper.gr
           p.header="{{$t('af26')}}"
           div.rate.gr
@@ -316,6 +318,7 @@
   import orderSmallForm from "../../components/orderSmallForm";
   import BannersSection from "../../components/BannersSection";
   import upperClassCWoD from "../../components/upperClassCWoD";
+  import OptionsWrapper from "../../components/OptionsWrapper";
   export default {
     head () {
       return {
@@ -333,6 +336,7 @@
       devider,
       BreadCrumbs,
       orderSmallForm,
+      OptionsWrapper,
     },
     data(){
       return {
