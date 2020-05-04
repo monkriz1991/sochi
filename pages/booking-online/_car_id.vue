@@ -43,11 +43,6 @@
                           span.gear='{{$t(car_data.kpp)}}'
                     div.py-1
                       span(v-for="(f, fdx) in car_data.features_options" v-bind:key="fdx" v-html="$t(f.name)").badge_feature
-                  div.p-3.info-inside.wbb
-                    div.garant
-                      div.grant-item
-                        div
-                          p.m-0="{{$t('bocid6')}}"
                   div(v-if="car_data.naimenovanie === 'Xiaomi MiJia Electric Scooter M365'").p-3.info-inside.wbb
                     div.option
                       div.option-item.mt-2.mb-0
@@ -119,7 +114,7 @@
                               hr
                               b-o-image-slider(:items="o.photos")
                             |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
-                          span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{$i18n.locale === 'ru' ? o.option_description : o.option_description_eng}}"
+                          span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Защита бронирования' || o.option_name === 'Гарантия выбранного авто' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{$i18n.locale === 'ru' ? o.option_description : o.option_description_eng}}"
                           span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="{{$t('covid')}}"
                         span.text-right.position-relative
                           b-form-select(v-model="o.quantity" v-if="o.value && o.count > 1").w-10
