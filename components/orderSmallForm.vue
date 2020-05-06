@@ -170,8 +170,10 @@
                   variant: 'success',
                   solid: true
                 });
-                this.errorstry++
-              }).catch((err)=>{console.error(err)})
+                this.$router.push({ name: this.$assets.prefix('status-success', this.$i18n.locale)});
+              }).catch((err)=>{
+              this.$router.push({ name: this.$assets.prefix('status-error', this.$i18n.locale)});
+            })
           }
         }else{
           this.$bvToast.toast('Вы уже отправляли заявку', {

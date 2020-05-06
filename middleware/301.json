@@ -1004,5 +1004,13 @@
   {
     "from": "/rent/hyundai_elantra_new_white",
     "to": "/rent/hyundai_elantra_new_white/"
+  },
+  {
+    "from": "/status/success",
+    "to": "/status/success/"
+  },
+  {
+    "from": "/status/error",
+    "to": "/status/error/"
   }
 ]
