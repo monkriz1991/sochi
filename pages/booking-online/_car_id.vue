@@ -60,7 +60,7 @@
                               b-o-image-slider(:items="o.photos")
                             |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
                           span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{$i18n.locale === 'ru' ? o.option_description : o.option_description_eng}}"
-                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="{{$t('covid')}}"
+                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="{{$t('covid1')}} {{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}} {{$t('covid2')}}"
                         span.text-right.position-relative
                           b-form-select(v-model="o.quantity" v-if="o.value && o.count > 1").w-10
                             option(v-for="i in o.count" :key="i")="{{i}}"
@@ -115,7 +115,7 @@
                               b-o-image-slider(:items="o.photos")
                             |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
                           span(v-if="o.option_name === 'Дозаправка' || o.option_name === 'Защита бронирования' || o.option_name === 'Гарантия выбранного авто' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{$i18n.locale === 'ru' ? o.option_description : o.option_description_eng}}"
-                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="{{$t('covid')}}"
+                          span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="{{$t('covid1')}} {{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}} {{$t('covid2')}}"
                         span.text-right.position-relative
                           b-form-select(v-model="o.quantity" v-if="o.value && o.count > 1").w-10
                             option(v-for="i in o.count" :key="i")="{{i}}"

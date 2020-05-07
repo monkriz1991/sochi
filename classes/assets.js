@@ -328,6 +328,12 @@ class Assets {
       }else{
         return true
       }
+    }else if(['Возврат авто в Крыму', 'Выезд в Крым', 'Крымский Мост', 'Возврат авто в Сочи'].includes(name)){
+      if (Date.parse(df) > Date.parse('2021-05-01')){
+        return false
+      }else{
+        return true
+      }
     }else{
       return false
     }
