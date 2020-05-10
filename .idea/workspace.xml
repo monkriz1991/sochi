@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="availibility fox" />
+    <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="availibility fox">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/rent/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/rent/index.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,13 +185,7 @@
       <workItem from="1588875163190" duration="554000" />
       <workItem from="1588926485836" duration="1805000" />
       <workItem from="1589098575804" duration="63000" />
-    </task>
-    <task id="LOCAL-00082" summary="translation">
-      <created>1585903930401</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1585903930401</updated>
+      <workItem from="1589102339098" duration="545000" />
     </task>
     <task id="LOCAL-00083" summary="translation">
       <created>1586112014671</created>
@@ -526,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589098625733</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="availibility fox">
+      <created>1589102362587</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1589102362587</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,13 +624,13 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="528" y="246" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1586872325608" />
-    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1589098627892">
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2" timestamp="1589102364733">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="371" y="323" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1585771715409" />
     <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@0.23.1680.1027" timestamp="1585657995630" />
     <state x="2174" y="143" key="Vcs.Push.Dialog.v2/0.23.1680.1027/1680.-218.1920.1057@1680.-218.1920.1057" timestamp="1585307098563" />
-    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1589098627892" />
+    <state x="432" y="374" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1589102364733" />
     <state x="480" y="379" width="858" height="582" key="find.popup" timestamp="1588931087892">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
