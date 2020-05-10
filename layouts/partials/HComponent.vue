@@ -3,10 +3,6 @@
       div.d-flex.d-sm-flex.d-md-flex.d-lg-none.phone-wrapper
         div.container
           a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`" @click="$assets.reachGoal('pressphone')").mgo-number="{{settings.main_phone}}"
-      div.lvm.d-flex.d-sm-flex.d-md-flex.d-lg-none
-        noindex
-          a(href="https://www.may9.ru/" rel="nofollow" target="_blank")
-            img(:src="lvm")
       header.pt-3
         div.container
           div.d-none.d-sm-none.d-md-none.d-lg-block
@@ -21,10 +17,6 @@
                 div.logo
                   nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")
                     img(:src="logo" fluid alt="Sochi rent a car")
-                  div.lv
-                    noindex
-                      a(href="https://www.may9.ru/" rel="nofollow" target="_blank")
-                        img(:src="lv")
               b-col(sm="6" md="6" lg="4" order="3" order-sm="3" order-md="3" order-lg="3")
                 div.infobox.py-1.d-flex.justify-content-end.flex-column.align-content-end.align-items-center.align-items-sm-center.align-items-md-end.align-items-lg-end
                   a(role="button" v-b-modal.callback).btn.main.slim.icon-phone="{{ $t('callback') }}"
@@ -154,18 +146,6 @@
 
 <style lang="sass" scoped>
   @import "../../assets/styles/variables"
-  .lv
-    position: absolute
-    top: -20px
-    right: -70px
-    background: #EF2A1D
-    padding: 20px 10px
-    z-index: 10
-  .lvm
-    background: #EF2A1D
-    padding: 10px
-    justify-content: center
-    align-items: center
   .phone-wrapper
     background: $primary
     a
