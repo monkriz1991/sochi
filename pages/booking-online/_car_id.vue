@@ -600,6 +600,7 @@
         }
         let payData = "";
         payData = `${payData}Данные по оплате отображенные пользователю\n`;
+        payData = `${payData}Стоимость суток - ${this.car_data.stoimost}руб.\n`;
         payData = `${payData}Стоимость периода со скидкой - ${this.period_sum}руб.\n`;
         payData = `${payData}Стоимость периода без скидки - ${this.period_sum_before_sale}руб.\n`;
         payData = `${payData}Стоимость опций - ${this.options_price}руб.\n`;
