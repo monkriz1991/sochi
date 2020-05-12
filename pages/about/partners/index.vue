@@ -12,6 +12,13 @@
           b-col(sm="12" md="9" lg="9")
             article
               h1="{{$t('faq10')}}"
+              div#partners-wrapper
+                b-row
+                  b-col(sm="6" md="4" lg="4" v-for="(p, pdx) in partners" :key="pdx")
+                    div.item
+                      a(:href="p.link" rel="nofollow")
+                        div(v-bind:style="{backgroundImage: `url(${p.logo})`}").media
+                        h5.text-center.text-uppercase="{{p.name}}"
 </template>
 
 <script>
@@ -34,6 +41,48 @@
     },
     data(){
       return {
+        partners: [
+          {
+            name: 'autopilotrent.ru',
+            link: 'https://autopilotrent.ru',
+            logo: require('../../../assets/images/program/icbtext.png')
+          },
+          {
+            name: 'Рольф тоуота Ясенево',
+            link: 'https://toyota-yasenevo.ru',
+            logo: require('../../../assets/images/program/toyota.png')
+          },
+          {
+            name: 'Hyundai АКРОС',
+            link: 'https://www.hyundai-akros.ru',
+            logo: require('../../../assets/images/program/h.png')
+          },
+          {
+            name: 'Nissan РОЛЬФ',
+            link: 'https://rolf-nissan.ru',
+            logo: require('../../../assets/images/program/nissan.png')
+          },
+          {
+            name: 'Renault КлючАвто',
+            link: 'https://renault.keyauto.ru',
+            logo: require('../../../assets/images/program/renault.png')
+          },
+          {
+            name: 'Kia КлючАвто',
+            link: 'https://kia-krasnodar.ru',
+            logo: require('../../../assets/images/program/kia.png')
+          },
+          {
+            name: 'BMW Авилон',
+            link: 'https://www.bmw-avilon.ru',
+            logo: require('../../../assets/images/program/bmw.png')
+          },
+          {
+            name: 'Mercedes-Benz Звезда Столицы',
+            link: 'https://sales.mercedes-zs.ru',
+            logo: require('../../../assets/images/program/mercedes.png')
+          },
+        ],
         bcItems: [
           {
             text: this.$t('breadcrumbs1'),
@@ -63,4 +112,19 @@
       position: sticky
       top: 0
       padding: 15px 0
+  #partners-wrapper
+    .item
+      padding: 10px
+      .media
+        min-height: 180px
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat
+      h5
+        min-height: 35px
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 5px 0
+        color: #222
 </style>
