@@ -73,9 +73,14 @@
             logo: require('../../../assets/images/program/kia.png')
           },
           {
-            name: 'BMW Авилон',
-            link: 'https://www.bmw-avilon.ru',
+            name: 'BMW Автодом',
+            link: 'https://www.bmw-avtodom.ru',
             logo: require('../../../assets/images/program/bmw.png')
+          },
+          {
+            name: 'MINI Автодом',
+            link: 'https://www.mini-avtodom.ru',
+            logo: require('../../../assets/images/program/mini.png')
           },
           {
             name: 'Mercedes-Benz Звезда Столицы',
