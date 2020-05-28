@@ -1,8 +1,13 @@
 <template lang="pug">
   div.cwod-wrapper
+    div.filter
+      b-row
+        b-col(sm="12" md="6" lg="4")
+          b-form-select(v-model="filter" :options="filterOptions")
+        b-col(sm="12" md="6" lg="4" offset-lg="4")
+          b-form-select(v-model="filter_price" :options="filterPrice")
     b-row
-      b-col(sm="6" md="6" lg="6" v-for="(i, idx) in withPagen" :key="idx").my-3
-        nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").no_dec
+      b-col(sm="6" md="6" lg="6" v-for="(i, idx) in filtered_list" :key="idx").my-3
           div.el
             b-row
               b-col(sm="12" md="12" lg="6")
@@ -38,9 +43,6 @@
                         p.r="{{i.car_data.godvypuska}}"
                     div.action.w-100
                       nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").btn.main.w-100.slim="{{$t('af1')}}"
-    hr.mt-2
-    div.d-flex.justify-content-center.align-items-center
-      b-pagination(v-model="currentPage" :total-rows="items.length" :per-page="perPage")
 </template>
 
 <script>
@@ -55,6 +57,21 @@
       return {
         currentPage: 1,
         perPage: 10,
+        filterOptions: [
+          {value: 'all', text: this.$t('filters1')},
+          {value: 'Комфорт класс', text: this.$t('filters2')},
+          {value: 'Кроссоверы', text: this.$t('filters3')},
+          {value: 'Минивены', text: this.$t('filters4')},
+          {value: 'Кабриолет', text: this.$t('filters5')},
+          {value: 'Бизнес', text: this.$t('filters6')},
+          {value: 'cargo', text: this.$t('filters7')},
+        ],
+        filterPrice: [
+          {value: 'price_asc', text: this.$t('filters8')},
+          {value: 'price_desc', text: this.$t('filters9')},
+        ],
+        filter: 'all',
+        filter_price: 'price_asc',
       }
     },
     watch:{
@@ -67,6 +84,9 @@
       }
     },
     computed:{
+      filtered_list(){
+        return this.$filters.prepareRent(this.items, this.filter_price, this.filter);
+      },
       withPagen() {
         return this.items.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
       }

@@ -88,6 +88,26 @@ class Filters{
     return 0;
   };
 
+  compareRent_more = (a, b) => {
+    if (a.car_data.stoimost > b.car_data.stoimost) {
+      return -1;
+    }
+    if (a.car_data.stoimost < b.car_data.stoimost) {
+      return 1;
+    }
+    return 0;
+  };
+
+  compareTent_less = (a, b) => {
+    if (a.car_data.stoimost < b.car_data.stoimost) {
+      return -1;
+    }
+    if (a.car_data.stoimost > b.car_data.stoimost) {
+      return 1;
+    }
+    return 0;
+  };
+
   prepareLT = (data, price_filter, class_filter) => {
     let filtered = [];
     if (class_filter === 'cargo'){
@@ -107,6 +127,28 @@ class Filters{
       return filtered.sort(this.compareLT_less)
     }else{
       return filtered.sort(this.compareLT_more)
+    }
+  }
+
+  prepareRent = (data, price_filter, class_filter) => {
+    let filtered = [];
+    if (class_filter === 'cargo'){
+      filtered = data.filter(el => {
+        return el.car_data.naimenovanie === 'Citroen Jumpy L3'
+      })
+    }else{
+      if (class_filter === 'all'){
+        filtered = data
+      }else{
+        filtered = data.filter(el => {
+          return el.car_data.klassavtomobilya === class_filter
+        })
+      }
+    }
+    if (price_filter === 'price_asc'){
+      return filtered.sort(this.compareRent_less)
+    }else{
+      return filtered.sort(this.compareRent_more)
     }
   }
 
