@@ -98,7 +98,7 @@ class Filters{
     return 0;
   };
 
-  compareTent_less = (a, b) => {
+  compareRent_less = (a, b) => {
     if (a.car_data.stoimost < b.car_data.stoimost) {
       return -1;
     }
