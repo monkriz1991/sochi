@@ -124,6 +124,8 @@
                           b(v-html="gen_sum_price(o.price, o.old_price, o.quantity)")
                           span(v-if="o.price > 0"  v-html="o.price_type === 'day' ? '/'+$t('aoc1'):''")
                       hr(v-if="(odx+1) !== options.length").cbt
+                  div(v-if="insurance_options.length > 0").p-3.info-inside.wbb
+                    Insurance(v-model="insurance" :items="insurance_options")
                   div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365'").p-3.info-inside.wbb
                     h4="{{$t('bocid12')}}"
                     b-form-group
@@ -158,6 +160,9 @@
                     div.price_string(v-if="priceOfPlaceCompack > 0")
                       h5.text-black-50="{{$t('bocid11')}}"
                       h5.text-black-50="{{priceOfPlaceCompack}}₽"
+                    div.price_string(v-if="insurance > 0")
+                      h5.text-black-50="{{$t('ins1')}}"
+                      h5.text-black-50="{{insurance}}₽"
                     div.price_string(v-if="is_limit")
                       h5.text-black-50="{{$t('bocid12')}}"
                       h5.text-black-50="{{limit_distance}}{{$t('p3')}}"
@@ -267,12 +272,14 @@
   import BreadCrumbs from "../../components/BreadCrumbs";
   import loader from "../../components/loader";
   import BOImageSlider from "../../components/BOImageSlider";
+  import Insurance from "../../components/Insurance";
   export default {
     name: "carDetails",
     components: {
       devider,
       BreadCrumbs,
       loader,
+      Insurance,
       BOImageSlider
     },
     data(){
@@ -285,6 +292,8 @@
         options: [],
         placeOptions: [],
         places: [],
+        insurance: 0,
+        insurance_options: [],
         loaded: false,
         loader_step: 0,
         is_promocode: false,
@@ -748,6 +757,7 @@
           if(res.data.status === 'success'){
             this.loader_step = this.loader_step + 1;
             this.options = res.data.data;
+            this.insurance_options = res.data.insurance;
           }
         }).catch((err)=>{console.error(err)});
       this.fetchPoints().then(()=>{

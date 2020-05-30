@@ -360,6 +360,7 @@
     "af8": "Reduction of insurance coverage for damage with a deductible (CDW) and theft with a deductible (TP) to 15,000 rubles",
     "af9": "This service includes a set of insurance coverage:",
     "af10": "cancellation of the Deposit and deductible;",
+    "af10_1": "Сancellation of the Deposit and deductible",
     "af11": "extended technical assistance;",
     "af12": "reducing the risk of damage to the windshield;",
     "af13": "This service is provided within the borders of LOO and Krasnaya Polyana and includes assistance in any non-standard situation, even if it is not specified in the main insurance contract:",
@@ -462,7 +463,8 @@
     "Передний": "Front drive",
     "Задний": "Rear wheel drive",
     "chd": "Change booking dates",
-    "dops": "Additional options"
+    "dops": "Additional options",
+    "ins1": "Insurance options"
   },
   "ru": {
     "op": "Онлайн оплата",
@@ -824,6 +826,7 @@
     "af8": "Снижение выплат страхового покрытия от ущерба с франшизой (CDW) и от угона с франшизой (TP) до 15.000 рублей",
     "af9": "Данная услуга включает в себя комплекс страхового покрытия:",
     "af10": "отмена залога и франшизы;",
+    "af10_1": "Отмена залога и франшизы",
     "af11": "расширенная техническая помощь;",
     "af12": "снижение рисков за повреждение лобового стекла;",
     "af13": "Данная услуга оказывается в пределах границ от ЛОО и до Красной Поляны и включает в себя помощь в любой нестандартной ситуации, даже если она не прописана в основном страховом договоре:",
@@ -926,6 +929,7 @@
     "Передний": "Передний",
     "Задний": "Задний",
     "chd": "Изменить даты бронирования",
-    "dops": "Дополнительные опции"
+    "dops": "Дополнительные опции",
+    "ins1": "Опции Страхования"
   }
 }
