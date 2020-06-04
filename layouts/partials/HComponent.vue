@@ -1,5 +1,6 @@
 <template lang="pug">
     div#header
+      div.d-flex.d-sm-flex.d-md-flex.d-lg-none.phone-wrapper-beholder
       div.d-flex.d-sm-flex.d-md-flex.d-lg-none.phone-wrapper
         div.container
           a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`" @click="$assets.reachGoal('pressphone')").mgo-number="{{settings.main_phone}}"
