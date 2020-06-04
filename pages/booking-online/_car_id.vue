@@ -144,28 +144,28 @@
                   div.p-3.info-inside
                     h4="{{$t('bocid7')}}"
                     div.price_string
-                      h5.text-black-50="{{$t('bocid8')}}"
-                      h5.text-black-50
+                      h5.text-black-50.text-uppercase="{{$t('bocid8')}}"
+                      h5.text-black-50.text-uppercase
                         span(v-if="period_sum < period_sum_before_sale").old_price="{{period_sum_before_sale}}₽"
                         |{{period_sum}}₽
                     div(v-if="promocode_sale > 0").price_string
-                      h5.text-black-50="{{$t('df105')}}"
-                      h5.text-black-50="-{{promocode_sale}}%"
+                      h5.text-black-50.text-uppercase="{{$t('df105')}}"
+                      h5.text-black-50.text-uppercase="-{{promocode_sale}}%"
                     div.price_string
-                      h5.text-black-50="{{$t('bocid9')}}"
-                      h5.text-black-50="{{options_price}}₽"
+                      h5.text-black-50.text-uppercase="{{$t('bocid9')}}"
+                      h5.text-black-50.text-uppercase="{{options_price}}₽"
                     div.price_string(v-if="priceOfPlace > 0")
-                      h5.text-black-50="{{$t('bocid10')}}"
-                      h5.text-black-50="{{priceOfPlace}}₽"
+                      h5.text-black-50.text-uppercase="{{$t('bocid10')}}"
+                      h5.text-black-50.text-uppercase="{{priceOfPlace}}₽"
                     div.price_string(v-if="priceOfPlaceCompack > 0")
-                      h5.text-black-50="{{$t('bocid11')}}"
-                      h5.text-black-50="{{priceOfPlaceCompack}}₽"
+                      h5.text-black-50.text-uppercase="{{$t('bocid11')}}"
+                      h5.text-black-50.text-uppercase="{{priceOfPlaceCompack}}₽"
                     div.price_string(v-if="insurance > 0")
-                      h5.text-black-50="{{$t('ins1')}}"
-                      h5.text-black-50="{{insurance}}₽"
+                      h5.text-black-50.text-uppercase="{{$t('ins1')}}"
+                      h5.text-black-50.text-uppercase="{{insurance}}₽"
                     div.price_string(v-if="is_limit")
-                      h5.text-black-50="{{$t('bocid12')}}"
-                      h5.text-black-50="{{limit_distance}}{{$t('p3')}}"
+                      h5.text-black-50.text-uppercase="{{$t('bocid12')}}"
+                      h5.text-black-50.text-uppercase="{{limit_distance}}{{$t('p3')}}"
                     div.price_string
                       h5="{{$t('bocid13')}}"
                       h5="{{online_sum}}₽"
@@ -228,7 +228,11 @@
                         b-form-group
                           b-form-textarea(:placeholder="$t('bocid28')" v-model="userData.comment" @input="clearErrors")
                       b-col(v-if="car_data.zalog > 0" sm="12" md="12" lg="12")
-                        div.option
+                        div(v-if="no_loan").option
+                          div.option-item.my-2
+                            b.loan="{{$t('bocid27')}} 0₽"
+                              b.old_loan="{{car_data.zalog}}₽"
+                        div(v-else).option
                           div.option-item.my-2
                             b="{{$t('bocid27')}} {{car_data.zalog}}₽"
                       b-col(sm="12" md="12" lg="12")
@@ -294,6 +298,8 @@
         places: [],
         insurance: 0,
         insurance_options: [],
+        no_loan: false,
+        insuranse_string: false,
         loaded: false,
         loader_step: 0,
         is_promocode: false,
@@ -466,7 +472,7 @@
         return Math.round((this.period_sum) * 0.2);
       },
       total_sum(){
-        return this.period_sum + this.options_price + this.priceOfPlace + this.priceOfPlaceCompack;
+        return this.period_sum + this.options_price + this.priceOfPlace + this.priceOfPlaceCompack + this.insurance;
       },
       bcItems(){
         let crumbs = [
@@ -655,7 +661,7 @@
           discount : this.promocode_valid ? this.promocode_sale : 0,
           insurance : JSON.stringify([]),
           features: this.features,
-          delivery_reverse: `${payData}\n${promo}\n\nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}\n`
+          delivery_reverse: `\n\n${this.insuranse_string ? this.insuranse_string : ''}${payData}\n${promo}\n\nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}\n`
         }
         this.$axios.post('sun/placeOrder', orderData)
           .then(res => {
@@ -773,6 +779,15 @@
 
 <style lang="sass" scoped>
   @import "../../assets/styles/variables"
+  .loan
+    position: relative
+    .old_loan
+      position: absolute
+      top: -15px
+      text-decoration: line-through
+      text-decoration-color: red
+      color: #cdcdcd
+      right: -20px
   .text-green
     color: #2AA30C
   .text-red

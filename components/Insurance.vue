@@ -3,16 +3,24 @@
       h4.text-uppercase="{{$t('ins1')}}"
       div(v-for="(item, idx) in sorted_items" :key="idx").option
         div(v-bind:class="{'pl-3': item.sub}").option-item.my-2
-          b-form-checkbox(v-model="item.value" v-if="item.code === 'ins_tax_1'" @change="changeF" :indeterminate.sync="insur").lp-checkbox
+          b-form-checkbox(v-model="item.value" v-if="item.code === 'ins_tax_1'" @change="check($event)").lp-checkbox.w-100
             div.wtp
               a(@click.prevent="$bvModal.show(item.code)").hidden_info
               p(v-html="item[`name_${$i18n.locale}`]").m-0
-          b-form-checkbox(v-model="item.value" v-else).lp-checkbox
-            div.wtp
-              a(@click.prevent="$bvModal.show(item.code)").hidden_info
-              p(v-html="item[`name_${$i18n.locale}`]").m-0
-          span(v-if="item.code !== 'ins_tax_1'").text-right.position-relative
-            b="{{item.price}}₽"
+          b-form-checkbox(v-model="item.value" v-else-if="item.code === 'ins_tax_5'").lp-checkbox.w-100
+            div.info
+              div.wtp
+                a(@click.prevent="$bvModal.show(item.code)").hidden_info
+                p(v-html="item[`name_${$i18n.locale}`]").m-0
+              span(v-if="item.code !== 'ins_tax_1'").text-right.position-relative
+                b="{{item.price}}₽/{{$t('aoc1')}}"
+          b-form-checkbox(v-model="item.value" v-else @change="check_sub($event)").lp-checkbox.w-100
+            div.info
+              div.wtp
+                a(@click.prevent="$bvModal.show(item.code)").hidden_info
+                p(v-html="item[`name_${$i18n.locale}`]").m-0
+              span(v-if="item.code !== 'ins_tax_1'").text-right.position-relative
+                b="{{item.price}}₽/{{$t('aoc1')}}"
         hr(v-if="(idx+1) !== sorted_items.length")
       b-modal(centered :title="$t('af5')" hide-footer)#ins_tax_1
         div.py-4
@@ -58,6 +66,12 @@
         watch: {
           total(val) {
             this.$emit('input', val);
+            if (this.ins_tax_3){
+              this.$parent.no_loan = true
+            }else{
+              this.$parent.no_loan = false
+            }
+            this.$parent.insuranse_string = this.insuranse_string
           },
         },
         data(){
@@ -69,17 +83,31 @@
           total(){
             let total = 0;
             this.sorted_items.map(el => {
-              if(el.value){
-                total = total + el.price
+              if(el.value) {
+                if (el.code !== 'ins_tax_1') {
+                  total = total + el.price * this.$parent.period
+                }
               }
             })
             return total
           },
-          insur(){
-            if(this.ins_tax_2 && this.ins_tax_3 && this.ins_tax_4){
-              return false
+          insuranse_string(){
+            let s = "";
+            if (this.ins_tax_1 || this.ins_tax_2 || this.ins_tax_3 || this.ins_tax_4 || this.ins_tax_5){
+              s = `\n\nВключенные опции страхования\n`
+              this.sorted_items.map(el => {
+                if(el.value) {
+                  if (el.code !== 'ins_tax_1') {
+                    s = `${s}${el.name_ru} - ${el.price * this.$parent.period}руб.\n`
+                  }
+                }
+              })
+              s = `\n${s}ИТОГО ПО СТАРХОВКЕ - ${this.total}руб.\n\n`
+            }
+            if (s !== ""){
+              return s
             }else{
-              return this.ins_tax_2 || this.ins_tax_3 || this.ins_tax_4
+              return false
             }
           },
           ins_tax_1(){
@@ -99,8 +127,35 @@
           },
         },
         methods: {
-          changeF(){
-            console.log(this.sorted_items[0].value)
+          check(e){
+            if (e && this.ins_tax_1 === false){
+              this.sorted_items[1].value = true
+              this.sorted_items[2].value = true
+              this.sorted_items[3].value = true
+            }else{
+              this.sorted_items[1].value = false
+              this.sorted_items[2].value = false
+              this.sorted_items[3].value = false
+            }
+          },
+          check_sub(e){
+            if (!e) {
+              this.sorted_items[0].value = false
+            }else{
+              let i = 1;
+              if(this.sorted_items[1].value){
+                i++
+              }
+              if(this.sorted_items[2].value){
+                i++
+              }
+              if(this.sorted_items[3].value){
+                i++
+              }
+              if (i === 3){
+                this.sorted_items[0].value = true
+              }
+            }
           },
           pre_load(){
             this.items.map(el => {
@@ -116,9 +171,14 @@
 
 <style lang="sass" scoped>
   @import "../assets/styles/variables"
-  .wtp
-    width: 75%
+  .info
     display: flex
+    justify-content: space-between
+    align-items: flex-start
+    width: 100%
+  .wtp
+    display: flex
+    max-width: 75%
     justify-content: flex-start
   .option-item
     display: flex
