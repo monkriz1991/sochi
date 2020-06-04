@@ -34,7 +34,7 @@
                   h4.text-center.text-uppercase
                     |{{$t('s3')}}
                     br
-                    a(href="tel:+74951084848")="+7 (495) 108-48-48"
+                    a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
     hr(v-if="!loading").dashed
 </template>
 
