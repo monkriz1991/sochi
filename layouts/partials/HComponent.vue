@@ -146,8 +146,15 @@
 
 <style lang="sass" scoped>
   @import "../../assets/styles/variables"
+  .phone-wrapper-beholder
+    height: 25px
   .phone-wrapper
     background: $primary
+    position: fixed
+    top: 0
+    width: 100%
+    left: 0
+    z-index: 999
     a
       color: #ffffff
       display: block
