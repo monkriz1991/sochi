@@ -1,6 +1,8 @@
 <template lang="pug">
   div.wrapper
     jumbotron
+    div.container
+      warning
     auto-offer-wrapper
     div.container
       div.my-3
@@ -32,6 +34,7 @@
   import CWDComponent from "../components/CWDComponent";
   import CWoDComponent from "../components/CWoDComponent";
   import BannersSection from "../components/BannersSection";
+  import Warning from "../components/Warning";
   export default {
     head () {
       return {
@@ -42,6 +45,7 @@
       }
     },
     components: {
+      Warning,
       autoOfferWrapper,
       jumbotron,
       mainPageFeatures,
