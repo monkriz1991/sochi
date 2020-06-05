@@ -4,6 +4,21 @@ class Filters{
 
   offersFilter = data => {
     let elements = [];
+    let res = [];
+    data.map((el)=>{
+      if (elements.indexOf(`${el.naimenovanie}`) + 1){
+      }else{
+        elements.push(`${el.naimenovanie}`)
+        res.push(el)
+      }
+    });
+
+    res.sort(this.compare);
+    return res
+  };
+
+  offersFilter_old = data => {
+    let elements = [];
     let prices = [];
     let colors = [];
     let res = [];
@@ -109,7 +124,7 @@ class Filters{
   };
 
   prepareLT = (data, price_filter, class_filter) => {
-    let filtered = [];
+    let filtered;
     if (class_filter === 'cargo'){
       filtered = data.filter(el => {
         return el.cd.naimenovanie === 'Citroen Jumpy L3'
@@ -131,7 +146,7 @@ class Filters{
   }
 
   prepareRent = (data, price_filter, class_filter) => {
-    let filtered = [];
+    let filtered;
     if (class_filter === 'cargo'){
       filtered = data.filter(el => {
         return el.car_data.naimenovanie === 'Citroen Jumpy L3'
