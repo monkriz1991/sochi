@@ -468,7 +468,8 @@
     "chd": "Change booking dates",
     "dops": "Additional options",
     "ins1": "Insurance options",
-    "warning1": "In case of cancellation of your trip, due to the extension of the self-isolation regime, we will guarantee to refund you the money deposited as a prepayment!"
+    "warning1": "In case of cancellation of your trip, due to the extension of the self-isolation regime, we will guarantee to refund you the money deposited as a prepayment!",
+    "pp": "Privacy Policy"
   },
   "ru": {
     "op": "Онлайн оплата",
@@ -939,6 +940,7 @@
     "chd": "Изменить даты бронирования",
     "dops": "Дополнительные опции",
     "ins1": "Опции Страхования",
-    "warning1": "В случае отмены вашего путешествия, из-за продления режима самоизоляции, мы гарантированно вернем вам денежные средства, внесенные в качестве предоплаты!"
+    "warning1": "В случае отмены вашего путешествия, из-за продления режима самоизоляции, мы гарантированно вернем вам денежные средства, внесенные в качестве предоплаты!",
+    "pp": "Политика конфиденциальности"
   }
 }

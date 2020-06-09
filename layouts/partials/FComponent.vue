@@ -34,6 +34,7 @@
                   |Sochi Rent-a-Car -
                   |&nbsp;
                   nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")="{{$t('pis')}}"
+              nuxt-link(:to="{name: $assets.prefix('privacy_policy', $i18n.locale)}")="{{$t('pp')}}"
             b-col(sm="12" md="6" lg="6")
               div.info.info-right
                 p="{{$t(settings.time)}}"
