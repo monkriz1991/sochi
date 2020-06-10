@@ -283,6 +283,13 @@
             p.my-4="{{$t('af40')}}"
         div(v-if="loaded").b-wrapper
           order-small-form(:places="points" :carName="item.self_data.title" typeOrder="посуточная аренда")
+        div(v-if="upperLoaded")
+          div(v-if="upperClass.length")
+            h3="{{$t('df106')}}"
+            upper-class-c-wo-d(:items="upperClass")
+        div(v-else)
+          loader
+        hr
         div(v-if="loaded").b-wrapper.gr_total
           div.icons-row
             div.featch-data
@@ -301,12 +308,6 @@
               span.ico.ren
               p.m-0="{{$t('af46')}}"
         hr
-        div(v-if="upperLoaded")
-          div(v-if="upperClass.length")
-            h3="{{$t('df106')}}"
-            upper-class-c-wo-d(:items="upperClass")
-        div(v-else)
-          loader
         banners-section
 </template>
 
