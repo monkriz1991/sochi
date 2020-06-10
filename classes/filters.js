@@ -2,6 +2,18 @@ class Filters{
   constructor() {
   }
 
+  monotypeLong = data => {
+    let names = [];
+    let res = [];
+    data.map(el => {
+      if (names.indexOf(el.cd.naimenovanie)+1 === 0){
+        names.push(el.cd.naimenovanie)
+        res.push(el);
+      }
+    })
+    return res;
+  }
+
   offersFilter = data => {
     let elements = [];
     let res = [];

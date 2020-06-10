@@ -20,3 +20,4 @@ long.json
 events.json
 static/sitemap.xml
 static/robots.txt
+/yarn.lock

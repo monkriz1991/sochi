@@ -192,7 +192,7 @@
     },
     computed:{
       filteredList(){
-        let data = this.lt_cards;
+        let data = this.$filters.monotypeLong(this.lt_cards);
         return this.$filters.prepareLT(data, this.filter_price, this.filter);
       },
       settings(){
