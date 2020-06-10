@@ -470,7 +470,9 @@
     "ins1": "Insurance options",
     "warning1": "In case of cancellation of your trip, due to the extension of the self-isolation regime, we will guarantee to refund you the money deposited as a prepayment!",
     "pp": "Privacy Policy",
-    "pp1": "Prices are for informational purposes only and may differ from the final prices. To specify prices for the dates you are interested in use the booking system or contact the operator by phone:"
+    "pp1": "Prices are for informational purposes only and may differ from the final prices. To specify prices for the dates you are interested in use the  or contact the operator by phone:",
+    "pp2": " booking system ",
+    "pp3": "or contact the operator by phone:"
   },
   "ru": {
     "op": "Онлайн оплата",
@@ -943,6 +945,8 @@
     "ins1": "Опции Страхования",
     "warning1": "В случае отмены вашего путешествия, из-за продления режима самоизоляции, мы гарантированно вернем вам денежные средства, внесенные в качестве предоплаты!",
     "pp": "Политика конфиденциальности",
-    "pp1": "Цены указаны в ознакомительных целях и могут отличаться от итоговых. Для уточнения цен на интересующие вас даты воспользуйтесь системой бронирования или свяжитесь с оператором по телефону:"
+    "pp1": "Цены указаны в ознакомительных целях и могут отличаться от итоговых. Для уточнения цен на интересующие вас даты воспользуйтесьили ",
+    "pp2": " системой бронирования ",
+    "pp3": "или свяжитесь с оператором по телефону:"
   }
 }

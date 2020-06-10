@@ -54,7 +54,9 @@
             a(role="button" @click="onSubmit").w-100.btn.main.my-2.cbl="{{$t('osm3')}}"
         b-col(sm="12" md="12" lg="12").text-center
           b
-            |{{$t('pp1')+' '}}
+            |{{$t('pp1')}}
+            nuxt-link(:to="{name: $assets.prefix('booking-online', $i18n.locale)}")="{{$t('pp2')}}"
+            |{{$t('pp3')+' '}}
             a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`").mgo-number="{{settings.main_phone}}"
 
 </template>
