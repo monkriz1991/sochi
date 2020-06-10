@@ -52,6 +52,10 @@
             b-textarea(v-model="comment" :placeholder="$t('osm2')")
           div.form-group
             a(role="button" @click="onSubmit").w-100.btn.main.my-2.cbl="{{$t('osm3')}}"
+        b-col(sm="12" md="12" lg="12").text-center
+          b
+            |{{$t('pp1')+' '}}
+            a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`").mgo-number="{{settings.main_phone}}"
 
 </template>
 
@@ -104,6 +108,16 @@
           return el.id === parseInt(this.place)
         });
         return place[0]
+      },
+      settings(){
+        let settings = this.$parent.$parent.$parent.set_data
+        if (settings){
+          return settings
+        }else{
+          return {
+            main_phone: '',
+          }
+        }
       },
       placesOptions(){
         let res = [];
