@@ -373,7 +373,7 @@
       },
       limit_distance_message(){
         if(this.is_limit){
-          return `Выбрано ограничение пробега применена скидка ${this.limit_sale}\nпробег - ${this.limit_distance}км\nЦена без скидки - ${this.period_sum_before_sale}₽\nЦена со скидкой - ${this.period_sum}₽\n\n`
+          return `Выбрано ограничение пробега применена скидка ${this.limit_sale}%\nпробег - ${this.limit_distance}км\nЦена без скидки - ${this.period_sum_before_sale}₽\nЦена со скидкой - ${this.period_sum}₽\n\n`
         }else{
           return 'Без ограничения пробега\n\n';
         }
