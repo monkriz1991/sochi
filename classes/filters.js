@@ -18,16 +18,29 @@ class Filters{
     let elements = [];
     let res = [];
     data.map((el)=>{
-      if (elements.indexOf(`${el.naimenovanie}`) + 1){
-      }else{
-        elements.push(`${el.naimenovanie}`)
-        res.push(el)
+      if (!this.checkAvailibility(el.naimenovanie, el.Period)){
+        if (elements.indexOf(`${el.naimenovanie}`) + 1){
+        }else{
+          elements.push(`${el.naimenovanie}`)
+          res.push(el)
+        }
       }
     });
-
     res.sort(this.compare);
     return res
   };
+
+  checkAvailibility = (name, period) => {
+    if (period < 3){
+      return ['MINI John Cooper Works Cabrio','Toyota Land Cruiser 200', 'Mercedes-Benz V250d', 'Mercedes-Benz S500 ', 'Mercedes-Benz S500', 'MINI Cooper','MINI Cooper 5d','Hyundai H-1 new', 'MINI Cooper S Cabrio', 'Hyundai H-1', 'Toyota Land Cruiser Prado', 'BMW X3 xDrive 20i', 'BMW X1 sDrive 18i', 'BMW X2 sDrive 20i', 'Mercedes-Benz E200 ', 'Mercedes-Benz E200'].includes(name)
+    }else if(period < 5){
+      return ['MINI John Cooper Works Cabrio','Toyota Land Cruiser 200', 'Mercedes-Benz V250d', 'Mercedes-Benz S500 ', 'Mercedes-Benz S500'].includes(name)
+    }else if(period < 7){
+      return ['Toyota Land Cruiser 200', 'Mercedes-Benz V250d', 'Mercedes-Benz S500 ', 'Mercedes-Benz S500'].includes(name)
+    }else{
+      return false
+    }
+  }
 
   offersFilter_old = data => {
     let elements = [];
