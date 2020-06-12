@@ -126,7 +126,7 @@
                       hr(v-if="(odx+1) !== options.length").cbt
                   div(v-if="insurance_options.length > 0").p-3.info-inside.wbb
                     Insurance(v-model="insurance" :items="insurance_options")
-                  div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365'").p-3.info-inside.wbb
+                  div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365' && car_data.naimenovanie !== 'Volkswagen Polo Trendline Promo' && car_data.naimenovanie !== 'Hyundai Solaris Promo' && car_data.naimenovanie !== 'Renault Logan Stepway Promo'").p-3.info-inside.wbb
                     h4="{{$t('bocid12')}}"
                     b-form-group
                       b-row
@@ -137,7 +137,7 @@
                     div
                       p
                         |{{$t('bocid15')}}
-                        b="{{$t('bocid16')}}"
+                        b="{{$t('bocid16')}} {{this.limit_sale}}%."
                         |{{$t('bocid17')}}
                         b="{{$t('bocid18')}}"
                         |{{$t('bocid19')}}
@@ -373,7 +373,7 @@
       },
       limit_distance_message(){
         if(this.is_limit){
-          return `Выбрано ограничение пробега применена скидка 15%\nпробег - ${this.limit_distance}км\nЦена без скидки - ${this.period_sum_before_sale}₽\nЦена со скидкой - ${this.period_sum}₽\n\n`
+          return `Выбрано ограничение пробега применена скидка ${this.limit_sale}\nпробег - ${this.limit_distance}км\nЦена без скидки - ${this.period_sum_before_sale}₽\nЦена со скидкой - ${this.period_sum}₽\n\n`
         }else{
           return 'Без ограничения пробега\n\n';
         }
@@ -454,11 +454,14 @@
         })
         return sum;
       },
+      limit_sale(){
+        return this.$assets.salePersLimit(this.userData.df);
+      },
       period_sum(){
         let ps = parseInt(this.car_data.stoimost) * parseInt(this.period)
         let total_sum;
         if (this.is_limit){
-          total_sum = this.$assets.toMoney(ps - ((ps/100)*15));
+          total_sum = this.$assets.toMoney(ps - ((ps/100)*this.limit_sale));
         }else{
           total_sum = this.$assets.toMoney(ps);
         }
