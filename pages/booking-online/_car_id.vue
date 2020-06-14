@@ -690,10 +690,8 @@
           }else{
             this.allready = true;
             this.makeMessageToBroadCasting(()=>{
+              ym(33072038,'reachGoal','reserveacar')
               this.$refs.form.submit();
-              if (yaCounter33072038){
-                yaCounter33072038.reachGoal('Payforcar');
-              }
               this.$bvToast.toast('Заявка отправлена', {
                 title: 'Успех',
                 variant: 'success',
@@ -773,9 +771,7 @@
           }
         }).catch((err)=>{console.error(err)});
       this.fetchPoints().then(()=>{
-        if (yaCounter33072038){
-          yaCounter33072038.reachGoal('Bookacar');
-        }
+        ym(33072038,'reachGoal','Bookacar')
         this.loader_step = this.loader_step + 1;
       });
     }

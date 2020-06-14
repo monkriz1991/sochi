@@ -181,9 +181,7 @@
             this.$axios.post("sendMessageToChanel", {message})
               .then((res)=>{
                 this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).then(res =>{
-                  if (yaCounter33072038){
-                    yaCounter33072038.reachGoal('online-zayavka');
-                  }
+                  ym(33072038,'reachGoal','online-zayavka')
                   this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                     title: 'Заявка отправлена',
                     variant: 'success',

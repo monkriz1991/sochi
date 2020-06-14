@@ -300,9 +300,7 @@
             let message = `ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.userData.surname} ${this.userData.name} ${this.userData.fathername} сделал заявку на автомобиль ${this.item.cd.naimenovanie}\nДаты:\nc - ${this.$assets.formatDate(new Date(this.df))}\nпо - ${this.$assets.formatDate(new Date(this.dt))}\nСтоимость периода - ${this.lastPrice}₽\n\nНомер телефона: ${this.userData.phone}\nE-mail: ${this.userData.email}\nКомментарий: ${this.userData.comment}`;
             this.$axios.post("sendMessageToChanel", {message})
               .then((res)=>{
-                if (yaCounter33072038){
-                  yaCounter33072038.reachGoal('sendcardlongrental');
-                }
+                ym(33072038,'reachGoal','sendcardlongrental')
                 this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                   title: 'Заявка отправлена',
                   variant: 'success',
@@ -339,6 +337,9 @@
             }
           }).catch(err => console.error(err))
       }
+    },
+    mounted() {
+      ym(33072038,'reachGoal','opencardlongrental')
     },
     created() {
       this.fetchSingleItem();
