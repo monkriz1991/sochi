@@ -329,9 +329,6 @@
         this.$axios.get(`/sun/longTermSingle/${this.$route.params.gosnomer}`)
           .then(result => {
             if (result.data.status === 'success'){
-              if (yaCounter33072038){
-                yaCounter33072038.reachGoal('opencardlongrental');
-              }
               this.item = result.data.data;
               this.loaded = true;
             }
