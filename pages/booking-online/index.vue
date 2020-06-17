@@ -5,11 +5,13 @@
       div.container
         BreadCrumbs(:items="bcItems")
         h1.text-uppercase="{{$t('breadcrumbs14')}}"
+        warning
       search-form
       auto-offer-wrapper
 </template>
 
 <script>
+  import Warning from "../../components/Warning";
   import searchForm from "../../components/searchForm";
   import autoOfferWrapper from "../../components/autoOfferWrapper";
   import devider from "../../components/devider";
@@ -17,6 +19,7 @@
     export default {
         name: "index",
         components: {
+          Warning,
           searchForm,
           autoOfferWrapper,
           devider,

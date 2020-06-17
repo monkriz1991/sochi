@@ -126,7 +126,7 @@
                       hr(v-if="(odx+1) !== options.length").cbt
                   div(v-if="insurance_options.length > 0").p-3.info-inside.wbb
                     Insurance(v-model="insurance" :items="insurance_options")
-                  div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365'").p-3.info-inside.wbb
+                  div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365' && car_data.naimenovanie !== 'Volkswagen Polo Trendline Promo' && car_data.naimenovanie !== 'Hyundai Solaris Promo' && car_data.naimenovanie !== 'Renault Logan Stepway Promo'").p-3.info-inside.wbb
                     h4="{{$t('bocid12')}}"
                     b-form-group
                       b-row
@@ -137,35 +137,35 @@
                     div
                       p
                         |{{$t('bocid15')}}
-                        b="{{$t('bocid16')}}"
+                        b="{{$t('bocid16')}} {{this.limit_sale}}%."
                         |{{$t('bocid17')}}
                         b="{{$t('bocid18')}}"
                         |{{$t('bocid19')}}
                   div.p-3.info-inside
                     h4="{{$t('bocid7')}}"
                     div.price_string
-                      h5.text-black-50="{{$t('bocid8')}}"
-                      h5.text-black-50
+                      h5.text-black-50.text-uppercase="{{$t('bocid8')}}"
+                      h5.text-black-50.text-uppercase
                         span(v-if="period_sum < period_sum_before_sale").old_price="{{period_sum_before_sale}}₽"
                         |{{period_sum}}₽
                     div(v-if="promocode_sale > 0").price_string
-                      h5.text-black-50="{{$t('df105')}}"
-                      h5.text-black-50="-{{promocode_sale}}%"
+                      h5.text-black-50.text-uppercase="{{$t('df105')}}"
+                      h5.text-black-50.text-uppercase="-{{promocode_sale}}%"
                     div.price_string
-                      h5.text-black-50="{{$t('bocid9')}}"
-                      h5.text-black-50="{{options_price}}₽"
+                      h5.text-black-50.text-uppercase="{{$t('bocid9')}}"
+                      h5.text-black-50.text-uppercase="{{options_price}}₽"
                     div.price_string(v-if="priceOfPlace > 0")
-                      h5.text-black-50="{{$t('bocid10')}}"
-                      h5.text-black-50="{{priceOfPlace}}₽"
+                      h5.text-black-50.text-uppercase="{{$t('bocid10')}}"
+                      h5.text-black-50.text-uppercase="{{priceOfPlace}}₽"
                     div.price_string(v-if="priceOfPlaceCompack > 0")
-                      h5.text-black-50="{{$t('bocid11')}}"
-                      h5.text-black-50="{{priceOfPlaceCompack}}₽"
+                      h5.text-black-50.text-uppercase="{{$t('bocid11')}}"
+                      h5.text-black-50.text-uppercase="{{priceOfPlaceCompack}}₽"
                     div.price_string(v-if="insurance > 0")
-                      h5.text-black-50="{{$t('ins1')}}"
-                      h5.text-black-50="{{insurance}}₽"
+                      h5.text-black-50.text-uppercase="{{$t('ins1')}}"
+                      h5.text-black-50.text-uppercase="{{insurance}}₽"
                     div.price_string(v-if="is_limit")
-                      h5.text-black-50="{{$t('bocid12')}}"
-                      h5.text-black-50="{{limit_distance}}{{$t('p3')}}"
+                      h5.text-black-50.text-uppercase="{{$t('bocid12')}}"
+                      h5.text-black-50.text-uppercase="{{limit_distance}}{{$t('p3')}}"
                     div.price_string
                       h5="{{$t('bocid13')}}"
                       h5="{{online_sum}}₽"
@@ -184,6 +184,7 @@
                     input(name="sum" v-model="online_sum" type="hidden")
                     input(name="CustomerNumber" value="" type="hidden")
                     input(name="ym_merchant_receipt" v-model="reciept" type="hidden" required="required")
+                    Warning(:small="true")
                     h3="{{$t('bocid36')}}"
                     b-row
                       b-col(sm="12" md="12" lg="6")
@@ -228,7 +229,11 @@
                         b-form-group
                           b-form-textarea(:placeholder="$t('bocid28')" v-model="userData.comment" @input="clearErrors")
                       b-col(v-if="car_data.zalog > 0" sm="12" md="12" lg="12")
-                        div.option
+                        div(v-if="no_loan").option
+                          div.option-item.my-2
+                            b.loan="{{$t('bocid27')}} 0₽"
+                              b.old_loan="{{car_data.zalog}}₽"
+                        div(v-else).option
                           div.option-item.my-2
                             b="{{$t('bocid27')}} {{car_data.zalog}}₽"
                       b-col(sm="12" md="12" lg="12")
@@ -273,9 +278,11 @@
   import loader from "../../components/loader";
   import BOImageSlider from "../../components/BOImageSlider";
   import Insurance from "../../components/Insurance";
+  import Warning from "../../components/Warning";
   export default {
     name: "carDetails",
     components: {
+      Warning,
       devider,
       BreadCrumbs,
       loader,
@@ -294,6 +301,8 @@
         places: [],
         insurance: 0,
         insurance_options: [],
+        no_loan: false,
+        insuranse_string: false,
         loaded: false,
         loader_step: 0,
         is_promocode: false,
@@ -364,7 +373,7 @@
       },
       limit_distance_message(){
         if(this.is_limit){
-          return `Выбрано ограничение пробега применена скидка 15%\nпробег - ${this.limit_distance}км\nЦена без скидки - ${this.period_sum_before_sale}₽\nЦена со скидкой - ${this.period_sum}₽\n\n`
+          return `Выбрано ограничение пробега применена скидка ${this.limit_sale}%\nпробег - ${this.limit_distance}км\nЦена без скидки - ${this.period_sum_before_sale}₽\nЦена со скидкой - ${this.period_sum}₽\n\n`
         }else{
           return 'Без ограничения пробега\n\n';
         }
@@ -445,11 +454,14 @@
         })
         return sum;
       },
+      limit_sale(){
+        return this.$assets.salePersLimit(this.userData.df);
+      },
       period_sum(){
         let ps = parseInt(this.car_data.stoimost) * parseInt(this.period)
         let total_sum;
         if (this.is_limit){
-          total_sum = this.$assets.toMoney(ps - ((ps/100)*15));
+          total_sum = this.$assets.toMoney(ps - ((ps/100)*this.limit_sale));
         }else{
           total_sum = this.$assets.toMoney(ps);
         }
@@ -466,7 +478,7 @@
         return Math.round((this.period_sum) * 0.2);
       },
       total_sum(){
-        return this.period_sum + this.options_price + this.priceOfPlace + this.priceOfPlaceCompack;
+        return this.period_sum + this.options_price + this.priceOfPlace + this.priceOfPlaceCompack + this.insurance;
       },
       bcItems(){
         let crumbs = [
@@ -655,7 +667,7 @@
           discount : this.promocode_valid ? this.promocode_sale : 0,
           insurance : JSON.stringify([]),
           features: this.features,
-          delivery_reverse: `${payData}\n${promo}\n\nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}\n`
+          delivery_reverse: `\n\n${this.insuranse_string ? this.insuranse_string : ''}${payData}\n${promo}\n\nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}\n`
         }
         this.$axios.post('sun/placeOrder', orderData)
           .then(res => {
@@ -678,10 +690,8 @@
           }else{
             this.allready = true;
             this.makeMessageToBroadCasting(()=>{
+              ym(33072038,'reachGoal','reserveacar')
               this.$refs.form.submit();
-              if (yaCounter33072038){
-                yaCounter33072038.reachGoal('Payforcar');
-              }
               this.$bvToast.toast('Заявка отправлена', {
                 title: 'Успех',
                 variant: 'success',
@@ -761,9 +771,7 @@
           }
         }).catch((err)=>{console.error(err)});
       this.fetchPoints().then(()=>{
-        if (yaCounter33072038){
-          yaCounter33072038.reachGoal('Bookacar');
-        }
+        ym(33072038,'reachGoal','Bookacar')
         this.loader_step = this.loader_step + 1;
       });
     }
@@ -773,6 +781,15 @@
 
 <style lang="sass" scoped>
   @import "../../assets/styles/variables"
+  .loan
+    position: relative
+    .old_loan
+      position: absolute
+      top: -15px
+      text-decoration: line-through
+      text-decoration-color: red
+      color: #cdcdcd
+      right: -20px
   .text-green
     color: #2AA30C
   .text-red

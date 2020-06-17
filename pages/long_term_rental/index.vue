@@ -192,7 +192,7 @@
     },
     computed:{
       filteredList(){
-        let data = this.lt_cards;
+        let data = this.$filters.monotypeLong(this.lt_cards);
         return this.$filters.prepareLT(data, this.filter_price, this.filter);
       },
       settings(){
@@ -223,9 +223,7 @@
         return ((parseInt(price)/2) * 30.5).toFixed(2);
       },
       showModal(id){
-        if (yaCounter33072038){
-          yaCounter33072038.reachGoal('longrentalquickform');
-        }
+        ym(33072038,'reachGoal','longrentalquickform');
         this.$bvModal.show(id)
       },
       submitModal(carName, carId){
@@ -234,9 +232,7 @@
           let message = `БЫСТРАЯ ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.name} сделал заявку на автомобиль ${carName} номер телефона: ${this.phone}`;
           this.$axios.post("sendMessageToChanel", {message})
             .then((res)=>{
-              if (yaCounter33072038){
-                yaCounter33072038.reachGoal('longrentalquickformsend');
-              }
+              ym(33072038,'reachGoal','longrentalquickformsend')
               this.hideModal(carId)
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                 title: 'Заявка отправлена',

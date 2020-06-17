@@ -8,8 +8,6 @@
               b-col(sm="12" md="12" lg="6")
                 div.el-wrapper
                   div.price-badge="{{i.self_data.price_hour}}₽/{{$t('cwod8')}}"
-                  span(v-if="i.self_data.is_blocked").badge-status.no="{{$t('df108')}}"
-                  span(v-else).badge-status.yes="{{$t('df109')}}"
                   div.main-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[0]})`}")
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[1]})`}")
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[2]})`}")

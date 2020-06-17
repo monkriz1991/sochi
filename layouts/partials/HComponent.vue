@@ -1,5 +1,6 @@
 <template lang="pug">
     div#header
+      div.d-flex.d-sm-flex.d-md-flex.d-lg-none.phone-wrapper-beholder
       div.d-flex.d-sm-flex.d-md-flex.d-lg-none.phone-wrapper
         div.container
           a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`" @click="$assets.reachGoal('pressphone')").mgo-number="{{settings.main_phone}}"
@@ -122,9 +123,7 @@
           this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).catch(err => console.error(err));
           this.$axios.post("sendMessageToChanel", {message})
             .then((res)=>{
-              if (yaCounter33072038){
-                yaCounter33072038.reachGoal('zakaz-zvonka');
-              }
+              ym(33072038,'reachGoal','zakaz-zvonka')
               this.hideModal();
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                 title: 'Заявка отправлена',
@@ -146,8 +145,15 @@
 
 <style lang="sass" scoped>
   @import "../../assets/styles/variables"
+  .phone-wrapper-beholder
+    height: 25px
   .phone-wrapper
     background: $primary
+    position: fixed
+    top: 0
+    width: 100%
+    left: 0
+    z-index: 999
     a
       color: #ffffff
       display: block

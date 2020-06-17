@@ -132,31 +132,39 @@
             solid: true
           });
         }else{
-          let message = `на сайте sochirentacar.ru заполнена форма обратной связи:
-          имя - ${this.feedback.name}
-          e-mail - ${this.feedback.phone}
-          телефон - ${this.feedback.email}
-          сообщение - ${this.feedback.message}
-          `;
-          let bodyFormData = new FormData();
-          bodyFormData.set('station', this.$config.station);
-          bodyFormData.set('type', 'feedback');
-          bodyFormData.set('row_data', JSON.stringify({
-            name: this.feedback.name,
-            phone: this.feedback.email,
-            email: this.feedback.phone,
-            comment  : this.feedback.message,
-          }));
-          this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).catch(err => console.error(err));
-          this.$axios.post("sendMessageToChanel", {message})
-            .then((res)=>{
-              this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
-                title: 'Заявка отправлена',
-                variant: 'success',
+          let errors = this.$assets.validationFeedback(this.feedback);
+          if (errors.length === 0){
+            this.already = true;
+            let message = `на сайте sochirentacar.ru заполнена форма обратной связи:\nимя - ${this.feedback.name}\ne-mail - ${this.feedback.phone}\nтелефон - ${this.feedback.email}\nсообщение - ${this.feedback.message}\n`;
+            let bodyFormData = new FormData();
+            bodyFormData.set('station', this.$config.station);
+            bodyFormData.set('type', 'feedback');
+            bodyFormData.set('row_data', JSON.stringify({
+              name: this.feedback.name,
+              phone: this.feedback.email,
+              email: this.feedback.phone,
+              comment  : this.feedback.message,
+            }));
+            this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).then(res => {
+              this.$axios.post("sendMessageToChanel", {message})
+                .then((res)=>{
+                  ym(33072038,'reachGoal','zakaz-kontakt');
+                  this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
+                    title: 'Заявка отправлена',
+                    variant: 'success',
+                    solid: true
+                  });
+                }).catch((err)=>{console.error(err)})
+            }).catch(err => console.error(err));
+          }else{
+            errors.map(el => {
+              this.$bvToast.toast(el, {
+                title: 'Ошибка',
+                variant: 'danger',
                 solid: true
               });
-              this.already = true;
-            }).catch((err)=>{console.error(err)})
+            })
+          }
         }
       }
     }

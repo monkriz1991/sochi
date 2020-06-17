@@ -1,5 +1,6 @@
 <template lang="pug">
     section#online_form_order
+      Warning
       h2="{{$t('s19')}}"
       b-row
         b-col(sm="12" md="6" lg="6")
@@ -51,15 +52,23 @@
             b-textarea(v-model="comment" :placeholder="$t('osm2')")
           div.form-group
             a(role="button" @click="onSubmit").w-100.btn.main.my-2.cbl="{{$t('osm3')}}"
+        b-col(sm="12" md="12" lg="12").text-center
+          b
+            |{{$t('pp1')}}
+            nuxt-link(:to="{name: $assets.prefix('booking-online', $i18n.locale)}")="{{$t('pp2')}}"
+            |{{$t('pp3')+' '}}
+            a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`").mgo-number="{{settings.main_phone}}"
 
 </template>
 
 <script>
   import { Datetime } from 'vue-datetime';
+  import Warning from "./Warning";
   export default {
     name: "orderSmallForm",
     components: {
-      Datetime
+      Datetime,
+      Warning
     },
     data(){
       return {
@@ -101,6 +110,16 @@
           return el.id === parseInt(this.place)
         });
         return place[0]
+      },
+      settings(){
+        let settings = this.$parent.$parent.$parent.set_data
+        if (settings){
+          return settings
+        }else{
+          return {
+            main_phone: '',
+          }
+        }
       },
       placesOptions(){
         let res = [];
@@ -162,9 +181,7 @@
             this.$axios.post("sendMessageToChanel", {message})
               .then((res)=>{
                 this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).then(res =>{
-                  if (yaCounter33072038){
-                    yaCounter33072038.reachGoal('online-zayavka');
-                  }
+                  ym(33072038,'reachGoal','online-zayavka')
                   this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                     title: 'Заявка отправлена',
                     variant: 'success',

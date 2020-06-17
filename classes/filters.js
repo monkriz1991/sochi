@@ -2,7 +2,47 @@ class Filters{
   constructor() {
   }
 
+  monotypeLong = data => {
+    let names = [];
+    let res = [];
+    data.map(el => {
+      if (names.indexOf(el.cd.naimenovanie)+1 === 0){
+        names.push(el.cd.naimenovanie)
+        res.push(el);
+      }
+    })
+    return res;
+  }
+
   offersFilter = data => {
+    let elements = [];
+    let res = [];
+    data.map((el)=>{
+      if (!this.checkAvailibility(el.naimenovanie, el.Period)){
+        if (elements.indexOf(`${el.naimenovanie}`) + 1){
+        }else{
+          elements.push(`${el.naimenovanie}`)
+          res.push(el)
+        }
+      }
+    });
+    res.sort(this.compare);
+    return res
+  };
+
+  checkAvailibility = (name, period) => {
+    if (period < 3){
+      return ['MINI John Cooper Works Cabrio','Toyota Land Cruiser 200', 'Mercedes-Benz V250d', 'Mercedes-Benz S500 ', 'Mercedes-Benz S500', 'MINI Cooper','MINI Cooper 5d','Hyundai H-1 new', 'MINI Cooper S Cabrio', 'Hyundai H-1', 'Toyota Land Cruiser Prado', 'BMW X3 xDrive 20i', 'BMW X1 sDrive 18i', 'BMW X2 sDrive 20i', 'Mercedes-Benz E200 ', 'Mercedes-Benz E200'].includes(name)
+    }else if(period < 5){
+      return ['MINI John Cooper Works Cabrio','Toyota Land Cruiser 200', 'Mercedes-Benz V250d', 'Mercedes-Benz S500 ', 'Mercedes-Benz S500'].includes(name)
+    }else if(period < 7){
+      return ['Toyota Land Cruiser 200', 'Mercedes-Benz V250d', 'Mercedes-Benz S500 ', 'Mercedes-Benz S500'].includes(name)
+    }else{
+      return false
+    }
+  }
+
+  offersFilter_old = data => {
     let elements = [];
     let prices = [];
     let colors = [];
@@ -109,7 +149,7 @@ class Filters{
   };
 
   prepareLT = (data, price_filter, class_filter) => {
-    let filtered = [];
+    let filtered;
     if (class_filter === 'cargo'){
       filtered = data.filter(el => {
         return el.cd.naimenovanie === 'Citroen Jumpy L3'
@@ -131,7 +171,7 @@ class Filters{
   }
 
   prepareRent = (data, price_filter, class_filter) => {
-    let filtered = [];
+    let filtered;
     if (class_filter === 'cargo'){
       filtered = data.filter(el => {
         return el.car_data.naimenovanie === 'Citroen Jumpy L3'
