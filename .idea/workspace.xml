@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5df9e4c0-39bb-4dba-899a-7c85703d1ebc" name="Default Changelist" comment="hotfix">
-      <change afterPath="$PROJECT_DIR$/components/Insurance.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/lang/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/booking-online/_car_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/booking-online/_car_id.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/app.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
