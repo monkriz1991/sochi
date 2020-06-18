@@ -126,21 +126,22 @@
                       hr(v-if="(odx+1) !== options.length").cbt
                   div(v-if="insurance_options.length > 0").p-3.info-inside.wbb
                     Insurance(v-model="insurance" :items="insurance_options")
-                  div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365' && car_data.naimenovanie !== 'Volkswagen Polo Trendline Promo' && car_data.naimenovanie !== 'Hyundai Solaris Promo' && car_data.naimenovanie !== 'Renault Logan Stepway Promo'").p-3.info-inside.wbb
-                    h4="{{$t('bocid12')}}"
-                    b-form-group
-                      b-row
-                        b-col(sm="12" md="6" lg="6")
-                          b-form-radio(v-model="is_limit" name="some-radios" :value="true")="{{$t('bocid20')}}"
-                        b-col(sm="12" md="6" lg="6")
-                          b-form-radio(v-model="is_limit" name="some-radios" :value="false")="{{$t('bocid21')}}"
-                    div
-                      p
-                        |{{$t('bocid15')}}
-                        b="{{$t('bocid16')}} {{this.limit_sale}}%."
-                        |{{$t('bocid17')}}
-                        b="{{$t('bocid18')}}"
-                        |{{$t('bocid19')}}
+                  div(v-if="!no_limit_avalible")
+                    div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365' && car_data.naimenovanie !== 'Volkswagen Polo Trendline Promo' && car_data.naimenovanie !== 'Hyundai Solaris Promo' && car_data.naimenovanie !== 'Renault Logan Stepway Promo'").p-3.info-inside.wbb
+                      h4="{{$t('bocid12')}}"
+                      b-form-group
+                        b-row
+                          b-col(sm="12" md="6" lg="6")
+                            b-form-radio(v-model="is_limit" name="some-radios" :value="true")="{{$t('bocid20')}}"
+                          b-col(sm="12" md="6" lg="6")
+                            b-form-radio(v-model="is_limit" name="some-radios" :value="false")="{{$t('bocid21')}}"
+                      div
+                        p
+                          |{{$t('bocid15')}}
+                          b="{{$t('bocid16')}} {{this.limit_sale}}%."
+                          |{{$t('bocid17')}}
+                          b="{{$t('bocid18')}}"
+                          |{{$t('bocid19')}}
                   div.p-3.info-inside
                     h4="{{$t('bocid7')}}"
                     div.price_string
@@ -293,6 +294,7 @@
       return {
         angle: require('../../assets/images/angle-arrow-down.svg'),
         ph: "",
+        no_limit_avalible: false,
         car_id: this.$route.params.car_id,
         car_data: {},
         car_photos: [],
@@ -341,6 +343,7 @@
         this.promocode_valid = false;
         this.promocode_loaded = false;
         this.promocode_sale = 0;
+        this.no_limit_avalible = false;
       },
       is_same_comeback(){
         this.checkPlaseOnChange()
@@ -521,12 +524,20 @@
         this.promocode_sale = 0
         this.$axios.post('sun/promocheck', {code: this.userData.promocode, station: this.$config.station})
           .then(res => {
-            if (res.data.status === 'success'){
-              this.promocode_valid = true
+            if (this.userData.promocode.toLowerCase() === 'summer2020' && ['ПРОМО', 'Промо', 'Электросамокаты'].includes(this.car_data.klassavtomobilya)){
               this.promocode_loaded = true
-              this.promocode_sale = res.data.data
             }else{
-              this.promocode_loaded = true
+              if (res.data.status === 'success'){
+                if (this.userData.promocode.toLowerCase() === 'summer2020'){
+                  this.is_limit = false;
+                  this.no_limit_avalible = true;
+                }
+                this.promocode_valid = true
+                this.promocode_loaded = true
+                this.promocode_sale = res.data.data
+              }else{
+                this.promocode_loaded = true
+              }
             }
           })
       },
