@@ -7,7 +7,7 @@
         b-col(sm="12" md="6" lg="4" offset-lg="4")
           b-form-select(v-model="filter_price" :options="filterPrice")
     b-row
-      b-col(sm="6" md="6" lg="6" v-for="(i, idx) in filtered_list" :key="idx").my-3
+      b-col(sm="6" md="6" lg="6" v-for="(i, idx) in withPagen" :key="idx").my-3
           div.el
             b-row
               b-col(sm="12" md="12" lg="6")
@@ -41,6 +41,10 @@
                         p.r="{{i.car_data.godvypuska}}"
                     div.action.w-100
                       nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").btn.main.w-100.slim="{{$t('af1')}}"
+    hr.mt-2
+    div.d-flex.justify-content-center.align-items-center
+      b-pagination(v-model="currentPage" :total-rows="filtered_list.length" :per-page="perPage")
+
 </template>
 
 <script>
@@ -79,14 +83,16 @@
           left: 0,
           behavior: 'smooth'
         })
-      }
+      },
+      filter(){this.currentPage = 1},
+      filter_price(){this.currentPage = 1}
     },
     computed:{
       filtered_list(){
         return this.$filters.prepareRent(this.items, this.filter_price, this.filter);
       },
       withPagen() {
-        return this.items.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
+        return this.filtered_list.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
       }
     },
     methods:{
