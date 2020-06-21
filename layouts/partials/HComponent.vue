@@ -17,7 +17,7 @@
               b-col(sm="12" md="12" lg="4" order="1" order-sm="1" order-md="1" order-lg="2").d-flex.justify-content-center.align-content-center
                 div.logo
                   nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")
-                    img(:src="logo" fluid alt="Sochi rent a car")
+                    img(:src="logo" fluid alt="Sochi rent a car").logo-main
               b-col(sm="6" md="6" lg="4" order="3" order-sm="3" order-md="3" order-lg="3")
                 div.infobox.py-1.d-flex.justify-content-end.flex-column.align-content-end.align-items-center.align-items-sm-center.align-items-md-end.align-items-lg-end
                   a(role="button" v-b-modal.callback).btn.main.slim.icon-phone="{{ $t('callback') }}"
@@ -66,7 +66,7 @@
     data(){
       return {
         ph: "",
-        logo: require('../../assets/images/logo.png'),
+        logo: require('../../assets/images/sochi_logo.png'),
         callback_form: {
           phone: '',
           name: '',
@@ -145,6 +145,9 @@
 
 <style lang="sass" scoped>
   @import "../../assets/styles/variables"
+  .logo-main
+    width: 375px
+    height: auto
   .phone-wrapper-beholder
     height: 25px
   .phone-wrapper
