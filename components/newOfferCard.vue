@@ -89,8 +89,8 @@
       background-color: $primary
       padding: 5px 10px
       position: absolute
-      top: -20px
-      right: -20px
+      top: -10px
+      right: -10px
       border-radius: 15px 0 15px 0
       -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
       -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
