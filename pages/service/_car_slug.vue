@@ -110,6 +110,9 @@
         return crumbs
       },
     },
+    mounted() {
+      ym(33072038,'reachGoal','open-zayavka')
+    },
     beforeCreate() {
       let data = {
         city: this.$config.station,
