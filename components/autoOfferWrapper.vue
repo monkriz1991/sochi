@@ -28,7 +28,7 @@
               div(v-if="filtered.length > 0")
                 b-row.d-flex.align-items-center.justify-content-center
                   b-col(sm="12" md="6" lg="4" v-for="(item, idx) in filtered" :key="idx")
-                    auto-offer-card(:item="item").my-3
+                    new-offer-card(:item="item").my-3
               div(v-else)
                 div.offer.m-5.p-5
                   h4.text-center.text-uppercase
@@ -42,10 +42,11 @@
   import loader from "./loader";
   import { mapActions, mapGetters } from 'vuex';
   import autoOfferCard from "./autoOfferCard";
+  import newOfferCard from "./newOfferCard";
   export default {
     name: "autoOfferWrapper",
     components: {
-      autoOfferCard,
+      newOfferCard,
       loader
     },
     data(){
