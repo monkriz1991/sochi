@@ -72,7 +72,6 @@
     -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
-    cursor: pointer
     transition: 0.3s
     position: relative
     &:hover
