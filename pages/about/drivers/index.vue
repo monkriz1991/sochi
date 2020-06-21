@@ -17,7 +17,7 @@
                   b-col(sm="12" md="6" lg="6" v-for="(d, ddx) in drivers" :key="ddx")
                     div.card-driver.my-3
                       div.card-driver-header.d-flex.justify-content-center.align-content-center
-                        b-img(:src="`https://booking.autopilot.rent/storage/${d.photo}`" rounded="circle" :alt="d.name")
+                        div(v-bind:style="{backgroundImage: `url(https://booking.autopilot.rent/storage/${d.photo})`}").imger
                       div.card-driver-body
                         h4.text-center.text-capitalize="{{$assets.rus_to_latin(d.name, $i18n.locale)}}"
                         p="{{$t('faq6')}}"
@@ -88,6 +88,16 @@
       position: sticky
       top: 0
       padding: 15px 0
+  .imger
+    width: 150px
+    height: 150px
+    border-radius: 150px
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
   .card-driver
     background: #ffffff
     -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
@@ -110,5 +120,4 @@
           font-size: 14px
           justify-content: center
           align-items: center
-
 </style>
