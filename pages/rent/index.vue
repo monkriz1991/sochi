@@ -89,6 +89,7 @@
     },
     mounted() {
       this.fetchCWoD();
+      ym(33072038,'reachGoal','gotorent')
     }
   }
 </script>
