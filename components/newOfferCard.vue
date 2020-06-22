@@ -95,7 +95,7 @@
       -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
       -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
       box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
-      z-index: 100
+      z-index: 1
     .item-header
       display: flex
       justify-content: space-between
