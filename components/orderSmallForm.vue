@@ -53,6 +53,7 @@
             a(role="button" @click="onSubmit").w-100.btn.main.my-2.cbl="{{$t('osm3')}}"
         b-col(sm="12" md="12" lg="12").text-center
           b
+            sup.text-red="*"
             |{{$t('pp1')}}
             nuxt-link(:to="{name: $assets.prefix('booking-online', $i18n.locale)}")="{{$t('pp2')}}"
             |{{$t('pp3')+' '}}
@@ -225,4 +226,7 @@
   textarea.form-control
     resize: none
     height: 95px
+  .text-red
+    color: red
+    font-weight: bold
 </style>

@@ -44,7 +44,9 @@
                 div(v-if="loaded").b-wrapper.slim
                   div(v-for="(p, pdx) in prices" :key="pdx").item-info
                     p.l="{{p.text}}"
-                    p.r="{{p.value}}₽/{{$t('cwod7')}}"
+                    p.r
+                      |{{p.value}}₽/{{$t('cwod7')}}
+                      sup.text-red="*"
                   div.item-info
                     p.l="{{$t('cwd20')}}"
                     p.r="{{item.car_data.zalog}}₽"
@@ -179,7 +181,6 @@
                 div.item-info
                   p.l="{{$t('df99')}}"
                   p.r(v-html="item.car_data.tinting ? $t('p8'):$t('p9')")
-
               div(v-if="loaded")
                 div.py-2
                   h3="{{$t('cwd16')}}"
