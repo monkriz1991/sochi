@@ -60,8 +60,8 @@
     },
     data(){
       return {
-        CWD: [],
-        loaded: false,
+        CWDItems: require('../../cars.json').CWD,
+        loaded: true,
         bcItems: [
           {
             text: this.$t('breadcrumbs1'),
@@ -74,19 +74,28 @@
         ],
       }
     },
+    computed: {
+      CWD(){
+        let res = [];
+        for (let item in this.CWDItems){
+          res.push(this.CWDItems[item])
+        }
+        return res
+      }
+    },
     methods:{
-      fetchCWD(){
-        this.$axios.post('sun/carsWithDrivers', {city: this.$config.station})
-          .then(result => {
-            if (result.data.status === 'success'){
-              this.CWD = result.data.data;
-              this.loaded = true
-            }
-          }).catch(err => console.error(err));
-      },
+      // fetchCWD(){
+      //   this.$axios.post('sun/carsWithDrivers', {city: this.$config.station})
+      //     .then(result => {
+      //       if (result.data.status === 'success'){
+      //         this.CWD = result.data.data;
+      //         this.loaded = true
+      //       }
+      //     }).catch(err => console.error(err));
+      // },
     },
     mounted() {
-      this.fetchCWD();
+      // this.fetchCWD();
     }
   }
 </script>

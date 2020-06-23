@@ -62,8 +62,8 @@
     },
     data(){
       return {
-        CWoD: [],
-        loaded: false,
+        CWoDItems: require('../../cars.json').CWoD,
+        loaded: true,
         bcItems: [
           {
             text: this.$t('breadcrumbs1'),
@@ -76,19 +76,28 @@
         ],
       }
     },
+    computed: {
+      CWoD(){
+        let res = [];
+        for (let item in this.CWoDItems){
+          res.push(this.CWoDItems[item])
+        }
+        return res
+      }
+    },
     methods:{
-      fetchCWoD(){
-        this.$axios.post('sun/carsWithoutDrivers', {city: this.$config.station})
-          .then(result => {
-            if (result.data.status === 'success'){
-              this.CWoD = result.data.data;
-              this.loaded = true
-            }
-          }).catch(err => console.error(err));
-      },
+      // fetchCWoD(){
+      //   this.$axios.post('sun/carsWithoutDrivers', {city: this.$config.station})
+      //     .then(result => {
+      //       if (result.data.status === 'success'){
+      //         this.CWoD = result.data.data;
+      //         this.loaded = true
+      //       }
+      //     }).catch(err => console.error(err));
+      // },
     },
     mounted() {
-      this.fetchCWoD();
+      // this.fetchCWoD();
       ym(33072038,'reachGoal','gotorent')
     }
   }
