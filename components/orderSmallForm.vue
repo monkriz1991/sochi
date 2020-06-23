@@ -1,6 +1,5 @@
 <template lang="pug">
     section#online_form_order
-      Warning
       h2="{{$t('s19')}}"
       b-row
         b-col(sm="12" md="6" lg="6")
@@ -63,12 +62,10 @@
 
 <script>
   import { Datetime } from 'vue-datetime';
-  import Warning from "./Warning";
   export default {
     name: "orderSmallForm",
     components: {
-      Datetime,
-      Warning
+      Datetime
     },
     data(){
       return {

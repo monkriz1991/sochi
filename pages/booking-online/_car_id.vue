@@ -185,7 +185,6 @@
                     input(name="sum" v-model="online_sum" type="hidden")
                     input(name="CustomerNumber" value="" type="hidden")
                     input(name="ym_merchant_receipt" v-model="reciept" type="hidden" required="required")
-                    Warning(:small="true")
                     h3="{{$t('bocid36')}}"
                     b-row
                       b-col(sm="12" md="12" lg="6")
@@ -279,11 +278,9 @@
   import loader from "../../components/loader";
   import BOImageSlider from "../../components/BOImageSlider";
   import Insurance from "../../components/Insurance";
-  import Warning from "../../components/Warning";
   export default {
     name: "carDetails",
     components: {
-      Warning,
       devider,
       BreadCrumbs,
       loader,
