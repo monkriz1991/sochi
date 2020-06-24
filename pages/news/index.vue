@@ -68,14 +68,12 @@
     },
     methods: {
       fetchNews(){
-        this.$axios.post('sun/newsList', {city: this.$config.station})
-          .then(result => {
-            if (result.data.status === 'success'){
-              this.news = result.data.data
-              this.loaded = true;
-            }
-          })
-          .catch(err => console.log(err))
+        let data = require('../../news.json');
+        let keys = Object.keys(data);
+        for(let i = 0; i < keys.length; i++){
+          this.news.push(data[keys[i]])
+        }
+        this.loaded = true;
       }
     },
     mounted() {

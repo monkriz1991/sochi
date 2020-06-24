@@ -61,12 +61,11 @@
     },
     methods: {
       fetchLatestNews(){
-        this.$axios(`sun/getLatestNews?city=${this.$config.station}`)
-          .then(result => {
-            if (result.data.status === 'success'){
-              this.news = result.data.data;
-            }
-          }).catch(err => console.error(err))
+        let data = require('../news.json');
+        let keys = Object.keys(data);
+        for(let i = 0; i < 4; i++){
+          this.news.push(data[keys[i]])
+        }
       },
       randomEl(obj, key=false){
         var keys = Object.keys(obj);
