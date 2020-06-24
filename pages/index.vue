@@ -70,15 +70,19 @@
       },
       randomEl(obj, key=false){
         var keys = Object.keys(obj);
+        let item = obj[keys[ keys.length * Math.random() << 0]]
         if (key){
-          let item = obj[keys[ keys.length * Math.random() << 0]]
           if (item.slug === key){
             this.randomEl(obj, key)
           }else{
             return item;
           }
         }else{
-          return obj[keys[ keys.length * Math.random() << 0]];
+          if (item){
+            return item
+          }else{
+            this.randomEl(obj, key)
+          }
         }
       },
       fetchCWoD(){
