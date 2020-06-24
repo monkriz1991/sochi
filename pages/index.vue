@@ -68,21 +68,30 @@
             }
           }).catch(err => console.error(err))
       },
-      fetchCWoD(){
-        this.$axios.post('sun/carsWithoutDriverMainPage', {city: this.$config.station})
-        .then(result => {
-          if (result.data.status === 'success'){
-            this.CWoD = result.data.data;
+      randomEl(obj, key=false){
+        var keys = Object.keys(obj);
+        if (key){
+          let item = obj[keys[ keys.length * Math.random() << 0]]
+          if (item.slug === key){
+            this.randomEl(obj, key)
+          }else{
+            return item;
           }
-        }).catch(err => console.error(err));
+        }else{
+          return obj[keys[ keys.length * Math.random() << 0]];
+        }
+      },
+      fetchCWoD(){
+        let data = require('../cars.json').CWoD
+        let first = this.randomEl(data);
+        let second = this.randomEl(data, first.slug);
+        this.CWoD = [first, second]
       },
       fetchCWD(){
-        this.$axios.post('sun/carsWithDriverMainPage', {city: this.$config.station})
-        .then(result => {
-          if (result.data.status === 'success'){
-            this.CWD = result.data.data;
-          }
-        }).catch(err => console.error(err));
+        let data = require('../cars.json').CWD
+        let first = this.randomEl(data);
+        let second = this.randomEl(data, first.slug);
+        this.CWD = [first, second]
       },
     },
     mounted() {
