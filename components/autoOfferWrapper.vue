@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div#aowrapper
     div.container
       div(v-if="loading").p-5
         loader
@@ -122,6 +122,8 @@
 
 <style lang="sass" scoped>
   @import "../assets/styles/variables"
+  #aowrapper
+    min-height: 400px
   .offer
     border: 5px solid $primary
     border-radius: 25px
