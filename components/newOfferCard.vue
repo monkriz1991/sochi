@@ -73,6 +73,10 @@
     box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     transition: 0.3s
     position: relative
+    @media screen and (max-width: 375px)
+      -webkit-box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.4)
+      -moz-box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.4)
+      box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.4)
     &:hover
       -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
       -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
@@ -89,13 +93,16 @@
       background-color: $primary
       padding: 5px 10px
       position: absolute
-      top: -5px
-      right: -5px
+      top: -10px
+      right: -10px
       border-radius: 15px 0 15px 0
       -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
       -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
       box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
       z-index: 1
+      @media screen and (max-width: 375px)
+        top: 0
+        right: 0
     .item-header
       display: flex
       justify-content: space-between
