@@ -1,13 +1,14 @@
 <template lang="pug">
-    div.container
-      b-row
-        b-col(sm="6" md="4" lg="4" v-for="(f, fdx) in features" :key="fdx")
-          div.feature-item.my-3
-            div.image
-              img(:data-src="`https://booking.autopilot.rent/storage/${f.image}`" v-lazy-load)
-            div.text
-              p="{{$t(f.text)}}"
-          hr
+    div#mpfeatures
+      div.container
+        b-row
+          b-col(sm="6" md="4" lg="4" v-for="(f, fdx) in features" :key="fdx")
+            div.feature-item.my-3
+              div.image
+                img(:data-src="`https://booking.autopilot.rent/storage/${f.image}`" v-lazy-load)
+              div.text
+                p="{{$t(f.text)}}"
+            hr
 </template>
 
 <script>
@@ -35,6 +36,8 @@
 </script>
 
 <style lang="sass" scoped>
+  #mpfeatures
+    min-height: 330px
   .feature-item
     display: flex
     justify-content: flex-start

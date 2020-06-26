@@ -52,21 +52,30 @@
       mainPageArticle,
       mainPageArticleEn
     },
-    data(){
-      return {
-        news: [],
-        CWD: [],
-        CWoD: [],
-      }
-    },
-    methods: {
-      fetchLatestNews(){
+    computed:{
+      news(){
+        let res = [];
         let data = require('../news.json');
         let keys = Object.keys(data);
         for(let i = 0; i < 4; i++){
-          this.news.push(data[keys[i]])
+          res.push(data[keys[i]])
         }
+        return res;
       },
+      CWD(){
+        let data = require('../cars.json').CWD
+        let first = this.randomEl(data);
+        let second = this.randomEl(data, first.slug);
+        return [first, second]
+      },
+      CWoD(){
+        let data = require('../cars.json').CWoD
+        let first = this.randomEl(data);
+        let second = this.randomEl(data, first.slug);
+        return [first, second]
+      }
+    },
+    methods: {
       randomEl(obj, key=false){
         var keys = Object.keys(obj);
         let item = obj[keys[ (keys.length - 1) * Math.random() << 0]]
@@ -84,23 +93,6 @@
           }
         }
       },
-      fetchCWoD(){
-        let data = require('../cars.json').CWoD
-        let first = this.randomEl(data);
-        let second = this.randomEl(data, first.slug);
-        this.CWoD = [first, second]
-      },
-      fetchCWD(){
-        let data = require('../cars.json').CWD
-        let first = this.randomEl(data);
-        let second = this.randomEl(data, first.slug);
-        this.CWD = [first, second]
-      },
-    },
-    mounted() {
-      this.fetchLatestNews()
-      this.fetchCWoD()
-      this.fetchCWD()
     }
   }
 </script>
