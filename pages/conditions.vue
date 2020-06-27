@@ -207,6 +207,8 @@
     border: 1px solid rgba(205, 205, 205, 0.5)
     box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.4)
     border-radius: 5px
+    @media screen and (max-width: 760px)
+      box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.4)
     .text
       padding: 5px 10px
       h6
