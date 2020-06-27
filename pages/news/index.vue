@@ -46,7 +46,7 @@
       return {
         currentPage: 1,
         perPage: 5,
-        loaded: false,
+        loaded: true,
         bcItems: [
           {
             text: this.$t('breadcrumbs1'),
@@ -57,27 +57,22 @@
             active: true
           }
         ],
-        news: []
+        newsItems: require('../../news.json'),
       }
     },
     computed:{
+      news(){
+        let news = [];
+        let keys = Object.keys(this.newsItems);
+        for(let i = 0; i < keys.length; i++){
+          news.push(this.newsItems[keys[i]])
+        }
+        return news;
+      },
       newsWithPagen() {
         return this.news.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
       }
 
-    },
-    methods: {
-      fetchNews(){
-        let data = require('../../news.json');
-        let keys = Object.keys(data);
-        for(let i = 0; i < keys.length; i++){
-          this.news.push(data[keys[i]])
-        }
-        this.loaded = true;
-      }
-    },
-    mounted() {
-      this.fetchNews();
     }
   }
 </script>

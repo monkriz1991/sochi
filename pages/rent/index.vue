@@ -85,19 +85,7 @@
         return res
       }
     },
-    methods:{
-      // fetchCWoD(){
-      //   this.$axios.post('sun/carsWithoutDrivers', {city: this.$config.station})
-      //     .then(result => {
-      //       if (result.data.status === 'success'){
-      //         this.CWoD = result.data.data;
-      //         this.loaded = true
-      //       }
-      //     }).catch(err => console.error(err));
-      // },
-    },
     mounted() {
-      // this.fetchCWoD();
       ym(33072038,'reachGoal','gotorent')
     }
   }

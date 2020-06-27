@@ -82,20 +82,6 @@
         }
         return res
       }
-    },
-    methods:{
-      // fetchCWD(){
-      //   this.$axios.post('sun/carsWithDrivers', {city: this.$config.station})
-      //     .then(result => {
-      //       if (result.data.status === 'success'){
-      //         this.CWD = result.data.data;
-      //         this.loaded = true
-      //       }
-      //     }).catch(err => console.error(err));
-      // },
-    },
-    mounted() {
-      // this.fetchCWD();
     }
   }
 </script>
