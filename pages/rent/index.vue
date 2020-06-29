@@ -10,34 +10,6 @@
           div(v-else)
             loader
           div.clearfix
-          div(v-if="$i18n.locale === 'ru'")
-            h2="Аренда авто в Сочи - это удобно"
-            p="Прежде всего, следует отметить, что если вы ищете прокат авто в Сочи на выгодных условиях, то наша компания именно то, что нужно. Мы не только предлагаем вам транспортные средства в аренду по оптимальной цене, но и готовы предоставить вам скидки на услуги. Обратите внимание на то, что у нас вы можете воспользоваться не одним, а несколькими акционными предложениями сразу. Как это работает? Очень просто. Если по условиям программы лояльности вам подходит несколько скидок сразу, вы можете просто их суммировать. Но, и это еще не все преимущества, которые вы получаете при заказе проката авто в Сочи без водителя недорого. Следует отметить и следующее:"
-            ul
-              li="для оформления заказа вам нужно иметь при себе только паспорт, водительское удостоверение и залоговую сумму;"
-              li="дополнительно бесплатно мы предоставляем вам навигатор, набор автомобилиста и детское кресло, ведь безопасность прежде всего;"
-              li="в нашем автопарке 350 новых автомобилей комфорт, бизнес и представительского класса - есть из чего выбрать;"
-              li="при необходимости мы всегда готовы выслать вам больше живых фото того транспортного средства, которое вы хотите забронировать."
-            h2="Посуточный прокат авто в Сочи без водителя"
-            p="У нас вы можете заказать прокат авто в Сочи без водителя посуточно или сразу на несколько дней, как вам будет удобно."
-            p="Как мы работаем?"
-            p="Все, что вам нужно сделать, это выбрать необходимое авто из каталога и связаться с нами для его бронирования. Оформление аренды происходит максимально быстро. Однако примите во внимание то, что ваш водительский стаж должен быть не менее трех лет."
-            p="В любое удобное для вас время вы можете заказать прокат автомобилей в Сочи без водителя, цены указаны на нашем сайте в соответствующем разделе. Произвести оплату за услуги вы можете посредством как наличного, так и безналичного расчета. Обратите внимание, что внесение залоговой суммы осуществляется непосредственно при передаче автомобиля в ваше временное пользование."
-            p="По всем дополнительным вопросам вы всегда можете обращаться к нам за консультацией. Контакты для обратной связи указаны ниже. Также вы можете воспользоваться услугой обратного звонка. Будем рады видеть вас среди наших клиентов."
-          div(v-else)
-            h2="Car rental in Sochi is easy"
-            p="First of all, it should be noted that if you are looking for a car rental in Sochi on favorable terms, then our company is exactly what you need. We not only offer you vehicles for rent at the best price, but we are also ready to provide you with discounts on services. Please note that you can use not one, but several promotional offers at once. How does it work? Very simply. If several discounts are suitable for you under the terms of the loyalty program at once, you can simply add them up. But, and this is not all the advantages that you get when ordering a car rental in Sochi without a driver cheap. The following should also be noted:"
-            ul
-              li="to place an order, you only need to have a passport, driver's license and a Deposit amount;"
-              li="additionally, we provide you with a Navigator, a set of motorists and a child seat for free, because safety is first of all;"
-              li="in our fleet of 350 new comfort, business and Executive class cars - there is a lot to choose from;"
-              li="if necessary, we are always ready to send you more live photos of the vehicle you want to book."
-            h2="Daily car rental in Sochi without a driver"
-            p="Here you can order a car rental in Sochi without a driver for daily rent or just for a few days, as it will be convenient for you."
-            p="How do we work?"
-            p="All you need to do is select the necessary car from the catalog and contact us to book it. Registration of the lease is as fast as possible. However, please note that your driving experience must be at least three years."
-            p="At any time convenient for you, you can order a car rental in Sochi without a driver, the prices are listed on our website in the corresponding section. You can pay for the services using both cash and non-cash payments. Please note that the Deposit amount is paid directly when the car is transferred to your temporary use."
-            p="For any additional questions, you can always contact us for advice. Contact details for feedback are listed below. You can also use the callback service. We will be glad to see you among our clients."
 </template>
 
 <script>
