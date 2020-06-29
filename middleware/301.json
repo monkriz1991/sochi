@@ -267,752 +267,194 @@
   { "from": "/contacts", "to": "/contacts/" },
   { "from": "/payment", "to": "/payment/" },
   { "from": "/adler", "to": "/adler/" },
-  {
-    "from": "/news/vizit_vladimira_putina_v_krym_dlya_nagraghdeniya_stroiteley_krymskogo_mosta",
-    "to": "/news/vizit_vladimira_putina_v_krym_dlya_nagraghdeniya_stroiteley_krymskogo_mosta/"
-  },
-  {
-    "from": "/news/ghivopisnye_mesta_dlya_progulok",
-    "to": "/news/ghivopisnye_mesta_dlya_progulok/"
-  },
-  {
-    "from": "/news/samye_interesnye_vystavki_marta_",
-    "to": "/news/samye_interesnye_vystavki_marta_/"
-  },
-  {
-    "from": "/news/s_8_marta,_dorogie_ghenschiny!__",
-    "to": "/news/s_8_marta,_dorogie_ghenschiny!__/"
-  },
-  {
-    "from": "/news/top-5_restoranov_s_izyskannym_interyerom",
-    "to": "/news/top-5_restoranov_s_izyskannym_interyerom/"
-  },
-  {
-    "from": "/news/idei_dlya_semeynogo_otdyha",
-    "to": "/news/idei_dlya_semeynogo_otdyha/"
-  },
-  {
-    "from": "/news/s_dnem_zaschitnika_otechestva!",
-    "to": "/news/s_dnem_zaschitnika_otechestva!/"
-  },
-  {
-    "from": "/news/glavnye_muzei_goroda",
-    "to": "/news/glavnye_muzei_goroda/"
-  },
-  {
-    "from": "/news/arhitektura_sochi",
-    "to": "/news/arhitektura_sochi/"
-  },
-  {
-    "from": "/news/deny_svyatogo_valentina_v_sochi",
-    "to": "/news/deny_svyatogo_valentina_v_sochi/"
-  },
-  {
-    "from": "/news/kulyturnye_i_tvorcheskie_prostranstva_sochi",
-    "to": "/news/kulyturnye_i_tvorcheskie_prostranstva_sochi/"
-  },
-  {
-    "from": "/news/master-klassy_dlya_detey_i_vzroslyh",
-    "to": "/news/master-klassy_dlya_detey_i_vzroslyh/"
-  },
-  {
-    "from": "/news/vystavki_fevralya",
-    "to": "/news/vystavki_fevralya/"
-  },
-  {
-    "from": "/news/restorany_vostochnoy_kuhni",
-    "to": "/news/restorany_vostochnoy_kuhni/"
-  },
-  {
-    "from": "/news/izmenenie_daty_povedeniya_rif-2020",
-    "to": "/news/izmenenie_daty_povedeniya_rif-2020/"
-  },
-  {
-    "from": "/news/skypark_aj_hackett",
-    "to": "/news/skypark_aj_hackett/"
-  },
-  {
-    "from": "/news/olimpiyskiy_park",
-    "to": "/news/olimpiyskiy_park/"
-  },
-  {
-    "from": "/news/rif-2020_",
-    "to": "/news/rif-2020_/"
-  },
-  {
-    "from": "/news/luchshie_mesta_dlya_fotosessiy",
-    "to": "/news/luchshie_mesta_dlya_fotosessiy/"
-  },
-  {
-    "from": "/news/vystavki_yanvarya",
-    "to": "/news/vystavki_yanvarya/"
-  },
-  {
-    "from": "/news/smotrovye_ploschadki_sochi",
-    "to": "/news/smotrovye_ploschadki_sochi/"
-  },
-  {
-    "from": "/news/samye_interesnye_meropriyatiya_mesyaca",
-    "to": "/news/samye_interesnye_meropriyatiya_mesyaca/"
-  },
-  {
-    "from": "/news/neobychnye_restorany_sochi",
-    "to": "/news/neobychnye_restorany_sochi/"
-  },
-  {
-    "from": "/news/s_novym_godom_i_roghdestvom!",
-    "to": "/news/s_novym_godom_i_roghdestvom!/"
-  },
-  {
-    "from": "/news/luchshie_ledovye_katki_",
-    "to": "/news/luchshie_ledovye_katki_/"
-  },
-  {
-    "from": "/news/novogodnie_podarki_dlya_nashih_samyh_malenykih_klientov!",
-    "to": "/news/novogodnie_podarki_dlya_nashih_samyh_malenykih_klientov!/"
-  },
-  {
-    "from": "/news/samye_interesnye_yarmarki_i_bazary_sochi",
-    "to": "/news/samye_interesnye_yarmarki_i_bazary_sochi/"
-  },
-  {
-    "from": "/news/raznoobrazyte_svoy_otdyh_v_sochi",
-    "to": "/news/raznoobrazyte_svoy_otdyh_v_sochi/"
-  },
-  {
-    "from": "/news/novyy_god_na_gornolyghnyh_kurortah",
-    "to": "/news/novyy_god_na_gornolyghnyh_kurortah/"
-  },
-  {
-    "from": "/news/vystavki_dekabrya",
-    "to": "/news/vystavki_dekabrya/"
-  },
-  {
-    "from": "/news/muzyka_sochi",
-    "to": "/news/muzyka_sochi/"
-  },
-  {
-    "from": "/news/puteshestvie_v_gory",
-    "to": "/news/puteshestvie_v_gory/"
-  },
-  {
-    "from": "/news/arenda_avto_v_adlere",
-    "to": "/news/arenda_avto_v_adlere/"
-  },
-  {
-    "from": "/news/predstavlyaem_nashu_novuyu_uslugu_-_prokat_elektrosamokatov!",
-    "to": "/news/predstavlyaem_nashu_novuyu_uslugu_-_prokat_elektrosamokatov!/"
-  },
-  {
-    "from": "/news/vesy_avgust_deystvuet_specialynoe_predloghenie_na_vyezd_v_abhaziyu!",
-    "to": "/news/vesy_avgust_deystvuet_specialynoe_predloghenie_na_vyezd_v_abhaziyu!/"
-  },
-  {
-    "from": "/news/novye_avto_2019_goda_ughe_dostupny_dlya_arendy_v_sochi!",
-    "to": "/news/novye_avto_2019_goda_ughe_dostupny_dlya_arendy_v_sochi!/"
-  },
-  {
-    "from": "/news/krasnaya_polyana_v_sochi_-_vse,_chto_nughno_znaty_turistu",
-    "to": "/news/krasnaya_polyana_v_sochi_-_vse,_chto_nughno_znaty_turistu/"
-  },
-  {
-    "from": "/news/vyhodnye_vse_blighe_i_u_nas_prekrasnaya_novosty!_",
-    "to": "/news/vyhodnye_vse_blighe_i_u_nas_prekrasnaya_novosty!_/"
-  },
-  {
-    "from": "/news/nasha_lyubimaya_ocenka_5_etoy_osenyyu,_a_vasha?",
-    "to": "/news/nasha_lyubimaya_ocenka_5_etoy_osenyyu,_a_vasha?/"
-  },
-  {
-    "from": "/news/doghdi_perecherknuli_vashi_plany?",
-    "to": "/news/doghdi_perecherknuli_vashi_plany?/"
-  },
-  {
-    "from": "/news/kuda_poehaty_na_vyhodnye?_",
-    "to": "/news/kuda_poehaty_na_vyhodnye?_/"
-  },
-  {
-    "from": "/news/novosti_meropriyatiy_k_chm_2018_v_sochi",
-    "to": "/news/novosti_meropriyatiy_k_chm_2018_v_sochi/"
-  },
-  {
-    "from": "/news/voditelyskoe_udostoverenie_skoro_budet_vypuskaty_sberbank.",
-    "to": "/news/voditelyskoe_udostoverenie_skoro_budet_vypuskaty_sberbank./"
-  },
-  {
-    "from": "/news/popolnenie_avtoparka!",
-    "to": "/news/popolnenie_avtoparka!/"
-  },
-  {
-    "from": "/news/sochi_i_krym_stali_esche_blighe!",
-    "to": "/news/sochi_i_krym_stali_esche_blighe!/"
-  },
-  {
-    "from": "/news/pervoe_avto_«pervogo_lica»,_sdelannoe_v_rossii_za_27_let.",
-    "to": "/news/pervoe_avto_«pervogo_lica»,_sdelannoe_v_rossii_za_27_let./"
-  },
-  {
-    "from": "/news/letyaschaya_utka_prevysila_skorosty._policiya_dumaet,_kak_ee_nakazaty",
-    "to": "/news/letyaschaya_utka_prevysila_skorosty._policiya_dumaet,_kak_ee_nakazaty/"
-  },
-  {
-    "from": "/news/30_maya_v_sochi_proydet_iv_meghdunarodnyy_forum",
-    "to": "/news/30_maya_v_sochi_proydet_iv_meghdunarodnyy_forum/"
-  },
-  {
-    "from": "/news/nazvany_goroda_v_rossii,_dlya_testa_bespilotnikov.",
-    "to": "/news/nazvany_goroda_v_rossii,_dlya_testa_bespilotnikov./"
-  },
-  {
-    "from": "/news/samye_poseschaemye_mesta_goroda-_kurorta_sochi!",
-    "to": "/news/samye_poseschaemye_mesta_goroda-_kurorta_sochi!/"
-  },
-  {
-    "from": "/news/5_izmeneniy_v_pravilah_registracii_avto.",
-    "to": "/news/5_izmeneniy_v_pravilah_registracii_avto./"
-  },
-  {
-    "from": "/news/v_gosdume_predloghili_uvelichity_maksimalynuyu_skorosty_na_avtomobilynyh_dorogah_rossiyskoy_federacii.",
-    "to": "/news/v_gosdume_predloghili_uvelichity_maksimalynuyu_skorosty_na_avtomobilynyh_dorogah_rossiyskoy_federacii./"
-  },
-  {
-    "from": "/news/shtrafovaty_za_otsutstvuyuschiy_tehosmotr_budut_kamery.",
-    "to": "/news/shtrafovaty_za_otsutstvuyuschiy_tehosmotr_budut_kamery./"
-  },
-  {
-    "from": "/news/rossiyskiy_avtomobily_nagraghden_premiey_za_ekonomichnosty!",
-    "to": "/news/rossiyskiy_avtomobily_nagraghden_premiey_za_ekonomichnosty!/"
-  },
-  {
-    "from": "/news/bolyshe_net_povoda_ne_puteshestvovaty!",
-    "to": "/news/bolyshe_net_povoda_ne_puteshestvovaty!/"
-  },
-  {
-    "from": "/news/s_nastupayuschim_novym_godom_2018!",
-    "to": "/news/s_nastupayuschim_novym_godom_2018!/"
-  },
-  {
-    "from": "/news/i_snova_popolnenie_avtoparka_-_toyota_rav4_c_polnym_privodom!_",
-    "to": "/news/i_snova_popolnenie_avtoparka_-_toyota_rav4_c_polnym_privodom!_/"
-  },
-  {
-    "from": "/news/novinka_avtoparka_-_hyundai_tucson_2017!",
-    "to": "/news/novinka_avtoparka_-_hyundai_tucson_2017!/"
-  },
-  {
-    "from": "/news/arenda_avtomobilya_v_zimniy_period",
-    "to": "/news/arenda_avtomobilya_v_zimniy_period/"
-  },
-  {
-    "from": "/news/osobennosti_arendy_avtomobilya_s_pravom_vykupa",
-    "to": "/news/osobennosti_arendy_avtomobilya_s_pravom_vykupa/"
-  },
-  {
-    "from": "/news/transportnyy_nalog_v_raznyh_stranah_mira",
-    "to": "/news/transportnyy_nalog_v_raznyh_stranah_mira/"
-  },
-  {
-    "from": "/news/avtomobili_15-ti_prezidentov_mira",
-    "to": "/news/avtomobili_15-ti_prezidentov_mira/"
-  },
-  {
-    "from": "/news/reyting_ugonyaemyh_avto_2016-2017",
-    "to": "/news/reyting_ugonyaemyh_avto_2016-2017/"
-  },
-  {
-    "from": "/news/reyting_samyh_ekonomichnyh_avto",
-    "to": "/news/reyting_samyh_ekonomichnyh_avto/"
-  },
-  {
-    "from": "/news/kakie_avto_chasto_lomayutsya?",
-    "to": "/news/kakie_avto_chasto_lomayutsya?/"
-  },
-  {
-    "from": "/news/reyting_naibolee_vostrebovannyh_avtomobiley_2017",
-    "to": "/news/reyting_naibolee_vostrebovannyh_avtomobiley_2017/"
-  },
-  {
-    "from": "/news/istoriya_avtoprokata_v_rossii",
-    "to": "/news/istoriya_avtoprokata_v_rossii/"
-  },
-  {
-    "from": "/news/preimuschestva_ot_sochi_rent-a-car",
-    "to": "/news/preimuschestva_ot_sochi_rent-a-car/"
-  },
-  {
-    "from": "/news/samye_populyarnye_krossovery_v_rossii_po_itogam_pervogo_polugodiya_2017",
-    "to": "/news/samye_populyarnye_krossovery_v_rossii_po_itogam_pervogo_polugodiya_2017/"
-  },
-  {
-    "from": "/news/udobnyy_semimestnyy_kompaktven_chevrolet_orlando_ot_kompanii_sochi_rent-a-car!_",
-    "to": "/news/udobnyy_semimestnyy_kompaktven_chevrolet_orlando_ot_kompanii_sochi_rent-a-car!_/"
-  },
-  {
-    "from": "/news/kak_arendovaty_avtomobily_v_sochi",
-    "to": "/news/kak_arendovaty_avtomobily_v_sochi/"
-  },
-  {
-    "from": "/news/renault_kaptur_v_novom_stilynom_dizayne",
-    "to": "/news/renault_kaptur_v_novom_stilynom_dizayne/"
-  },
-  {
-    "from": "/news/avtoprokat_v_sochi._osobennosti_arendy_avtomobilya.",
-    "to": "/news/avtoprokat_v_sochi._osobennosti_arendy_avtomobilya./"
-  },
-  {
-    "from": "/news/beri_mashinu_letom_po_zimney_cene!",
-    "to": "/news/beri_mashinu_letom_po_zimney_cene!/"
-  },
-  {
-    "from": "/news/v_abhaziyu_na_avtomobile_ot_sochi_rent-a-car",
-    "to": "/news/v_abhaziyu_na_avtomobile_ot_sochi_rent-a-car/"
-  },
-  {
-    "from": "/news/sochi_i_krym_stanovyatsya_blighe",
-    "to": "/news/sochi_i_krym_stanovyatsya_blighe/"
-  },
-  {
-    "from": "/news/grandioznoe_popolnenie_avtoparka",
-    "to": "/news/grandioznoe_popolnenie_avtoparka/"
-  },
-  {
-    "from": "/news/vesennee_snighenie_cen_v_sochi",
-    "to": "/news/vesennee_snighenie_cen_v_sochi/"
-  },
-  {
-    "from": "/news/novye_lada_vesta_i_lada_xray_ughe_v_sochi!",
-    "to": "/news/novye_lada_vesta_i_lada_xray_ughe_v_sochi!/"
-  },
-  {
-    "from": "/news/vesennie_kanikuly_s_detymi_v_sochi",
-    "to": "/news/vesennie_kanikuly_s_detymi_v_sochi/"
-  },
-  {
-    "from": "/news/dorogie_mughchiny!_pozdravlyaem_vas_s_23_fevralya!",
-    "to": "/news/dorogie_mughchiny!_pozdravlyaem_vas_s_23_fevralya!/"
-  },
-  {
-    "from": "/news/arenda_avto_s_voditelem_dlya_ekskursiy",
-    "to": "/news/arenda_avto_s_voditelem_dlya_ekskursiy/"
-  },
-  {
-    "from": "/news/arenda_avtomobilya_s_voditelem_v_sochi_dlya_delovyh_poezdok",
-    "to": "/news/arenda_avtomobilya_s_voditelem_v_sochi_dlya_delovyh_poezdok/"
-  },
-  {
-    "from": "/news/arenda_avto_dlya_posescheniya_meropriyatiy_sochi_2017",
-    "to": "/news/arenda_avto_dlya_posescheniya_meropriyatiy_sochi_2017/"
-  },
-  {
-    "from": "/news/bezopasnyy_transport_dlya_gornolyghnyh_trass_-_vnedoroghnik",
-    "to": "/news/bezopasnyy_transport_dlya_gornolyghnyh_trass_-_vnedoroghnik/"
-  },
-  {
-    "from": "/news/programma_loyalynosti_sochi_rent-a-car",
-    "to": "/news/programma_loyalynosti_sochi_rent-a-car/"
-  },
-  {
-    "from": "/news/mega_prazdnichnye_skidki!",
-    "to": "/news/mega_prazdnichnye_skidki!/"
-  },
-  {
-    "from": "/news/grandioznoe_rasshirenie_avtoparka",
-    "to": "/news/grandioznoe_rasshirenie_avtoparka/"
-  },
-  {
-    "from": "/news/barhatnyy_sezon_v_sochi!",
-    "to": "/news/barhatnyy_sezon_v_sochi!/"
-  },
-  {
-    "from": "/news/skidki_uchastnikam_programmy_aeroflot_bonus",
-    "to": "/news/skidki_uchastnikam_programmy_aeroflot_bonus/"
-  },
-  {
-    "from": "/news/my_rady_soobschity_ob_otkrytii_filiala_v_sankt-peterburge!",
-    "to": "/news/my_rady_soobschity_ob_otkrytii_filiala_v_sankt-peterburge!/"
-  },
-  {
-    "from": "/news/dorogie_druzyya,_pozdravlyaem_vas_s_dnem_rossii!",
-    "to": "/news/dorogie_druzyya,_pozdravlyaem_vas_s_dnem_rossii!/"
-  },
-  {
-    "from": "/news/akciya,_priblighayuschaya_leto",
-    "to": "/news/akciya,_priblighayuschaya_leto/"
-  },
-  {
-    "from": "/news/rasskaghite_o_vashem_puteshestvii_i_poluchite_bonus_ot_sochi_rent-a-car!",
-    "to": "/news/rasskaghite_o_vashem_puteshestvii_i_poluchite_bonus_ot_sochi_rent-a-car!/"
-  },
-  {
-    "from": "/news/may_v_sochi_oznamenuetsya_bolyshim_meghdunarodnym_forumom!",
-    "to": "/news/may_v_sochi_oznamenuetsya_bolyshim_meghdunarodnym_forumom!/"
-  },
-  {
-    "from": "/news/na_avtodrome_sochi_prohodit_etap_67-go_chempionata_mira__f1!",
-    "to": "/news/na_avtodrome_sochi_prohodit_etap_67-go_chempionata_mira__f1!/"
-  },
-  {
-    "from": "/news/popolnenie_avtoparka:_novyy_ford_fiesta_tepery_dostupen_dlya_zakaza_v_sochi!",
-    "to": "/news/popolnenie_avtoparka:_novyy_ford_fiesta_tepery_dostupen_dlya_zakaza_v_sochi!/"
-  },
-  {
-    "from": "/news/ot_oghidaniya_otdyha_v_sochi_tepleet_na_dushe!",
-    "to": "/news/ot_oghidaniya_otdyha_v_sochi_tepleet_na_dushe!/"
-  },
-  {
-    "from": "/news/pozdravlyaem_prekrasneyshuyu_polovinu_chelovechestva_s_meghdunarodnym_ghenskim_dnem!",
-    "to": "/news/pozdravlyaem_prekrasneyshuyu_polovinu_chelovechestva_s_meghdunarodnym_ghenskim_dnem!/"
-  },
-  {
-    "from": "/news/pozdravlyaem_s__dnem_zaschitnika_otechestva!",
-    "to": "/news/pozdravlyaem_s__dnem_zaschitnika_otechestva!/"
-  },
-  {
-    "from": "/news/pozdravlyaem_vas_s_nastupayuschim_kitayskim_novym_godom!",
-    "to": "/news/pozdravlyaem_vas_s_nastupayuschim_kitayskim_novym_godom!/"
-  },
-  {
-    "from": "/news/kiberponedelynik_v_sochi",
-    "to": "/news/kiberponedelynik_v_sochi/"
-  },
-  {
-    "from": "/news/s_nastupayuschim_novym_godom_i_roghdestvom!",
-    "to": "/news/s_nastupayuschim_novym_godom_i_roghdestvom!/"
-  },
-  {
-    "from": "/news/popolnenie_avtoparka:_nissan_tiida",
-    "to": "/news/popolnenie_avtoparka:_nissan_tiida/"
-  },
-  {
-    "from": "/news/bolee_poloviny_rossiyskih_puteshestvennikov_vybrali_na_novyy_god_sochi!",
-    "to": "/news/bolee_poloviny_rossiyskih_puteshestvennikov_vybrali_na_novyy_god_sochi!/"
-  },
-  {
-    "from": "/news/vse_nashi_avtomobili_v_sochi_oborudovany_krepleniyami_dlya_lygh_i_snouborda!",
-    "to": "/news/vse_nashi_avtomobili_v_sochi_oborudovany_krepleniyami_dlya_lygh_i_snouborda!/"
-  },
-  {
-    "from": "/news/my_darim_termos_za_podpisku_vkontakte!",
-    "to": "/news/my_darim_termos_za_podpisku_vkontakte!/"
-  },
-  {
-    "from": "/news/poezdki-na-nashih-avtomobilyah-otvechayut-vsem-neobhodimym-normam-bezopasnosti",
-    "to": "/news/poezdki-na-nashih-avtomobilyah-otvechayut-vsem-neobhodimym-normam-bezopasnosti/"
-  },
-  {
-    "from": "/news/spektakli-sochi",
-    "to": "/news/spektakli-sochi/"
-  },
-  {
-    "from": "/news/avtomobil-v-arendu-samyj-optimalnyj-sposob-peredvizheniya-v-sochi",
-    "to": "/news/avtomobil-v-arendu-samyj-optimalnyj-sposob-peredvizheniya-v-sochi/"
-  },
-  {
-    "from": "/news/top-5-udobnyh-avtomobiley-dlya-poezdok-po-gorodu",
-    "to": "/news/top-5-udobnyh-avtomobiley-dlya-poezdok-po-gorodu/"
-  },
-  {
-    "from": "/news/kak-sdelat-svoi-poezdki-v-sochi-eshche-bolee-komfortnymi",
-    "to": "/news/kak-sdelat-svoi-poezdki-v-sochi-eshche-bolee-komfortnymi/"
-  },
-  {
-    "from": "/service/mercedes-benz_sprinter_vip",
-    "to": "/service/mercedes-benz_sprinter_vip/"
-  },
-  {
-    "from": "/service/mercedes-benz_s500,_w222",
-    "to": "/service/mercedes-benz_s500,_w222/"
-  },
-  {
-    "from": "/service/mercedes-benz_e200",
-    "to": "/service/mercedes-benz_e200/"
-  },
-  {
-    "from": "/service/mercedes-benz_v250d",
-    "to": "/service/mercedes-benz_v250d/"
-  },
-  {
-    "from": "/service/hyundai_h-1_new",
-    "to": "/service/hyundai_h-1_new/"
-  },
-  {
-    "from": "/service/toyota_land_cruiser_200",
-    "to": "/service/toyota_land_cruiser_200/"
-  },
-  {
-    "from": "/service/toyota_land_cruiser_prado",
-    "to": "/service/toyota_land_cruiser_prado/"
-  },
-  {
-    "from": "/service/hyundai_h-1",
-    "to": "/service/hyundai_h-1/"
-  },
-  {
-    "from": "/service/toyota_rav4_dark_blue",
-    "to": "/service/toyota_rav4_dark_blue/"
-  },
-  {
-    "from": "/service/mitsubishi_outlander",
-    "to": "/service/mitsubishi_outlander/"
-  },
-  {
-    "from": "/service/hyundai_elantra_new_black",
-    "to": "/service/hyundai_elantra_new_black/"
-  },
-  {
-    "from": "/service/mercedes-benz_sprinter_vip",
-    "to": "/service/mercedes-benz_sprinter_vip/"
-  },
-  {
-    "from": "/service/toyota_camry_new",
-    "to": "/service/toyota_camry_new/"
-  },
-  {
-    "from": "/service/kio_rio_xline_comfort_gray",
-    "to": "/service/kio_rio_xline_comfort_gray/"
-  },
-  {
-    "from": "/service/kia_ceed_sw_gray",
-    "to": "/service/kia_ceed_sw_gray/"
-  },
-  {
-    "from": "/service/kia_rio_new",
-    "to": "/service/kia_rio_new/"
-  },
-  {
-    "from": "/service/hyundai_santa_fe",
-    "to": "/service/hyundai_santa_fe/"
-  },
-  {
-    "from": "/service/hyundai_elantra_stargazing_blue_new",
-    "to": "/service/hyundai_elantra_stargazing_blue_new/"
-  },
-  {
-    "from": "/rent/mercedes-benz_e200",
-    "to": "/rent/mercedes-benz_e200/"
-  },
-  {
-    "from": "/rent/toyota_land_cruiser_200",
-    "to": "/rent/toyota_land_cruiser_200/"
-  },
-  {
-    "from": "/rent/mini_john_cooper_works_cabrio",
-    "to": "/rent/mini_john_cooper_works_cabrio/"
-  },
-  {
-    "from": "/rent/bmw_x1_sdrive_18i",
-    "to": "/rent/bmw_x1_sdrive_18i/"
-  },
-  {
-    "from": "/rent/mini_cooper_5d",
-    "to": "/rent/mini_cooper_5d/"
-  },
-  {
-    "from": "/rent/bmw_x2_sdrive_20i",
-    "to": "/rent/bmw_x2_sdrive_20i/"
-  },
-  {
-    "from": "/rent/mini_cooper",
-    "to": "/rent/mini_cooper/"
-  },
-  {
-    "from": "/rent/audi_q3_blue",
-    "to": "/rent/audi_q3_blue/"
-  },
-  {
-    "from": "/rent/kia_rio_new",
-    "to": "/rent/kia_rio_new/"
-  },
-  {
-    "from": "/rent/hyundai_santa_fe",
-    "to": "/rent/hyundai_santa_fe/"
-  },
-  {
-    "from": "/rent/hyundai_solaris_new_red",
-    "to": "/rent/hyundai_solaris_new_red/"
-  },
-  {
-    "from": "/rent/hyundai_tucson_blue",
-    "to": "/rent/hyundai_tucson_blue/"
-  },
-  {
-    "from": "/rent/kia_ceed_sw_blue",
-    "to": "/rent/kia_ceed_sw_blue/"
-  },
-  {
-    "from": "/rent/toyota_rav4_khaki",
-    "to": "/rent/toyota_rav4_khaki/"
-  },
-  {
-    "from": "/rent/volkswagen_polo_comfortline",
-    "to": "/rent/volkswagen_polo_comfortline/"
-  },
-  {
-    "from": "/rent/volkswagen_tiguan",
-    "to": "/rent/volkswagen_tiguan/"
-  },
-  {
-    "from": "/rent/renault_logan_stepway_white",
-    "to": "/rent/renault_logan_stepway_white/"
-  },
-  {
-    "from": "/rent/renault_logan_stepway_gray",
-    "to": "/rent/renault_logan_stepway_gray/"
-  },
-  {
-    "from": "/rent/hyundai_creta_white",
-    "to": "/rent/hyundai_creta_white/"
-  },
-  {
-    "from": "/rent/hyundai_elantra_stargazing_blue_new",
-    "to": "/rent/hyundai_elantra_stargazing_blue_new/"
-  },
-  {
-    "from": "/rent/hyundai_creta_brown",
-    "to": "/rent/hyundai_creta_brown/"
-  },
-  {
-    "from": "/rent/toyota_rav4_balck",
-    "to": "/rent/toyota_rav4_balck/"
-  },
-  {
-    "from": "/rent/audi_q3_orange",
-    "to": "/rent/audi_q3_orange/"
-  },
-  {
-    "from": "/rent/hyundai_solaris_new_blue",
-    "to": "/rent/hyundai_solaris_new_blue/"
-  },
-  {
-    "from": "/rent/renault_kaptur_great_britain",
-    "to": "/rent/renault_kaptur_great_britain/"
-  },
-  {
-    "from": "/rent/kia_rio_xline_luxe_white",
-    "to": "/rent/kia_rio_xline_luxe_white/"
-  },
-  {
-    "from": "/rent/hyundai_tucson_red",
-    "to": "/rent/hyundai_tucson_red/"
-  },
-  {
-    "from": "/rent/toyota_corolla_new_white",
-    "to": "/rent/toyota_corolla_new_white/"
-  },
-  {
-    "from": "/rent/hyundai_h-1_new",
-    "to": "/rent/hyundai_h-1_new/"
-  },
-  {
-    "from": "/rent/kia_rio_xline_comfort_bronze",
-    "to": "/rent/kia_rio_xline_comfort_bronze/"
-  },
-  {
-    "from": "/rent/toyota_land_cruiser_prado",
-    "to": "/rent/toyota_land_cruiser_prado/"
-  },
-  {
-    "from": "/rent/ford_focus_new_hb",
-    "to": "/rent/ford_focus_new_hb/"
-  },
-  {
-    "from": "/rent/hyundai_tucson_new",
-    "to": "/rent/hyundai_tucson_new/"
-  },
-  {
-    "from": "/rent/toyota_camry_new",
-    "to": "/rent/toyota_camry_new/"
-  },
-  {
-    "from": "/rent/toyota_rav4_brown",
-    "to": "/rent/toyota_rav4_brown/"
-  },
-  {
-    "from": "/rent/volkswagen_polo_trendline",
-    "to": "/rent/volkswagen_polo_trendline/"
-  },
-  {
-    "from": "/rent/mercedes-benz_v250d",
-    "to": "/rent/mercedes-benz_v250d/"
-  },
-  {
-    "from": "/rent/kia_ceed_sw_gray",
-    "to": "/rent/kia_ceed_sw_gray/"
-  },
-  {
-    "from": "/rent/toyota_rav4_dark_blue",
-    "to": "/rent/toyota_rav4_dark_blue/"
-  },
-  {
-    "from": "/rent/kia_ceed_sw_white",
-    "to": "/rent/kia_ceed_sw_white/"
-  },
-  {
-    "from": "/rent/hyundai_creta_blue",
-    "to": "/rent/hyundai_creta_blue/"
-  },
-  {
-    "from": "/rent/renault_sandero_stepway_brown",
-    "to": "/rent/renault_sandero_stepway_brown/"
-  },
-  {
-    "from": "/rent/nissan_x-trail_yandex",
-    "to": "/rent/nissan_x-trail_yandex/"
-  },
-  {
-    "from": "/rent/kio_rio_xline_comfort_gray",
-    "to": "/rent/kio_rio_xline_comfort_gray/"
-  },
-  {
-    "from": "/rent/toyota_rav4_white",
-    "to": "/rent/toyota_rav4_white/"
-  },
-  {
-    "from": "/rent/toyota_c-hr_cool_blue",
-    "to": "/rent/toyota_c-hr_cool_blue/"
-  },
-  {
-    "from": "/rent/renault_sandero_stepway_blue",
-    "to": "/rent/renault_sandero_stepway_blue/"
-  },
-  {
-    "from": "/rent/renault_sandero_stepway_white",
-    "to": "/rent/renault_sandero_stepway_white/"
-  },
-  {
-    "from": "/rent/renault_sandero_stepway_gray",
-    "to": "/rent/renault_sandero_stepway_gray/"
-  },
-  {
-    "from": "/rent/renault_logan_stepway_blue",
-    "to": "/rent/renault_logan_stepway_blue/"
-  },
-  {
-    "from": "/rent/nissan_terrano_new",
-    "to": "/rent/nissan_terrano_new/"
-  },
-  {
-    "from": "/rent/mitsubishi_outlander",
-    "to": "/rent/mitsubishi_outlander/"
-  },
-  {
-    "from": "/rent/hyundai_h-1",
-    "to": "/rent/hyundai_h-1/"
-  },
-  {
-    "from": "/rent/hyundai_elantra_new_black",
-    "to": "/rent/hyundai_elantra_new_black/"
-  },
-  {
-    "from": "/rent/hyundai_elantra_new_white",
-    "to": "/rent/hyundai_elantra_new_white/"
-  },
-  {
-    "from": "/status/success",
-    "to": "/status/success/"
-  },
-  {
-    "from": "/status/error",
-    "to": "/status/error/"
-  }
+  { "from": "/news/vizit_vladimira_putina_v_krym_dlya_nagraghdeniya_stroiteley_krymskogo_mosta", "to": "/news/vizit_vladimira_putina_v_krym_dlya_nagraghdeniya_stroiteley_krymskogo_mosta/" },
+  { "from": "/news/ghivopisnye_mesta_dlya_progulok", "to": "/news/ghivopisnye_mesta_dlya_progulok/" },
+  { "from": "/news/samye_interesnye_vystavki_marta_", "to": "/news/samye_interesnye_vystavki_marta_/" },
+  { "from": "/news/s_8_marta,_dorogie_ghenschiny!__", "to": "/news/s_8_marta,_dorogie_ghenschiny!__/" },
+  { "from": "/news/top-5_restoranov_s_izyskannym_interyerom", "to": "/news/top-5_restoranov_s_izyskannym_interyerom/" },
+  { "from": "/news/idei_dlya_semeynogo_otdyha", "to": "/news/idei_dlya_semeynogo_otdyha/" },
+  { "from": "/news/s_dnem_zaschitnika_otechestva!", "to": "/news/s_dnem_zaschitnika_otechestva!/" },
+  { "from": "/news/glavnye_muzei_goroda", "to": "/news/glavnye_muzei_goroda/" },
+  { "from": "/news/arhitektura_sochi", "to": "/news/arhitektura_sochi/" },
+  { "from": "/news/deny_svyatogo_valentina_v_sochi", "to": "/news/deny_svyatogo_valentina_v_sochi/" },
+  { "from": "/news/kulyturnye_i_tvorcheskie_prostranstva_sochi", "to": "/news/kulyturnye_i_tvorcheskie_prostranstva_sochi/" },
+  { "from": "/news/master-klassy_dlya_detey_i_vzroslyh", "to": "/news/master-klassy_dlya_detey_i_vzroslyh/" },
+  { "from": "/news/vystavki_fevralya", "to": "/news/vystavki_fevralya/" },
+  { "from": "/news/restorany_vostochnoy_kuhni", "to": "/news/restorany_vostochnoy_kuhni/" },
+  { "from": "/news/izmenenie_daty_povedeniya_rif-2020", "to": "/news/izmenenie_daty_povedeniya_rif-2020/" },
+  { "from": "/news/skypark_aj_hackett", "to": "/news/skypark_aj_hackett/" },
+  { "from": "/news/olimpiyskiy_park", "to": "/news/olimpiyskiy_park/" },
+  { "from": "/news/rif-2020_", "to": "/news/rif-2020_/" },
+  { "from": "/news/luchshie_mesta_dlya_fotosessiy", "to": "/news/luchshie_mesta_dlya_fotosessiy/" },
+  { "from": "/news/vystavki_yanvarya", "to": "/news/vystavki_yanvarya/" },
+  { "from": "/news/smotrovye_ploschadki_sochi", "to": "/news/smotrovye_ploschadki_sochi/" },
+  { "from": "/news/samye_interesnye_meropriyatiya_mesyaca", "to": "/news/samye_interesnye_meropriyatiya_mesyaca/" },
+  { "from": "/news/neobychnye_restorany_sochi", "to": "/news/neobychnye_restorany_sochi/" },
+  { "from": "/news/s_novym_godom_i_roghdestvom!", "to": "/news/s_novym_godom_i_roghdestvom!/" },
+  { "from": "/news/luchshie_ledovye_katki_", "to": "/news/luchshie_ledovye_katki_/" },
+  { "from": "/news/novogodnie_podarki_dlya_nashih_samyh_malenykih_klientov!", "to": "/news/novogodnie_podarki_dlya_nashih_samyh_malenykih_klientov!/" },
+  { "from": "/news/samye_interesnye_yarmarki_i_bazary_sochi", "to": "/news/samye_interesnye_yarmarki_i_bazary_sochi/" },
+  { "from": "/news/raznoobrazyte_svoy_otdyh_v_sochi", "to": "/news/raznoobrazyte_svoy_otdyh_v_sochi/" },
+  { "from": "/news/novyy_god_na_gornolyghnyh_kurortah", "to": "/news/novyy_god_na_gornolyghnyh_kurortah/" },
+  { "from": "/news/vystavki_dekabrya", "to": "/news/vystavki_dekabrya/" },
+  { "from": "/news/muzyka_sochi", "to": "/news/muzyka_sochi/" },
+  { "from": "/news/puteshestvie_v_gory", "to": "/news/puteshestvie_v_gory/" },
+  { "from": "/news/arenda_avto_v_adlere", "to": "/news/arenda_avto_v_adlere/" },
+  { "from": "/news/predstavlyaem_nashu_novuyu_uslugu_-_prokat_elektrosamokatov!", "to": "/news/predstavlyaem_nashu_novuyu_uslugu_-_prokat_elektrosamokatov!/" },
+  { "from": "/news/vesy_avgust_deystvuet_specialynoe_predloghenie_na_vyezd_v_abhaziyu!", "to": "/news/vesy_avgust_deystvuet_specialynoe_predloghenie_na_vyezd_v_abhaziyu!/" },
+  { "from": "/news/novye_avto_2019_goda_ughe_dostupny_dlya_arendy_v_sochi!", "to": "/news/novye_avto_2019_goda_ughe_dostupny_dlya_arendy_v_sochi!/" },
+  { "from": "/news/krasnaya_polyana_v_sochi_-_vse,_chto_nughno_znaty_turistu", "to": "/news/krasnaya_polyana_v_sochi_-_vse,_chto_nughno_znaty_turistu/" },
+  { "from": "/news/vyhodnye_vse_blighe_i_u_nas_prekrasnaya_novosty!_", "to": "/news/vyhodnye_vse_blighe_i_u_nas_prekrasnaya_novosty!_/" },
+  { "from": "/news/nasha_lyubimaya_ocenka_5_etoy_osenyyu,_a_vasha?", "to": "/news/nasha_lyubimaya_ocenka_5_etoy_osenyyu,_a_vasha?/" },
+  { "from": "/news/doghdi_perecherknuli_vashi_plany?", "to": "/news/doghdi_perecherknuli_vashi_plany?/" },
+  { "from": "/news/kuda_poehaty_na_vyhodnye?_", "to": "/news/kuda_poehaty_na_vyhodnye?_/" },
+  { "from": "/news/novosti_meropriyatiy_k_chm_2018_v_sochi", "to": "/news/novosti_meropriyatiy_k_chm_2018_v_sochi/" },
+  { "from": "/news/voditelyskoe_udostoverenie_skoro_budet_vypuskaty_sberbank.", "to": "/news/voditelyskoe_udostoverenie_skoro_budet_vypuskaty_sberbank./" },
+  { "from": "/news/popolnenie_avtoparka!", "to": "/news/popolnenie_avtoparka!/" },
+  { "from": "/news/sochi_i_krym_stali_esche_blighe!", "to": "/news/sochi_i_krym_stali_esche_blighe!/" },
+  { "from": "/news/pervoe_avto_«pervogo_lica»,_sdelannoe_v_rossii_za_27_let.", "to": "/news/pervoe_avto_«pervogo_lica»,_sdelannoe_v_rossii_za_27_let./" },
+  { "from": "/news/letyaschaya_utka_prevysila_skorosty._policiya_dumaet,_kak_ee_nakazaty", "to": "/news/letyaschaya_utka_prevysila_skorosty._policiya_dumaet,_kak_ee_nakazaty/" },
+  { "from": "/news/30_maya_v_sochi_proydet_iv_meghdunarodnyy_forum", "to": "/news/30_maya_v_sochi_proydet_iv_meghdunarodnyy_forum/" },
+  { "from": "/news/nazvany_goroda_v_rossii,_dlya_testa_bespilotnikov.", "to": "/news/nazvany_goroda_v_rossii,_dlya_testa_bespilotnikov./" },
+  { "from": "/news/samye_poseschaemye_mesta_goroda-_kurorta_sochi!", "to": "/news/samye_poseschaemye_mesta_goroda-_kurorta_sochi!/" },
+  { "from": "/news/5_izmeneniy_v_pravilah_registracii_avto.", "to": "/news/5_izmeneniy_v_pravilah_registracii_avto./" },
+  { "from": "/news/v_gosdume_predloghili_uvelichity_maksimalynuyu_skorosty_na_avtomobilynyh_dorogah_rossiyskoy_federacii.", "to": "/news/v_gosdume_predloghili_uvelichity_maksimalynuyu_skorosty_na_avtomobilynyh_dorogah_rossiyskoy_federacii./" },
+  { "from": "/news/shtrafovaty_za_otsutstvuyuschiy_tehosmotr_budut_kamery.", "to": "/news/shtrafovaty_za_otsutstvuyuschiy_tehosmotr_budut_kamery./" },
+  { "from": "/news/rossiyskiy_avtomobily_nagraghden_premiey_za_ekonomichnosty!", "to": "/news/rossiyskiy_avtomobily_nagraghden_premiey_za_ekonomichnosty!/" },
+  { "from": "/news/bolyshe_net_povoda_ne_puteshestvovaty!", "to": "/news/bolyshe_net_povoda_ne_puteshestvovaty!/" },
+  { "from": "/news/s_nastupayuschim_novym_godom_2018!", "to": "/news/s_nastupayuschim_novym_godom_2018!/" },
+  { "from": "/news/i_snova_popolnenie_avtoparka_-_toyota_rav4_c_polnym_privodom!_", "to": "/news/i_snova_popolnenie_avtoparka_-_toyota_rav4_c_polnym_privodom!_/" },
+  { "from": "/news/novinka_avtoparka_-_hyundai_tucson_2017!", "to": "/news/novinka_avtoparka_-_hyundai_tucson_2017!/" },
+  { "from": "/news/arenda_avtomobilya_v_zimniy_period", "to": "/news/arenda_avtomobilya_v_zimniy_period/" },
+  { "from": "/news/osobennosti_arendy_avtomobilya_s_pravom_vykupa", "to": "/news/osobennosti_arendy_avtomobilya_s_pravom_vykupa/" },
+  { "from": "/news/transportnyy_nalog_v_raznyh_stranah_mira", "to": "/news/transportnyy_nalog_v_raznyh_stranah_mira/" },
+  { "from": "/news/avtomobili_15-ti_prezidentov_mira", "to": "/news/avtomobili_15-ti_prezidentov_mira/" },
+  { "from": "/news/reyting_ugonyaemyh_avto_2016-2017", "to": "/news/reyting_ugonyaemyh_avto_2016-2017/" },
+  { "from": "/news/reyting_samyh_ekonomichnyh_avto", "to": "/news/reyting_samyh_ekonomichnyh_avto/" },
+  { "from": "/news/kakie_avto_chasto_lomayutsya?", "to": "/news/kakie_avto_chasto_lomayutsya?/" },
+  { "from": "/news/reyting_naibolee_vostrebovannyh_avtomobiley_2017", "to": "/news/reyting_naibolee_vostrebovannyh_avtomobiley_2017/" },
+  { "from": "/news/istoriya_avtoprokata_v_rossii", "to": "/news/istoriya_avtoprokata_v_rossii/" },
+  { "from": "/news/preimuschestva_ot_sochi_rent-a-car", "to": "/news/preimuschestva_ot_sochi_rent-a-car/" },
+  { "from": "/news/samye_populyarnye_krossovery_v_rossii_po_itogam_pervogo_polugodiya_2017", "to": "/news/samye_populyarnye_krossovery_v_rossii_po_itogam_pervogo_polugodiya_2017/" },
+  { "from": "/news/udobnyy_semimestnyy_kompaktven_chevrolet_orlando_ot_kompanii_sochi_rent-a-car!_", "to": "/news/udobnyy_semimestnyy_kompaktven_chevrolet_orlando_ot_kompanii_sochi_rent-a-car!_/" },
+  { "from": "/news/kak_arendovaty_avtomobily_v_sochi", "to": "/news/kak_arendovaty_avtomobily_v_sochi/" },
+  { "from": "/news/renault_kaptur_v_novom_stilynom_dizayne", "to": "/news/renault_kaptur_v_novom_stilynom_dizayne/" },
+  { "from": "/news/avtoprokat_v_sochi._osobennosti_arendy_avtomobilya.", "to": "/news/avtoprokat_v_sochi._osobennosti_arendy_avtomobilya./" },
+  { "from": "/news/beri_mashinu_letom_po_zimney_cene!", "to": "/news/beri_mashinu_letom_po_zimney_cene!/" },
+  { "from": "/news/v_abhaziyu_na_avtomobile_ot_sochi_rent-a-car", "to": "/news/v_abhaziyu_na_avtomobile_ot_sochi_rent-a-car/" },
+  { "from": "/news/sochi_i_krym_stanovyatsya_blighe", "to": "/news/sochi_i_krym_stanovyatsya_blighe/" },
+  { "from": "/news/grandioznoe_popolnenie_avtoparka", "to": "/news/grandioznoe_popolnenie_avtoparka/" },
+  { "from": "/news/vesennee_snighenie_cen_v_sochi", "to": "/news/vesennee_snighenie_cen_v_sochi/" },
+  { "from": "/news/novye_lada_vesta_i_lada_xray_ughe_v_sochi!", "to": "/news/novye_lada_vesta_i_lada_xray_ughe_v_sochi!/" },
+  { "from": "/news/vesennie_kanikuly_s_detymi_v_sochi", "to": "/news/vesennie_kanikuly_s_detymi_v_sochi/" },
+  { "from": "/news/dorogie_mughchiny!_pozdravlyaem_vas_s_23_fevralya!", "to": "/news/dorogie_mughchiny!_pozdravlyaem_vas_s_23_fevralya!/" },
+  { "from": "/news/arenda_avto_s_voditelem_dlya_ekskursiy", "to": "/news/arenda_avto_s_voditelem_dlya_ekskursiy/" },
+  { "from": "/news/arenda_avtomobilya_s_voditelem_v_sochi_dlya_delovyh_poezdok", "to": "/news/arenda_avtomobilya_s_voditelem_v_sochi_dlya_delovyh_poezdok/" },
+  { "from": "/news/arenda_avto_dlya_posescheniya_meropriyatiy_sochi_2017", "to": "/news/arenda_avto_dlya_posescheniya_meropriyatiy_sochi_2017/" },
+  { "from": "/news/bezopasnyy_transport_dlya_gornolyghnyh_trass_-_vnedoroghnik", "to": "/news/bezopasnyy_transport_dlya_gornolyghnyh_trass_-_vnedoroghnik/" },
+  { "from": "/news/programma_loyalynosti_sochi_rent-a-car", "to": "/news/programma_loyalynosti_sochi_rent-a-car/" },
+  { "from": "/news/mega_prazdnichnye_skidki!", "to": "/news/mega_prazdnichnye_skidki!/" },
+  { "from": "/news/grandioznoe_rasshirenie_avtoparka", "to": "/news/grandioznoe_rasshirenie_avtoparka/" },
+  { "from": "/news/barhatnyy_sezon_v_sochi!", "to": "/news/barhatnyy_sezon_v_sochi!/" },
+  { "from": "/news/skidki_uchastnikam_programmy_aeroflot_bonus", "to": "/news/skidki_uchastnikam_programmy_aeroflot_bonus/" },
+  { "from": "/news/my_rady_soobschity_ob_otkrytii_filiala_v_sankt-peterburge!", "to": "/news/my_rady_soobschity_ob_otkrytii_filiala_v_sankt-peterburge!/" },
+  { "from": "/news/dorogie_druzyya,_pozdravlyaem_vas_s_dnem_rossii!", "to": "/news/dorogie_druzyya,_pozdravlyaem_vas_s_dnem_rossii!/" },
+  { "from": "/news/akciya,_priblighayuschaya_leto", "to": "/news/akciya,_priblighayuschaya_leto/" },
+  { "from": "/news/rasskaghite_o_vashem_puteshestvii_i_poluchite_bonus_ot_sochi_rent-a-car!", "to": "/news/rasskaghite_o_vashem_puteshestvii_i_poluchite_bonus_ot_sochi_rent-a-car!/" },
+  { "from": "/news/may_v_sochi_oznamenuetsya_bolyshim_meghdunarodnym_forumom!", "to": "/news/may_v_sochi_oznamenuetsya_bolyshim_meghdunarodnym_forumom!/" },
+  { "from": "/news/na_avtodrome_sochi_prohodit_etap_67-go_chempionata_mira__f1!", "to": "/news/na_avtodrome_sochi_prohodit_etap_67-go_chempionata_mira__f1!/" },
+  { "from": "/news/popolnenie_avtoparka:_novyy_ford_fiesta_tepery_dostupen_dlya_zakaza_v_sochi!", "to": "/news/popolnenie_avtoparka:_novyy_ford_fiesta_tepery_dostupen_dlya_zakaza_v_sochi!/" },
+  { "from": "/news/ot_oghidaniya_otdyha_v_sochi_tepleet_na_dushe!", "to": "/news/ot_oghidaniya_otdyha_v_sochi_tepleet_na_dushe!/" },
+  { "from": "/news/pozdravlyaem_prekrasneyshuyu_polovinu_chelovechestva_s_meghdunarodnym_ghenskim_dnem!", "to": "/news/pozdravlyaem_prekrasneyshuyu_polovinu_chelovechestva_s_meghdunarodnym_ghenskim_dnem!/" },
+  { "from": "/news/pozdravlyaem_s__dnem_zaschitnika_otechestva!", "to": "/news/pozdravlyaem_s__dnem_zaschitnika_otechestva!/" },
+  { "from": "/news/pozdravlyaem_vas_s_nastupayuschim_kitayskim_novym_godom!", "to": "/news/pozdravlyaem_vas_s_nastupayuschim_kitayskim_novym_godom!/" },
+  { "from": "/news/kiberponedelynik_v_sochi", "to": "/news/kiberponedelynik_v_sochi/" },
+  { "from": "/news/s_nastupayuschim_novym_godom_i_roghdestvom!", "to": "/news/s_nastupayuschim_novym_godom_i_roghdestvom!/" },
+  { "from": "/news/popolnenie_avtoparka:_nissan_tiida", "to": "/news/popolnenie_avtoparka:_nissan_tiida/" },
+  { "from": "/news/bolee_poloviny_rossiyskih_puteshestvennikov_vybrali_na_novyy_god_sochi!", "to": "/news/bolee_poloviny_rossiyskih_puteshestvennikov_vybrali_na_novyy_god_sochi!/" },
+  { "from": "/news/vse_nashi_avtomobili_v_sochi_oborudovany_krepleniyami_dlya_lygh_i_snouborda!", "to": "/news/vse_nashi_avtomobili_v_sochi_oborudovany_krepleniyami_dlya_lygh_i_snouborda!/" },
+  { "from": "/news/my_darim_termos_za_podpisku_vkontakte!", "to": "/news/my_darim_termos_za_podpisku_vkontakte!/" },
+  { "from": "/news/poezdki-na-nashih-avtomobilyah-otvechayut-vsem-neobhodimym-normam-bezopasnosti", "to": "/news/poezdki-na-nashih-avtomobilyah-otvechayut-vsem-neobhodimym-normam-bezopasnosti/" },
+  { "from": "/news/spektakli-sochi", "to": "/news/spektakli-sochi/" },
+  { "from": "/news/avtomobil-v-arendu-samyj-optimalnyj-sposob-peredvizheniya-v-sochi", "to": "/news/avtomobil-v-arendu-samyj-optimalnyj-sposob-peredvizheniya-v-sochi/" },
+  { "from": "/news/top-5-udobnyh-avtomobiley-dlya-poezdok-po-gorodu", "to": "/news/top-5-udobnyh-avtomobiley-dlya-poezdok-po-gorodu/" },
+  { "from": "/news/kak-sdelat-svoi-poezdki-v-sochi-eshche-bolee-komfortnymi", "to": "/news/kak-sdelat-svoi-poezdki-v-sochi-eshche-bolee-komfortnymi/" },
+  { "from": "/service/mercedes-benz_sprinter_vip", "to": "/service/mercedes-benz_sprinter_vip/" },
+  { "from": "/service/mercedes-benz_s500,_w222", "to": "/service/mercedes-benz_s500,_w222/" },
+  { "from": "/service/mercedes-benz_e200", "to": "/service/mercedes-benz_e200/" },
+  { "from": "/service/mercedes-benz_v250d", "to": "/service/mercedes-benz_v250d/" },
+  { "from": "/service/hyundai_h-1_new", "to": "/service/hyundai_h-1_new/" },
+  { "from": "/service/toyota_land_cruiser_200", "to": "/service/toyota_land_cruiser_200/" },
+  { "from": "/service/toyota_land_cruiser_prado", "to": "/service/toyota_land_cruiser_prado/" },
+  { "from": "/service/hyundai_h-1", "to": "/service/hyundai_h-1/" },
+  { "from": "/service/toyota_rav4_dark_blue", "to": "/service/toyota_rav4_dark_blue/" },
+  { "from": "/service/mitsubishi_outlander", "to": "/service/mitsubishi_outlander/" },
+  { "from": "/service/hyundai_elantra_new_black", "to": "/service/hyundai_elantra_new_black/" },
+  { "from": "/service/mercedes-benz_sprinter_vip", "to": "/service/mercedes-benz_sprinter_vip/" },
+  { "from": "/service/toyota_camry_new", "to": "/service/toyota_camry_new/" },
+  { "from": "/service/kio_rio_xline_comfort_gray", "to": "/service/kio_rio_xline_comfort_gray/" },
+  { "from": "/service/kia_ceed_sw_gray", "to": "/service/kia_ceed_sw_gray/" },
+  { "from": "/service/kia_rio_new", "to": "/service/kia_rio_new/" },
+  { "from": "/service/hyundai_santa_fe", "to": "/service/hyundai_santa_fe/" },
+  { "from": "/service/hyundai_elantra_stargazing_blue_new", "to": "/service/hyundai_elantra_stargazing_blue_new/" },
+  { "from": "/rent/mercedes-benz_e200", "to": "/rent/mercedes-benz_e200/" },
+  { "from": "/rent/toyota_land_cruiser_200", "to": "/rent/toyota_land_cruiser_200/" },
+  { "from": "/rent/mini_john_cooper_works_cabrio", "to": "/rent/mini_john_cooper_works_cabrio/" },
+  { "from": "/rent/bmw_x1_sdrive_18i", "to": "/rent/bmw_x1_sdrive_18i/" },
+  { "from": "/rent/mini_cooper_5d", "to": "/rent/mini_cooper_5d/" },
+  { "from": "/rent/bmw_x2_sdrive_20i", "to": "/rent/bmw_x2_sdrive_20i/" },
+  { "from": "/rent/mini_cooper", "to": "/rent/mini_cooper/" },
+  { "from": "/rent/audi_q3_blue", "to": "/rent/audi_q3_blue/" },
+  { "from": "/rent/kia_rio_new", "to": "/rent/kia_rio_new/" },
+  { "from": "/rent/hyundai_santa_fe", "to": "/rent/hyundai_santa_fe/" },
+  { "from": "/rent/hyundai_solaris_new_red", "to": "/rent/hyundai_solaris_new_red/" },
+  { "from": "/rent/hyundai_tucson_blue", "to": "/rent/hyundai_tucson_blue/" },
+  { "from": "/rent/kia_ceed_sw_blue", "to": "/rent/kia_ceed_sw_blue/" },
+  { "from": "/rent/toyota_rav4_khaki", "to": "/rent/toyota_rav4_khaki/" },
+  { "from": "/rent/volkswagen_polo_comfortline", "to": "/rent/volkswagen_polo_comfortline/" },
+  { "from": "/rent/volkswagen_tiguan", "to": "/rent/volkswagen_tiguan/" },
+  { "from": "/rent/renault_logan_stepway_white", "to": "/rent/renault_logan_stepway_white/" },
+  { "from": "/rent/renault_logan_stepway_gray", "to": "/rent/renault_logan_stepway_gray/" },
+  { "from": "/rent/hyundai_creta_white", "to": "/rent/hyundai_creta_white/" },
+  { "from": "/rent/hyundai_elantra_stargazing_blue_new", "to": "/rent/hyundai_elantra_stargazing_blue_new/" },
+  { "from": "/rent/hyundai_creta_brown", "to": "/rent/hyundai_creta_brown/" },
+  { "from": "/rent/toyota_rav4_balck", "to": "/rent/toyota_rav4_balck/" },
+  { "from": "/rent/audi_q3_orange", "to": "/rent/audi_q3_orange/" },
+  { "from": "/rent/hyundai_solaris_new_blue", "to": "/rent/hyundai_solaris_new_blue/" },
+  { "from": "/rent/renault_kaptur_great_britain", "to": "/rent/renault_kaptur_great_britain/" },
+  { "from": "/rent/kia_rio_xline_luxe_white", "to": "/rent/kia_rio_xline_luxe_white/" },
+  { "from": "/rent/hyundai_tucson_red", "to": "/rent/hyundai_tucson_red/" },
+  { "from": "/rent/toyota_corolla_new_white", "to": "/rent/toyota_corolla_new_white/" },
+  { "from": "/rent/hyundai_h-1_new", "to": "/rent/hyundai_h-1_new/" },
+  { "from": "/rent/kia_rio_xline_comfort_bronze", "to": "/rent/kia_rio_xline_comfort_bronze/" },
+  { "from": "/rent/toyota_land_cruiser_prado", "to": "/rent/toyota_land_cruiser_prado/" },
+  { "from": "/rent/ford_focus_new_hb", "to": "/rent/ford_focus_new_hb/" },
+  { "from": "/rent/hyundai_tucson_new", "to": "/rent/hyundai_tucson_new/" },
+  { "from": "/rent/toyota_camry_new", "to": "/rent/toyota_camry_new/" },
+  { "from": "/rent/toyota_rav4_brown", "to": "/rent/toyota_rav4_brown/" },
+  { "from": "/rent/volkswagen_polo_trendline", "to": "/rent/volkswagen_polo_trendline/" },
+  { "from": "/rent/mercedes-benz_v250d", "to": "/rent/mercedes-benz_v250d/" },
+  { "from": "/rent/kia_ceed_sw_gray", "to": "/rent/kia_ceed_sw_gray/" },
+  { "from": "/rent/toyota_rav4_dark_blue", "to": "/rent/toyota_rav4_dark_blue/" },
+  { "from": "/rent/kia_ceed_sw_white", "to": "/rent/kia_ceed_sw_white/" },
+  { "from": "/rent/hyundai_creta_blue", "to": "/rent/hyundai_creta_blue/" },
+  { "from": "/rent/renault_sandero_stepway_brown", "to": "/rent/renault_sandero_stepway_brown/" },
+  { "from": "/rent/nissan_x-trail_yandex", "to": "/rent/nissan_x-trail_yandex/" },
+  { "from": "/rent/kio_rio_xline_comfort_gray", "to": "/rent/kio_rio_xline_comfort_gray/" },
+  { "from": "/rent/toyota_rav4_white", "to": "/rent/toyota_rav4_white/" },
+  { "from": "/rent/toyota_c-hr_cool_blue", "to": "/rent/toyota_c-hr_cool_blue/" },
+  { "from": "/rent/renault_sandero_stepway_blue", "to": "/rent/renault_sandero_stepway_blue/" },
+  { "from": "/rent/renault_sandero_stepway_white", "to": "/rent/renault_sandero_stepway_white/" },
+  { "from": "/rent/renault_sandero_stepway_gray", "to": "/rent/renault_sandero_stepway_gray/" },
+  { "from": "/rent/renault_logan_stepway_blue", "to": "/rent/renault_logan_stepway_blue/" },
+  { "from": "/rent/nissan_terrano_new", "to": "/rent/nissan_terrano_new/" },
+  { "from": "/rent/mitsubishi_outlander", "to": "/rent/mitsubishi_outlander/" },
+  { "from": "/rent/hyundai_h-1", "to": "/rent/hyundai_h-1/" },
+  { "from": "/rent/hyundai_elantra_new_black", "to": "/rent/hyundai_elantra_new_black/" },
+  { "from": "/rent/hyundai_elantra_new_white", "to": "/rent/hyundai_elantra_new_white/" },
+  { "from": "/status/success", "to": "/status/success/" },
+  { "from": "/status/error", "to": "/status/error/" },
+  { "from": "/rent/?idnews=60&mode=ok", "to": "/rent/" },
+  { "from": "/rent/?idnews=60", "to": "/rent/" },
+  { "from": "/rent/?idnews=680", "to": "/rent/" }
 ]
