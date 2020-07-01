@@ -99,6 +99,8 @@
     -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    @media screen and (max-width: 760px)
+      box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.4)
   .el-info-wrapper
     .item-info
       margin-bottom: 5px
