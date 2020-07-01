@@ -148,6 +148,16 @@ class Filters{
     return 0;
   };
 
+  compareRent_sort = (a, b) => {
+    if (a.sort < b.sort) {
+      return -1;
+    }
+    if (a.sort > b.sort) {
+      return 1;
+    }
+    return 0;
+  };
+
   prepareLT = (data, price_filter, class_filter) => {
     let filtered;
     if (class_filter === 'cargo'){
@@ -185,10 +195,14 @@ class Filters{
         })
       }
     }
-    if (price_filter === 'price_asc'){
-      return filtered.sort(this.compareRent_less)
+    if (price_filter === 'sort'){
+      return filtered.sort(this.compareRent_sort)
     }else{
-      return filtered.sort(this.compareRent_more)
+      if (price_filter === 'price_asc'){
+        return filtered.sort(this.compareRent_less)
+      }else{
+        return filtered.sort(this.compareRent_more)
+      }
     }
   }
 

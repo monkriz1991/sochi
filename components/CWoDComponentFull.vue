@@ -71,9 +71,10 @@
         filterPrice: [
           {value: 'price_asc', text: this.$t('filters8')},
           {value: 'price_desc', text: this.$t('filters9')},
+          {value: 'sort', text: this.$t('filters10')},
         ],
         filter: 'all',
-        filter_price: 'price_asc',
+        filter_price: 'sort',
       }
     },
     watch:{
