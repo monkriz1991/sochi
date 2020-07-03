@@ -13,25 +13,29 @@
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[2]})`}")
               b-col(sm="12" md="12" lg="6").pl-lg-0
                 div.el-info-wrapper.pr-lg-3.px-md-2.px-sm-2.px-2.py-3
-                  h5="{{i.self_data.title}}"
-                  div.item-info.my-2
-                    p.l="{{$t('cwod1')}}"
-                    p.r="{{$t(i.car_data.klassavtomobilya)}}"
-                  div.item-info.my-2
-                    p.l="{{$t('cwod2')}}"
-                    p.r="{{i.tth.passa}}"
-                  div.item-info.my-2
-                    p.l="{{$t('cwod3')}}"
-                    p.r="{{$t(i.car_data.toplivo)}}"
-                  div.item-info.my-2
-                    p.l="{{$t('cwod4')}}"
-                    p.r="{{i.tth.rashod}}"
-                  div.item-info.my-2
-                    p.l="{{$t('cwod5')}}"
-                    p.r="{{makeEngine(i.car_data.dvigatel)}}"
-                  div.item-info.my-2
-                    p.l="{{$t('cwod6')}}"
-                    p.r="{{i.car_data.godvypuska}}"
+                  div.wrao
+                    div
+                      h5="{{i.self_data.title}}"
+                      div.item-info.my-2
+                        p.l="{{$t('cwod1')}}"
+                        p.r="{{$t(i.car_data.klassavtomobilya)}}"
+                      div.item-info.my-2
+                        p.l="{{$t('cwod2')}}"
+                        p.r="{{i.tth.passa}}"
+                      div.item-info.my-2
+                        p.l="{{$t('cwod3')}}"
+                        p.r="{{$t(i.car_data.toplivo)}}"
+                      div.item-info.my-2
+                        p.l="{{$t('cwod4')}}"
+                        p.r="{{i.tth.rashod}}"
+                      div.item-info.my-2
+                        p.l="{{$t('cwod5')}}"
+                        p.r="{{makeEngine(i.car_data.dvigatel)}}"
+                      div.item-info.my-2
+                        p.l="{{$t('cwod6')}}"
+                        p.r="{{i.car_data.godvypuska}}"
+                    div.action.w-100
+                      nuxt-link(:to="{name: $assets.prefix('service-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").btn.sec.w-100.slim="{{$t('af1')}}"
     hr.mt-2
     div.d-flex.justify-content-center.align-items-center
       b-pagination(v-model="currentPage" :total-rows="items.length" :per-page="perPage")
@@ -90,6 +94,12 @@
     &.no
       border: 1px solid red
       background-color: red
+  .wrao
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    min-height: 285px
   .no_dec
     color: #222222
     text-decoration: none
@@ -106,7 +116,7 @@
       margin-bottom: 5px
       margin-top: 5px
       &:after
-        content: '. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+        content: '. . . . . . . . . . . . . . . . . . . .'
         display: block
         white-space: nowrap
         overflow: hidden
