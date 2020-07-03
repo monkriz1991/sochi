@@ -2,7 +2,9 @@
   div.item-card.w-100.h-100.pb-2
     div.item-header
       div.media
-        div.price-badge
+        div(v-if="item.Special_Price").price-badge
+          span="{{item.Special_Price}}₽/{{$t('aoc1')}}"
+        div(v-else).price-badge
           span(v-if="item.Price > item.PriceDiscount").old="{{item.Price}}₽/{{$t('aoc1')}}"
           span="{{item.PriceDiscount}}₽/{{$t('aoc1')}}"
         div.preview(:lazy-background="item.PrimaryImage ? item.PrimaryImage : item.img")

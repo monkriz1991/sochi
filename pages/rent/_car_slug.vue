@@ -382,15 +382,15 @@
           data = [
             {
               text: `1 ${this.$t('cwod7')}`,
-              value: this.$assets.toMoney(this.item.car_data.stoimost)
+              value: this.item.car_data.special_price > 0 ? this.$assets.toMoney(this.item.car_data.special_price) : this.$assets.toMoney(this.item.car_data.stoimost)
             },
             {
               text: `${this.$t('cwd27')} 3 ${this.$t('cwd28')} 6 ${this.$t('cwd29')}`,
-              value: this.$assets.toMoney(s1),
+              value: this.item.car_data.special_price > 0 ? this.$assets.toMoney(this.item.car_data.special_price) : this.$assets.toMoney(s1)
             },
             {
               text: `${this.$t('cwd27')} 7 ${this.$t('cwd29')}`,
-              value: this.$assets.toMoney(s2),
+              value: this.item.car_data.special_price > 0 ? this.$assets.toMoney(this.item.car_data.special_price) : this.$assets.toMoney(s2)
             },
           ]
         }

@@ -741,7 +741,7 @@
         }).then((result)=>{
           if (result.data.data != null){
             this.car_data  = result.data.data;
-            this.car_data.stoimost = this.car_data.car_actual.PriceDiscount;
+            this.car_data.stoimost = this.car_data.car_actual.Special_Price ? this.car_data.car_actual.Special_Price : this.car_data.car_actual.PriceDiscount;
             this.period = this.car_data.car_actual.Period;
             this.$axios.post('getSunPhotos',{gosnomer: result.data.data.gosnomer, sun:1, city: this.$config.station})
               .then((result)=>{

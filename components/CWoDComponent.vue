@@ -4,7 +4,7 @@
         b-col(sm="6" md="6" lg="6" v-for="(i, idx) in items" :key="idx")
           nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").no_dec
             div.el-wrapper.my-3
-              div.price-badge(v-html="`${$t('cwd27')} ${$assets.toMoney(i.car_data.stoimost - ((i.car_data.stoimost/ 100) * i.car_data.skidka_2))}₽/${$t('cwod7')}`")
+              div.price-badge(v-html="`${$t('cwd27')} ${$assets.toMoney($assets.makeItemPrice(i.car_data.stoimost, i.car_data.skidka_2, i.car_data.special_price))}₽/${$t('cwod7')}`")
               div.main-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[0]}`")
               div.flox-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[1]}`")
               div.flox-img(:lazy-background="`https://booking.autopilot.rent/${i.self_data.photos[2]}`")

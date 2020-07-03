@@ -398,6 +398,14 @@ class Assets {
     }
   }
 
+  makeItemPrice = (price, sale, special_price) => {
+    if (special_price > 0){
+      return special_price;
+    }else{
+      return price - ((price/ 100) * sale)
+    }
+  }
+
 }
 
 export default Assets
