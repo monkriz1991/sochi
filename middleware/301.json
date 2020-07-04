@@ -456,5 +456,9 @@
   { "from": "/status/error", "to": "/status/error/" },
   { "from": "/rent/?idnews=60&mode=ok", "to": "/rent/" },
   { "from": "/rent/?idnews=60", "to": "/rent/" },
-  { "from": "/rent/?idnews=680", "to": "/rent/" }
+  { "from": "/rent/?idnews=680", "to": "/rent/" },
+  { "from": "/news/?idnews=764", "to": "/rent/" },
+  { "from": "/news/?idnews=829", "to": "/rent/" },
+  { "from": "/rent/?idnews=196", "to": "/rent/" },
+  { "from": "/service/?idnews=213", "to": "/service/" }
 ]
