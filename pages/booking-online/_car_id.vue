@@ -521,11 +521,11 @@
         this.promocode_sale = 0
         this.$axios.post('sun/promocheck', {code: this.userData.promocode, station: this.$config.station})
           .then(res => {
-            if (this.userData.promocode.toLowerCase() === 'summer2020' && ['ПРОМО', 'Промо', 'Электросамокаты'].includes(this.car_data.klassavtomobilya)){
+            if ((this.userData.promocode.toLowerCase() === 'summer2020' || this.userData.promocode.toLowerCase() === 'more2020') && ['ПРОМО', 'Промо', 'Электросамокаты'].includes(this.car_data.klassavtomobilya)){
               this.promocode_loaded = true
             }else{
               if (res.data.status === 'success'){
-                if (this.userData.promocode.toLowerCase() === 'summer2020'){
+                if (this.userData.promocode.toLowerCase() === 'summer2020' || this.userData.promocode.toLowerCase() === 'more2020'){
                   this.is_limit = false;
                   this.no_limit_avalible = true;
                 }
