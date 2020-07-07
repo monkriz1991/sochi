@@ -258,7 +258,14 @@
         this.$axios.post('/sun/longTermList', {station: this.$config.station})
           .then(result => {
             if (result.data.status === 'success'){
-              this.lt_cards = result.data.data;
+              result.data.data.map(el => {
+                if (el.cd.naimenovanie === 'Hyundai H-1' && el.cd.stoimost < 7070){
+                  el.cd.stoimost = 7070
+                  this.lt_cards.push(el)
+                }else{
+                  this.lt_cards.push(el)
+                }
+              })
               this.loaded = true;
             }
           })

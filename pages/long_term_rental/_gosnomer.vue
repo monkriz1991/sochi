@@ -278,7 +278,11 @@
           date: this.$assets.makeDateForRequest(this.df)
         }).then(response => {
           if(response.data.status === 'success'){
-            this.priceOnDate = response.data.data.CarPrice;
+            if (this.item.cd.naimenovanie === 'Hyundai H-1' && response.data.data.CarPrice < 7050){
+              this.priceOnDate = 7050;
+            }else{
+              this.priceOnDate = response.data.data.CarPrice;
+            }
             this.priceLoaded = true;
             this.priceLoading = false;
           }
@@ -330,6 +334,9 @@
           .then(result => {
             if (result.data.status === 'success'){
               this.item = result.data.data;
+              if (this.item.cd.naimenovanie === 'Hyundai H-1' && this.item.cd.stoimost < 7070){
+                this.item.cd.stoimost = 7070
+              }
               this.loaded = true;
             }
           }).catch(err => console.error(err))
