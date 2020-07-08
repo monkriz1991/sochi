@@ -165,8 +165,9 @@ class Assets {
       .replace(' ', '')
   };
 
-  getName(n){
+  getName(val){
     let word;
+    let n = parseInt(val)
     if ((n === 1) || (n > 20 && n % 10 === 1)) word = "день";
     else if ((n >= 2 && n <= 4) || (n > 20 && n % 10 >= 2 && n % 10 <= 4)) word = "дня";
     else word = "дней";

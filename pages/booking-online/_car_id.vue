@@ -438,7 +438,7 @@
                 if (eli.price_type === 'full'){
                   sum = sum + this.gen_sum_price_to_opt(eli.price, eli.old_price, eli.quantity)
                 }else{
-                  sum = sum + (this.gen_sum_price_to_opt(eli.price, eli.old_price, eli.quantity) * parseInt(this.period))
+                  sum = sum + (this.gen_sum_price_to_opt(eli.price, eli.old_price, eli.quantity) * this.period)
                 }
               }
             })
@@ -447,7 +447,7 @@
               if (el.price_type === 'full'){
                 sum = sum + this.gen_sum_price_to_opt(el.price, el.old_price, el.quantity)
               }else{
-                sum = sum + (this.gen_sum_price_to_opt(el.price, el.old_price, el.quantity) * parseInt(this.period))
+                sum = sum + (this.gen_sum_price_to_opt(el.price, el.old_price, el.quantity) * this.period)
               }
             }
           }
@@ -458,7 +458,7 @@
         return this.$assets.salePersLimit(this.userData.df);
       },
       period_sum(){
-        let ps = parseInt(this.car_data.stoimost) * parseInt(this.period)
+        let ps = parseInt(this.car_data.stoimost) * this.period
         let total_sum;
         if (this.is_limit){
           total_sum = this.$assets.toMoney(ps - ((ps/100)*this.limit_sale));
@@ -472,7 +472,7 @@
         }
       },
       period_sum_before_sale(){
-        return parseInt(this.car_data.stoimost) * parseInt(this.period);
+        return parseInt(this.car_data.stoimost) * this.period;
       },
       online_sum(){
         return Math.round((this.period_sum) * 0.2);
@@ -659,7 +659,7 @@
           color: this.car_data.cvet,
           fio: this.orderName,
           naimenovanie: this.car_data.naimenovanie,
-          period: `${parseInt(this.period)} ${this.$assets.getName(parseInt(this.period))}`,
+          period: `${this.period} ${this.$assets.getName(parseInt(this.period))}`,
           site: 'https://sochirentacar.ru/',
           options : JSON.stringify(this.generated_options),
           total_price : this.period_sum_before_sale,
