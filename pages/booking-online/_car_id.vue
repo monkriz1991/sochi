@@ -379,7 +379,7 @@
         }
       },
       limit_distance(){
-        return 100*this.period
+        return 100 * parseInt(this.period)
       },
       backStringHref(){
         return `?dt=${this.userData.dt}&df=${this.userData.df}&ac=${this.fetchClassForBack()[this.car_data.klassavtomobilya]}&place=${this.userData.place}`
@@ -438,7 +438,7 @@
                 if (eli.price_type === 'full'){
                   sum = sum + this.gen_sum_price_to_opt(eli.price, eli.old_price, eli.quantity)
                 }else{
-                  sum = sum + (this.gen_sum_price_to_opt(eli.price, eli.old_price, eli.quantity) * this.period)
+                  sum = sum + (this.gen_sum_price_to_opt(eli.price, eli.old_price, eli.quantity) * parseInt(this.period))
                 }
               }
             })
@@ -447,7 +447,7 @@
               if (el.price_type === 'full'){
                 sum = sum + this.gen_sum_price_to_opt(el.price, el.old_price, el.quantity)
               }else{
-                sum = sum + (this.gen_sum_price_to_opt(el.price, el.old_price, el.quantity) * this.period)
+                sum = sum + (this.gen_sum_price_to_opt(el.price, el.old_price, el.quantity) * parseInt(this.period))
               }
             }
           }
