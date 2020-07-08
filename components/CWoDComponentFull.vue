@@ -69,8 +69,8 @@
           {value: 'cargo', text: this.$t('filters7')},
         ],
         filterPrice: [
-          {value: 'price_asc', text: this.$t('filters8')},
-          {value: 'price_desc', text: this.$t('filters9')},
+          {value: 'price_desc', text: this.$t('filters8')},
+          {value: 'price_asc', text: this.$t('filters9')},
           {value: 'sort', text: this.$t('filters10')},
         ],
         filter: 'all',
