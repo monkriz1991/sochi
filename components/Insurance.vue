@@ -83,7 +83,7 @@
             this.sorted_items.map(el => {
               if(el.value) {
                 if (el.code !== 'ins_tax_1') {
-                  total = total + el.price * this.$parent.period
+                  total = total + el.price * parseInt(this.$parent.period)
                 }
               }
             })
