@@ -1,3 +1,5 @@
+import Assets from "./assets";
+const $assets = new Assets();
 class Filters{
   constructor() {
   }
@@ -129,20 +131,20 @@ class Filters{
   };
 
   compareRent_more = (a, b) => {
-    if (a.car_data.stoimost > b.car_data.stoimost) {
+    if ($assets.makeItemPrice(a.car_data.stoimost, a.car_data.skidka_2, a.car_data.special_price) > $assets.makeItemPrice(b.car_data.stoimost, b.car_data.skidka_2, b.car_data.special_price)) {
       return -1;
     }
-    if (a.car_data.stoimost < b.car_data.stoimost) {
+    if ($assets.makeItemPrice(a.car_data.stoimost, a.car_data.skidka_2, a.car_data.special_price) < $assets.makeItemPrice(b.car_data.stoimost, b.car_data.skidka_2, b.car_data.special_price)) {
       return 1;
     }
     return 0;
   };
 
   compareRent_less = (a, b) => {
-    if (a.car_data.stoimost < b.car_data.stoimost) {
+    if ($assets.makeItemPrice(a.car_data.stoimost, a.car_data.skidka_2, a.car_data.special_price) < $assets.makeItemPrice(b.car_data.stoimost, b.car_data.skidka_2, b.car_data.special_price)) {
       return -1;
     }
-    if (a.car_data.stoimost > b.car_data.stoimost) {
+    if ($assets.makeItemPrice(a.car_data.stoimost, a.car_data.skidka_2, a.car_data.special_price) > $assets.makeItemPrice(b.car_data.stoimost, b.car_data.skidka_2, b.car_data.special_price)) {
       return 1;
     }
     return 0;
