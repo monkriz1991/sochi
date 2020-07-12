@@ -63,6 +63,8 @@ class Assets {
         return 'blood';
       case 'Рекомендуем':
         return 'rec';
+      case 'Грузовой':
+        return 'cargo';
       case 'ЭКО':
         return 'eco';
       default:

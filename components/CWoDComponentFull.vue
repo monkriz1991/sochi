@@ -12,8 +12,10 @@
             b-row
               b-col(sm="12" md="12" lg="6")
                 div.el-wrapper
-                  div.price-badge(v-html="`${$t('cwd27')} ${$assets.toMoney($assets.makeItemPrice(i.car_data.stoimost, i.car_data.skidka_2, i.car_data.special_price))}₽/${$t('cwod7')}`")
-                  div.main-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[0]})`}")
+                  div.main-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[0]})`}").position-relative
+                    div.price-badge(v-html="`${$t('cwd27')} ${$assets.toMoney($assets.makeItemPrice(i.car_data.stoimost, i.car_data.skidka_2, i.car_data.special_price))}₽/${$t('cwod7')}`")
+                    div(v-if="i.features.length > 0").item-features.px-1
+                      span(v-for="(f, fdx) in i.features" :key="fdx" v-bind:class="$assets.fetchFeatureClass(f.name)")="{{$t(f.name)}}"
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[1]})`}")
                   div.flox-img(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/${i.self_data.photos[2]})`}")
               b-col(sm="12" md="12" lg="6").pl-lg-0
@@ -121,6 +123,19 @@
     &.no
       border: 1px solid red
       background-color: red
+  .item-features
+    width: 100%
+    position: absolute
+    bottom: 5px
+    left: 0
+    span
+      display: inline-block
+      padding: 2px 5px
+      text-transform: uppercase
+      font-size: 12px
+      border-radius: 3px
+      color: #ffffff
+      margin: 2px
   .wrao
     display: flex
     flex-direction: column
