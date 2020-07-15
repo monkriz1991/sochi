@@ -89,10 +89,18 @@
         this.$router.replace({ query: {filter_price: this.filter_price, filter: this.filter, currentPage: this.currentPage} });
       },
       filter(){
-        this.currentPage = 1
+        if (this.currentPage === 1){
+          this.$router.replace({ query: {filter_price: this.filter_price, filter: this.filter, currentPage: this.currentPage} });
+        }else{
+          this.currentPage = 1
+        }
       },
       filter_price(){
-        this.currentPage = 1
+        if (this.currentPage === 1){
+          this.$router.replace({ query: {filter_price: this.filter_price, filter: this.filter, currentPage: this.currentPage} });
+        }else{
+          this.currentPage = 1
+        }
       }
     },
     computed:{
