@@ -59,7 +59,7 @@
     },
     data(){
       return {
-        currentPage: 1,
+        currentPage: this.$route.query.page ? parseInt(this.$route.query.page) : 1,
         perPage: 10,
         filterOptions: [
           {value: 'all', text: this.$t('filters1')},
@@ -75,8 +75,8 @@
           {value: 'price_asc', text: this.$t('filters9')},
           {value: 'sort', text: this.$t('filters10')},
         ],
-        filter: 'all',
-        filter_price: 'sort',
+        filter: this.$route.query.filter ? this.$route.query.filter : 'all',
+        filter_price: this.$route.query.filter_price ? this.$route.query.filter_price : 'sort',
       }
     },
     watch:{
@@ -85,10 +85,15 @@
           top: 0,
           left: 0,
           behavior: 'smooth'
-        })
+        });
+        this.$router.replace({ query: {filter_price: this.filter_price, filter: this.filter, currentPage: this.currentPage} });
       },
-      filter(){this.currentPage = 1},
-      filter_price(){this.currentPage = 1}
+      filter(){
+        this.currentPage = 1
+      },
+      filter_price(){
+        this.currentPage = 1
+      }
     },
     computed:{
       filtered_list(){
@@ -102,7 +107,8 @@
       makeEngine(val){
         return parseFloat(val).toFixed(1)
       }
-    }
+    },
+    mounted() {}
   }
 </script>
 

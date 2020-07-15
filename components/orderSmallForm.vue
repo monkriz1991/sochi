@@ -135,7 +135,6 @@
         this.phone = this.$refs.phoneInput.phoneFormatted;
       },
       onSubmit(){
-        console.log(this.errorstry);
         if (this.errorstry < 3){
           let errors = this.$assets.validateSmallForm({
             fio: this.fio,

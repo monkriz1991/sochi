@@ -5,7 +5,7 @@
       ul.list-unstyled.lister
         li(v-for="(option, obx) in options" v-if="checkOption(option)" :key="option.id").item
           options-item(:item="option")
-          hr(v-if="(odx+1) !== options.length").cbt
+          hr(v-if="(obx+1) !== options.length").cbt
 </template>
 
 <script>

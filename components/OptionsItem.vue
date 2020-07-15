@@ -17,7 +17,7 @@
                   b-o-image-slider(:items="so.photos")
                 |{{$i18n.locale === 'ru' ? so.option_name : so.option_name_eng}}
             hr(v-if="(sodx+1) !== item.sub_items.length").cbt
-      div(v-else v-if="item.photos").option-item.my-2
+      div(v-else).option-item.my-2
         div.info
           a(v-if="item.photos" @click.prevent="$bvModal.show(`bv-modal-${item.id}`)").hidden_info
           div.d-flex.flex-column
@@ -45,9 +45,6 @@
           return {
             angle: require('../assets/images/angle-arrow-down.svg'),
           }
-        },
-        mounted() {
-          console.log(this.item.sub_items)
         }
     }
 </script>
