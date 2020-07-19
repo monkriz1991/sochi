@@ -77,8 +77,10 @@
     },
     methods: {
       randomEl(obj, key=false){
-        var keys = Object.keys(obj);
-        let item = obj[keys[ (keys.length - 1) * Math.random() << 0]]
+        let keys = Object.keys(obj);
+        let searched_key = (keys.length - 1) * Math.random() << 0;
+        let searched_index = keys[searched_key];
+        let item = obj[searched_index]
         if (key){
           if (item.slug === key){
             this.randomEl(obj, key)
