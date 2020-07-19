@@ -65,13 +65,25 @@
       CWD(){
         let data = require('../cars.json').CWD
         let first = this.randomEl(data);
+        if (first === undefined){
+          first = this.randomEl(data);
+        }
         let second = this.randomEl(data, first.slug);
+        if (second === undefined){
+          this.randomEl(data, first.slug)
+        }
         return [first, second]
       },
       CWoD(){
         let data = require('../cars.json').CWoD
         let first = this.randomEl(data);
+        if (first === undefined){
+          first = this.randomEl(data);
+        }
         let second = this.randomEl(data, first.slug);
+        if (second === undefined){
+          this.randomEl(data, first.slug)
+        }
         return [first, second]
       }
     },
