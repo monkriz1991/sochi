@@ -121,7 +121,7 @@
           bodyFormData.set('type', 'callback');
           bodyFormData.set('row_data', JSON.stringify({name: this.callback_form.name, phone: this.callback_form.phone}));
           this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).catch(err => console.error(err));
-          this.$axios.post("sendMessageToChanel", {message})
+          this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
             .then((res)=>{
               ym(33072038,'reachGoal','zakaz-zvonka')
               this.hideModal();

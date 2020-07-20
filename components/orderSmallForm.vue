@@ -175,7 +175,7 @@
               email: this.email,
               comment: this.comment,
             }));
-            this.$axios.post("sendMessageToChanel", {message})
+            this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
               .then((res)=>{
                 this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).then(res =>{
                   ym(33072038,'reachGoal','online-zayavka')

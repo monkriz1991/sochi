@@ -229,7 +229,7 @@
       submitModal(carName, carId){
         if (this.phone !== '' && this.name !== '' && this.phone !== undefined){
           let message = `БЫСТРАЯ ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.name} сделал заявку на автомобиль ${carName} номер телефона: ${this.phone}`;
-          this.$axios.post("sendMessageToChanel", {message})
+          this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
             .then((res)=>{
               ym(33072038,'reachGoal','longrentalquickformsend')
               this.hideModal(carId)
