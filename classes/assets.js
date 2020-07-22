@@ -13,7 +13,7 @@ class Assets {
     let Y = date.getFullYear();
     let D = date.getDate();
     let M = date.getMonth();
-    return `${String(Y)}-${String(M + 1).length === 2 ? '' : '0'}${String((M + 1))}-${String(D).length === 2 ? '' : '0'}${String(D)}T12:00:00.000+03:00`;
+    return `${String(Y)}-${String(M + 1).length === 2 ? '' : '0'}${String((M + 1))}-${String(D).length === 2 ? '' : '0'}${String(D)}T09:00:00.000Z`;
   };
 
   genNowSpecFromDate = (date, time) => {
@@ -21,7 +21,7 @@ class Assets {
     let Y = data.getFullYear();
     let D = data.getDate();
     let M = data.getMonth();
-    return `${String(Y)}-${String(M + 1).length === 2 ? '' : '0'}${String((M + 1))}-${String(D).length === 2 ? '' : '0'}${String(D)}T12:00:00.000+03:00`;
+    return `${String(Y)}-${String(M + 1).length === 2 ? '' : '0'}${String((M + 1))}-${String(D).length === 2 ? '' : '0'}${String(D)}T09:00:00.000Z`;
   };
 
   makeDateForRequest = (date) => {

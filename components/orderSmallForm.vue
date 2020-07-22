@@ -19,8 +19,6 @@
                   :minute-step="10"
                   :phrases="{ok: $t('s15'), cancel: $t('s16')}"
                   :min-datetime="min_date"
-                  :zone="'Europe/Moscow'"
-                  :value-zone="'Europe/Moscow'"
                   input-class="form-control"
                   input-id="from"
                 )
@@ -35,8 +33,6 @@
                   :minute-step="10"
                   :phrases="{ok: $t('s15'), cancel: $t('s16')}"
                   :min-datetime="date_from"
-                  :zone="'Europe/Moscow'"
-                  :value-zone="'Europe/Moscow'"
                   input-class="form-control"
                   input-id="to"
                 )

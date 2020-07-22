@@ -45,9 +45,11 @@
                   nuxt-link(v-if="$i18n.locale !== 'en'" :to="switchLocalePath('en')").btn.main.w-100="English Version"
                   nuxt-link(v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')").btn.main.w-100="Русская версия"
                 div.menu-block-cities
-                  a(href="https://avtopilot.com/").menu-item="{{ $t('m7') }}"
-                  a(href="https://spbrentacar.ru/").menu-item="{{ $t('m8') }}"
-                  a(href="https://crimearentacar.su/").menu-item="{{ $t('m9') }}"
+                  a(href="https://avtopilot.com/" rel="nofollow").menu-item="{{ $t('m7') }}"
+                  a(href="https://spbrentacar.ru/" rel="nofollow").menu-item="{{ $t('m8') }}"
+                  a(href="https://crimearentacar.su/" rel="nofollow").menu-item="{{ $t('m9') }}"
+                  a(href="https://ekaterinburgrentacar.ru/" rel="nofollow").menu-item="{{ $t('m16') }}"
+                  a(href="https://chelyabinskrentacar.ru/" rel="nofollow").menu-item="{{ $t('m17') }}"
       b-modal(:title="$t('cb1')" hide-footer)#callback
         b-form-group.mb-0(:description="$t('cb2')")
           b-form-input(v-model="callback_form.name" :placeholder="$t('cb3')")#callback_name
@@ -198,7 +200,7 @@
       margin-top: 10px
       a
         display: block
-        width: calc(100%/3)
+        width: calc(100%/5)
         text-align: center
         border-right: 2px solid #E8EEF2
         &:last-child

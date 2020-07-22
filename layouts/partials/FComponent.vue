@@ -45,11 +45,15 @@
                 p.bold="{{$t('ac')}}"
                 ul.list-unstyled
                   li
-                    a(href="https://spbrentacar.ru/")="{{$t('m8')}}"
+                    a(href="https://spbrentacar.ru/" rel="nofollow")="{{$t('m8')}}"
                   li
-                    a(href="https://avtopilot.com/")="{{$t('m7')}}"
+                    a(href="https://avtopilot.com/" rel="nofollow")="{{$t('m7')}}"
                   li
-                    a(href="https://crimearentacar.su/")="{{$t('m9')}}"
+                    a(href="https://crimearentacar.su/" rel="nofollow")="{{$t('m9')}}"
+                  li
+                    a(href="https://ekaterinburgrentacar.ru/" rel="nofollow")="{{ $t('m16') }}"
+                  li
+                    a(href="https://chelyabinskrentacar.ru/" rel="nofollow")="{{ $t('m17') }}"
 </template>
 
 <script>

@@ -24,8 +24,6 @@
                     :minute-step="10"
                     :phrases="{ok: $t('s15'), cancel: $t('s16')}"
                     :min-datetime="$assets.genNowSpec(1)"
-                    :zone="'Europe/Moscow'"
-                    :value-zone="'Europe/Moscow'"
                     input-class="form-control"
                     input-id="from"
                   )
@@ -41,8 +39,6 @@
                     :minute-step="10"
                     :phrases="{ok: $t('s15'), cancel: $t('s16')}"
                     :min-datetime="start_date"
-                    :zone="'Europe/Moscow'"
-                    :value-zone="'Europe/Moscow'"
                     input-class="form-control"
                     input-id="to"
                   )
