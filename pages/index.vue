@@ -11,11 +11,11 @@
     section
       div.container
         b-row
-          b-col(sm="12" md="12" lg="6")
+          b-col(sm="12" md="12" lg="6" v-if="CWoD.length")
             nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").nodec
               h3.text-center="{{$t('s7')}}"
             CWoDComponent(:items="CWoD")
-          b-col(sm="12" md="12" lg="6")
+          b-col(sm="12" md="12" lg="6" v-if="CWD.length")
             nuxt-link(:to="{name: $assets.prefix('service', $i18n.locale)}").nodec
               h3.text-center="{{$t('s8')}}"
             CWDComponent(:items="CWD")
@@ -52,6 +52,12 @@
       mainPageArticle,
       mainPageArticleEn
     },
+    data(){
+      return {
+        CWD: [],
+        CWoD: [],
+      }
+    },
     computed:{
       news(){
         let res = [];
@@ -62,30 +68,6 @@
         }
         return res;
       },
-      CWD(){
-        let data = require('../cars.json').CWD
-        let first = this.randomEl(data);
-        if (first === undefined){
-          first = this.randomEl(data);
-        }
-        let second = this.randomEl(data, first.slug);
-        if (second === undefined){
-          this.randomEl(data, first.slug)
-        }
-        return [first, second]
-      },
-      CWoD(){
-        let data = require('../cars.json').CWoD
-        let first = this.randomEl(data);
-        if (first === undefined){
-          first = this.randomEl(data);
-        }
-        let second = this.randomEl(data, first.slug);
-        if (second === undefined){
-          this.randomEl(data, first.slug)
-        }
-        return [first, second]
-      }
     },
     methods: {
       randomEl(obj, key=false){
@@ -107,6 +89,25 @@
           }
         }
       },
+      fetchElements(){
+        this.$axios.post('sun/carsWithDriverMainPage', {city:this.$config.station})
+          .then(res => {
+            if (res.data.status === 'success'){
+              this.CWD = res.data.data;
+            }
+          })
+          .catch(err => console.error(err))
+        this.$axios.post('sun/carsWithoutDriverMainPage', {city:this.$config.station})
+          .then(res => {
+            if (res.data.status === 'success'){
+              this.CWoD = res.data.data;
+            }
+          })
+          .catch(err => console.error(err))
+      }
+    },
+    mounted() {
+      this.fetchElements();
     }
   }
 </script>
