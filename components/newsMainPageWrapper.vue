@@ -6,6 +6,7 @@
           b-col(sm="12" md="6" lg="3" v-for="(i, idx) in items" :key="idx")
             nuxt-link(:to="{name: $assets.prefix('news-slug', $i18n.locale), params: {slug: i.slug}}").news-el.my-2
               div(:lazy-background="`https://booking.autopilot.rent/storage/${i.preview_image}`").img
+                span.date="{{makeDate(i.date_of_news)}}"
               div.inform
                 h5="{{i.title}}"
         div.d-flex.justify-content-center.align-content-center.align-items-center.my-3
@@ -19,11 +20,25 @@
       items: {
         type: Array
       }
+    },
+    methods: {
+      makeDate(d){
+        let date = new Date(d);
+        const options = {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        };
+        console.log(date)
+        console.log(date.toLocaleString("ru", options))
+        return date.toLocaleString("ru", options)
+      }
     }
   }
 </script>
 
 <style lang="sass" scoped>
+  @import "../assets/styles/variables"
   .news-el
     display: flex
     justify-content: flex-start
@@ -45,8 +60,17 @@
       background-repeat: no-repeat
       background-size: cover
       background-position: center bottom
+      position: relative
       @media screen and (max-width: 760px)
         height: 250px
+      .date
+        position: absolute
+        border-radius: 9px 0 10px 0
+        top: 0
+        left: 0
+        padding: 2px 5px
+        background: $primary
+        color: #fff
     .inform
       width: 100%
       min-height: 150px
