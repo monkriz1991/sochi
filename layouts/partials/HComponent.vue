@@ -14,6 +14,7 @@
                   p.main_phone
                     a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
                   nuxt-link(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").btn.main.slim="{{ $t('long_term_rental') }}"
+                  nuxt-link(v-if="0" :to="{name: $assets.prefix('personal', $i18n.locale)}").btn.main.slim="{{ $t('m18') }}"
               b-col(sm="12" md="12" lg="4" order="1" order-sm="1" order-md="1" order-lg="2").d-flex.justify-content-center.align-content-center
                 div.logo
                   nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")
@@ -42,6 +43,7 @@
                   a(role="button" v-b-modal.callback).btn.main.icon-phone.w-100="{{ $t('callback') }}"
                   nuxt-link(:to="{name: $assets.prefix('payment', $i18n.locale)}").btn.main.icon-credit-card.w-100="{{ $t('op') }}"
                   nuxt-link(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").btn.main.w-100="{{ $t('long_term_rental') }}"
+                  nuxt-link(v-if="0" :to="{name: $assets.prefix('personal', $i18n.locale)}").btn.main.w-100="{{ $t('m18') }}"
                   nuxt-link(v-if="$i18n.locale !== 'en'" :to="switchLocalePath('en')").btn.main.w-100="English Version"
                   nuxt-link(v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')").btn.main.w-100="Русская версия"
                 div.menu-block-cities
