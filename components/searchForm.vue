@@ -66,8 +66,8 @@
         place: this.$config.default_place,
         placeOptions: [],
         places: [],
-        start_date: this.$assets.genNowSpec(2),
-        end_date: this.$assets.genNowSpec(9),
+        start_date: this.$assets.genNowSpecFromDateSpec('2020-08-15', 0),
+        end_date: this.$assets.genNowSpecFromDateSpec('2020-08-15', 7),
         carClass: 5,
         carClassOption: [
           { value: 5, text: this.$t('class_all') },
@@ -136,8 +136,8 @@
     },
     mounted() {
       this.place = this.$route.query.place ? this.$route.query.place : this.$config.default_place;
-      this.start_date = this.$route.query.df ? this.$route.query.df.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(2);
-      this.end_date = this.$route.query.dt ? this.$route.query.dt.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(9);
+      this.start_date = this.$route.query.df ? this.$route.query.df.replace(' 03:00', '+03:00') : this.$assets.genNowSpecFromDateSpec('2020-08-15', 0);
+      this.end_date = this.$route.query.dt ? this.$route.query.dt.replace(' 03:00', '+03:00') : this.$assets.genNowSpecFromDateSpec('2020-08-15', 7);
       this.carClass = this.$route.query.ac ? this.$route.query.ac : 5;
       this.fetchPoints()
     }

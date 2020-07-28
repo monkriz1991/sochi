@@ -24,6 +24,15 @@ class Assets {
     return `${String(Y)}-${String(M + 1).length === 2 ? '' : '0'}${String((M + 1))}-${String(D).length === 2 ? '' : '0'}${String(D)}T09:00:00.000Z`;
   };
 
+
+  genNowSpecFromDateSpec = (date, time) => {
+    let data = new Date(date).addDays(time);
+    let Y = data.getFullYear();
+    let D = data.getDate();
+    let M = data.getMonth();
+    return `${String(Y)}-${String(M + 1).length === 2 ? '' : '0'}${String((M + 1))}-${String(D).length === 2 ? '' : '0'}${String(D)}T09:00:00.000Z`;
+  };
+
   makeDateForRequest = (date) => {
     let data = new Date(date);
     let Y = data.getFullYear();

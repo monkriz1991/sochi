@@ -23,13 +23,12 @@
     },
     methods: {
       makeDate(d){
-        let date = new Date(Date.parse(d));
         const options = {
           year: 'numeric',
           month: 'long',
           day: 'numeric',
         };
-        return date.toLocaleString("ru", options)
+        return new Date(d.split(' ')[0]).toLocaleString("ru", options);
       }
     }
   }
