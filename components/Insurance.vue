@@ -27,9 +27,9 @@
             li="{{$t('af10')}}"
             li="{{$t('af11')}}"
             li="{{$t('af12')}}"
-      b-modal(centered :title="$t('af10_1')" hide-footer)#ins_tax_3
+      b-modal(centered :title="$t('af10')" hide-footer)#ins_tax_3
         div.py-4
-          p="{{$t('af10_1')}}{{$parent.car_data.zalog}}{{$t('af10_2')}}"
+          p="{{$t('af10_1')}}{{$parent.car_data.franchise}}{{$t('af10_1_1')}}{{$parent.car_data.zalog}}{{$t('af10_2')}}"
       b-modal(centered :title="$t('af6')" hide-footer)#ins_tax_4
         div.py-4
           p.m-0="{{$t('af13')}}"
