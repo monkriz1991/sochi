@@ -66,7 +66,7 @@
             },
             {
               q: "Услуга \"Отмена залога и франшизы\" - что это?",
-              a: "Услуга \"Отмена залога и франшизы\" за дополнительную плату освобождает Вас от внесения залога и отменяет франшизу (в размере 30.000 рублей) по полису КАСКО, что позволит Вам не беспокоиться о происшествиях на дорогах Краснодарского края.",
+              a: "Услуга \"Отмена залога и франшизы\" за дополнительную плату освобождает Вас от внесения залога и отменяет франшизу по полису КАСКО, что позволит Вам не беспокоиться о происшествиях на дорогах Краснодарского края.",
             },
             {
               q: "Обязательно ли оплачивать аренду заранее?",
@@ -99,7 +99,7 @@
             },
             {
               q: "Автомобили застрахованы?",
-              a: "Все автомобили нашей компании застрахованы по КАСКО и ОСАГО. Согласно Договору аренды Ваша ответственность ограничена франшизой по полису КАСКО в размере 30.000 рублей. Для снятия ограничений Вы можете воспользоваться услугой «Отмена залога и франшизы»."
+              a: "Все автомобили нашей компании застрахованы по КАСКО и ОСАГО. Согласно Договору аренды Ваша ответственность ограничена франшизой по полису КАСКО. Для снятия ограничений Вы можете воспользоваться услугой «Отмена залога и франшизы»."
             },
             {
               q: "Когда будет готов Договор и другие необходимые документы?",
@@ -125,7 +125,7 @@
             },
             {
               q: "Service \"Cancellation of Deposit and deductible\" - what is it?",
-              a: "the service \"Cancellation of Deposit and deductible\" for an additional fee frees You from making a Deposit and cancels the deductible (in the amount of 30,000 rubles) under the CASCO policy, which will allow You not to worry about accidents on the roads of the Krasnodar territory.",
+              a: "the service \"Cancellation of Deposit and deductible\" for an additional fee frees You from making a Deposit and cancels the deductible under the CASCO policy, which will allow You not to worry about accidents on the roads of the Krasnodar territory.",
             },
             {
               q: "Do I have to pay rent in advance?",
@@ -157,7 +157,7 @@
             },
             {
               q: "are the Cars insured?",
-              a: "All cars of our company are insured under CASCO and CTP. According to the lease Agreement, Your liability is limited to the deductible under the CASCO policy in the amount of 30,000 rubles. To remove restrictions, you can use the service \"Cancellation of Deposit and deductible\"."
+              a: "All cars of our company are insured under CASCO and CTP. According to the lease Agreement, Your liability is limited to the deductible under the CASCO policy rubles. To remove restrictions, you can use the service \"Cancellation of Deposit and deductible\"."
             },
             {
               q: "When will the Contract and other necessary documents be ready?",
