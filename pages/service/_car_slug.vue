@@ -16,15 +16,15 @@
                 div.prices.my-3
                   div
                     h6="{{$t('cwd3')}} {{item.self_data.price_hour}}₽ {{$t('cwd4')}}"
-                div.py-2
+                div(v-if="points.length > 0").py-2
                   h3="{{$t('cwd5')}}"
                   div.prices.my-3
                     div.d-flex.justify-content-between.align-items-center
                       h6.m-0.text-uppercase="{{$t('cwd6')}}"
                       h6.m-0.text-uppercase="{{$t('cwd7')}}"
                     hr
-                    div(v-for="(point, idx) in places" :key="idx").item-info
-                      p.l="{{$t(point.point_name)}}"
+                    div(v-for="(point, idx) in points" :key="idx").item-info
+                      p.l(v-html="$i18n.locale === 'ru' ? point.name_rus : point.name_eng")
                       p.r(v-html="point.price > 0 ? point.price+'₽' : $t('bocid2')")
                 div.mt-2
                   div(v-html="$assets.generate_text_transfer(item.self_data.text_transfer, item.self_data.title, $i18n.locale)")
@@ -118,24 +118,19 @@
         city: this.$config.station,
         slug: this.$route.params.car_slug
       };
-      this.$axios(`fetchPoints/${this.$config.station}`)
-        .then(result => {
-          if(result.data.status === 'success'){
-            this.places = result.data.data;
-            this.fetchOptions();
-          }
-        }).catch(err=>console.error(err));
       this.$axios.post('sun/CWDgetBySlug', data)
         .then(res => {
           if (res.data.status === 'success'){
             this.item = res.data.data;
-            this.$axios(`fetchPoints/${this.$config.station}`)
+            this.$axios.post(`fetchPointsForTransfer`, {station: this.$config.station, car_name: this.item.car_data.naimenovanie})
               .then(result => {
                 if(result.data.status === 'success'){
                   this.points = result.data.data;
                   this.loaded = true;
+                }else{
+                  this.loaded = true;
                 }
-              })
+              }).catch(err=>console.error(err));
           }else{
             this.$router.push('/service');
           }
