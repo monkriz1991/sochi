@@ -107,7 +107,7 @@
             },
             {
               q: "Обязательно ли перед возвратом мыть и заправлять автомобиль?",
-              a: "Автомобиль Вы получите чистым, с полным баком бензина. По окончании срока аренды необходимо вернуть его в чистом виде, либо оплатить мойку ТС в размере 800 рублей. Топливный бак также должен быть полным, либо Вам необходимо будет оплатить недостающее количество топлива из расчета 50 рублей за литр."
+              a: "Автомобиль Вы получите чистым, с полным баком бензина. По окончании срока аренды необходимо вернуть его в чистом виде, либо оплатить мойку ТС в размере 1000 рублей. Топливный бак также должен быть полным, либо Вам необходимо будет оплатить недостающее количество топлива из расчета 60 рублей за литр."
             },
             {
               q: "Какое топливо использовать для заправки автомобиля?",
@@ -165,7 +165,7 @@
             },
             {
               q: "is it Necessary to wash and refuel the car before returning?",
-              a: "you will get a clean Car with a full tank of gasoline. At the end of the rental period, you must return it in its pure form, or pay for the car wash in the amount of 800 rubles. The fuel tank must also be full, or you will need to pay for the missing amount of fuel at the rate of 50 rubles per liter."
+              a: "you will get a clean Car with a full tank of gasoline. At the end of the rental period, you must return it in its pure form, or pay for the car wash in the amount of 1000 rubles. The fuel tank must also be full, or you will need to pay for the missing amount of fuel at the rate of 60 rubles per liter."
             },
             {
               q: "What fuel should I use for refueling the car?",
