@@ -1,40 +1,41 @@
 <template lang="pug">
   div#aowrapper
     div.container
-      div(v-if="loading").p-5
-        loader
-      div(v-else)
-        div(v-if="coronaFalse")
-          div.offer.m-5.p-5
-            h4.text-center.text-uppercase
-              |{{$t('s0')}}
-              br
-              a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
+      client-only
+        div(v-if="loading").p-5
+          loader
         div(v-else)
-          div(v-if="timeFalse")
+          div(v-if="coronaFalse")
             div.offer.m-5.p-5
               h4.text-center.text-uppercase
-                |{{$t('s1')}}
+                |{{$t('s0')}}
                 br
                 a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
           div(v-else)
-            div(v-if="searchForm.isDriver")
+            div(v-if="timeFalse")
               div.offer.m-5.p-5
                 h4.text-center.text-uppercase
-                  |{{$t('s2')}}
+                  |{{$t('s1')}}
                   br
                   a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
             div(v-else)
-              div(v-if="filtered.length > 0")
-                b-row.d-flex.align-items-center.justify-content-center
-                  b-col(sm="12" md="6" lg="4" v-for="(item, idx) in filtered" :key="idx")
-                    new-offer-card(:item="item").my-3
-              div(v-else)
+              div(v-if="searchForm.isDriver")
                 div.offer.m-5.p-5
                   h4.text-center.text-uppercase
-                    |{{$t('s3')}}
+                    |{{$t('s2')}}
                     br
                     a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
+              div(v-else)
+                div(v-if="filtered.length > 0")
+                  b-row.d-flex.align-items-center.justify-content-center
+                    b-col(sm="12" md="6" lg="4" v-for="(item, idx) in filtered" :key="idx")
+                      new-offer-card(:item="item").my-3
+                div(v-else)
+                  div.offer.m-5.p-5
+                    h4.text-center.text-uppercase
+                      |{{$t('s3')}}
+                      br
+                      a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
     hr(v-if="!loading").dashed
 </template>
 

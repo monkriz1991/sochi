@@ -1,56 +1,57 @@
 <template lang="pug">
   div.container
-    div#form-wrapper
-      div.switcher
-        nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").driver_switch.active.text-uppercase="{{$t('s7')}}"
-        nuxt-link(:to="{name: $assets.prefix('service', $i18n.locale)}").driver_switch.active.text-uppercase="{{$t('s8')}}"
-      div.fields_form.p-2
-        b-row
-          b-col(sm="12" md="12" lg="9")
-            b-row
-              b-col(sm="12" md="6" lg="3")
-                div.form-group
-                  label="{{$t('s11')}}"
-                  b-form-select(v-model="place" :options="placeOptions")#place.form-control
-              b-col(sm="12" md="6" lg="3")
-                div.form-group
-                  label()="{{$t('s12')}}"
-                  datetime(
-                    type="datetime"
-                    :placeholder="$t('s13')"
-                    v-model="start_date"
-                    format="yyyy-MM-dd HH:mm"
-                    :week-start="1"
-                    :minute-step="10"
-                    :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-                    :min-datetime="$assets.genNowSpec(1)"
-                    input-class="form-control"
-                    input-id="from"
-                  )
-              b-col(sm="12" md="6" lg="3")
-                div.form-group
-                  label="{{$t('s13')}}"
-                  datetime(
-                    type="datetime"
-                    :placeholder="$t('s13')"
-                    v-model="end_date"
-                    format="yyyy-MM-dd HH:mm"
-                    :week-start="1"
-                    :minute-step="10"
-                    :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-                    :min-datetime="start_date"
-                    input-class="form-control"
-                    input-id="to"
-                  )
-              b-col(sm="12" md="6" lg="3")
-                div.form-group
-                  label="{{$t('s14')}}"
-                  b-form-select(v-model="carClass" :options="carClassOption")#class.form-control
-          b-col(sm="12" md="12" lg="3")
-            b-row
-              b-col(sm="12" md="12" lg="12")
-                div.form-group.pt-4
-                  button(role="button" @click="onSearch").go-search.btn.mt-2.text-uppercase="{{$t('s10')}}"
+    client-only
+      div#form-wrapper
+        div.switcher
+          nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").driver_switch.active.text-uppercase="{{$t('s7')}}"
+          nuxt-link(:to="{name: $assets.prefix('service', $i18n.locale)}").driver_switch.active.text-uppercase="{{$t('s8')}}"
+        div.fields_form.p-2
+          b-row
+            b-col(sm="12" md="12" lg="9")
+              b-row
+                b-col(sm="12" md="6" lg="3")
+                  div.form-group
+                    label="{{$t('s11')}}"
+                    b-form-select(v-model="place" :options="placeOptions")#place.form-control
+                b-col(sm="12" md="6" lg="3")
+                  div.form-group
+                    label()="{{$t('s12')}}"
+                    datetime(
+                      type="datetime"
+                      :placeholder="$t('s13')"
+                      v-model="start_date"
+                      format="yyyy-MM-dd HH:mm"
+                      :week-start="1"
+                      :minute-step="10"
+                      :phrases="{ok: $t('s15'), cancel: $t('s16')}"
+                      :min-datetime="$assets.genNowSpec(1)"
+                      input-class="form-control"
+                      input-id="from"
+                    )
+                b-col(sm="12" md="6" lg="3")
+                  div.form-group
+                    label="{{$t('s13')}}"
+                    datetime(
+                      type="datetime"
+                      :placeholder="$t('s13')"
+                      v-model="end_date"
+                      format="yyyy-MM-dd HH:mm"
+                      :week-start="1"
+                      :minute-step="10"
+                      :phrases="{ok: $t('s15'), cancel: $t('s16')}"
+                      :min-datetime="start_date"
+                      input-class="form-control"
+                      input-id="to"
+                    )
+                b-col(sm="12" md="6" lg="3")
+                  div.form-group
+                    label="{{$t('s14')}}"
+                    b-form-select(v-model="carClass" :options="carClassOption")#class.form-control
+            b-col(sm="12" md="12" lg="3")
+              b-row
+                b-col(sm="12" md="12" lg="12")
+                  div.form-group.pt-4
+                    button(role="button" @click="onSearch").go-search.btn.mt-2.text-uppercase="{{$t('s10')}}"
 </template>
 
 <script>
