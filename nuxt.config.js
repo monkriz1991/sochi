@@ -26,7 +26,6 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: `https://booking.autopilot.rent/sun/fetchSettings/${process.env.STATION}` },
     ]
   },
 
@@ -92,6 +91,10 @@ module.exports = {
 
   serverMiddleware: [
     '~/middleware/seo.js'
+  ],
+
+  buildModules: [
+    'vue-browser-detect-plugin/nuxt'
   ],
 
   build: {

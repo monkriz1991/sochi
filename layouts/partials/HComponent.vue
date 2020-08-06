@@ -70,13 +70,14 @@
     data(){
       return {
         ph: "",
-        logo: require('../../assets/images/sochi_logo.png'),
         callback_form: {
           phone: '',
           name: '',
         },
         lv: require('../../assets/images/victory_logo.svg'),
         lvm: require('../../assets/images/victory_logo_m.svg'),
+        l_jpg: require('../../assets/images/sochi_logo.png'),
+        l_webp: require('../../assets/images/sochi_logo.webp'),
       }
     },
     watch: {
@@ -87,6 +88,17 @@
       }
     },
     computed: {
+      logo(){
+        if(this.$browserDetect){
+          if (this.$browserDetect.isSafari || this.$browserDetect.isIOS){
+            return this.l_jpg;
+          }else{
+            return this.l_webp;
+          }
+        }else{
+          return ''
+        }
+      },
       settings(){
         let settings = this.$parent.set_data
         if (settings){

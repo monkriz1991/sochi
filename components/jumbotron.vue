@@ -1,6 +1,6 @@
 <template lang="pug">
   div.position-relative
-    b-jumbotron.main_head
+    b-jumbotron(v-bind:class="class_head").main_head
     div#search_form
       search-form
     div.make_clear
@@ -14,6 +14,19 @@
     components: {
       searchForm,
     },
+    computed:{
+      class_head(){
+        if(this.$browserDetect){
+          if (this.$browserDetect.isSafari || this.$browserDetect.isIOS){
+            return "safari";
+          }else{
+            return "non_safari";
+          }
+        }else{
+          return 'safari'
+        }
+      }
+    },
   }
 </script>
 
@@ -23,11 +36,16 @@
     background-position: center
     background-repeat: no-repeat
     background-color: #E8EEF2
-    background-image: url("../assets/images/sochi_background.jpg")
+    &.non_safari
+      background-image: url("../assets/images/sochi_background.webp")
+      @media screen and (max-width: 700px)
+        background-image: url("../assets/images/sochi_background_meduim.webp")
+    &.safari
+      background-image: url("../assets/images/sochi_background.jpg")
+      @media screen and (max-width: 700px)
+        background-image: url("../assets/images/sochi_background_meduim.jpg")
     @media screen and (max-width: 940px)
       background-size: cover
-    @media screen and (max-width: 700px)
-      background-image: url("../assets/images/sochi_background_meduim.jpg")
   #search_form
     position: absolute
     bottom: 20px
