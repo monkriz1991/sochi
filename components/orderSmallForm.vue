@@ -47,7 +47,7 @@
             b-textarea(v-model="comment" :placeholder="$t('osm2')")
           div.form-group
             a(role="button" @click="onSubmit").w-100.btn.main.my-2.cbl="{{$t('osm3')}}"
-        b-col(sm="12" md="12" lg="12").text-center
+        b-col(sm="12" md="12" lg="12" v-if="typeOrder !== 'почасовая аренда'").text-center
           b
             sup.text-red="*"
             |{{$t('pp1')}}
@@ -69,7 +69,8 @@
         ph: "",
         fio: '',
         phone: '',
-        place: this.$config.default_place,
+        place: this.typeOrder === "почасовая аренда" ? this.places.length > 0 ? 0 : this.$config.default_place : this.$config.default_place,
+        fetchedPlaces: [],
         email: '',
         date_from: this.$assets.genNowSpec(2),
         date_to: this.$assets.genNowSpec(9),
@@ -100,7 +101,13 @@
     },
     computed: {
       selectedPlace(){
-        let place = this.places.filter(el => {
+        let places = [];
+        if (this.places.length){
+          places = this.places
+        }else{
+          places = this.fetchedPlaces
+        }
+        let place = places.filter(el => {
           return el.id === parseInt(this.place)
         });
         return place[0]
@@ -117,10 +124,26 @@
       },
       placesOptions(){
         let res = [];
-        this.places.map(el => {
+        let places = [];
+        if (this.places.length){
+          places = this.places
+        }else{
+          places = this.fetchedPlaces
+        }
+        places.map((el, key) => {
+          let  text = '';
+          if (this.places.length){
+            if (this.typeOrder === "почасовая аренда"){
+              text = `${this.$i18n.locale === 'ru' ? el.name_rus : el.name_eng}${el.price > 0 ? ` - ${el.price}₽` : ''}`
+            }else{
+              text = `${this.$t(el.point_name)}${el.price > 0 ? ` - ${el.price}₽` : ''}`
+            }
+          }else{
+            text = `${this.$t(el.point_name)}`
+          };
           res.push({
-            value: el.id,
-            text: `${this.$t(el.point_name)}${el.price > 0 ? ` - ${el.price}₽` : ''}`
+            value: this.typeOrder === "почасовая аренда" ? this.fetchedPlaces.length > 0 ? el.id : key : el.id,
+            text: text
           })
         });
         return res;
@@ -196,7 +219,14 @@
       }
     },
     mounted() {
-
+      if(!this.places.length && !this.fetchedPlaces.length){
+        this.$axios(`fetchPoints/${this.$config.station}`)
+          .then(result => {
+            if(result.data.status === 'success'){
+              this.fetchedPlaces = result.data.data;
+            }
+          }).catch(err => console.error(err))
+      }
     },
     props:{
       places: {
