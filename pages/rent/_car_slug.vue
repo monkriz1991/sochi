@@ -220,7 +220,6 @@
                   ul
                     li="{{$t('af10')}}"
                     li="{{$t('af11')}}"
-                    li="{{$t('af12')}}"
               b-modal(centered :title="$t('af6')" hide-footer)#mi2
                 div.py-4
                   p.m-0="{{$t('af13')}}"

@@ -26,7 +26,6 @@
           ul
             li="{{$t('af10')}}"
             li="{{$t('af11')}}"
-            li="{{$t('af12')}}"
       b-modal(centered :title="$t('af10')" hide-footer)#ins_tax_3
         div.py-4
           p="{{$t('af10_1')}}{{$parent.car_data.franchise}}{{$t('af10_1_1')}}{{$t('af10_2')}}"
