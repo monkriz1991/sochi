@@ -29,7 +29,7 @@
             li="{{$t('af12')}}"
       b-modal(centered :title="$t('af10')" hide-footer)#ins_tax_3
         div.py-4
-          p="{{$t('af10_1')}}{{$parent.car_data.franchise}}{{$t('af10_1_1')}}{{$parent.car_data.zalog}}{{$t('af10_2')}}"
+          p="{{$t('af10_1')}}{{$parent.car_data.franchise}}{{$t('af10_1_1')}}{{$t('af10_2')}}"
       b-modal(centered :title="$t('af6')" hide-footer)#ins_tax_4
         div.py-4
           p.m-0="{{$t('af13')}}"
@@ -64,11 +64,11 @@
         watch: {
           total(val) {
             this.$emit('input', val);
-            if (this.ins_tax_3){
-              this.$parent.no_loan = true
-            }else{
-              this.$parent.no_loan = false
-            }
+            // if (this.ins_tax_3){
+            //   this.$parent.no_loan = true
+            // }else{
+            //   this.$parent.no_loan = false
+            // }
             this.$parent.insuranse_string = this.insuranse_string
           },
         },
