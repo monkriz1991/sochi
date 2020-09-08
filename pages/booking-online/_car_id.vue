@@ -233,9 +233,10 @@
                           div.option-item.my-2
                             b.loan="{{$t('bocid27')}} 0₽"
                               b.old_loan="{{car_data.zalog}}₽"
-                        div(v-else).option
-                          div.option-item.my-2
+                        div(v-else).option.mt-2
+                          div.option-item
                             b="{{$t('bocid27')}} {{car_data.zalog}}₽"
+                          p.deposit-vench="{{$t('df110')}}"
                       b-col(sm="12" md="12" lg="12")
                         div.option
                           div.option-item.my-2
@@ -789,6 +790,10 @@
 
 <style lang="sass" scoped>
   @import "../../assets/styles/variables"
+  .deposit-vench
+    font-size: 12px
+    opacity: 0.5
+    line-height: 1.2;
   .loan
     position: relative
     .old_loan
