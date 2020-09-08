@@ -129,11 +129,9 @@
             if (e && this.ins_tax_1 === false){
               this.sorted_items[1].value = true
               this.sorted_items[2].value = true
-              this.sorted_items[3].value = true
             }else{
               this.sorted_items[1].value = false
               this.sorted_items[2].value = false
-              this.sorted_items[3].value = false
             }
           },
           check_sub(e){
@@ -147,10 +145,7 @@
               if(this.sorted_items[2].value){
                 i++
               }
-              if(this.sorted_items[3].value){
-                i++
-              }
-              if (i === 3){
+              if (i === 2){
                 this.sorted_items[0].value = true
               }
             }
