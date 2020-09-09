@@ -28,7 +28,12 @@
             li="{{$t('af11')}}"
       b-modal(centered :title="$t('af10')" hide-footer)#ins_tax_3
         div.py-4
-          p="{{$t('af10_1')}}{{$parent.car_data.franchise}}{{$t('af10_1_1')}}{{$t('af10_2')}}"
+          ul.d-flex.align-items-center.justify-content-around.list-unstyled.w-100.menu-modal
+            li(v-html="'Расширеное<br>страховое покрытие'" v-bind:class="{active: active_tab === 1}" @click="active_tab = 1").w-50.px-2.text-center
+            li(v-html="'Без расширеного<br>страхового покрытия'" v-bind:class="{active: active_tab === 2}" @click="active_tab = 2").w-50.px-2.text-center
+          hr
+          p(v-if="active_tab === 1")="{{$t('af10_1')}}{{$parent.car_data.franchise}}{{$t('af10_1_1')}}{{$t('af10_2')}}"
+          p(v-if="active_tab === 2")="{{$t('af10_1')}}{{$parent.car_data.franchise}}{{$t('af10_1_1')}}{{$t('af_an10_2')}}"
       b-modal(centered :title="$t('af6')" hide-footer)#ins_tax_4
         div.py-4
           p.m-0="{{$t('af13')}}"
@@ -74,6 +79,7 @@
         data(){
           return {
             sorted_items: [],
+            active_tab: 1,
           }
         },
         computed: {
