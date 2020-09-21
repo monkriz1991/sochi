@@ -26,8 +26,6 @@
                     div(v-for="(point, idx) in points" :key="idx").item-info
                       p.l(v-html="$i18n.locale === 'ru' ? point.name_rus : point.name_eng")
                       p.r(v-html="point.price > 0 ? point.price+'₽' : $t('bocid2')")
-                div.mt-2
-                  div(v-html="$assets.generate_text_transfer(item.self_data.text_transfer, item.self_data.title, $i18n.locale)")
                 div.py-2
                   h3.m-0="{{$t('cwd8')}}"
                   div(v-html="$assets.generate_text_drivers(item.self_data.text_drivers, $i18n.locale)")

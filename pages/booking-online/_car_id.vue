@@ -793,7 +793,7 @@
   .deposit-vench
     font-size: 12px
     opacity: 0.5
-    line-height: 1.2;
+    line-height: 1.2
   .loan
     position: relative
     .old_loan
