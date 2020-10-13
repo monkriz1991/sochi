@@ -47,7 +47,7 @@
                   nuxt-link(v-if="$i18n.locale !== 'en'" :to="switchLocalePath('en')").btn.main.w-100="English Version"
                   nuxt-link(v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')").btn.main.w-100="Русская версия"
                 div.menu-block-cities
-                  a(href="https://avtopilot.com/" rel="nofollow").menu-item="{{ $t('m7') }}"
+                  a(href="https://vladivostokrentacar.ru/" rel="nofollow").menu-item="{{ $t('m7') }}"
                   a(href="https://spbrentacar.ru/" rel="nofollow").menu-item="{{ $t('m8') }}"
                   a(href="https://crimearentacar.su/" rel="nofollow").menu-item="{{ $t('m9') }}"
                   a(href="https://ekaterinburgrentacar.ru/" rel="nofollow").menu-item="{{ $t('m16') }}"

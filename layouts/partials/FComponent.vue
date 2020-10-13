@@ -47,7 +47,7 @@
                   li
                     a(href="https://spbrentacar.ru/" rel="nofollow")="{{$t('m8')}}"
                   li
-                    a(href="https://avtopilot.com/" rel="nofollow")="{{$t('m7')}}"
+                    a(href="https://vladivostokrentacar.ru/" rel="nofollow")="{{$t('m7')}}"
                   li
                     a(href="https://crimearentacar.su/" rel="nofollow")="{{$t('m9')}}"
                   li
