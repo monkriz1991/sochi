@@ -205,7 +205,7 @@ class Assets {
       return sd
     }else{
       if (locale === 'ru'){
-        return "<p>Наши водители профессионалы высокого класса, которым доверяют обслуживание первых лиц государства. Они сделают Вашу поездку комфортной, приятной и абсолютно безопасной. С ними вы можете ознакомиться в разделе водители</p>"
+        return "<p>Наши водители - профессионалы высокого класса, которым доверяют обслуживание первых лиц государства. Они сделают Вашу поездку комфортной, приятной и абсолютно безопасной. С ними вы можете ознакомиться в разделе водители.</p>"
       }else{
         return "<p>Our drivers are high-class professionals who are trusted to serve top officials of the state. They will make your trip comfortable, pleasant and absolutely safe. You can find them in the drivers section</p>"
       }

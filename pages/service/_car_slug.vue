@@ -48,6 +48,21 @@
                   div(v-html="$assets.generate_text_tth(item.self_data.text_tth_bottom)")
           order-small-form(:places="points" :carName="item.self_data.title" typeOrder="почасовая аренда")
           hr
+          div#tq
+            div#info-contacts
+              h3="По вопросам трансфера:"
+              p
+                strong="{{$t('contacts16')}}"
+                a(:href="`tel:79181044848`")="+7 (918) 104-48-48"
+              p
+                strong="E-mail: "
+                a(:href="`mailto:transfer.sochi@7774848.ru`")="transfer.sochi@7774848.ru"
+              p.socials-mess
+                span.tg.ico-mess
+                span.wa.ico-mess
+                span.vb.ico-mess
+                span=": +7 (918)-104-48-48"
+          hr
           banners-section
         div(v-else)
           loader
@@ -151,6 +166,26 @@
 <style lang="sass" scoped>
 
   @import "../../assets/styles/variables"
+
+  .socials-mess
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-items: center
+  .ico-mess
+    display: inline-block
+    width: 25px
+    height: 25px
+    background-repeat: no-repeat
+    background-position: center
+    background-size: contain
+    margin: 0 5px 0 0
+    &.wa
+      background-image: url("../../assets/images/skin/whatsapp.png")
+    &.tg
+      background-image: url("../../assets/images/skin/telegramm.png")
+    &.vb
+      background-image: url("../../assets/images/skin/viber.png")
   .slider-wrapper
     border: 1px solid $primary
     -webkit-box-shadow: 3px 3px 10px 0 rgba(255,106,40,0.4)
