@@ -10,6 +10,21 @@
             b-col(sm="12" md="12" lg="6")
               div.slider-wrapper
                 b-o-image-slider(:items="item.self_data.photos")
+              hr
+              div#tq
+                div#info-contacts
+                  h3="Контакты:"
+                  p
+                    strong="{{$t('contacts16')}}"
+                    a(:href="`tel:79181044848`")="+7 (918) 104-48-48"
+                  p
+                    strong="E-mail: "
+                    a(:href="`mailto:transfer.sochi@7774848.ru`")="transfer.sochi@7774848.ru"
+                  p.socials-mess
+                    span.tg.ico-mess
+                    span.wa.ico-mess
+                    span.vb.ico-mess
+                    span=": +7 (918)-104-48-48"
             b-col(sm="12" md="12" lg="6")
               div.information
                 h3="{{$t('cwd2')}}"
@@ -47,21 +62,6 @@
                         span.gear='{{$t(item.car_data.kpp)}}'
                   div(v-html="$assets.generate_text_tth(item.self_data.text_tth_bottom)")
           order-small-form(:places="points" :carName="item.self_data.title" typeOrder="почасовая аренда")
-          hr
-          div#tq
-            div#info-contacts
-              h3="По вопросам трансфера:"
-              p
-                strong="{{$t('contacts16')}}"
-                a(:href="`tel:79181044848`")="+7 (918) 104-48-48"
-              p
-                strong="E-mail: "
-                a(:href="`mailto:transfer.sochi@7774848.ru`")="transfer.sochi@7774848.ru"
-              p.socials-mess
-                span.tg.ico-mess
-                span.wa.ico-mess
-                span.vb.ico-mess
-                span=": +7 (918)-104-48-48"
           hr
           banners-section
         div(v-else)
