@@ -126,22 +126,23 @@
                       hr(v-if="(odx+1) !== options.length").cbt
                   div(v-if="insurance_options.length > 0").p-3.info-inside.wbb
                     Insurance(v-model="insurance" :items="insurance_options")
-                  div(v-if="!no_limit_avalible")
-                    div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365' && car_data.naimenovanie !== 'Volkswagen Polo Trendline Promo' && car_data.naimenovanie !== 'Hyundai Solaris Promo' && car_data.naimenovanie !== 'Renault Logan Stepway Promo'").p-3.info-inside.wbb
-                      h4="{{$t('bocid12')}}"
-                      b-form-group
-                        b-row
-                          b-col(sm="12" md="6" lg="6")
-                            b-form-radio(v-model="is_limit" name="some-radios" :value="true")="{{$t('bocid20')}}"
-                          b-col(sm="12" md="6" lg="6")
-                            b-form-radio(v-model="is_limit" name="some-radios" :value="false")="{{$t('bocid21')}}"
-                      div
-                        p
-                          |{{$t('bocid15')}}
-                          b="{{$t('bocid16')}} {{this.limit_sale}}%."
-                          |{{$t('bocid17')}}
-                          b="{{$t('bocid18')}}"
-                          |{{$t('bocid19')}}
+                  div(v-if="!car_data.special_price")
+                    div(v-if="!no_limit_avalible")
+                      div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365' && car_data.naimenovanie !== 'Volkswagen Polo Trendline Promo' && car_data.naimenovanie !== 'Hyundai Solaris Promo' && car_data.naimenovanie !== 'Renault Logan Stepway Promo'").p-3.info-inside.wbb
+                        h4="{{$t('bocid12')}}"
+                        b-form-group
+                          b-row
+                            b-col(sm="12" md="6" lg="6")
+                              b-form-radio(v-model="is_limit" name="some-radios" :value="true")="{{$t('bocid20')}}"
+                            b-col(sm="12" md="6" lg="6")
+                              b-form-radio(v-model="is_limit" name="some-radios" :value="false")="{{$t('bocid21')}}"
+                        div
+                          p
+                            |{{$t('bocid15')}}
+                            b="{{$t('bocid16')}} {{this.limit_sale}}%."
+                            |{{$t('bocid17')}}
+                            b="{{$t('bocid18')}}"
+                            |{{$t('bocid19')}}
                   div.p-3.info-inside
                     h4="{{$t('bocid7')}}"
                     div.price_string
@@ -238,28 +239,30 @@
                             b="{{$t('bocid27')}} {{car_data.zalog}}₽"
                           p.deposit-vench="{{$t('df110')}}"
                       b-col(sm="12" md="12" lg="12")
-                        div.option
-                          div.option-item.my-2
-                            b-form-checkbox(v-model="is_promocode").lp-checkbox="{{$t('bocid26')}}"
+                        div(v-if="!car_data.special_price")
+                          div.option
+                            div.option-item.my-2
+                              b-form-checkbox(v-model="is_promocode").lp-checkbox="{{$t('bocid26')}}"
                       b-col(sm="12" md="12" lg="12")
-                        b-form-group(v-if="is_promocode")
-                          b-row
-                            b-col(sm="12" md="6" lg="6")
-                              b-form-input(:placeholder="$t('bocid25')" v-model="userData.promocode")
-                            b-col(sm="12" md="6" lg="6")
-                              a(role="button" @click="onSubmitPromo()").btn.cancel.main.w-100="{{$t('df104')}}"
-                          hr
-                          div(v-if="promocode_loaded")
-                            div(v-if="promocode_valid")
-                              div(v-if="promocode_sale > 0")
-                                p.text-green="{{$t('df101')}} {{promocode_sale}}%"
-                                hr
+                        div(v-if="!car_data.special_price")
+                          b-form-group(v-if="is_promocode")
+                            b-row
+                              b-col(sm="12" md="6" lg="6")
+                                b-form-input(:placeholder="$t('bocid25')" v-model="userData.promocode")
+                              b-col(sm="12" md="6" lg="6")
+                                a(role="button" @click="onSubmitPromo()").btn.cancel.main.w-100="{{$t('df104')}}"
+                            hr
+                            div(v-if="promocode_loaded")
+                              div(v-if="promocode_valid")
+                                div(v-if="promocode_sale > 0")
+                                  p.text-green="{{$t('df101')}} {{promocode_sale}}%"
+                                  hr
+                                div(v-else)
+                                  p.text-green.text-center="{{$t('df102')}}"
+                                  hr
                               div(v-else)
-                                p.text-green.text-center="{{$t('df102')}}"
+                                p.text-red.text-center="{{$t('df103')}}"
                                 hr
-                            div(v-else)
-                              p.text-red.text-center="{{$t('df103')}}"
-                              hr
                       b-col(sm="12" md="12" lg="12" v-if="errors.length")
                         div.errors-block
                           h6="{{$t('bocid24')}}"
