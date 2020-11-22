@@ -52,6 +52,7 @@
                   a(href="https://crimearentacar.su/" rel="nofollow").menu-item="{{ $t('m9') }}"
                   a(href="https://ekaterinburgrentacar.ru/" rel="nofollow").menu-item="{{ $t('m16') }}"
                   a(href="https://chelyabinskrentacar.ru/" rel="nofollow").menu-item="{{ $t('m17') }}"
+                  a(href="https://miami-rent-a-car.com/" rel="nofollow").menu-item="{{ $t('m19') }}"
       b-modal(:title="$t('cb1')" hide-footer)#callback
         b-form-group.mb-0(:description="$t('cb2')")
           b-form-input(v-model="callback_form.name" :placeholder="$t('cb3')")#callback_name
@@ -214,7 +215,7 @@
       margin-top: 10px
       a
         display: block
-        width: calc(100%/5)
+        width: calc(100%/6)
         text-align: center
         border-right: 2px solid #E8EEF2
         &:last-child
