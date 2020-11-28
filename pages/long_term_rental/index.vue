@@ -72,7 +72,7 @@
                       b-col(sm="12" md="12" lg="8").limits
                         p.heading="{{$t('ltr6')}}"
                         p.prices
-                          span.old_price="{{card.cd.stoimost}}₽/{{$t('cwod7')}}"
+                          span.old_price="{{card.raw.price.base_price}}₽/{{$t('cwod7')}}"
                           span.new_price="{{card.raw.price.price}}₽/{{$t('cwod7')}}"
                       b-col(sm="12" md="12" lg="4").py-1
                         nuxt-link(:to="{name: $assets.prefix('long_term_rental-gosnomer', $i18n.locale), params: {gosnomer: card.cd['1cID']} }").btn.main.w-100="{{$t('ltr5')}}"
