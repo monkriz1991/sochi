@@ -43,7 +43,7 @@
               b-col(sm="12" md="6" lg="4" offset-lg="4")
                 b-form-select(v-model="filter_price" :options="filterPrice")
           div(v-for="card in filteredList" :key="card.raw.id").row_card
-            div.badge(v-html="`${$t('ltr8')} ${calcMonth(card.cd.stoimost)}₽/${$t('ltr7')}`")
+            div.badge(v-html="`${$t('ltr8')} ${card.raw.price.price * 30}₽/${$t('ltr7')}`")
             b-row
               b-col(sm="12" md="6" lg="4")
                 div(v-bind:style="{backgroundImage: `url(${card.cd.car_image})`}").preview
@@ -73,7 +73,7 @@
                         p.heading="{{$t('ltr6')}}"
                         p.prices
                           span.old_price="{{card.cd.stoimost}}₽/{{$t('cwod7')}}"
-                          span.new_price="{{genNewPrice(card.cd.stoimost)}}₽/{{$t('cwod7')}}"
+                          span.new_price="{{card.raw.price.price}}₽/{{$t('cwod7')}}"
                       b-col(sm="12" md="12" lg="4").py-1
                         nuxt-link(:to="{name: $assets.prefix('long_term_rental-gosnomer', $i18n.locale), params: {gosnomer: card.cd['1cID']} }").btn.main.w-100="{{$t('ltr5')}}"
                         b-button(@click="showModal(card.cd['1cID'])").btn.cancel.w-100="{{$t('ltr4')}}"
@@ -219,9 +219,6 @@
       },
     },
     methods:{
-      calcMonth(price){
-        return ((parseInt(price)/2) * 30.5).toFixed(2);
-      },
       showModal(id){
         ym(33072038,'reachGoal','longrentalquickform');
         this.$bvModal.show(id)

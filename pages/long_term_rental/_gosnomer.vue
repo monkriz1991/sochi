@@ -181,13 +181,13 @@
         let date1 = new Date(this.df);
         let date2 = new Date(this.dt);
         let daysLag = Math.ceil(Math.abs(date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
-        return parseInt(this.price / 2) * daysLag;
+        return parseInt(this.price) * daysLag;
       },
       price(){
         if (this.priceLoaded){
-          return this.priceOnDate;
+          return this.item.raw.price.price > this.priceOnDate/2 ? this.item.raw.price.price : this.priceOnDate/2;
         }else{
-          return this.item.cd.stoimost;
+          return this.item.raw.price.price;
         }
       },
       bcItems(){
