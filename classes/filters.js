@@ -21,9 +21,9 @@ class Filters{
     let res = [];
     data.map((el)=>{
       if (!this.checkAvailibility(el.naimenovanie, el.Period)){
-        if (elements.indexOf(`${el.naimenovanie}`) + 1){
+        if (elements.indexOf(`${el.naimenovanie}_${el.cvet}`) + 1){
         }else{
-          elements.push(`${el.naimenovanie}`)
+          elements.push(`${el.naimenovanie}_${el.cvet}`)
           res.push(el)
         }
       }
