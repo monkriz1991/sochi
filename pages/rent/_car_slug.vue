@@ -209,6 +209,14 @@
                 span.b-text="AUTOPILOT"
                 span="."
                 span.r-text="PROTECTION"
+              p(v-if="loaded")
+                |{{$t('security1')}}
+                span(v-bind:style="{'cursor':'pointer', 'color': '#ff6a28'}")#tooltip-fran
+                  |{{$t('security2')}}
+                  sup="*"
+                b-tooltip(target="tooltip-fran" triggers="hover")
+                  p(v-html="`${$t('security4')} ${item.car_data.franchise > 0 ? item.car_data.franchise : '30 000'} руб. ${$t('security5')} ${item.car_data.franchise > 0 ? item.car_data.franchise : '30 000'} руб. ${$t('security6')}`")
+                |{{$t('security3')}}
               ul.list-ok-yes.list-unstyled.mb-5
                 li(v-b-modal.mi1)="{{$t('af5')}}"
                 li(v-b-modal.mi2)="{{$t('af6')}}"

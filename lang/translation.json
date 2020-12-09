@@ -483,7 +483,13 @@
     "pp": "Privacy Policy",
     "pp1": "Prices are for informational purposes only and may differ from the final prices. To specify prices for the dates you are interested in use the  or contact the operator by phone:",
     "pp2": " booking system ",
-    "pp3": "or contact the operator by phone:"
+    "pp3": "or contact the operator by phone:",
+    "security1": "All our cars are insured, and in the event of an accident, Your liability is equal to the ",
+    "security2": "deductible",
+    "security3": ". In addition, we offer you extended insurance coverage that will protect you from all costs.",
+    "security4": "Deductible - if an insured event occurs, you must partially pay for repairs. An example is the situation: a hard hat with a deductible of ",
+    "security5": " rubles-means that when an insured event occurs, you pay ",
+    "security6": "rubles, if this money is not enough, the difference is paid by the insurance company. protect you from all costs."
   },
   "ru": {
     "op": "Онлайн оплата",
@@ -989,6 +995,12 @@
     "lk17": "выслать код восстановления",
     "lk18": "Повторите пароль",
     "lk19": "создать аккаунт",
-    "lk20": "Регистрация"
+    "lk20": "Регистрация",
+    "security1": "Все наши автомобили застрахованы, в случае ДТП Ваша отвественность равна ",
+    "security2": "франшизе",
+    "security3": ". Дополнительно мы предлагаем вам расширенное страховове покрытие, которое защитит вас от всех затрат.",
+    "security4": "Франшиза - при наступления страхового случия Вы должны частично оплатить ремонт. Примером можно привести ситуацию: КАСКО с франшизой в ",
+    "security5": "рублей - означает, что при наступлении страхового случая, Вы выплачиваете",
+    "security6": "рублей, в случае если этих денег не хватит, разницу оплачивает страховая компания."
   }
 }
