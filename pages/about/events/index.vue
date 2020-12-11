@@ -22,7 +22,7 @@
                         div.date-badge="{{$assets.t_date(n.event_date)}}"
                         b-row
                           b-col(sm="12" md="12" lg="4")
-                            div(v-bind:style="{backgroundImage:`url(https://booking.autopilot.rent/storage/${n.image})`}").img
+                            div(v-bind:style="{backgroundImage:`url(https://sochirentacar.ru/storage/${n.image})`}").img
                           b-col(sm="12" md="12" lg="8")
                             b-card-text.p-2
                               nuxt-link(:to="{name: $assets.prefix('about-events-event_id', $i18n.locale), params: {event_id: n.id}}")

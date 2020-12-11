@@ -5,7 +5,7 @@
           b-col(sm="6" md="4" lg="4" v-for="(f, fdx) in features" :key="fdx")
             div.feature-item.my-3
               div.image
-                img(:data-src="`https://booking.autopilot.rent/storage/${f.image}`" v-lazy-load)
+                img(:data-src="`https://sochirentacar.ru/storage/${f.image}`" v-lazy-load)
               div.text
                 p="{{$t(f.text)}}"
             hr

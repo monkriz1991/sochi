@@ -14,7 +14,7 @@
               h1="{{seo[$route.params.event_id].h1}}"
               div(v-if="loaded")
                 div.news
-                  img(:src="`https://booking.autopilot.rent/storage/${event.image}`" alt="event.title").news-image
+                  img(:src="`https://sochirentacar.ru/storage/${event.image}`" alt="event.title").news-image
                   div(v-html="event.text_details")
               div(v-else)
                 loader

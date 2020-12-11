@@ -5,9 +5,9 @@
         div(v-if="item.Special_Price").price-badge
           span="{{item.Special_Price}}₽/{{$t('aoc1')}}"
         div(v-else).price-badge
-          span(v-if="item.Price > item.PriceDiscount").old="{{item.Price}}₽/{{$t('aoc1')}}"
+          span(v-if="item.Max_Price > item.PriceDiscount").old="{{item.Max_Price}}₽/{{$t('aoc1')}}"
           span="{{item.PriceDiscount}}₽/{{$t('aoc1')}}"
-        div.preview(:lazy-background="item.PrimaryImage ? item.PrimaryImage : item.img")
+        div.preview(:lazy-background="item.PrimaryImage ? $assets.prepare_url_to_local(item.PrimaryImage) : $assets.prepare_url_to_local(item.img)")
         div(v-if="item.features_options.length > 0").item-features.px-1
           span(v-for="(f, fdx) in item.features_options" :key="fdx" v-bind:class="$assets.fetchFeatureClass(f.name)")="{{$t(f.name)}}"
     div.media-info.px-4.pt-4.pb-2.text-center

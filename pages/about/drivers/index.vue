@@ -17,7 +17,7 @@
                   b-col(sm="12" md="6" lg="6" v-for="(d, ddx) in drivers" :key="ddx")
                     div.card-driver.my-3
                       div.card-driver-header.d-flex.justify-content-center.align-content-center
-                        div(v-bind:style="{backgroundImage: `url(https://booking.autopilot.rent/storage/${d.photo})`}").imger
+                        div(v-bind:style="{backgroundImage: `url(https://sochirentacar.ru/storage/${d.photo})`}").imger
                       div.card-driver-body
                         h4.text-center.text-capitalize="{{$assets.rus_to_latin(d.name, $i18n.locale)}}"
                         p="{{$t('faq6')}}"

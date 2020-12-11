@@ -418,6 +418,10 @@ class Assets {
     }
   }
 
+  prepare_url_to_local = url => {
+    return url.replace('booking.autopilot.rent', 'sochirentacar.ru')
+  }
+
 }
 
 export default Assets
