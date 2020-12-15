@@ -15,7 +15,7 @@
       )
       b-carousel-slide(v-for="(i, idx) in items" :key="idx" img-blank)
         template(v-slot:img)
-          div(v-bind:style="{backgroundImage: `url(${$assets.prepare_url_to_local(i)})`}").carousel-item-ins
+          div(v-bind:style="{backgroundImage: `url(${$assets.prepare_url_to_local(i, $config.environment, $config.local_url)})`}").carousel-item-ins
 </template>
 
 <script>

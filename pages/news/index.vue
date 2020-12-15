@@ -11,7 +11,7 @@
               div.card.mb-5
                 b-row
                   b-col(sm="12" md="12" lg="4")
-                    div(v-bind:style="{backgroundImage:`url(https://sochirentacar.ru/storage/${n.preview_image})`}").img
+                    div(v-bind:style="{backgroundImage:`url(${$assets.check_local_env($config.local_url, $config.environment)}storage/${n.preview_image})`}").img
                   b-col(sm="12" md="12" lg="8")
                     b-card-text.p-2
                       nuxt-link(:to="{name: $assets.prefix('news-slug', $i18n.locale), params: {slug: n.slug}}")

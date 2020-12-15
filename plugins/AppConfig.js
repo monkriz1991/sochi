@@ -7,4 +7,6 @@ Vue.prototype.$config = {
   ShopID: process.env.YANDEX_ShopID,
   map_lat: process.env.MAP_lat,
   map_lng: process.env.MAP_lng,
+  environment: process.env.ENVIRONMENT,
+  local_url: process.env.LOCAL_URL
 };

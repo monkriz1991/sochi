@@ -5,7 +5,7 @@
       b-row
         b-col(sm="12" md="6" lg="3" v-for="(i, idx) in items" :key="idx")
           nuxt-link(:to="{name: $assets.prefix('news-slug', $i18n.locale), params: {slug: i.slug}}").news-el.my-2
-            div(:lazy-background="`https://sochirentacar.ru/storage/${i.preview_image}`").img
+            div(:lazy-background="`${$assets.check_local_env($config.local_url, $config.environment)}storage/${i.preview_image}`").img
               span.date="{{makeDate(i.date_of_news)}}"
             div.inform
               h5="{{i.title}}"

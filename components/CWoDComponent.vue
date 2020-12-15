@@ -5,9 +5,9 @@
           nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.slug}}").no_dec
             div.el-wrapper.my-3
               div.price-badge(v-html="`${$t('cwd27')} ${$assets.toMoney($assets.makeItemPrice(i.car_data.stoimost, i.car_data.skidka_2, i.car_data.special_price))}₽/${$t('cwod7')}`")
-              div.main-img(:lazy-background="`https://sochirentacar.ru/${i.self_data.photos[0]}`")
-              div.flox-img(:lazy-background="`https://sochirentacar.ru/${i.self_data.photos[1]}`")
-              div.flox-img(:lazy-background="`https://sochirentacar.ru/${i.self_data.photos[2]}`")
+              div.main-img(:lazy-background="`${$assets.check_local_env($config.local_url, $config.environment)}${i.self_data.photos[0]}`")
+              div.flox-img(:lazy-background="`${$assets.check_local_env($config.local_url, $config.environment)}${i.self_data.photos[1]}`")
+              div.flox-img(:lazy-background="`${$assets.check_local_env($config.local_url, $config.environment)}${i.self_data.photos[2]}`")
               div.bch.p-2
                 h5.text-center="{{i.self_data.title}}"
 </template>

@@ -15,7 +15,7 @@
       )
       b-carousel-slide(v-for="(i, idx) in items" :key="idx" img-blank)
         template(v-slot:img)
-          div(v-bind:style="{backgroundImage: `url(${$assets.prepare_url_to_local(i)})`}" v-b-modal.big-slides).carousel-item-ins
+          div(v-bind:style="{backgroundImage: `url(${$assets.prepare_url_to_local(i, $config.environment, $config.local_url)})`}" v-b-modal.big-slides).carousel-item-ins
     b-modal(centered hide-footer hide-header)#big-slides
       b-o-image-slider(:items="items")
 </template>

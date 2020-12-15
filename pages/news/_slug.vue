@@ -7,7 +7,7 @@
         h1(v-html="this.loaded ? this.news.title : this.seo[this.$route.params.slug].SEO_title")
         div(v-if="loaded")
           div.news
-            img(:src="`https://sochirentacar.ru/storage/${news.detail_image}`" alt="news.title").news-image
+            img(:src="`${$assets.check_local_env($config.local_url, $config.environment)}storage/${news.detail_image}`" alt="news.title").news-image
             div(v-html="news.detail_text")
         div(v-else)
           loader

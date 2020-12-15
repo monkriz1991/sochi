@@ -418,8 +418,20 @@ class Assets {
     }
   }
 
-  prepare_url_to_local = url => {
-    return url.replace('booking.autopilot.rent', 'sochirentacar.ru')
+  prepare_url_to_local = (url, env, local_url) => {
+    if (env === 'local'){
+      return url.replace('booking.autopilot.rent', local_url)
+    }else{
+      return url.replace('https://booking.autopilot.rent/', '/')
+    }
+  }
+
+  check_local_env = (url, env) => {
+    if (env === 'local'){
+      return `https://${url}/`
+    }else{
+      return '/'
+    }
   }
 
 }

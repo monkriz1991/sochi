@@ -46,7 +46,7 @@
             div.badge(v-html="`${$t('ltr8')} ${card.raw.price.price * 30}₽/${$t('ltr7')}`")
             b-row
               b-col(sm="12" md="6" lg="4")
-                div(v-bind:style="{backgroundImage: `url(${$assets.prepare_url_to_local(card.cd.car_image)})`}").preview
+                div(v-bind:style="{backgroundImage: `url(${$assets.prepare_url_to_local(card.cd.car_image, $config.environment, $config.local_url)})`}").preview
               b-col(sm="12" md="6" lg="8")
                 div.info-block.p-2
                   h3="{{card.cd.naimenovanie}} {{card.cd.godvypuska}}"
