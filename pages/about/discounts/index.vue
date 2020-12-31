@@ -56,16 +56,8 @@
         discounts: {
           ru: [
             {
-              title: "Дополнительная скидка 3% на аренду любого автомобиля для предъявителей брони из отеля или санатория.",
-              desc: "Для получения скидки Вам необходимо предъявить нашему менеджеру отдела бронирования ваучер на проживание в отеле, пансионате или санатории, либо направить его заблаговременно по электронной почте или любым другим удобным для Вас способом."
-            },
-            {
               title: "Дополнительная скидка 3% на аренду любого автомобиля для участников программы Аэрофлот Бонус уровня Elit Plus.",
               desc: "Для получения скидки Вам необходимо подтвердить свою причастность к программе, предъявив нашему менеджеру отдела бронирования карту участника и сообщив о ней предварительно любым удобным для Вас способом."
-            },
-            {
-              title: "Дополнительная скидка 3% на аренду любого автомобиля для наших подписчиков в социальных сетях.",
-              desc: "Для получения скидки Вам необходимо подтвердить свою причастность к любой группе нашей компании в социальных сетях менеджеру отдела бронирования и написать краткий отзыв о Вашем путешествии в Сочи."
             },
             {
               title: "Дополнительная скидка 3% на аренду любого автомобиля для путешественников с детьми.",
@@ -78,16 +70,8 @@
           ],
           en: [
             {
-              title: "Additional 3% discount on any car rental for hotel or sanatorium booking bearers.",
-              desc: "to get a discount, you need to present a voucher for hotel, boarding house or sanatorium accommodation to our booking Manager, or send it in advance by email or any other convenient way."
-            },
-            {
               title: "Additional 3% discount on any car rental for members of the Aeroflot Bonus program at the Elit Plus level.",
               desc: "To get a discount, you need to confirm your participation in the program by presenting your membership card to our booking Department Manager and informing us about it in advance in any way convenient for You."
-            },
-            {
-              title: "Additional 3% discount on any car rental for our social media followers.",
-              desc: "to get a discount, you need to confirm your participation in any group of our company in social networks to the Manager of the booking Department and write a short review about Your trip to Sochi."
             },
             {
               title: "Additional 3% discount on any car rental for travelers with children.",
