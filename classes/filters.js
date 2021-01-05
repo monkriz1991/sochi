@@ -34,7 +34,7 @@ class Filters{
 
   checkAvailibility = (name, period) => {
     if (period < 2){
-      return ['MINI John Cooper Works Cabrio', 'Toyota Land Cruiser 200', 'Mercedes-Benz V250d', 'Mercedes-Benz E200d New', 'Mercedes-Benz S500 ', 'Mercedes-Benz S500', 'MINI Cooper','MINI Cooper 5d','Hyundai H-1 new', 'Hyundai H-1', 'Toyota Land Cruiser Prado', 'BMW X3 xDrive 20i', 'BMW X1 sDrive 18i', 'BMW X2 sDrive 20i', 'Mercedes-Benz E200 ', 'Mercedes-Benz E200']
+      return ['BMW X2 xDrive18d', 'MINI John Cooper Works Cabrio', 'Toyota Land Cruiser 200', 'Mercedes-Benz V250d', 'Mercedes-Benz E200d New', 'Mercedes-Benz S500 ', 'Mercedes-Benz S500', 'MINI Cooper','MINI Cooper 5d','Hyundai H-1 new', 'Hyundai H-1', 'Toyota Land Cruiser Prado', 'BMW X3 xDrive 20i', 'BMW X1 sDrive 18i', 'BMW X2 sDrive 20i', 'Mercedes-Benz E200 ', 'Mercedes-Benz E200']
     }else if (period < 3){
       return ['Toyota Land Cruiser 200', 'Mercedes-Benz V250d', 'Mercedes-Benz E200d New', 'Mercedes-Benz S500 ', 'Mercedes-Benz S500', 'MINI Cooper','MINI Cooper 5d','Hyundai H-1 new', 'Hyundai H-1', 'Toyota Land Cruiser Prado', 'BMW X3 xDrive 20i', 'BMW X1 sDrive 18i', 'BMW X2 sDrive 20i', 'Mercedes-Benz E200 ', 'Mercedes-Benz E200'].includes(name)
     }else if(period < 7){
