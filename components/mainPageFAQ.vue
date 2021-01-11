@@ -1,5 +1,6 @@
 <template lang="pug">
   b-container
+    h2="{{$t('faq1')}}"
     div#faq_wrapper
       div(v-for="(i, idx) in faq[$i18n.locale]" :key="idx" v-bind:class="{active: idx === index}").colapsed_pan
         div(@click="index = idx").question
