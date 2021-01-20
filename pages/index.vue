@@ -7,6 +7,7 @@
         main-page-article(v-if="$i18n.locale === 'ru'")
         main-page-article-en(v-else)
     main-page-features
+    main-page-f-a-q
     banners-section
     section
       div.container
@@ -32,6 +33,7 @@
   import CWDComponent from "../components/CWDComponent";
   import CWoDComponent from "../components/CWoDComponent";
   import BannersSection from "../components/BannersSection";
+  import mainPageFAQ from "~/components/mainPageFAQ";
   export default {
     head () {
       return {
@@ -42,6 +44,7 @@
       }
     },
     components: {
+      mainPageFAQ,
       autoOfferWrapper,
       jumbotron,
       mainPageFeatures,
