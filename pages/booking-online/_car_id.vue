@@ -339,12 +339,18 @@
           this.loaded = true
         }
       },
-      is_promocode(){
+      is_promocode(val){
         this.userData.promocode = '';
         this.promocode_valid = false;
         this.promocode_loaded = false;
         this.promocode_sale = 0;
-        this.no_limit_avalible = false;
+        if (val){
+          this.no_limit_avalible = true;
+          this.is_limit = false
+        }else{
+          this.no_limit_avalible = false;
+          this.is_limit = false
+        }
       },
       is_same_comeback(){
         this.checkPlaseOnChange()

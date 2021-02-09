@@ -335,7 +335,7 @@ class Assets {
 
   salePersLimit = df =>{
     if (Date.parse(df) > Date.parse('2020-06-14')){
-      return 10;
+      return 5;
     }else{
       return 15;
     }
