@@ -237,7 +237,11 @@
                         div(v-else).option.mt-2
                           div.option-item
                             b="{{$t('bocid27')}} {{car_data.zalog}}₽"
-                          p.deposit-vench="{{$t('df110')}}"
+                          div.my-2
+                            p.deposit-vench="{{$t('df110')}}"
+                            p.deposit-vench
+                              sup.text-red="*"
+                              |{{$t('df111')}}
                       b-col(sm="12" md="12" lg="12")
                         div(v-if="!car_data.special_price")
                           div.option

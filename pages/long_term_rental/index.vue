@@ -177,7 +177,7 @@
               class_name: 'cond_2'
             },
             {
-              title: 'Залог на автомобиль',
+              title: 'Депозит на автомобиль',
               text: 'от 5000₽',
               class_name: 'cond_3'
             },

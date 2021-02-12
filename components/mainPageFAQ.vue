@@ -8,7 +8,7 @@
           img(:src="angle")
         div.answer
           p
-            strong="{{$t(faq2)}}"
+            strong="{{$t('faq2')}}"
             span(v-html="i.a")
 </template>
 

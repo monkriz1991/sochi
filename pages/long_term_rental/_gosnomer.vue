@@ -245,7 +245,7 @@
               class_name: 'cond_2'
             },
             {
-              title: 'Залог на автомобиль',
+              title: 'Депозит на автомобиль',
               text: `от ${this.item.cd.zalog}₽`,
               class_name: 'cond_3'
             },
