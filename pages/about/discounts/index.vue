@@ -16,7 +16,9 @@
                 div(v-for="(i, idx) in discounts[$i18n.locale]" :key="idx").discount.my-3
                   h6(v-html="i.title").mb-1
                   p(v-html="i.desc")
-              h4.text-center="{{$t('faq5')}}"
+              h4.m-0.text-center="{{$t('faq5')}}"
+              div.text-center.w-100.mb-3
+                span.text-opacity="{{desc_discounts[$i18n.locale]}}"
 </template>
 
 <script>
@@ -53,6 +55,10 @@
             active: true
           }
         ],
+        desc_discounts: {
+          ru: "Скидки не распространяются на автомобили класса \"PROMO\"",
+          en: "Discounts do not apply to cars of the \"PROMO\" class",
+        },
         discounts: {
           ru: [
             {
