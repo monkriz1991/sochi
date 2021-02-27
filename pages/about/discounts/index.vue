@@ -96,6 +96,8 @@
 
 <style lang="sass" scoped>
   @import "../../../assets/styles/variables"
+  .text-opacity
+    opacity: 0.6
   aside
     position: relative
     height: 100%

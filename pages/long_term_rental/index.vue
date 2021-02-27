@@ -221,7 +221,12 @@
     methods:{
       showModal(id){
         ym(33072038,'reachGoal','longrentalquickform');
-        this.$bvModal.show(id)
+        this.$bvToast.toast('На данный момент услуга не доступна', {
+          title: 'Ошибка',
+          variant: 'danger',
+          solid: true
+        });
+        // this.$bvModal.show(id)
       },
       submitModal(carName, carId){
         if (this.phone !== '' && this.name !== '' && this.phone !== undefined){
