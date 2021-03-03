@@ -48,13 +48,15 @@
                   nuxt-link(v-if="0" :to="{name: $assets.prefix('personal', $i18n.locale)}").btn.main.w-100="{{ $t('m18') }}"
                   nuxt-link(v-if="$i18n.locale !== 'en'" :to="switchLocalePath('en')").btn.main.w-100="English Version"
                   nuxt-link(v-if="$i18n.locale !== 'ru'" :to="switchLocalePath('ru')").btn.main.w-100="Русская версия"
-                div.menu-block-cities
+                div.menu-block-cities_1
                   a(href="https://vladivostokrentacar.ru/" rel="nofollow").menu-item="{{ $t('m7') }}"
                   a(href="https://spbrentacar.ru/" rel="nofollow").menu-item="{{ $t('m8') }}"
                   a(href="https://crimearentacar.su/" rel="nofollow").menu-item="{{ $t('m9') }}"
                   a(href="https://ekaterinburgrentacar.ru/" rel="nofollow").menu-item="{{ $t('m16') }}"
+                div.menu-block-cities_2
                   a(href="https://chelyabinskrentacar.ru/" rel="nofollow").menu-item="{{ $t('m17') }}"
                   a(href="https://miami-rent-a-car.com/" rel="nofollow").menu-item="{{ $t('m19') }}"
+                  a(href="https://krasnodarrentacar.ru/" rel="nofollow").menu-item="{{ $t('m20') }}"
       b-modal(:title="$t('cb1')" hide-footer)#callback
         b-form-group.mb-0(:description="$t('cb2')")
           b-form-input(v-model="callback_form.name" :placeholder="$t('cb3')")#callback_name
@@ -213,7 +215,7 @@
         text-align: center
         @media screen and (max-width: 991px)
           width: 100%
-    .menu-block-cities
+    .menu-block-cities_1
       display: flex
       flex-wrap: wrap
       flex-direction: row
@@ -221,9 +223,26 @@
       margin-top: 10px
       a
         display: block
-        width: calc(100%/6)
+        width: calc(100%/4)
         text-align: center
         border-right: 2px solid #E8EEF2
+        border-top: 2px solid #E8EEF2
+        &:last-child
+          border-right: 0
+        @media screen and (max-width: 991px)
+          width: 100%
+          border-right: 0
+    .menu-block-cities_2
+      display: flex
+      flex-wrap: wrap
+      flex-direction: row
+      justify-content: stretch
+      a
+        display: block
+        width: calc(100%/3)
+        text-align: center
+        border-right: 2px solid #E8EEF2
+        border-top: 2px solid #E8EEF2
         &:last-child
           border-right: 0
         @media screen and (max-width: 991px)

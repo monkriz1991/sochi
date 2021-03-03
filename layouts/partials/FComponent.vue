@@ -56,6 +56,8 @@
                     a(href="https://chelyabinskrentacar.ru/" rel="nofollow")="{{ $t('m17') }}"
                   li
                     a(href="https://miami-rent-a-car.com/" rel="nofollow")="{{ $t('m19') }}"
+                  li
+                    a(href="https://krasnodarrentacar.ru/" rel="nofollow")="{{ $t('m20') }}"
 </template>
 
 <script>
