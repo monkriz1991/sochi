@@ -29,7 +29,9 @@
               li="По всем дополнительным вопросам вы всегда можете обращаться к нам за консультацией. Контакты для обратной связи указаны ниже. Также вы можете воспользоваться услугой обратного звонка. Будем рады видеть вас среди наших клиентов."
           div.clearfix
             rentFeaturesComponent
-
+          div.my-3
+            h4="Для персонального предложения заполните форму"
+            feedback-form(type="rent")
 </template>
 
 <script>
@@ -38,6 +40,7 @@
   import CWoDComponentFull from "../../components/CWoDComponentFull";
   import devider from "../../components/devider";
   import rentFeaturesComponent from "~/components/rentFeaturesComponent";
+  import FeedbackForm from "~/components/feedbackForm";
   export default {
     head () {
       return {
@@ -48,6 +51,7 @@
       }
     },
     components:{
+      FeedbackForm,
       devider,
       BreadCrumbs,
       loader,

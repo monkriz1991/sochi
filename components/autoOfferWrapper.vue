@@ -35,7 +35,9 @@
                     h4.text-center.text-uppercase
                       |{{$t('s3')}}
                       br
+                      |{{$t('s3_1')}}
                       a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
+                      |{{$t('s3_2')}}
     hr(v-if="!loading").dashed
 </template>
 

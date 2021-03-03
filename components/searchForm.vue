@@ -2,7 +2,7 @@
   div.container
     client-only
       div#form-wrapper
-        div.switcher
+        div.d-none.d-lg-flex.w-100.switcher
           nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").driver_switch.active.text-uppercase="{{$t('s7')}}"
           nuxt-link(:to="{name: $assets.prefix('service', $i18n.locale)}").driver_switch.active.text-uppercase="{{$t('s8')}}"
         div.fields_form.p-2
@@ -20,7 +20,7 @@
                       type="datetime"
                       :placeholder="$t('s13')"
                       v-model="start_date"
-                      format="yyyy-MM-dd HH:mm"
+                      format="dd-MM-yyyy  HH:mm"
                       :week-start="1"
                       :minute-step="10"
                       :phrases="{ok: $t('s15'), cancel: $t('s16')}"
@@ -35,7 +35,7 @@
                       type="datetime"
                       :placeholder="$t('s13')"
                       v-model="end_date"
-                      format="yyyy-MM-dd HH:mm"
+                      format="dd-MM-yyyy  HH:mm"
                       :week-start="1"
                       :minute-step="10"
                       :phrases="{ok: $t('s15'), cancel: $t('s16')}"

@@ -4,7 +4,7 @@
       div.d-flex.d-sm-flex.d-md-flex.d-lg-none.phone-wrapper
         div.container
           a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`" @click="$assets.reachGoal('pressphone')").mgo-number="{{settings.main_phone}}"
-      header.pt-3
+      header.pt-4
         div.container
           div.d-none.d-sm-none.d-md-none.d-lg-block
             b-row
@@ -42,6 +42,8 @@
                 div.d-flex.d-sm-flex.d-md-flex.d-lg-none.flex-column
                   a(role="button" v-b-modal.callback).btn.main.icon-phone.w-100="{{ $t('callback') }}"
                   nuxt-link(:to="{name: $assets.prefix('payment', $i18n.locale)}").btn.main.icon-credit-card.w-100="{{ $t('op') }}"
+                  nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").btn.main.w-100="{{ $t('s7') }}"
+                  nuxt-link(:to="{name: $assets.prefix('service', $i18n.locale)}").btn.main.w-100="{{ $t('s8') }}"
                   nuxt-link(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").btn.main.w-100="{{ $t('long_term_rental') }}"
                   nuxt-link(v-if="0" :to="{name: $assets.prefix('personal', $i18n.locale)}").btn.main.w-100="{{ $t('m18') }}"
                   nuxt-link(v-if="$i18n.locale !== 'en'" :to="switchLocalePath('en')").btn.main.w-100="English Version"
@@ -174,10 +176,14 @@
     width: 100%
     left: 0
     z-index: 999
+    height: 40px
+    justify-content: center
+    align-items: center
     a
       color: #ffffff
       display: block
       text-align: center
+      font-weight: bold
   header
     background-color: #E8EEF2
     min-height: 100px
