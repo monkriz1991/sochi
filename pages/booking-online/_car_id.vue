@@ -304,6 +304,9 @@
         car_data: {},
         car_photos: [],
         options: [],
+        viezd_v_krim_index: false,
+        vozvrat_avto_v_krimu_index: false,
+        vozvrat_avto_v_krimu_original_price: 12000,
         placeOptions: [],
         places: [],
         insurance: 0,
@@ -335,6 +338,19 @@
           promocode: '',
         },
         errors: [],
+      }
+    },
+    updated(){
+      if (this.options.length){
+        if (this.options[this.viezd_v_krim_index].value){
+          this.options[this.vozvrat_avto_v_krimu_index].old_price = this.vozvrat_avto_v_krimu_original_price
+          this.options[this.vozvrat_avto_v_krimu_index].price = 4000
+        }else{
+          if(this.options[this.vozvrat_avto_v_krimu_index].old_price){
+            delete this.options[this.vozvrat_avto_v_krimu_index].old_price
+            this.options[this.vozvrat_avto_v_krimu_index].price = this.vozvrat_avto_v_krimu_original_price
+          }
+        }
       }
     },
     watch:{
@@ -742,6 +758,15 @@
                 })
               });
               this.placeOptions = res;
+              this.options.map((el, idx) => {
+                if(el.option_name === 'Выезд в Крым'){
+                  this.viezd_v_krim_index = idx
+                }
+                if(el.option_name === 'Возврат авто в Крыму'){
+                  this.vozvrat_avto_v_krimu_index = idx
+                  this.vozvrat_avto_v_krimu_original_price = el.price
+                }
+              })
               this.places = result.data.data;
               this.syncBaseDataWithStore();
             }

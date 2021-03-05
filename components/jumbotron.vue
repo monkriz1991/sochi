@@ -51,6 +51,10 @@
     bottom: 20px
     width: 100%
     z-index: 2
+    @media screen and (max-width: 991px)
+      top: 200px
+    @media screen and (max-width: 767px)
+      top: 0px
   .make_clear
     height: 50px
 </style>
