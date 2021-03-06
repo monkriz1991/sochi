@@ -90,7 +90,7 @@
     },
     methods:{
       ...mapActions(['setSearchForm']),
-      onSearch(){
+      onSearch(useScroll = true){
         let form = {
           df: this.start_date,
           dt: this.end_date,
@@ -100,6 +100,9 @@
         };
         this.setSearchForm(form).then(() => {
           this.$root.$emit('onSearch');
+          if(useScroll){
+            this.$scrollTop();
+          }
         });
       },
       currentPlace(){
@@ -130,7 +133,7 @@
             });
             this.placeOptions = res;
             this.places = result.data.data;
-            this.onSearch();
+            this.onSearch(false);
           }
         })
       }
