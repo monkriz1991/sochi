@@ -8,7 +8,7 @@ Vue.prototype.$scrollTop = function () {
   let element = document.getElementById("aowrapper");
   let top = element.offsetTop;
   window.scrollTo({
-    top: top,
+    top: top - 100,
     left: 0,
     behavior: 'smooth'
   })
