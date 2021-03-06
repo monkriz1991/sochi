@@ -37,6 +37,7 @@
     "vue-browser-detect-plugin": "^0.1.13",
     "vue-datetime": "^1.0.0-beta.11",
     "vue-phone-number-input": "^1.1.6",
+    "vue-scrollto": "^2.20.0",
     "vue-yandex-maps": "^0.10.6",
     "vue-youtube-embed": "^2.2.2",
     "vue2-google-maps": "^0.10.7",

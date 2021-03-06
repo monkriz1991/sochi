@@ -62,7 +62,20 @@ module.exports = {
           messages: translation
         }
       }
-    ]
+    ],
+    ['vue-scrollto/nuxt', {
+      container: "body",
+      duration: 300,
+      easing: "ease",
+      offset: -100,
+      force: true,
+      cancelable: true,
+      onStart: false,
+      onDone: false,
+      onCancel: false,
+      x: false,
+      y: true
+    }],
   ],
 
   webfontloader: {

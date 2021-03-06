@@ -51,7 +51,7 @@
               b-row
                 b-col(sm="12" md="12" lg="12")
                   div.form-group.pt-4
-                    button(role="button" @click="onSearch").go-search.btn.mt-2.text-uppercase="{{$t('s10')}}"
+                    button(role="button" @click="onSearch" v-scroll-to="'#aowrapper'").go-search.btn.mt-2.text-uppercase="{{$t('s10')}}"
 </template>
 
 <script>
@@ -100,9 +100,9 @@
         };
         this.setSearchForm(form).then(() => {
           this.$root.$emit('onSearch');
-          if(useScroll){
-            this.$scrollTop();
-          }
+          // if(useScroll){
+          //   this.$scrollTop();
+          // }
         });
       },
       currentPlace(){
