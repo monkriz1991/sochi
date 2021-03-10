@@ -341,7 +341,7 @@
       }
     },
     updated(){
-      if (this.options.length){
+      if (this.options_loaded){
         if (this.options[this.viezd_v_krim_index].value){
           this.options[this.vozvrat_avto_v_krimu_index].old_price = this.vozvrat_avto_v_krimu_original_price
           this.options[this.vozvrat_avto_v_krimu_index].price = 4000
@@ -378,6 +378,9 @@
     },
     computed:{
       ...mapGetters(['searchForm']),
+      options_loaded(){
+        return this.options.length > 0
+      },
       generated_options(){
         let res = [];
         this.options.map(el => {
@@ -758,15 +761,6 @@
                 })
               });
               this.placeOptions = res;
-              this.options.map((el, idx) => {
-                if(el.option_name === 'Выезд в Крым'){
-                  this.viezd_v_krim_index = idx
-                }
-                if(el.option_name === 'Возврат авто в Крыму'){
-                  this.vozvrat_avto_v_krimu_index = idx
-                  this.vozvrat_avto_v_krimu_original_price = el.price
-                }
-              })
               this.places = result.data.data;
               this.syncBaseDataWithStore();
             }
@@ -816,6 +810,15 @@
             this.loader_step = this.loader_step + 1;
             this.options = res.data.data;
             this.insurance_options = res.data.insurance;
+            this.options.map((el, idx) => {
+              if(el.option_name === 'Выезд в Крым'){
+                this.viezd_v_krim_index = idx
+              }
+              if(el.option_name === 'Возврат авто в Крыму'){
+                this.vozvrat_avto_v_krimu_index = idx
+                this.vozvrat_avto_v_krimu_original_price = el.price
+              }
+            })
           }
         }).catch((err)=>{console.error(err)});
       this.fetchPoints().then(()=>{
