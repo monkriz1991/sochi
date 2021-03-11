@@ -213,10 +213,17 @@
       padding: 5px 10px
       h6
         margin: 0
-        display: inline
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        min-height: 45px
         border-bottom: 1px solid $primary_hover
       p
-        margin: 0
+        margin: 3px 0 0
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        min-height: 50px
     .ico
       position: relative
       display: flex
