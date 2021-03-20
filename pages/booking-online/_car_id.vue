@@ -139,7 +139,7 @@
                         div
                           p
                             |{{$t('bocid15')}}
-                            b="{{$t('bocid16')}} {{this.limit_sale}}%."
+                            b="{{$t('bocid16')}} {{this.limit_sale}} %."
                             |{{$t('bocid17')}}
                             b="{{$t('bocid18')}}"
                             |{{$t('bocid19')}}
