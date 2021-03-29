@@ -176,16 +176,8 @@
                       h5="{{$t('bocid14')}}"
                       h5="{{total_sum}}₽"
               b-col(sm="12" md="12" lg="6")
-                form(ref="form" id="pay-y" name=ShopForm method="POST" action="https://money.yandex.ru/eshop.xml").form_part
+                form(ref="form" id="pay-y").form_part
                   div.p-4.form-inside.my-2
-                    input(type="hidden" name="scid" :value="$config.scid")
-                    input(type="hidden" name="ShopID" :value="$config.ShopID")
-                    input(name="paymentType" value="" type="hidden")
-                    input(name="orderNumber" v-model="orderNumber" type="hidden")
-                    input(name="custName" v-model="orderName" type="hidden")
-                    input(name="sum" v-model="online_sum" type="hidden")
-                    input(name="CustomerNumber" value="" type="hidden")
-                    input(name="ym_merchant_receipt" v-model="reciept" type="hidden" required="required")
                     h3="{{$t('bocid36')}}"
                     b-row
                       b-col(sm="12" md="12" lg="6")
@@ -711,10 +703,10 @@
           features: this.features,
           delivery_reverse: `\n\n${this.insuranse_string ? this.insuranse_string : ''}${payData}\n${promo}\n\nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}\n`
         }
-        this.$axios.post('sun/placeOrder', orderData)
+        this.$axios.post('sun/placeOrderOnPay', orderData)
           .then(res => {
             if (res.data.status === 'success'){
-              callback_func()
+              callback_func(res.data.confirmation)
             }
           }).catch(err => console.error(err))
       },
@@ -731,14 +723,14 @@
             return false
           }else{
             this.allready = true;
-            this.makeMessageToBroadCasting(()=>{
+            this.makeMessageToBroadCasting((confirmation)=>{
               ym(33072038,'reachGoal','reserveacar')
-              this.$refs.form.submit();
               this.$bvToast.toast('Заявка отправлена', {
                 title: 'Успех',
                 variant: 'success',
                 solid: true
               });
+              window.location.href = confirmation
             })
           }
         }else{

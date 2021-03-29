@@ -8,15 +8,7 @@
         p
           strong.red="{{$t('payment2')}}"
           |{{$t('payment3')}}
-        form(name="ShopForm" method="POST" action="https://money.yandex.ru/eshop.xml" validator="full" _lpchecked="1")#pay-y
-          input(type="hidden" name="scid" :value="$config.scid")
-          input(type="hidden" name="ShopID" :value="$config.ShopID")
-          input(name="paymentType" value="" type="hidden")
-          input(name="orderNumber" v-model="orderNumber" type="hidden")
-          input(name="custName" v-model="orderName" type="hidden")
-          input(name="sum" v-model="payment_form.sum" type="hidden")
-          input(name="CustomerNumber" value="" type="hidden")
-          input(name="ym_merchant_receipt" v-model="reciept" type="hidden" required="required")
+        form(@submit.prevent="payNow")#pay-y
           b-row
             b-col(sm="12" md="6" lg="6")
               b-form-group.mb-0( :description="$t('payment4')").py-2
@@ -35,7 +27,7 @@
                 b-form-input(v-model="payment_form.sum" type="number" :placeholder="$t('payment12')")
             b-col(sm="12" md="12" lg="12")
               div.py-2
-                button(type="submit").btn.main.w-100.icon-credit-card="{{$t('payment9')}}"
+                a(@click="payNow").btn.main.w-100.icon-credit-card="{{$t('payment9')}}"
         hr
         div.my-5.py-3
 </template>
@@ -58,7 +50,8 @@
     },
     computed:{
       orderNumber(){
-        return Date.now();
+        let timestamp = Date.now()
+        return `sochi-${timestamp}`;
       },
       orderName(){
         return this.payment_form.name;
@@ -104,6 +97,41 @@
       }
     },
      methods:{
+       payNow(){
+         let Data = {
+           'station': this.$config.station,
+           'online_price': this.payment_form.sum,
+           'email': this.payment_form.email,
+           'naimenovanie': this.payment_form.car,
+           'fio': this.payment_form.name,
+           'order_id_site': this.orderNumber
+         }
+         this.$axios.post('sun/registerAnOrderOP', Data)
+           .then(res => {
+             if (res.data.status === 'success'){
+               this.$bvToast.toast('Заявка отправлена', {
+                 title: 'Успех',
+                 variant: 'success',
+                 solid: true
+               });
+               window.location.href = res.data.confirmation;
+             }else{
+               this.$bvToast.toast('Форма заполнена с ошибками', {
+                 title: 'Ошибка',
+                 variant: 'danger',
+                 solid: true
+               });
+             }
+           }).catch(err => {
+           if (err){
+             this.$bvToast.toast('Форма заполнена с ошибками', {
+               title: 'Ошибка',
+               variant: 'danger',
+               solid: true
+             });
+           }
+         })
+       },
       onPhoneChange(){
         this.payment_form.phone = this.$refs.phoneInput.phoneFormatted;
       }
