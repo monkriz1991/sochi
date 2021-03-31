@@ -38,6 +38,8 @@
                       |{{$t('s3_1')}}
                       a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
                       |{{$t('s3_2')}}
+          div.d-flex.justify-content-center.align-center.d-md-none.py-3
+            nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").w-100.btn.primo.text-uppercase="Смотреть весь автопарк"
     hr(v-if="!loading").dashed
 </template>
 
@@ -125,6 +127,17 @@
 
 <style lang="sass" scoped>
   @import "../assets/styles/variables"
+  .btn.primo
+    background-color: $primary
+    font-family: 'Roboto Condensed', sans-serif
+    color: #ffffff
+    font-size: 16px
+    text-align: center
+    padding: 5px 25px
+    transition: 0.3s
+    border-radius: 0.25rem
+    &:hover
+      background-color: $primary_hover
   #aowrapper
     min-height: 400px
   .offer
