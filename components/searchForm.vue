@@ -151,11 +151,14 @@
 <style lang="sass" scoped>
   @import "../assets/styles/variables"
   #form-wrapper
-    background-color: rgba(255,255,255,0.7)
-    border: 1px solid rgba(205,205,205,0.5)
+    background-color: rgba(0,0,0,0.7)
+    border: 1px solid rgba(0,0,0,0.5)
     -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    label
+      color: #ffffff
+      font-weight: bold
   .switcher
     width: 100%
     display: flex
@@ -168,8 +171,8 @@
       font-family: 'Roboto Condensed', sans-serif
       background-color: rgba(255,255,255,0.9)
       cursor: pointer
-      border-right: 1px solid #ffffff
-      border-left: 1px solid #ffffff
+      border-right: 1px solid #000
+      border-left: 1px solid #000
       @media screen and (max-width: 991px)
         font-size: 18px
       &.active
