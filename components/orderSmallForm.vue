@@ -54,7 +54,6 @@
             nuxt-link(:to="{name: $assets.prefix('booking-online', $i18n.locale)}")="{{$t('pp2')}}"
             |{{$t('pp3')+' '}}
             a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`").mgo-number="{{settings.main_phone}}"
-
 </template>
 
 <script>
@@ -107,9 +106,18 @@
         }else{
           places = this.fetchedPlaces
         }
-        let place = places.filter(el => {
-          return el.id === parseInt(this.place)
-        });
+        let place = [{point_name: 'Ошибка при выборе места'}]
+        if(this.typeOrder === "почасовая аренда"){
+          place = [
+            {
+              point_name: this.places[this.place].name_rus
+            }
+          ]
+        }else{
+          place = places.filter(el => {
+            return el.id === parseInt(this.place)
+          });
+        }
         return place[0]
       },
       settings(){
@@ -169,17 +177,17 @@
               });
             });
           }else{
-            let message = `на сайте sochirentacar.ru Пользователь ${this.fio} сделал заявку из карточки автомобиля
-            ДАННЫЕ ЗАЯВКИ:
-            Автомобиль - ${this.carName},
-            Тип заявки - ${this.typeOrder},
-            Дата подачи - ${this.$assets.formatDate(new Date(this.date_from))},
-            Дата возврата - ${this.$assets.formatDate(new Date(this.date_to))},
-            Место подачи - ${this.selectedPlace.point_name},
-            ФИО - ${this.fio},
-            Телефон - ${this.phone},
-            Е-mail - ${this.email},
-            Коментарий - ${this.comment}`;
+            let message = `на сайте krasnodarrentacar.ru Пользователь ${this.fio} сделал заявку из карточки автомобиля
+                ДАННЫЕ ЗАЯВКИ:
+                Автомобиль - ${this.carName},
+                Тип заявки - ${this.typeOrder},
+                Дата подачи - ${this.$assets.formatDate(new Date(this.date_from))},
+                Дата возврата - ${this.$assets.formatDate(new Date(this.date_to))},
+                Место подачи - ${this.selectedPlace.point_name},
+                ФИО - ${this.fio},
+                Телефон - ${this.phone},
+                Е-mail - ${this.email},
+                Коментарий - ${this.comment}`;
             let bodyFormData = new FormData();
             bodyFormData.set('station', this.$config.station);
             bodyFormData.set('type', 'smallform');
