@@ -177,7 +177,7 @@
               });
             });
           }else{
-            let message = `на сайте krasnodarrentacar.ru Пользователь ${this.fio} сделал заявку из карточки автомобиля
+            let message = `на сайте sochirentacar.ru Пользователь ${this.fio} сделал заявку из карточки автомобиля
                 ДАННЫЕ ЗАЯВКИ:
                 Автомобиль - ${this.carName},
                 Тип заявки - ${this.typeOrder},
