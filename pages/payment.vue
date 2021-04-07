@@ -51,7 +51,7 @@
     computed:{
       orderNumber(){
         let timestamp = Date.now()
-        return `sochi-${timestamp}`;
+        return `sch-${timestamp}`;
       },
       orderName(){
         return this.payment_form.name;

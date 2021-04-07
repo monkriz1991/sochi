@@ -177,7 +177,11 @@
               });
             });
           }else{
-            let message = `на сайте sochirentacar.ru Пользователь ${this.fio} сделал заявку из карточки автомобиля
+            let subtype = ""
+            if (this.typeOrder === "почасовая аренда"){
+              subtype = "АРЕНДА АВТО С ВОДИТЕЛЕМ"
+            }
+            let message = `на сайте sochirentacar.ru Пользователь ${this.fio} сделал заявку из карточки автомобиля ${subtype}
                 ДАННЫЕ ЗАЯВКИ:
                 Автомобиль - ${this.carName},
                 Тип заявки - ${this.typeOrder},
