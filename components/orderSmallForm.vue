@@ -75,6 +75,7 @@
         date_to: this.$assets.genNowSpec(9),
         min_date: this.$assets.genNowSpec(1),
         comment: '',
+        session_key: `${this.$config.station}-${(new Date()).getTime()}`,
         errorstry: 0
       }
     },
@@ -156,7 +157,6 @@
         });
         return res;
       },
-    },
     methods: {
       onPhoneChange(){
         this.phone = this.$refs.phoneInput.phoneFormatted;
@@ -177,25 +177,8 @@
               });
             });
           }else{
-            let subtype = ""
-            if (this.typeOrder === "почасовая аренда"){
-              subtype = "АРЕНДА АВТО С ВОДИТЕЛЕМ"
-            }
-            let message = `на сайте sochirentacar.ru Пользователь ${this.fio} сделал заявку из карточки автомобиля ${subtype}
-                ДАННЫЕ ЗАЯВКИ:
-                Автомобиль - ${this.carName},
-                Тип заявки - ${this.typeOrder},
-                Дата подачи - ${this.$assets.formatDate(new Date(this.date_from))},
-                Дата возврата - ${this.$assets.formatDate(new Date(this.date_to))},
-                Место подачи - ${this.selectedPlace.point_name},
-                ФИО - ${this.fio},
-                Телефон - ${this.phone},
-                Е-mail - ${this.email},
-                Коментарий - ${this.comment}`;
-            let bodyFormData = new FormData();
-            bodyFormData.set('station', this.$config.station);
-            bodyFormData.set('type', 'smallform');
-            bodyFormData.set('row_data', JSON.stringify({
+            let data = {
+              fio: this.fio,
               car_name: this.carName,
               date_from: this.$assets.formatDate(new Date(this.date_from)),
               date_to: this.$assets.formatDate(new Date(this.date_to)),
@@ -205,10 +188,12 @@
               phone: this.phone,
               email: this.email,
               comment: this.comment,
-            }));
-            this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
+              station: this.$config.station,
+              session_key: this.session_key
+            };
+            this.$axios.post("sun/sendStaticOrder", data)
               .then((res)=>{
-                this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).then(res =>{
+                if (res.data.status === 'success'){
                   ym(33072038,'reachGoal','online-zayavka')
                   this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                     title: 'Заявка отправлена',
@@ -216,9 +201,14 @@
                     solid: true
                   });
                   this.$router.push({ name: this.$assets.prefix('status-success', this.$i18n.locale)});
-                }).catch(err => console.error(err));
+                }else{
+                  this.$router.push({ name: this.$assets.prefix('status-error', this.$i18n.locale)});
+                }
               }).catch((err)=>{
-              this.$router.push({ name: this.$assets.prefix('status-error', this.$i18n.locale)});
+                if (err){
+                  console.error(err)
+                  this.$router.push({ name: this.$assets.prefix('status-error', this.$i18n.locale)});
+                }
             })
           }
         }else{
