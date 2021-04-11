@@ -100,56 +100,57 @@
       }
     },
     computed: {
-      selectedPlace(){
+      selectedPlace() {
         let places = [];
-        if (this.places.length){
+        if (this.places.length) {
           places = this.places
-        }else{
+        } else {
           places = this.fetchedPlaces
         }
         let place = [{point_name: 'Ошибка при выборе места'}]
-        if(this.typeOrder === "почасовая аренда"){
+        if (this.typeOrder === "почасовая аренда") {
           place = [
             {
               point_name: this.places[this.place].name_rus
             }
           ]
-        }else{
+        } else {
           place = places.filter(el => {
             return el.id === parseInt(this.place)
           });
         }
         return place[0]
       },
-      settings(){
+      settings() {
         let settings = this.$parent.$parent.$parent.set_data
-        if (settings){
+        if (settings) {
           return settings
-        }else{
+        } else {
           return {
             main_phone: '',
           }
         }
       },
-      placesOptions(){
+      placesOptions() {
         let res = [];
         let places = [];
-        if (this.places.length){
+        if (this.places.length) {
           places = this.places
-        }else{
+        } else {
           places = this.fetchedPlaces
         }
         places.map((el, key) => {
-          let  text = '';
-          if (this.places.length){
-            if (this.typeOrder === "почасовая аренда"){
+          let text = '';
+          if (this.places.length) {
+            if (this.typeOrder === "почасовая аренда") {
               text = `${this.$i18n.locale === 'ru' ? el.name_rus : el.name_eng}${el.price > 0 ? ` - ${el.price}₽` : ''}`
-            }else{
+            } else {
               text = `${this.$t(el.point_name)}${el.price > 0 ? ` - ${el.price}₽` : ''}`
             }
-          }else{
+          } else {
             text = `${this.$t(el.point_name)}`
-          };
+          }
+          ;
           res.push({
             value: this.typeOrder === "почасовая аренда" ? this.fetchedPlaces.length > 0 ? el.id : key : el.id,
             text: text
@@ -157,6 +158,7 @@
         });
         return res;
       },
+    },
     methods: {
       onPhoneChange(){
         this.phone = this.$refs.phoneInput.phoneFormatted;
