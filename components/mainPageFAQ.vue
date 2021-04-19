@@ -27,7 +27,7 @@ export default {
           },
           {
             q: "Are there any mileage restrictions?",
-            a: "The rental price includes unlimited mileage on the territory of Greater Sochi. If you do not plan long-distance trips, you can get an additional 10% discount by including a mileage limit of up to 100 km / day. Mileage is added up for the entire rental period."
+            a: "The rental price includes unlimited mileage on the territory of Greater Sochi. If you do not plan long-distance trips, you can get an additional 5% discount by including a mileage limit of up to 100 km / day. Mileage is added up for the entire rental period."
           },
           {
             q: "Can I see up-to-date photos of the car in advance?",
@@ -53,7 +53,7 @@ export default {
           },
           {
             q: "Если ли ограничения по пробегу?",
-            a: "В стоимость аренды включен пробег без ограничения по территории Большого Сочи. Если вы не планируете дальние поездки, вы можете получить дополнительную скидку в 10%, включив ограничение пробега до 100 км/сутки. Пробег суммируется за весь период аренды."
+            a: "В стоимость аренды включен пробег без ограничения по территории Большого Сочи. Если вы не планируете дальние поездки, вы можете получить дополнительную скидку в 5%, включив ограничение пробега до 100 км/сутки. Пробег суммируется за весь период аренды."
           },
           {
             q: "Можно ли заранее посмотреть актуальные фото автомобиля?",

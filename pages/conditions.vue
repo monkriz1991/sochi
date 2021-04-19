@@ -40,7 +40,7 @@
               div.points
                 div(v-for="(ad, idx) in options" :key="idx").item-info
                   p.l="{{$t(ad.name.toUpperCase())}}"
-                  p.r(v-html="`${ad.name === 'Мойка' || ad.name === 'Дозаправка' ? $t('s23') : ''}${ad.price > 0 ? ad.price+'₽' : $t('bocid2')}`")
+                  p.r(v-html="`${ad.name === 'Мойка' || ad.name === 'Дозаправка' ? $t('s23') : ''}${ad.price > 0 ? ad.price+'₽' : $t('bocid2')} ${ ad.type === 'day' ? `/ ${$t('aoc1')}` : '' }`")
           div(v-else)
             loader
         hr
@@ -143,6 +143,7 @@
           .then((result)=>{
             if (result.data.status === 'success'){
               this.options = result.data.data;
+              console.log(this.options)
               this.loaded = true
             }
           }).catch((err)=>{

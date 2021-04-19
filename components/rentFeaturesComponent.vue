@@ -43,15 +43,15 @@ export default {
         {
           title_ru: 'Скидки на аренду при бронировании  автомобиля сроком от 3х дней',
           title_en: 'Discounts for rent when booking a car for a period of 3 days or more',
-          text_ru: "При аренде автомобиля от 3 дней, скидка составит 15%;\nПри аренде автомобиля от 7 дней, скидка составит 20%;\nПри долгосрочной аренде автомобиля от 1 месяца, скидка на аренду составит до 50%.",
-          text_en: '"If you rent a car for 3 days or more, the discount will be 15%;\nIf you rent a car for 7 days or more, the discount will be 20%;\nFor long-term car rental from 1 month, the rental discount will be up to 50%.',
+          text_ru: "При аренде автомобиля от 3 дней, скидка составит до 15%; При аренде автомобиля от 7 дней, скидка составит до 20%; При долгосрочной аренде автомобиля от 1 месяца, скидка на аренду составит до 50%.",
+          text_en: 'If you rent a car for 3 days or more, the discount will be up to 15%; If you rent a car for 7 days or more, the discount will be up to 20%; If you rent a car for 1 month or more, the discount will be up to 50%.',
           image: 'feature3',
         },
         {
           title_ru: 'Пробег без ограничений',
           title_en: 'Unlimited mileage',
-          text_ru: 'Пробег по территории Большого Сочи не ограничен. Условия выезда в другие регионы или в Абхазию вы можете уточнить у наших менеджеров. Если вы не планируете дальние поездки, вы можете получить дополнительную скидку в 10%, включив ограничение пробега до 100 км/сутки. Пробег суммируется за весь период аренды.',
-          text_en: 'Mileage on the territory of Sochi is not limited. You can check the conditions of travel to other regions or to Abkhazia with our managers. If you do not plan long-distance trips, you can get an additional 10% discount by including a mileage limit of up to 100 km / day. Mileage is added up for the entire rental period.',
+          text_ru: 'Пробег по территории Большого Сочи не ограничен. Условия выезда в другие регионы или в Абхазию вы можете уточнить у наших менеджеров. Если вы не планируете дальние поездки, вы можете получить дополнительную скидку в 5%, включив ограничение пробега до 100 км/сутки. Пробег суммируется за весь период аренды.',
+          text_en: 'The mileage on the territory of Greater Sochi is not limited. You can check the conditions of travel to other regions or to Abkhazia with our managers. If you do not plan long-distance trips, you can get an additional 5% discount by including a mileage limit of up to 100 km / day. The mileage is summed up for the entire rental period.',
           image: 'feature4',
         },
       ]
