@@ -617,7 +617,7 @@
       checkCarAvailability(){
         let df_sec = (new Date(this.userData.df)).getTime();
         let now_sec = (new Date()).getTime();
-        let od = 86400000;
+        let od = 86400000 / 2;
         if((df_sec - now_sec) > od){
           this.$axios.post('checkCarAvailability', {
             df: this.$assets.makeDateForRequest(this.userData.df),
