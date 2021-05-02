@@ -3,16 +3,16 @@
       h4.text-uppercase="{{$t('ins1')}}"
       div(v-for="(item, idx) in sorted_items" :key="idx").option
         div(v-bind:class="{'pl-3': item.sub}").option-item.my-2
-          b-form-checkbox(v-model="item.value" v-if="item.code === 'ins_tax_1'" @change="check($event)").lp-checkbox
+          b-form-checkbox(v-model="item.value" v-if="item.code === 'ins_tax_1'" @change="check($event)" :disabled="item.disabled").lp-checkbox
             div.wtp
               a(@click.prevent="$bvModal.show(item.code)").hidden_info
               p(v-html="item[`name_${$i18n.locale}`]").m-0
-          b-form-checkbox(v-model="item.value" v-else-if="item.code === 'ins_tax_5'").lp-checkbox
+          b-form-checkbox(v-model="item.value" v-else-if="['ins_tax_5', 'ins_tax_2'].includes(item.code)" :disabled="item.disabled").lp-checkbox
             div.info
               div.wtp
                 a(@click.prevent="$bvModal.show(item.code)").hidden_info
                 p(v-html="item[`name_${$i18n.locale}`]").m-0
-          b-form-checkbox(v-model="item.value" v-else @change="check_sub($event)").lp-checkbox
+          b-form-checkbox(v-model="item.value" v-else @change="check_sub($event)" :disabled="item.disabled").lp-checkbox
             div.info
               div.wtp
                 a(@click.prevent="$bvModal.show(item.code)").hidden_info

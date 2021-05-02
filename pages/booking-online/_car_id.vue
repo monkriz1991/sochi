@@ -627,6 +627,8 @@
           }).then(result => {
             if (result.data.status !== 'success'){
               this.$router.push('/')
+            }else{
+              this.fetchOptions()
             }
           }).catch(err => console.error(err))
         }else{
@@ -794,25 +796,27 @@
         this.checkCarAvailability();
         this.fetchData();
       },
+      fetchOptions(){
+        this.$axios.post('sun/options', {car_id: this.car_id, station: this.$config.station, period: this.period})
+          .then(res => {
+            if(res.data.status === 'success'){
+              this.loader_step = this.loader_step + 1;
+              this.options = res.data.data;
+              this.insurance_options = res.data.insurance;
+              this.options.map((el, idx) => {
+                if(el.option_name === 'Выезд в Крым'){
+                  this.viezd_v_krim_index = idx
+                }
+                if(el.option_name === 'Возврат авто в Крыму'){
+                  this.vozvrat_avto_v_krimu_index = idx
+                  this.vozvrat_avto_v_krimu_original_price = el.price
+                }
+              })
+            }
+          }).catch((err)=>{console.error(err)});
+      }
     },
     mounted() {
-      this.$axios.post('sun/options', {car_id: this.car_id, station: this.$config.station})
-        .then(res => {
-          if(res.data.status === 'success'){
-            this.loader_step = this.loader_step + 1;
-            this.options = res.data.data;
-            this.insurance_options = res.data.insurance;
-            this.options.map((el, idx) => {
-              if(el.option_name === 'Выезд в Крым'){
-                this.viezd_v_krim_index = idx
-              }
-              if(el.option_name === 'Возврат авто в Крыму'){
-                this.vozvrat_avto_v_krimu_index = idx
-                this.vozvrat_avto_v_krimu_original_price = el.price
-              }
-            })
-          }
-        }).catch((err)=>{console.error(err)});
       this.fetchPoints().then(()=>{
         ym(33072038,'reachGoal','Bookacar')
         this.loader_step = this.loader_step + 1;
