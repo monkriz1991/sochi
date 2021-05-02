@@ -128,7 +128,7 @@
                     Insurance(v-model="insurance" :items="insurance_options")
                   div(v-if="!car_data.special_price")
                     div(v-if="!no_limit_avalible")
-                      div(v-if="car_data.naimenovanie !== 'Xiaomi MiJia Electric Scooter M365' && car_data.naimenovanie !== 'Volkswagen Polo Trendline Promo' && car_data.naimenovanie !== 'Hyundai Solaris Promo' && car_data.naimenovanie !== 'Renault Logan Stepway Promo'").p-3.info-inside.wbb
+                      div(v-if="!['Xiaomi MiJia Electric Scooter M365', 'Volkswagen Polo Trendline Promo', 'Volkswagen Polo Trendline Promo', 'Renault Logan Stepway Promo', 'KIA Rio new Promo', 'Hyundai Creta Promo'].includes(car_data.naimenovanie)").p-3.info-inside.wbb
                         h4="{{$t('bocid12')}}"
                         b-form-group
                           b-row
