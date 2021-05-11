@@ -68,11 +68,6 @@
         watch: {
           total(val) {
             this.$emit('input', val);
-            // if (this.ins_tax_3){
-            //   this.$parent.no_loan = true
-            // }else{
-            //   this.$parent.no_loan = false
-            // }
             this.$parent.insuranse_string = this.insuranse_string
           },
         },
