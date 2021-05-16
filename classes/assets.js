@@ -1,46 +1,21 @@
-Date.prototype.addDays = function(days) {
-  let date = new Date(this.valueOf());
-  date.setDate(date.getDate() + days);
-  return date;
-};
-
 class Assets {
-  constructor() {
+  constructor(moment) {
+    this.moment = moment
   }
 
+
   genNowSpec = (time) => {
-    let date = new Date().addDays(time);
-    let Y = date.getFullYear();
-    let D = date.getDate();
-    let M = date.getMonth();
-    return `${String(Y)}-${String(M + 1).length === 2 ? '' : '0'}${String((M + 1))}-${String(D).length === 2 ? '' : '0'}${String(D)}T09:00:00.000Z`;
+    return this.moment().tz('Europe/Moscow').add(time, 'days').set("hour", 12).set("minute", 0).set("second", 0).format();
+
   };
 
   genNowSpecFromDate = (date, time) => {
-    let data = date.addDays(time);
-    let Y = data.getFullYear();
-    let D = data.getDate();
-    let M = data.getMonth();
-    return `${String(Y)}-${String(M + 1).length === 2 ? '' : '0'}${String((M + 1))}-${String(D).length === 2 ? '' : '0'}${String(D)}T09:00:00.000Z`;
-  };
-
-
-  genNowSpecFromDateSpec = (date, time) => {
-    let data = new Date(date).addDays(time);
-    let Y = data.getFullYear();
-    let D = data.getDate();
-    let M = data.getMonth();
-    return `${String(Y)}-${String(M + 1).length === 2 ? '' : '0'}${String((M + 1))}-${String(D).length === 2 ? '' : '0'}${String(D)}T09:00:00.000Z`;
+    let data = this.moment(date).tz('Europe/Moscow').add(time, 'days').set("hour", 12).set("minute", 0).set("second", 0);
+    return data.format()
   };
 
   makeDateForRequest = (date) => {
-    let data = new Date(date);
-    let Y = data.getFullYear();
-    let D = data.getDate();
-    let M = data.getMonth();
-    let hh = data.getHours();
-    let mm = data.getMinutes();
-    return `${Y}${String(M + 1).length === 2 ? '' : '0'}${String((M + 1))}${String(D).length === 2 ? '' : '0'}${String(D)}${String(hh).length === 2 ? '' : '0'}${String(hh)}${String(mm).length === 2 ? '' : '0'}${String(mm)}`;
+    return this.moment(date).tz('Europe/Moscow').format("YYYYMMDDHHmm");
   }
 
   prepareForm = (formData) =>{
@@ -186,18 +161,8 @@ class Assets {
   };
 
   formatDate = date => {
-    var monthNames = [
-      "Января", "Февраля", "Марта",
-      "Апреля", "Мая", "Июня", "Июля",
-      "Августа", "Сентября", "Октября",
-      "Ноября", "Декабря"
-    ];
-
-    var day = date.getDate();
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
-    var mins = date.getMinutes() > 0 ? ''+date.getMinutes() : '0'+date.getMinutes();
-    return day + ' ' + monthNames[monthIndex] + ' ' + year + ' ' + date.getHours()+':'+ mins;
+    this.moment.locale('ru')
+    return this.moment(date).tz('Europe/Moscow').format("DD MMMM YYYY HH:mm");
   }
 
   generate_text_drivers = (sd, locale) => {

@@ -21,6 +21,7 @@
     "bootstrap-vue": "^2.11.0",
     "lodash": "^4.17.15",
     "mini-toastr": "^0.8.1",
+    "moment-timezone": "^0.5.33",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
@@ -51,6 +52,7 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^4.0.0",
     "luxon": "^1.22.0",
+    "moment": "^2.29.1",
     "weekstart": "^1.0.1"
   }
 }
