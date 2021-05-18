@@ -5,7 +5,7 @@
           b-col(sm="6" md="4" lg="4" v-for="(f, fdx) in features" :key="fdx")
             div.feature-item.my-3
               div.image
-                img(:data-src="`${$assets.check_local_env($config.local_url, $config.environment)}storage/${f.image}`" v-lazy-load)
+                img(:data-src="`${$assets.check_local_env($config.local_url, $config.environment)}storage/${f.image}`" v-lazy-load :alt="f.text")
               div.text
                 p="{{$t(f.text)}}"
             hr

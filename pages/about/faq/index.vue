@@ -15,7 +15,7 @@
               div(v-for="(i, idx) in faq[$i18n.locale]" :key="idx" v-bind:class="{active: idx === index}").colapsed_pan
                 div(@click="index = idx").question
                   h6(v-html="i.q").mb-1
-                  img(:src="angle")
+                  img(:src="angle" alt="angle down")
                 div.answer
                   p
                     strong="{{$t(faq2)}}"

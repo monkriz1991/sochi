@@ -3,7 +3,7 @@
       div(v-if="item.has_childs && item.sub_items !== undefined")
         div(:class="item.value ? null : 'collapsed'" :aria-expanded="item.value ? 'true' : 'false'" :aria-controls="`ido-${item.id}`" @click="item.value = !item.value").parrent_option
           div.info
-            img(:src="angle" v-bind:class="{in: item.value}")
+            img(:src="angle" v-bind:class="{in: item.value}" alt="angle down")
             p
               |{{$i18n.locale === 'ru' ? item.option_name : item.option_name_eng}}
         b-collapse(:id="`ido-${item.id}`" v-model="item.value" class="mt-4")

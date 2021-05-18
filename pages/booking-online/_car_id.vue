@@ -79,7 +79,7 @@
                       div(v-if="o.has_childs")
                         div(:class="o.value ? null : 'collapsed'" :aria-expanded="o.value ? 'true' : 'false'" :aria-controls="`ido-${o.id}`" @click="o.value = !o.value").parrent_option
                           div.info
-                            img(:src="angle" v-bind:class="{in: o.value}")
+                            img(:src="angle" v-bind:class="{in: o.value}" alt="angle down")
                             p
                               |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
                           div.price
