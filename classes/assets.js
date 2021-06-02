@@ -18,6 +18,10 @@ class Assets {
     return this.moment(date).tz('Europe/Moscow').format("YYYYMMDDHHmm");
   }
 
+  genMinDate = () => {
+    return this.moment().tz('Europe/Moscow').add(12, 'hours').format();
+  }
+
   prepareForm = (formData) =>{
     return {
       df: this.makeDateForRequest(formData.df),

@@ -26,7 +26,7 @@
                       zone="Europe/Moscow"
                       value-zone="Europe/Moscow"
                       :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-                      :min-datetime="$assets.genNowSpec(1)"
+                      :min-datetime="$assets.genMinDate()"
                       input-class="form-control"
                       input-id="from"
                     )
@@ -118,10 +118,6 @@
       checkItem(){
         if (new Date(this.start_date) > new Date(this.end_date)){
           this.end_date = this.$assets.genNowSpecFromDate(new Date(this.start_date), 7)
-        }
-        if(new Date(this.$assets.genNowSpec(1)) > new Date(this.start_date)){
-          this.start_date = this.$assets.genNowSpec(1);
-        }else{
         }
       },
       fetchPoints(){
