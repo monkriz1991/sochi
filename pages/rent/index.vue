@@ -4,6 +4,8 @@
       main.py-3
         div.container
           BreadCrumbs(:items="bcItems")
+          div.mb-3
+            search-form-for-rent
           h1="{{$t('s21')}}"
           div(v-if="loaded")
             c-wo-d-component-full(:items="CWoD")
@@ -41,6 +43,7 @@
   import devider from "../../components/devider";
   import rentFeaturesComponent from "~/components/rentFeaturesComponent";
   import FeedbackForm from "~/components/feedbackForm";
+  import SearchFormForRent from "~/components/SearchFormForRent";
   export default {
     head () {
       return {
@@ -51,6 +54,7 @@
       }
     },
     components:{
+      SearchFormForRent,
       FeedbackForm,
       devider,
       BreadCrumbs,
