@@ -346,7 +346,7 @@
             }
           }).catch(err => {
             console.error(err)
-            this.$nuxt.error({statusCode: 404, message: 'Post not found'})
+            this.$nuxt.error({statusCode: 404, message: 'Page not found'})
           })
       }
     },
@@ -355,6 +355,14 @@
     },
     created() {
       this.fetchSingleItem();
+    },
+    validate ({ params }) {
+      let seo = require('../../long');
+      if (seo[params.gosnomer]){
+        return true
+      }else{
+        throw({ statusCode: 404, message: 'Post not found' })
+      }
     }
   }
 </script>
