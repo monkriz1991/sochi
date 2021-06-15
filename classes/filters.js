@@ -24,10 +24,8 @@ class Filters{
         if (elements.indexOf(`${el.naimenovanie}_${el.cvet}_${el.Price}_${el.godvypuska}`) + 1){
         }else{
           if (el.Period <= 2){
-            if(!(this.blockList_1_2()).includes(el.gosnomer.toLowerCase())){
-              elements.push(`${el.naimenovanie}_${el.cvet}_${el.Price}_${el.godvypuska}`)
-              res.push(el)
-            }
+            elements.push(`${el.naimenovanie}_${el.cvet}_${el.Price}_${el.godvypuska}`)
+            res.push(el)
           }else{
             elements.push(`${el.naimenovanie}_${el.cvet}_${el.Price}_${el.godvypuska}`)
             res.push(el)
