@@ -3,7 +3,7 @@
     div.container
       client-only
         div(v-if="loading").p-5
-          loader
+          loader(:text="true")
         div(v-else)
           div(v-if="coronaFalse")
             div.offer.m-5.p-5
