@@ -34,6 +34,12 @@
         title: 'Новости и полезная информация о Сочи',
         meta: [
           {hid: 'description', name: 'description', content: 'Новости и полезная информация о Сочи: *✮* узнайте все о достопримечательностях Крыма *✮* самых вкусных местах *✮* и как успеть все посмотреть с помощью Crimea Rent-a-Car⭐'}
+        ],
+        link: [
+          {
+            rel: 'canonical',
+            href: 'https://sochirentacar.ru/news/'
+          }
         ]
       }
     },

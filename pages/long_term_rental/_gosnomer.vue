@@ -344,7 +344,10 @@
               }
               this.loaded = true;
             }
-          }).catch(err => console.error(err))
+          }).catch(err => {
+            console.error(err)
+            this.$nuxt.error({statusCode: 404, message: 'Post not found'})
+          })
       }
     },
     mounted() {
