@@ -19,16 +19,15 @@
           b-collapse(is-nav ref="navbarnav")#nav-collapse
             b-navbar-nav(class="ml-auto")
               b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('about', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m1') }}"
-              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('long_term_rental') }}"
-              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('news', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m2') }}"
-              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('contacts', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m6') }}"
-              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m4') }}"
-              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('prices', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m5') }}"
-              b-nav-item.d-sm-flex.d-md-none(role="button" v-b-modal.callback).text-uppercase.pt-1.bold-text="{{ $t('callback') }}"
-              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('booking-online', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('breadcrumbs14') }}"
-              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('payment', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('op') }}"
               b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('conditions', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m3') }}"
               b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('rent', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m38') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('prices', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m5') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m4') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('long_term_rental') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('service', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('s8') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('payment', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('op') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('contacts', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m6') }}"
+              b-nav-item.d-sm-flex.d-md-none(role="button" v-b-modal.callback).text-uppercase.pt-1.bold-text="{{ $t('callback') }}"
               b-nav-item.d-sm-flex.d-md-none
                 hr.my-1.
               b-nav-item.d-sm-flex.d-md-none(href="https://krasnodarrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m20') }}"
@@ -40,7 +39,7 @@
               b-nav-item.d-sm-flex.d-md-none(href="https://miami-rent-a-car.com/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m19') }}"
               b-nav-item.d-sm-flex.d-md-none
                 hr.my-1
-              b-nav-item
+              b-nav-item.cursot-default
                 div.address
                   p(v-html="$t(settings.address+'_22')")
               b-nav-item
@@ -65,9 +64,9 @@
               b-dropdown-item(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").text-uppercase.py-1="{{ $t('m4') }}"
               b-dropdown-item(:to="{name: $assets.prefix('prices', $i18n.locale)}").text-uppercase.py-1="{{ $t('m5') }}"
               b-dropdown-item(role="button" v-b-modal.callback).text-uppercase.py-1="{{ $t('callback') }}"
-              b-dropdown-item(:to="{name: $assets.prefix('booking-online', $i18n.locale)}").text-uppercase.py-1="{{ $t('breadcrumbs14') }}"
               b-dropdown-item(:to="{name: $assets.prefix('payment', $i18n.locale)}").text-uppercase.py-1="{{ $t('op') }}"
           div.d-flex.justify-content-center.align-center.py-1
+            nuxt-link(:to="{name: $assets.prefix('booking-online', $i18n.locale)}").text-uppercase.tmenu.py-1="{{ $t('ltr1') }}"
             nuxt-link(:to="{name: $assets.prefix('conditions', $i18n.locale)}").text-uppercase.tmenu.py-1="{{ $t('m3') }}"
             b-dropdown(:text="$t('m39')").modern_dropdown_new.d-inline.py-1
               b-dropdown-item(href="https://krasnodarrentacar.ru/" rel="nofollow").text-uppercase.py-1="{{ $t('m20') }}"

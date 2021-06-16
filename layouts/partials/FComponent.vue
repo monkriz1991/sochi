@@ -5,7 +5,7 @@
           div.devider-content-wrapper
             div.copy
               p="© «Sochi Rent-a-Car» - 2014 - {{year_to_copy}}"
-            div.bottom_menu
+            div.bottom_menu.d-none.d-md-block
               ul.list-unstyled
                 li
                   nuxt-link(:to="{name: $assets.prefix('about', $i18n.locale)}")="{{ $t('m1')}}"
