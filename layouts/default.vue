@@ -1,7 +1,7 @@
 <template lang="pug">
   div#app
     div#app-header
-      HComponent
+      h-component-restyle
     div#main
       nuxt
     div#app-footer
@@ -11,9 +11,11 @@
 <script>
   import HComponent from "./partials/HComponent";
   import FComponent from "./partials/FComponent";
+  import HComponentRestyle from "@/layouts/partials/HComponentRestyle";
   export default {
     name: 'MAIN',
     components: {
+      HComponentRestyle,
       HComponent,
       FComponent,
     },

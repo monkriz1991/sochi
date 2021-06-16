@@ -1,5 +1,5 @@
 <template lang="pug">
-    div.devider.d-none.d-lg-flex
+    div.devider.d-none
       div.container
         hr.m-0
         b-row
