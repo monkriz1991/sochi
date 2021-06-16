@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import {mapActions, mapGetters} from 'vuex';
 import { Datetime } from 'vue-datetime';
 export default {
   name: "SearchFormForRent",
@@ -87,16 +87,21 @@ export default {
       this.checkItem();
     })
   },
+  computed:{
+    ...mapGetters(['searchForm']),
+  },
   methods:{
     ...mapActions(['setSearchForm']),
     onSearch(useScroll = true){
       let form = {
-        df: this.start_date,
-        dt: this.end_date,
-        ac: this.carClass,
-        place: this.place,
+        start_date: this.start_date,
+        end_date: this.end_date,
+        carClass: this.carClass,
+        place: this.currentPlace(),
       };
-      this.$router.push({name: this.$assets.prefix('booking-online', this.$i18n.locale), query:form})
+      this.setSearchForm(form).then(() => {
+        this.$router.push({name: this.$assets.prefix('booking-online', this.$i18n.locale), query:form})
+      })
     },
     currentPlace(){
       let place = this.places.filter(el => {
@@ -128,6 +133,17 @@ export default {
   },
   mounted() {
     this.fetchPoints()
+    if (this.searchForm){
+      this.place = this.searchForm.place ? this.searchForm.place.id : this.$config.default_place;
+      this.start_date = this.searchForm.start_date ? this.searchForm.start_date : this.$assets.genNowSpec(2);
+      this.end_date = this.searchForm.end_date ? this.searchForm.end_date : this.$assets.genNowSpec(9);
+      this.carClass = this.searchForm.carClass ? this.searchForm.carClass : 5;
+    }else{
+      this.place = this.$route.query.place ? this.$route.query.place : this.$config.default_place;
+      this.start_date = this.$route.query.df ? this.$route.query.df.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(2);
+      this.end_date = this.$route.query.dt ? this.$route.query.dt.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(9);
+      this.carClass = this.$route.query.ac ? this.$route.query.ac : 5;
+    }
   }
 }
 </script>

@@ -24,15 +24,15 @@ class Assets {
 
   prepareForm = (formData) =>{
     return {
-      df: this.makeDateForRequest(formData.df),
-      dt: this.makeDateForRequest(formData.dt),
+      df: this.makeDateForRequest(formData.start_date),
+      dt: this.makeDateForRequest(formData.end_date),
       pc: '',
       p1: '',
       p2: '',
       p3: '',
       p4: '',
       p5: '',
-      ac: formData.ac,
+      ac: formData.carClass,
       city: formData.place.station,
     }
   }
