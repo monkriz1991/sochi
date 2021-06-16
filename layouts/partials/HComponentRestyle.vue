@@ -18,46 +18,27 @@
           b-navbar-toggle(target="nav-collapse")
           b-collapse(is-nav ref="navbarnav")#nav-collapse
             b-navbar-nav(class="ml-auto")
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('about', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m1') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('long_term_rental') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('news', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m2') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('conditions', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m3') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('contacts', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m6') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m4') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('prices', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m5') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(role="button" v-b-modal.callback).text-uppercase.pt-1.bold-text="{{ $t('callback') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('online-booking', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('breadcrumbs14') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('payment', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('op') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('conditions', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m3') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m38') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('about', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m1') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('long_term_rental') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('news', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m2') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('conditions', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m3') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('contacts', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m6') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m4') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('prices', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m5') }}"
+              b-nav-item.d-sm-flex.d-md-none(role="button" v-b-modal.callback).text-uppercase.pt-1.bold-text="{{ $t('callback') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('online-booking', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('breadcrumbs14') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('payment', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('op') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('conditions', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m3') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('rent', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m38') }}"
               b-nav-item.d-sm-flex.d-md-none
                 hr.my-1.
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(href="https://krasnodarrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m20') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(href="https://crimearentacar.su/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m9') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(href="https://vladivostokrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m7') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(href="https://spbrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m8') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(href="https://ekaterinburgrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m16') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(href="https://chelyabinskrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m17') }}"
-              b-nav-item.d-sm-flex.d-md-none
-                b-nav-link(href="https://miami-rent-a-car.com/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m19') }}"
+              b-nav-item.d-sm-flex.d-md-none(href="https://krasnodarrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m20') }}"
+              b-nav-item.d-sm-flex.d-md-none(href="https://crimearentacar.su/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m9') }}"
+              b-nav-item.d-sm-flex.d-md-none(href="https://vladivostokrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m7') }}"
+              b-nav-item.d-sm-flex.d-md-none(href="https://spbrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m8') }}"
+              b-nav-item.d-sm-flex.d-md-none(href="https://ekaterinburgrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m16') }}"
+              b-nav-item.d-sm-flex.d-md-none(href="https://chelyabinskrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m17') }}"
+              b-nav-item.d-sm-flex.d-md-none(href="https://miami-rent-a-car.com/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m19') }}"
               b-nav-item.d-sm-flex.d-md-none
                 hr.my-1
               b-nav-item
