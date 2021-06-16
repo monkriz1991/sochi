@@ -53,7 +53,7 @@
                     nuxt-link(v-bind:class="{active: $i18n.locale === 'en'}" :to="switchLocalePath('en')")="ENG"
                     |/
                     nuxt-link(v-bind:class="{active: $i18n.locale === 'ru'}" :to="switchLocalePath('ru')")="РУС"
-    menu.pt-1.d-none.d-sm-none.d-md-none.d-lg-block
+    div#menu.pt-1.d-none.d-sm-none.d-md-none.d-lg-block
       div.container
         div.menu-line
           div
@@ -223,10 +223,12 @@ export default {
     display: block
     text-align: center
     font-weight: bold
-menu
+#menu
   background-color: #E8EEF2
   margin: 0
   padding: 0 0 10px 0
+  @media screen and (max-width: 480px)
+    display: none
   .menu-line
     display: flex
     justify-content: space-between
