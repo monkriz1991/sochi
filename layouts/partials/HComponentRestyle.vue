@@ -26,7 +26,7 @@
               b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m4') }}"
               b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('prices', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m5') }}"
               b-nav-item.d-sm-flex.d-md-none(role="button" v-b-modal.callback).text-uppercase.pt-1.bold-text="{{ $t('callback') }}"
-              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('online-booking', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('breadcrumbs14') }}"
+              b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('booking-online', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('breadcrumbs14') }}"
               b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('payment', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('op') }}"
               b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('conditions', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m3') }}"
               b-nav-item.d-sm-flex.d-md-none(:to="{name: $assets.prefix('rent', $i18n.locale)}").text-uppercase.pt-1.bold-text="{{ $t('m38') }}"
@@ -66,7 +66,7 @@
               b-dropdown-item(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").text-uppercase.py-1="{{ $t('m4') }}"
               b-dropdown-item(:to="{name: $assets.prefix('prices', $i18n.locale)}").text-uppercase.py-1="{{ $t('m5') }}"
               b-dropdown-item(role="button" v-b-modal.callback).text-uppercase.py-1="{{ $t('callback') }}"
-              b-dropdown-item(:to="{name: $assets.prefix('online-booking', $i18n.locale)}").text-uppercase.py-1="{{ $t('breadcrumbs14') }}"
+              b-dropdown-item(:to="{name: $assets.prefix('booking-online', $i18n.locale)}").text-uppercase.py-1="{{ $t('breadcrumbs14') }}"
               b-dropdown-item(:to="{name: $assets.prefix('payment', $i18n.locale)}").text-uppercase.py-1="{{ $t('op') }}"
           div.d-flex.justify-content-center.align-center.py-1
             nuxt-link(:to="{name: $assets.prefix('conditions', $i18n.locale)}").text-uppercase.tmenu.py-1="{{ $t('m3') }}"
