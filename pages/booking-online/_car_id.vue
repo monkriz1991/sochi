@@ -788,10 +788,10 @@
       },
       syncBaseDataWithStore(){
         this.userData.place = this.searchForm.place.id ? this.searchForm.place.id : this.$config.default_place;
-        this.userData.place_comeback = this.searchForm.place.id;
-        this.userData.df = this.searchForm.df;
-        this.userData.dt = this.searchForm.dt;
-        let diffDates = this.$assets.diffDates(this.searchForm.df, this.searchForm.dt);
+        this.userData.place_comeback = this.searchForm.place.id ? this.searchForm.place.id : this.$config.default_place;
+        this.userData.df = this.searchForm.start_date;
+        this.userData.dt = this.searchForm.end_date;
+        let diffDates = this.$assets.diffDates(this.searchForm.start_date, this.searchForm.end_date);
         this.period = parseInt(Math.round(diffDates.inDays));
         this.checkCarAvailability();
         this.fetchData();
