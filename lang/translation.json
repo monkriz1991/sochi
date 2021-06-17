@@ -499,7 +499,8 @@
     "security3": ". In addition, we offer you extended insurance coverage that will protect you from all costs.",
     "security4": "Deductible - if an insured event occurs, you must partially pay for repairs. An example is the situation: a hard hat with a deductible of ",
     "security5": " rubles-means that when an insured event occurs, you pay ",
-    "security6": "rubles, if this money is not enough, the difference is paid by the insurance company. protect you from all costs."
+    "security6": "rubles, if this money is not enough, the difference is paid by the insurance company. protect you from all costs.",
+    "sa": "Show all"
   },
   "ru": {
     "op": "Онлайн оплата",
@@ -1024,6 +1025,7 @@
     "security3": ". Дополнительно мы предлагаем вам расширенное страховое покрытие, которое защитит вас от всех затрат.",
     "security4": "Франшиза - при наступления страхового случия Вы должны частично оплатить ремонт. Примером можно привести ситуацию: КАСКО с франшизой в ",
     "security5": "рублей - означает, что при наступлении страхового случая, Вы выплачиваете",
-    "security6": "рублей, в случае если этих денег не хватит, разницу оплачивает страховая компания."
+    "security6": "рублей, в случае если этих денег не хватит, разницу оплачивает страховая компания.",
+    "sa": "Показать все доступные"
   }
 }

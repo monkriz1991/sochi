@@ -29,7 +29,14 @@
                 div(v-if="filtered.length > 0")
                   b-row.d-flex.align-items-center.justify-content-center
                     b-col(sm="12" md="6" lg="4" v-for="(item, idx) in filtered" :key="idx")
-                      new-offer-card(:item="item").my-3
+                      div(v-if="idx <= 8")
+                        div.p-1.my-3
+                          new-offer-card(:item="item")
+                      div(v-else-if="show_all")
+                        div.p-1.my-3
+                          new-offer-card(:item="item")
+                    b-col(sm="12" v-if="filtered.length > 8 && !show_all").d-flex.justify-content-center.align-center
+                      b-button(@click="show_all = true").btn.main="{{$t('sa')}}"
                 div(v-else)
                   div.offer.m-5.p-5
                     h4.text-center.text-uppercase
@@ -56,6 +63,7 @@
     },
     data(){
       return {
+        show_all: false,
         cars: [],
         loading: true,
         timeFalse: false,
@@ -106,6 +114,7 @@
                   this.loading = false;
                   this.timeFalse = false;
                   this.coronaFalse = false;
+                  this.show_all = false;
                 }
               })
               .catch(err => console.error(err))
