@@ -5,13 +5,13 @@
         b-row
           b-col(sm="12" md="12" lg="9")
             b-row
-              b-col(sm="12" md="12" lg="4")
+              b-col(sm="12" md="12" lg="4").mb-2.mb-md-1
                 div.form-group
                   label="{{$t('s11')}}"
                   b-form-select(v-model="place" :options="placeOptions")#place.form-controler
               b-col(sm="12" md="12" lg="5")
                 b-row
-                  b-col(sm="12" md="6" lg="6")
+                  b-col(sm="12" md="6" lg="6").mb-2.mb-md-1
                     div.form-group
                       label()="{{$t('s12')}}"
                       datetime(
@@ -28,7 +28,7 @@
                         input-class="form-controler"
                         input-id="from"
                       )
-                  b-col(sm="12" md="6" lg="6")
+                  b-col(sm="12" md="6" lg="6").mb-2.mb-md-1
                     div.form-group
                       label="{{$t('s13')}}"
                       datetime(
@@ -45,11 +45,11 @@
                         input-class="form-controler"
                         input-id="to"
                       )
-              b-col(sm="12" md="12" lg="3")
+              b-col(sm="12" md="12" lg="3").mb-2.mb-md-1
                 div.form-group
                   label="{{$t('s14')}}"
                   b-form-select(v-model="carClass" :options="carClassOption")#class.form-controler
-          b-col(sm="12" md="12" lg="3")
+          b-col(sm="12" md="12" lg="3").mb-2.mb-md-1
             b-row
               b-col(sm="12" md="12" lg="12")
                 div.form-group.pt-4

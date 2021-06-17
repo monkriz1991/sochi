@@ -1,52 +1,55 @@
 <template lang="pug">
-  div#form-wrapper
+div.container
+  div#form-wrapper.p-1
     div.fields_form.p-2
       b-row
         b-col(sm="12" md="12" lg="9")
           b-row
-            b-col(sm="12" md="6" lg="3")
+            b-col(sm="12" md="12" lg="4").mb-2.mb-md-1
               div.form-group
                 label="{{$t('s11')}}"
-                b-form-select(v-model="place" :options="placeOptions")#place.form-control
-            b-col(sm="12" md="6" lg="3")
-              div.form-group
-                label()="{{$t('s12')}}"
-                datetime(
-                  type="datetime"
-                  :placeholder="$t('s13')"
-                  v-model="start_date"
-                  format="dd-MM-yyyy  HH:mm"
-                  :week-start="1"
-                  :minute-step="10"
-                  zone="Europe/Moscow"
-                  value-zone="Europe/Moscow"
-                  :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-                  :min-datetime="$assets.genMinDate()"
-                  input-class="form-control"
-                  input-id="from"
-                )
-            b-col(sm="12" md="6" lg="3")
-              div.form-group
-                label="{{$t('s13')}}"
-                datetime(
-                  type="datetime"
-                  :placeholder="$t('s13')"
-                  v-model="end_date"
-                  format="dd-MM-yyyy  HH:mm"
-                  :week-start="1"
-                  :minute-step="10"
-                  zone="Europe/Moscow"
-                  value-zone="Europe/Moscow"
-                  :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-                  :min-datetime="start_date"
-                  input-class="form-control"
-                  input-id="to"
-                )
-            b-col(sm="12" md="6" lg="3")
+                b-form-select(v-model="place" :options="placeOptions")#place.form-controler
+            b-col(sm="12" md="12" lg="5")
+              b-row
+                b-col(sm="12" md="6" lg="6").mb-2.mb-md-1
+                  div.form-group
+                    label()="{{$t('s12')}}"
+                    datetime(
+                      type="datetime"
+                      :placeholder="$t('s13')"
+                      v-model="start_date"
+                      format="dd-MM-yyyy HH:mm"
+                      :week-start="1"
+                      :minute-step="10"
+                      zone="Europe/Moscow"
+                      value-zone="Europe/Moscow"
+                      :phrases="{ok: $t('s15'), cancel: $t('s16')}"
+                      :min-datetime="$assets.genMinDate()"
+                      input-class="form-controler"
+                      input-id="from"
+                    )
+                b-col(sm="12" md="6" lg="6").mb-2.mb-md-1
+                  div.form-group
+                    label="{{$t('s13')}}"
+                    datetime(
+                      type="datetime"
+                      :placeholder="$t('s13')"
+                      v-model="end_date"
+                      format="dd-MM-yyyy HH:mm"
+                      :week-start="1"
+                      :minute-step="10"
+                      zone="Europe/Moscow"
+                      value-zone="Europe/Moscow"
+                      :phrases="{ok: $t('s15'), cancel: $t('s16')}"
+                      :min-datetime="start_date"
+                      input-class="form-controler"
+                      input-id="to"
+                    )
+            b-col(sm="12" md="12" lg="3").mb-2.mb-md-1
               div.form-group
                 label="{{$t('s14')}}"
-                b-form-select(v-model="carClass" :options="carClassOption")#class.form-control
-        b-col(sm="12" md="12" lg="3")
+                b-form-select(v-model="carClass" :options="carClassOption")#class.form-controler
+        b-col(sm="12" md="12" lg="3").mb-2.mb-md-1
           b-row
             b-col(sm="12" md="12" lg="12")
               div.form-group.pt-4
