@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "входим в папку"
-cd /home/cat/web-server/sochirentacar.ru/public_html
+cd /mnt/web-server/sochirentacar.ru/public_html
 rm -f cars.json
 rm -f news.json
 rm -f static/sitemap.xml
@@ -20,4 +20,4 @@ echo "билдим"
 yarn
 yarn build
 echo "рестаритм ПМ2"
-pm2 restart 7
+pm2 restart 5
