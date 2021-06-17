@@ -45,8 +45,6 @@
                       |{{$t('s3_1')}}
                       a.mgo-number(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`")="{{settings.main_phone}}"
                       |{{$t('s3_2')}}
-          div.d-flex.justify-content-center.align-center.d-md-none.py-3
-            nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").w-100.btn.primo.text-uppercase="Смотреть весь автопарк"
     hr(v-if="!loading").dashed
 </template>
 
