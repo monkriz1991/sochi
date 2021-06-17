@@ -9,7 +9,7 @@
           a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`" @click="ym(33072038,'reachGoal','pressphone')").mgo-number="{{settings.main_phone}}"
           nuxt-link(:to="{name: $assets.prefix('booking-online', $i18n.locale)}").nodec
             i.calendar-ico
-    header.pt-2
+    header.pt-2.pb-2
       div.container
         b-navbar(toggleable="lg")
           b-navbar-brand(:to="{name: $assets.prefix('index', $i18n.locale)}")

@@ -1,6 +1,6 @@
 <template lang="pug">
   div.container
-    div#form-wrapper
+    div#form-wrapper.p-1
       div.fields_form.p-2
         b-row
           b-col(sm="12" md="12" lg="9")
