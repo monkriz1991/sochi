@@ -52,13 +52,17 @@
 <script>
   export default {
     name: "newOfferCard",
-    data(){
-      return {
-
+    computed: {
+      item(){
+        return {...this.loaded_item, ...this.stored_item}
       }
     },
     props:{
-      item: {
+      loaded_item: {
+        type: Object,
+        required: true
+      },
+      stored_item: {
         type: Object,
         required: true
       }

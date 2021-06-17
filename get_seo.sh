@@ -6,6 +6,8 @@ rm -f news.json
 wget -O news.json https://booking.autopilot.rent/api/sun/newsListSeo/sochi.json
 rm -f long.json
 wget -O long.json https://booking.autopilot.rent/sun/sun-long-make-seo/sochi
+rm -f static_booking.json
+wget -O static_booking.json https://booking.autopilot.rent/sun/sun-static-cars-sync/sochi
 rm -f events.json
 wget -O events.json https://booking.autopilot.rent/sun/sun-events-make-seo/sochi
 rm -f static/sitemap.xml

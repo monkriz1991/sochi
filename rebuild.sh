@@ -5,6 +5,7 @@ rm -f cars.json
 rm -f news.json
 rm -f static/sitemap.xml
 rm -f long.json
+rm -f static_booking.json
 rm -f events.json
 echo "качаем репо"
 git pull origin master
@@ -14,6 +15,7 @@ wget -O news.json https://booking.autopilot.rent/api/sun/newsListSeo/sochi.json
 wget -O long.json https://booking.autopilot.rent/sun/sun-long-make-seo/sochi
 wget -O events.json https://booking.autopilot.rent/sun/sun-events-make-seo/sochi
 wget -O static/sitemap.xml https://booking.autopilot.rent/sun/sun-sites-sitemap/sochi
+wget -O static_booking.json https://booking.autopilot.rent/sun/sun-static-cars-sync/sochi
 echo "билдим"
 yarn
 yarn build

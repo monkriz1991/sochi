@@ -28,13 +28,13 @@
               div(v-else)
                 div(v-if="filtered.length > 0")
                   b-row.d-flex.align-items-center.justify-content-center
-                    b-col(sm="12" md="6" lg="4" v-for="(item, idx) in filtered" :key="idx")
+                    b-col(sm="12" md="6" lg="4" v-for="(loaded_item, idx) in filtered" :key="idx")
                       div(v-if="idx <= 8")
                         div.p-1.my-3
-                          new-offer-card(:item="item")
+                          new-offer-card(:loaded_item="loaded_item" :stored_item="stored_vehicles[loaded_item.ID]")
                       div(v-else-if="show_all")
                         div.p-1.my-3
-                          new-offer-card(:item="item")
+                          new-offer-card(:loaded_item="loaded_item" :stored_item="stored_vehicles[loaded_item.ID]")
                     b-col(sm="12" v-if="filtered.length > 8 && !show_all").d-flex.justify-content-center.align-center
                       b-button(@click="show_all = true").btn.main="{{$t('sa')}}"
                 div(v-else)
@@ -61,6 +61,7 @@
     },
     data(){
       return {
+        stored_vehicles: require('../static_booking.json'),
         show_all: false,
         cars: [],
         loading: true,
