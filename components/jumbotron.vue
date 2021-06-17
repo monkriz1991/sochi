@@ -1,7 +1,7 @@
 <template lang="pug">
   div.position-relative
     b-jumbotron(v-bind:class="class_head").main_head
-    div#search_form
+    div#search_form.p-1.overflow-hidden
       search-form
     div.clearfix
 </template>

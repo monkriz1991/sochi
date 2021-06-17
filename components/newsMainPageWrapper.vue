@@ -3,7 +3,7 @@
     div.container
       h3="{{$t('s17')}}"
       b-row
-        b-col(sm="12" md="6" lg="3" v-for="(i, idx) in items" :key="idx")
+        b-col(sm="12" md="6" lg="3" v-for="(i, idx) in items" :key="idx").mb-3
           nuxt-link(:to="{name: $assets.prefix('news-slug', $i18n.locale), params: {slug: i.slug}}").news-el.my-2
             div(:lazy-background="`${$assets.check_local_env($config.local_url, $config.environment)}storage/${i.preview_image}`").img
               span.date="{{makeDate(i.date_of_news)}}"
@@ -45,6 +45,10 @@
     -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    @media screen and (max-width: 760px)
+      -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
+      -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
+      box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.4)
     border-radius: 10px
     overflow: hidden
     color: #222222

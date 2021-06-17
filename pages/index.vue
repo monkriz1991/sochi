@@ -7,7 +7,7 @@
         main-page-article(v-if="$i18n.locale === 'ru'")
         main-page-article-en(v-else)
     main-page-features
-    main-page-f-a-q
+    main-page-f-a-q.d-none.d-md-block
     banners-section
     section
       div.container

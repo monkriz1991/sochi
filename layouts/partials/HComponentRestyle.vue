@@ -48,9 +48,9 @@
               b-nav-item
                 div.global
                   p
-                    nuxt-link(v-bind:class="{active: $i18n.locale === 'en'}" :to="switchLocalePath('en')")="ENG"
+                    nuxt-link(v-bind:class="{active: $i18n.locale === 'en'}" :to="switchLocalePath('en')")="ENG "
                     |/
-                    nuxt-link(v-bind:class="{active: $i18n.locale === 'ru'}" :to="switchLocalePath('ru')")="РУС"
+                    nuxt-link(v-bind:class="{active: $i18n.locale === 'ru'}" :to="switchLocalePath('ru')")=" РУС"
     div#menu.pt-1.d-none.d-sm-none.d-md-none.d-lg-block
       div.container
         div.menu-line
