@@ -3,7 +3,6 @@
     b-jumbotron(v-bind:class="class_head").main_head
     div#search_form
       search-form
-    div.make_clear
     div.clearfix
 </template>
 

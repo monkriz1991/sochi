@@ -1,63 +1,59 @@
 <template lang="pug">
   div.container
-    client-only
-      div#form-wrapper
-        div.d-none.w-100.switcher
-          nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").driver_switch.active.text-uppercase="{{$t('s7')}}"
-          nuxt-link(:to="{name: $assets.prefix('service', $i18n.locale)}").driver_switch.active.text-uppercase="{{$t('s8')}}"
-        div.fields_form.p-2
-          b-row
-            b-col(sm="12" md="12" lg="9")
-              b-row
-                b-col(sm="12" md="12" lg="4")
-                  div.form-group
-                    label="{{$t('s11')}}"
-                    b-form-select(v-model="place" :options="placeOptions")#place.form-controler
-                b-col(sm="12" md="12" lg="5")
-                  b-row
-                    b-col(sm="12" md="6" lg="6")
-                      div.form-group
-                        label()="{{$t('s12')}}"
-                        datetime(
-                          type="datetime"
-                          :placeholder="$t('s13')"
-                          v-model="start_date"
-                          format="dd-MM-yyyy HH:mm"
-                          :week-start="1"
-                          :minute-step="10"
-                          zone="Europe/Moscow"
-                          value-zone="Europe/Moscow"
-                          :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-                          :min-datetime="$assets.genMinDate()"
-                          input-class="form-controler"
-                          input-id="from"
-                        )
-                    b-col(sm="12" md="6" lg="6")
-                      div.form-group
-                        label="{{$t('s13')}}"
-                        datetime(
-                          type="datetime"
-                          :placeholder="$t('s13')"
-                          v-model="end_date"
-                          format="dd-MM-yyyy HH:mm"
-                          :week-start="1"
-                          :minute-step="10"
-                          zone="Europe/Moscow"
-                          value-zone="Europe/Moscow"
-                          :phrases="{ok: $t('s15'), cancel: $t('s16')}"
-                          :min-datetime="start_date"
-                          input-class="form-controler"
-                          input-id="to"
-                        )
-                b-col(sm="12" md="12" lg="3")
-                  div.form-group
-                    label="{{$t('s14')}}"
-                    b-form-select(v-model="carClass" :options="carClassOption")#class.form-controler
-            b-col(sm="12" md="12" lg="3")
-              b-row
-                b-col(sm="12" md="12" lg="12")
-                  div.form-group.pt-4
-                    button(role="button" @click="onSearch").go-search.btn.mt-2.text-uppercase="{{$t('s10')}}"
+    div#form-wrapper
+      div.fields_form.p-2
+        b-row
+          b-col(sm="12" md="12" lg="9")
+            b-row
+              b-col(sm="12" md="12" lg="4")
+                div.form-group
+                  label="{{$t('s11')}}"
+                  b-form-select(v-model="place" :options="placeOptions")#place.form-controler
+              b-col(sm="12" md="12" lg="5")
+                b-row
+                  b-col(sm="12" md="6" lg="6")
+                    div.form-group
+                      label()="{{$t('s12')}}"
+                      datetime(
+                        type="datetime"
+                        :placeholder="$t('s13')"
+                        v-model="start_date"
+                        format="dd-MM-yyyy HH:mm"
+                        :week-start="1"
+                        :minute-step="10"
+                        zone="Europe/Moscow"
+                        value-zone="Europe/Moscow"
+                        :phrases="{ok: $t('s15'), cancel: $t('s16')}"
+                        :min-datetime="$assets.genMinDate()"
+                        input-class="form-controler"
+                        input-id="from"
+                      )
+                  b-col(sm="12" md="6" lg="6")
+                    div.form-group
+                      label="{{$t('s13')}}"
+                      datetime(
+                        type="datetime"
+                        :placeholder="$t('s13')"
+                        v-model="end_date"
+                        format="dd-MM-yyyy HH:mm"
+                        :week-start="1"
+                        :minute-step="10"
+                        zone="Europe/Moscow"
+                        value-zone="Europe/Moscow"
+                        :phrases="{ok: $t('s15'), cancel: $t('s16')}"
+                        :min-datetime="start_date"
+                        input-class="form-controler"
+                        input-id="to"
+                      )
+              b-col(sm="12" md="12" lg="3")
+                div.form-group
+                  label="{{$t('s14')}}"
+                  b-form-select(v-model="carClass" :options="carClassOption")#class.form-controler
+          b-col(sm="12" md="12" lg="3")
+            b-row
+              b-col(sm="12" md="12" lg="12")
+                div.form-group.pt-4
+                  button(role="button" @click="onSearch").go-search.btn.mt-2.text-uppercase="{{$t('s10')}}"
 </template>
 
 <script>
@@ -167,6 +163,8 @@ import {mapActions, mapGetters} from 'vuex';
     -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
     box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
+    width: 100%
+    overflow: hidden
     label
       color: $primary
       font-weight: bold

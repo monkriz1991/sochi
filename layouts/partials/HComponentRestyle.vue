@@ -205,7 +205,9 @@ export default {
   background-size: contain
   background-position: center
 .phone-wrapper-beholder
-  height: 25px
+  height: 35px
+  width: 100%
+  background-color: #E8EEF2
 .phone-wrapper
   background: $primary
   position: fixed
