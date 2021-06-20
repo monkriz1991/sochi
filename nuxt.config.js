@@ -49,6 +49,7 @@ module.exports = {
   ],
 
   modules: [
+    '@nuxtjs/device',
     '@nuxtjs/bootstrap-vue',
     '@nuxtjs/axios',
     'nuxt-lazy-load',
