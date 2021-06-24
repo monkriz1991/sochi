@@ -57,14 +57,14 @@
           div
             b-dropdown(offset="-20").modern_dropdown
               b-dropdown-item(:to="{name: $assets.prefix('about', $i18n.locale)}").text-uppercase.py-1="{{ $t('m1') }}"
-              b-dropdown-item(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").text-uppercase.py-1="{{ $t('long_term_rental') }}"
-              b-dropdown-item(:to="{name: $assets.prefix('news', $i18n.locale)}").text-uppercase.py-1="{{ $t('m2') }}"
               b-dropdown-item(:to="{name: $assets.prefix('conditions', $i18n.locale)}").text-uppercase.py-1="{{ $t('m3') }}"
-              b-dropdown-item(:to="{name: $assets.prefix('contacts', $i18n.locale)}").text-uppercase.py-1="{{ $t('m6') }}"
-              b-dropdown-item(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").text-uppercase.py-1="{{ $t('m4') }}"
               b-dropdown-item(:to="{name: $assets.prefix('prices', $i18n.locale)}").text-uppercase.py-1="{{ $t('m5') }}"
-              b-dropdown-item(role="button" v-b-modal.callback).text-uppercase.py-1="{{ $t('callback') }}"
+              b-dropdown-item(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}").text-uppercase.py-1="{{ $t('m4') }}"
+              b-dropdown-item(:to="{name: $assets.prefix('long_term_rental', $i18n.locale)}").text-uppercase.py-1="{{ $t('long_term_rental') }}"
+              b-dropdown-item(:to="{name: $assets.prefix('service', $i18n.locale)}").text-uppercase.py-1="{{ $t('s8') }}"
               b-dropdown-item(:to="{name: $assets.prefix('payment', $i18n.locale)}").text-uppercase.py-1="{{ $t('op') }}"
+              b-dropdown-item(:to="{name: $assets.prefix('contacts', $i18n.locale)}").text-uppercase.py-1="{{ $t('m6') }}"
+              b-dropdown-item(role="button" v-b-modal.callback).text-uppercase.py-1="{{ $t('callback') }}"
           div.d-flex.justify-content-center.align-center.py-1
             nuxt-link(:to="{name: $assets.prefix('booking-online', $i18n.locale)}").text-uppercase.tmenu.py-1="{{ $t('ltr1') }}"
             nuxt-link(:to="{name: $assets.prefix('conditions', $i18n.locale)}").text-uppercase.tmenu.py-1="{{ $t('m3') }}"
