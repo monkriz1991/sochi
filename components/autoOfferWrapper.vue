@@ -28,7 +28,7 @@
               div(v-else)
                 div(v-if="filtered.length > 0")
                   b-row.d-flex.align-items-center.justify-content-center
-                    b-col(sm="12" md="6" lg="4" v-for="(loaded_item, idx) in filtered" :key="idx")
+                    b-col(sm="12" md="6" lg="4" v-for="(loaded_item, idx) in filtered" :key="idx" v-if="stored_vehicles[loaded_item.ID]")
                       div(v-if="idx <= 8")
                         div.p-1.my-3
                           new-offer-card(:loaded_item="loaded_item" :stored_item="stored_vehicles[loaded_item.ID]")

@@ -40,7 +40,7 @@
                       span.benz="{{item.tth.rashod}}{{$t('p2')}}"
                     b-col(sm="6" md="4" lg="4").features-list-block
                       span.gear='{{$t(item.car_data.kpp)}}'
-              b-col(sm="12" mc="12" lg="5" order="1"	order-sm="1"	order-md="2"	order-lg="2"	order-xl="2")
+              b-col(sm="12" md="12" lg="5" order="1"	order-sm="1"	order-md="2"	order-lg="2"	order-xl="2")
                 div(v-if="loaded").b-wrapper.slim
                   div(v-for="(p, pdx) in prices" :key="pdx").item-info
                     p.l="{{p.text}}"
@@ -50,6 +50,18 @@
                   div.item-info
                     p.l="{{$t('cwd20')}}"
                     p.r="{{item.car_data.zalog}}₽"
+                  div.action.w-100.d-flex.justify-center.align-center.flex-column.d-md-none
+                    b-button(@click="oneClickRent($route.params.car_slug)").btn.main.w-100.slim="{{$t('af0')}}"
+                    b-modal(:id="`modal-one-click${$route.params.car_slug}`" hide-footer :title="`${$t('af0')} ${item.self_data.title}`")
+                      b-form-group.mb-0(:description="$t('cb2')")
+                        b-form-input(v-model="client_name" :placeholder="$t('cb3')")#callback_name
+                      b-form-group.mb-0( :description="$t('cb4')")
+                        vue-phone-number-input(@input="onPhoneChange($route.params.car_slug)" :ref="`phoneInput${$route.params.car_slug}`" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
+                      b-row
+                        b-col(sm="12" md="6" lg="6")
+                          a(role="button" @click="hideModal($route.params.car_slug)").btn.cancel.w-100="{{$t('cb5')}}"
+                        b-col(sm="12" md="6" lg="6")
+                          a(role="button" @click="submitModal(item.self_data.title, $route.params.car_slug, $assets.toMoney($assets.makeItemPrice(item.car_data.stoimost, item.car_data.skidka_2, item.car_data.special_price)))").btn.main.w-100="{{$t('bocid23')}}"
         div(v-if="loaded").b-wrapper.blockquote-info
           div.rate
             div(v-if="item.self_data.youtube_videos !== '' && item.self_data.youtube_videos !== undefined").rate-item
@@ -349,6 +361,9 @@
     },
     data(){
       return {
+        ph: '',
+        client_phone: '',
+        client_name: '',
         item: [],
         car_slug: this.$route.params.car_slug,
         loaded: false,
@@ -421,6 +436,54 @@
           });
         }
         return crumbs
+      },
+    },
+    methods: {
+      onPhoneChange(slug){
+        this.client_phone = this.$refs[`phoneInput${slug}`]['phoneFormatted'];
+      },
+      hideModal(slug){
+        this.$bvModal.hide(`modal-one-click${slug}`);
+      },
+      submitModal(title, slug, price){
+        let data = {
+          name: this.client_name,
+          phone: this.client_phone,
+          link: `https://${this.$config.local_url}/rent/${slug}/`,
+          title: title,
+          station: this.$config.station,
+          price: price
+        }
+        if (data.name === '' || data.phone === '' || !data.phone){
+          this.$bvToast.toast('Форма заполнена с ошибками', {
+            title: 'Ошибка',
+            variant: 'danger',
+            solid: true
+          });
+        } else {
+          this.$axios.post("sun/oneClickOrder", data)
+            .then(res => {
+              if (res.data.status === 'success'){
+
+                this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
+                  title: 'Заявка отправлена',
+                  variant: 'success',
+                  solid: true
+                });
+                this.$router.push({ name: this.$assets.prefix('status-success', this.$i18n.locale)});
+              }else{
+                this.$router.push({ name: this.$assets.prefix('status-error', this.$i18n.locale)});
+              }
+            }).catch((err)=>{
+            if (err){
+              console.error(err)
+              this.$router.push({ name: this.$assets.prefix('status-error', this.$i18n.locale)});
+            }
+          })
+        }
+      },
+      oneClickRent(slug){
+        this.$bvModal.show(`modal-one-click${slug}`);
       },
     },
     mounted() {

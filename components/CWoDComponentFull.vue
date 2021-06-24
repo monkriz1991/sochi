@@ -22,7 +22,8 @@
                 div.el-info-wrapper.pr-lg-3.px-md-2.px-sm-2.px-2.py-3
                   div.wrao
                     div
-                      h5="{{i.self_data.title}}"
+                      h5.text-center="{{i.self_data.title}}"
+                      hr.my-1
                       div.item-info.my-2
                         p.l="{{$t('cwod1')}}"
                         p.r="{{$t(i.car_data.klassavtomobilya)}}"
@@ -41,8 +42,19 @@
                       div.item-info.my-2
                         p.l="{{$t('cwod6')}}"
                         p.r="{{i.car_data.godvypuska}}"
-                    div.action.w-100
-                      nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").btn.main.w-100.slim="{{$t('af1')}}"
+                    div.action.w-100.d-flex.justify-center.align-center.flex-column
+                      b-button(@click="oneClickRent(i.self_data.slug)").btn.main.w-100.slim="{{$t('af0')}}"
+                      nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").d-block.w-100.text-center="{{$t('af1')}}"
+                      b-modal(:id="`modal-one-click${i.self_data.slug}`" hide-footer :title="`${$t('af0')} ${i.self_data.title}`")
+                        b-form-group.mb-0(:description="$t('cb2')")
+                          b-form-input(v-model="client_name" :placeholder="$t('cb3')")#callback_name
+                        b-form-group.mb-0( :description="$t('cb4')")
+                          vue-phone-number-input(@input="onPhoneChange(i.self_data.slug)" :ref="`phoneInput${i.self_data.slug}`" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
+                        b-row
+                          b-col(sm="12" md="6" lg="6")
+                            a(role="button" @click="hideModal(i.self_data.slug)").btn.cancel.w-100="{{$t('cb5')}}"
+                          b-col(sm="12" md="6" lg="6")
+                            a(role="button" @click="submitModal(i.self_data.title, i.self_data.slug, $assets.toMoney($assets.makeItemPrice(i.car_data.stoimost, i.car_data.skidka_2, i.car_data.special_price)))").btn.main.w-100="{{$t('bocid23')}}"
     hr.mt-2
     div.d-flex.justify-content-center.align-items-center
       b-pagination(v-model="currentPage" :total-rows="filtered_list.length" :per-page="perPage")
@@ -59,6 +71,9 @@
     },
     data(){
       return {
+        ph: '',
+        client_phone: '',
+        client_name: '',
         currentPage: this.$route.query.page ? parseInt(this.$route.query.page) : 1,
         perPage: 10,
         filterOptions: [
@@ -112,6 +127,52 @@
       }
     },
     methods:{
+      onPhoneChange(slug){
+        this.client_phone = this.$refs[`phoneInput${slug}`][0]['phoneFormatted'];
+      },
+      hideModal(slug){
+        this.$bvModal.hide(`modal-one-click${slug}`);
+      },
+      submitModal(title, slug, price){
+        let data = {
+          name: this.client_name,
+          phone: this.client_phone,
+          link: `https://${this.$config.local_url}/rent/${slug}/`,
+          title: title,
+          station: this.$config.station,
+          price: price
+        }
+        if (data.name === '' || data.phone === '' || !data.phone){
+          this.$bvToast.toast('Форма заполнена с ошибками', {
+            title: 'Ошибка',
+            variant: 'danger',
+            solid: true
+          });
+        } else {
+          this.$axios.post("sun/oneClickOrder", data)
+            .then(res => {
+              if (res.data.status === 'success'){
+
+                this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
+                  title: 'Заявка отправлена',
+                  variant: 'success',
+                  solid: true
+                });
+                this.$router.push({ name: this.$assets.prefix('status-success', this.$i18n.locale)});
+              }else{
+                this.$router.push({ name: this.$assets.prefix('status-error', this.$i18n.locale)});
+              }
+            }).catch((err)=>{
+              if (err){
+                console.error(err)
+                this.$router.push({ name: this.$assets.prefix('status-error', this.$i18n.locale)});
+              }
+            })
+        }
+      },
+      oneClickRent(slug){
+        this.$bvModal.show(`modal-one-click${slug}`);
+      },
       makeEngine(val){
         return parseFloat(val).toFixed(1)
       }
@@ -122,6 +183,8 @@
 
 <style lang="sass" scoped>
   @import "../assets/styles/variables"
+  h5, .h5
+    font-size: 1.1rem
   .badge-status
     text-transform: uppercase
     font-size: 12px
@@ -189,6 +252,17 @@
         padding-left: 5px
         margin: 0
         font-size: 14px
+  .btn.main
+    background: $primary_hover
+    color: #fff
+    margin: 2px 0
+    border: 3px solid $primary_hover
+    transition: 0.3s
+    &:hover
+      background: #fff
+      border: 3px solid $primary
+      color: #222
+      transition: 0.3s
   .el-wrapper
     width: 100%
     position: relative
@@ -201,10 +275,10 @@
       top: 0
       right: 0
       padding: 5px 10px
-      background: $primary
+      background: blueviolet
       color: #ffffff
       font-family: 'Roboto Condensed', sans-serif
-      border: 1px solid rgba(205,205,205,0.5)
+      border: 1px solid blueviolet
       -webkit-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
       -moz-box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
       box-shadow: 3px 3px 10px 0 rgba(0,0,0,0.4)
@@ -214,10 +288,10 @@
         content: ''
         position: absolute
         border-top: 18px solid transparent
-        border-right: 16px solid $primary
+        border-right: 16px solid blueviolet
         border-bottom: 18px solid transparent
-        left: -16px
-        top: 0
+        left: -17px
+        top: -1px
     .main-img
       width: 100%
       height: 200px
