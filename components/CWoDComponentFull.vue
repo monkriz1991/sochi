@@ -45,16 +45,7 @@
                     div.action.w-100.d-flex.justify-center.align-center.flex-column
                       b-button(@click="oneClickRent(i.self_data.slug)").btn.main.w-100.slim="{{$t('af0')}}"
                       nuxt-link(:to="{name: $assets.prefix('rent-car_slug', $i18n.locale), params: {car_slug: i.self_data.slug}}").d-block.w-100.text-center="{{$t('af1')}}"
-                      b-modal(:id="`modal-one-click${i.self_data.slug}`" hide-footer :title="`${$t('af0')} ${i.self_data.title}`")
-                        b-form-group.mb-0(:description="$t('cb2')")
-                          b-form-input(v-model="client_name" :placeholder="$t('cb3')")#callback_name
-                        b-form-group.mb-0( :description="$t('cb4')")
-                          vue-phone-number-input(@input="onPhoneChange(i.self_data.slug)" :ref="`phoneInput${i.self_data.slug}`" v-model="ph" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
-                        b-row
-                          b-col(sm="12" md="6" lg="6")
-                            a(role="button" @click="hideModal(i.self_data.slug)").btn.cancel.w-100="{{$t('cb5')}}"
-                          b-col(sm="12" md="6" lg="6")
-                            a(role="button" @click="submitModal(i.self_data.title, i.self_data.slug, $assets.toMoney($assets.makeItemPrice(i.car_data.stoimost, i.car_data.skidka_2, i.car_data.special_price)))").btn.main.w-100="{{$t('bocid23')}}"
+                      one-click-modal-snippet(:title="i.self_data.title" :slug="i.self_data.slug", :price="$assets.toMoney($assets.makeItemPrice(i.car_data.stoimost, i.car_data.skidka_2, i.car_data.special_price))"  :is_rent="true")
     hr.mt-2
     div.d-flex.justify-content-center.align-items-center
       b-pagination(v-model="currentPage" :total-rows="filtered_list.length" :per-page="perPage")
@@ -62,8 +53,10 @@
 </template>
 
 <script>
+  import OneClickModalSnippet from "@/components/oneClickModalSnippet";
   export default {
     name: "CWoDComponentFull",
+    components: {OneClickModalSnippet},
     props:{
       items: {
         type: Array
@@ -71,9 +64,6 @@
     },
     data(){
       return {
-        ph: '',
-        client_phone: '',
-        client_name: '',
         currentPage: this.$route.query.page ? parseInt(this.$route.query.page) : 1,
         perPage: 10,
         filterOptions: [
@@ -127,49 +117,6 @@
       }
     },
     methods:{
-      onPhoneChange(slug){
-        this.client_phone = this.$refs[`phoneInput${slug}`][0]['phoneFormatted'];
-      },
-      hideModal(slug){
-        this.$bvModal.hide(`modal-one-click${slug}`);
-      },
-      submitModal(title, slug, price){
-        let data = {
-          name: this.client_name,
-          phone: this.client_phone,
-          link: `https://${this.$config.local_url}/rent/${slug}/`,
-          title: title,
-          station: this.$config.station,
-          price: price
-        }
-        if (data.name === '' || data.phone === '' || !data.phone){
-          this.$bvToast.toast('Форма заполнена с ошибками', {
-            title: 'Ошибка',
-            variant: 'danger',
-            solid: true
-          });
-        } else {
-          this.$axios.post("sun/oneClickOrder", data)
-            .then(res => {
-              if (res.data.status === 'success'){
-
-                this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
-                  title: 'Заявка отправлена',
-                  variant: 'success',
-                  solid: true
-                });
-                this.$router.push({ name: this.$assets.prefix('status-success', this.$i18n.locale)});
-              }else{
-                this.$router.push({ name: this.$assets.prefix('status-error', this.$i18n.locale)});
-              }
-            }).catch((err)=>{
-              if (err){
-                console.error(err)
-                this.$router.push({ name: this.$assets.prefix('status-error', this.$i18n.locale)});
-              }
-            })
-        }
-      },
       oneClickRent(slug){
         this.$bvModal.show(`modal-one-click${slug}`);
       },

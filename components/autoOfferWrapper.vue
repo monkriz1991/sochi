@@ -31,10 +31,10 @@
                     b-col(sm="12" md="6" lg="4" v-for="(loaded_item, idx) in filtered" :key="idx" v-if="stored_vehicles[loaded_item.ID]")
                       div(v-if="idx <= 8")
                         div.p-1.my-3
-                          new-offer-card(:loaded_item="loaded_item" :stored_item="stored_vehicles[loaded_item.ID]")
+                          new-offer-card-restyle(:loaded_item="loaded_item" :stored_item="stored_vehicles[loaded_item.ID]")
                       div(v-else-if="show_all")
                         div.p-1.my-3
-                          new-offer-card(:loaded_item="loaded_item" :stored_item="stored_vehicles[loaded_item.ID]")
+                          new-offer-card-restyle(:loaded_item="loaded_item" :stored_item="stored_vehicles[loaded_item.ID]")
                     b-col(sm="12" v-if="filtered.length > 8 && !show_all").d-flex.justify-content-center.align-center
                       b-button(@click="show_all = true").btn.main="{{$t('sa')}}"
                 div(v-else)
@@ -53,9 +53,11 @@
   import { mapActions, mapGetters } from 'vuex';
   import autoOfferCard from "./autoOfferCard";
   import newOfferCard from "./newOfferCard";
+  import NewOfferCardRestyle from "@/components/newOfferCardRestyle";
   export default {
     name: "autoOfferWrapper",
     components: {
+      NewOfferCardRestyle,
       newOfferCard,
       loader
     },
