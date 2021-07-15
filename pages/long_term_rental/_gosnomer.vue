@@ -351,7 +351,6 @@
       }
     },
     mounted() {
-      ym(33072038,'reachGoal','opencardlongrental')
     },
     created() {
       this.fetchSingleItem();

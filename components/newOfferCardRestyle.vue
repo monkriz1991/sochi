@@ -66,6 +66,7 @@ export default {
   methods: {
     oneClickRent(slug){
       this.$bvModal.show(`modal-one-click${slug}`);
+      ym(33072038,'reachGoal','arenda 1 klik')
     },
   },
   props:{

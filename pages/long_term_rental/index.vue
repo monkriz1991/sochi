@@ -220,7 +220,6 @@
     },
     methods:{
       showModal(id){
-        ym(33072038,'reachGoal','longrentalquickform');
         this.$bvToast.toast('На данный момент услуга не доступна', {
           title: 'Ошибка',
           variant: 'danger',
@@ -233,7 +232,6 @@
           let message = `БЫСТРАЯ ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.name} сделал заявку на автомобиль ${carName} номер телефона: ${this.phone}`;
           this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
             .then((res)=>{
-              ym(33072038,'reachGoal','longrentalquickformsend')
               this.hideModal(carId)
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                 title: 'Заявка отправлена',

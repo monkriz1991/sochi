@@ -100,7 +100,6 @@
       }
     },
     mounted() {
-      ym(33072038,'reachGoal','gotorent')
     }
   }
 </script>

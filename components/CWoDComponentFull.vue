@@ -118,6 +118,7 @@
     },
     methods:{
       oneClickRent(slug){
+        ym(33072038,'reachGoal','rent-zabronirovat 1klik')
         this.$bvModal.show(`modal-one-click${slug}`);
       },
       makeEngine(val){

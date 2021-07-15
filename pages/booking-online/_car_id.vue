@@ -264,9 +264,9 @@
                           h6="{{$t('bocid24')}}"
                           p(v-for="(e, edx) in errors" :key="edx" v-html="e").error.m-0
                       b-col(sm="12" md="12" lg="6")
-                        a(role="button" @click="onSubmitOrder").btn.cancel.main.w-100="{{$t('bocid23')}}"
+                        a(role="button" @click="onSubmitOrder('zazabronirovat')").btn.cancel.main.w-100="{{$t('bocid23')}}"
                       b-col(sm="12" md="12" lg="6")
-                        a(role="button" @click="onSubmitOrder").btn.main.w-100="{{$t('bocid22')}}"
+                        a(role="button" @click="onSubmitOrder('oplatit')").btn.main.w-100="{{$t('bocid22')}}"
           div(v-else).my-5.py-5
             loader
 </template>
@@ -712,7 +712,7 @@
             }
           }).catch(err => console.error(err))
       },
-      onSubmitOrder(){
+      onSubmitOrder(type){
         if (!this.allready){
           let errors = this.$assets.validateOrderFormOnlineBooking(this.userData)
           if(errors.length){
@@ -726,7 +726,11 @@
           }else{
             this.allready = true;
             this.makeMessageToBroadCasting((confirmation)=>{
-              ym(33072038,'reachGoal','reserveacar')
+              if (type === 'zazabronirovat'){
+                ym(33072038,'reachGoal','zazabronirovat booking')
+              } else {
+                ym(33072038,'reachGoal','oplatit booking')
+              }
               this.$bvToast.toast('Заявка отправлена', {
                 title: 'Успех',
                 variant: 'success',
@@ -818,7 +822,7 @@
     },
     mounted() {
       this.fetchPoints().then(()=>{
-        ym(33072038,'reachGoal','Bookacar')
+        ym(33072038,'reachGoal','klik podrobnee')
         this.loader_step = this.loader_step + 1;
       });
     }

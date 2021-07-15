@@ -487,7 +487,7 @@
       },
     },
     mounted() {
-      ym(33072038,'reachGoal','open-zayavka')
+      ym(33072038,'reachGoal','rent-klik podrobnee')
     },
     beforeCreate() {
       let data = {

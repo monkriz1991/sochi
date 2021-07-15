@@ -57,7 +57,11 @@ export default {
         this.$axios.post("sun/oneClickOrder", data)
           .then(res => {
             if (res.data.status === 'success'){
-
+              if (this.is_rent){
+                ym(33072038,'reachGoal','rent-zabronirovat 1klik')
+              }else{
+                ym(33072038,'reachGoal','zabronirovat 1klik')
+              }
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                 title: 'Заявка отправлена',
                 variant: 'success',

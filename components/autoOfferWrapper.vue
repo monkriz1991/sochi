@@ -109,7 +109,7 @@
             this.loading = true;
             this.$axios.post('cars', this.$assets.prepareForm(this.searchForm))
               .then(result => {
-                ym(33072038,'reachGoal','Findаcar')
+                ym(33072038,'reachGoal','najti avto')
                 if (result.data.status === 'success'){
                   this.cars = result.data.data;
                   this.loading = false;

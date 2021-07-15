@@ -124,7 +124,6 @@
       },
     },
     mounted() {
-      ym(33072038,'reachGoal','open-zayavka')
     },
     beforeCreate() {
       let data = {

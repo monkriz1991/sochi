@@ -200,7 +200,7 @@
             this.$axios.post("sun/sendStaticOrder", data)
               .then((res)=>{
                 if (res.data.status === 'success'){
-                  ym(33072038,'reachGoal','online-zayavka')
+                  ym(33072038,'reachGoal','rent-klik otpravit')
                   this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                     title: 'Заявка отправлена',
                     variant: 'success',
