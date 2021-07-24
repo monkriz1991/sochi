@@ -166,6 +166,7 @@ export default {
         this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
             .then(()=>{
               this.hideModal();
+              ym(33072038,'reachGoal','klik zakazat')
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                 title: 'Заявка отправлена',
                 variant: 'success',

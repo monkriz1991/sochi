@@ -103,6 +103,7 @@ export default {
         place: this.currentPlace(),
       };
       this.setSearchForm(form).then(() => {
+        form.place = form.place.id
         this.$router.push({name: this.$assets.prefix('booking-online', this.$i18n.locale), query:form})
       })
     },
