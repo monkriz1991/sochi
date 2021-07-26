@@ -126,7 +126,7 @@
         },
         methods: {
           check(e){
-            if (e && this.ins_tax_1 === false){
+            if (e){
               this.sorted_items[1].value = true
               this.sorted_items[2].value = true
             }else{
@@ -135,19 +135,10 @@
             }
           },
           check_sub(e){
-            if (!e) {
-              this.sorted_items[0].value = false
+            if (this.sorted_items[1].value && this.sorted_items[2].value){
+              this.sorted_items[0].value = true
             }else{
-              let i = 1;
-              if(this.sorted_items[1].value){
-                i++
-              }
-              if(this.sorted_items[2].value){
-                i++
-              }
-              if (i === 2){
-                this.sorted_items[0].value = true
-              }
+              this.sorted_items[0].value = false
             }
           },
           pre_load(){
