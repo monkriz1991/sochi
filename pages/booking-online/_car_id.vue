@@ -16,11 +16,11 @@
                     div.d-block.d-sm-none.d-md-none.d-lg-none
                       div.features-list-icos.features-small
                         div.features-list-block
-                          span.bag(v-html="`${$assets.getBagsData(car_data.bags, car_data.bigbag, $i18n.locale)}`")
+                          span.bag="{{car_data.bags_string}}"
                         div.features-list-block
-                          span.pass='{{$assets.getPassa(car_data.passa, $i18n.locale) }}'
+                          span.pass='{{$assets.getPassa(car_data.numberofseats, $i18n.locale) }}'
                         div.features-list-block
-                          span.dors='{{ $assets.getDoors(car_data.dors, $i18n.locale) }}'
+                          span.dors='{{ $assets.getDoors(car_data.doors, $i18n.locale) }}'
                         div.features-list-block
                           span.temp='{{$t(car_data.klimat)}}'
                         div.features-list-block
@@ -30,11 +30,11 @@
                     div.d-none.d-sm-block.d-md-block.d-lg-block
                       b-row.features-list-icos
                         b-col(sm="12" md="6" lg="4").features-list-block
-                          span.bag(v-html="`${$assets.getBagsData(car_data.bags, car_data.bigbag, $i18n.locale)}`")
+                          span.bag="{{car_data.bags_string}}"
                         b-col(sm="12" md="6" lg="4").features-list-block
-                          span.pass='{{$assets.getPassa(car_data.passa, $i18n.locale) }}'
+                          span.pass='{{$assets.getPassa(car_data.numberofseats, $i18n.locale) }}'
                         b-col(sm="12" md="6" lg="4").features-list-block
-                          span.dors='{{ $assets.getDoors(car_data.dors, $i18n.locale) }}'
+                          span.dors='{{ $assets.getDoors(car_data.doors, $i18n.locale) }}'
                         b-col(sm="12" md="6" lg="4").features-list-block
                           span.temp='{{$t(car_data.klimat)}}'
                         b-col(sm="12" md="6" lg="4").features-list-block

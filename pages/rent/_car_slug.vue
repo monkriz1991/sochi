@@ -29,7 +29,7 @@
                 div(v-if="loaded").py-3.d-none.d-sm-block.d-md-block.d-lg-block
                   b-row.features-list-icos
                     b-col(sm="6" md="4" lg="4").features-list-block
-                      span.bag(v-html="`${$assets.getBagsData(item.tth.bags, item.tth.bigbag, $i18n.locale)}`")
+                      span.bag="{{item.tth.mono_bags}}"
                     b-col(sm="6" md="4" lg="4").features-list-block
                       span.pass='{{$assets.getPassa(item.tth.passa, $i18n.locale) }}'
                     b-col(sm="6" md="4" lg="4").features-list-block

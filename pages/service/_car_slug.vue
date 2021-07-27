@@ -49,7 +49,7 @@
                   div.py-1
                     b-row.features-list-icos
                       b-col(sm="12" md="6" lg="4").features-list-block
-                        span.bag(v-html="`${$assets.getBagsData(item.tth.bags, item.tth.bigbag, $i18n.locale)}`")
+                        span.bag="{{item.tth.mono_bags}}"
                       b-col(sm="12" md="6" lg="4").features-list-block
                         span.pass='{{$assets.getPassa(item.tth.passa, $i18n.locale) }}'
                       b-col(sm="12" md="6" lg="4").features-list-block
