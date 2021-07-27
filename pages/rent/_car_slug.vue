@@ -15,7 +15,7 @@
                 div(v-if="loaded").py-3.d-block.d-sm-none.d-md-none.d-lg-none
                   div.features-list-icos.features-small
                     div.features-list-block
-                      span.bag(v-html="`${$assets.getBagsData(item.tth.bags, item.tth.bigbag, $i18n.locale)}`")
+                      span.bag="{{item.tth.mono_bags}}"
                     div.features-list-block
                       span.pass='{{$assets.getPassa(item.tth.passa, $i18n.locale) }}'
                     div.features-list-block
