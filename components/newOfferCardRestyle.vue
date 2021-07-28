@@ -60,7 +60,7 @@ export default {
   components: {OneClickModalSnippet},
   computed: {
     item(){
-      return {...this.loaded_item, ...this.stored_item}
+      return this.loaded_item
     }
   },
   methods: {
@@ -71,10 +71,6 @@ export default {
   },
   props:{
     loaded_item: {
-      type: Object,
-      required: true
-    },
-    stored_item: {
       type: Object,
       required: true
     }
