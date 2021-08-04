@@ -6,7 +6,6 @@ class Assets {
 
   genNowSpec = (time) => {
     return this.moment().tz('Europe/Moscow').add(time, 'days').set("hour", 12).set("minute", 0).set("second", 0).format();
-
   };
 
   genNowSpecFromDate = (date, time) => {

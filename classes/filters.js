@@ -31,20 +31,20 @@ class Filters{
   };
 
   compareLT_more = (a, b) => {
-    if (a.cd.stoimost > b.cd.stoimost) {
+    if (a.daily_price > b.daily_price) {
       return -1;
     }
-    if (a.cd.stoimost < b.cd.stoimost) {
+    if (a.daily_price < b.daily_price) {
       return 1;
     }
     return 0;
   };
 
   compareLT_less = (a, b) => {
-    if (a.cd.stoimost < b.cd.stoimost) {
+    if (a.daily_price < b.daily_price) {
       return -1;
     }
-    if (a.cd.stoimost > b.cd.stoimost) {
+    if (a.daily_price > b.daily_price) {
       return 1;
     }
     return 0;
@@ -82,18 +82,12 @@ class Filters{
 
   prepareLT = (data, price_filter, class_filter) => {
     let filtered;
-    if (class_filter === 'cargo'){
-      filtered = data.filter(el => {
-        return el.cd.naimenovanie === 'Citroen Jumpy L3'
-      })
+    if (class_filter === 'all'){
+      filtered = data
     }else{
-      if (class_filter === 'all'){
-        filtered = data
-      }else{
-        filtered = data.filter(el => {
-          return el.cd.klassavtomobilya === class_filter
-        })
-      }
+      filtered = data.filter(el => {
+        return el.class === class_filter
+      })
     }
     if (price_filter === 'price_asc'){
       return filtered.sort(this.compareLT_less)

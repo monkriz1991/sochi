@@ -42,52 +42,52 @@
                 b-form-select(v-model="filter" :options="filterOptions")
               b-col(sm="12" md="6" lg="4" offset-lg="4")
                 b-form-select(v-model="filter_price" :options="filterPrice")
-          div(v-for="card in filteredList" :key="card.raw.id").row_card
-            div.badge(v-html="`${$t('ltr8')} ${card.raw.price.price * 30}₽/${$t('ltr7')}`")
+          div(v-for="card in filteredList" :key="card.guid").row_card
+            div.badge(v-html="`${$t('ltr8')} ${card.period_price}₽/${$t('ltr7')}`")
             b-row
               b-col(sm="12" md="6" lg="4")
-                div(v-bind:style="{backgroundImage: `url(${$assets.prepare_url_to_local(card.cd.car_image, $config.environment, $config.local_url)})`}").preview
+                div(v-bind:style="{backgroundImage: `url(${$assets.prepare_url_to_local(card.image, $config.environment, $config.local_url)})`}").preview
               b-col(sm="12" md="6" lg="8")
                 div.info-block.p-2
-                  h3="{{card.cd.naimenovanie}} {{card.cd.godvypuska}}"
+                  h3="{{card.name}} {{card.year}}"
                   div.item-content
                     div.info_lap
                       p.l="{{$t('aoc2')}}"
-                      p.r="{{card.cd.godvypuska}}"
+                      p.r="{{card.year}}"
                     div.info_lap
                       p.l="{{$t('aoc7')}}"
-                      p.r="{{$t(card.cd.kpp)}}"
+                      p.r="{{$t(card.gear)}}"
                     div.info_lap
                       p.l="{{$t('aoc8')}}"
-                      p.r="{{$t(card.cd.toplivo)}}"
+                      p.r="{{$t(card.fuel)}}"
                     div.info_lap
                       p.l="{{$t('aoc9')}}"
-                      p.r(v-html="`${card.cd.dvigatel}${$t('p1')}.`")
+                      p.r(v-html="`${card.engine}${$t('p1')}.`")
                     div.info_lap
                       p.l="{{$t('aoc10')}}"
-                      p.r="{{$t(card.cd.cvet)}}"
+                      p.r="{{$t(card.color)}}"
                   div.devider
                   div.actions
                     b-row
                       b-col(sm="12" md="12" lg="8").limits
                         p.heading="{{$t('ltr6')}}"
                         p.prices
-                          span.old_price="{{card.raw.price.base_price}}₽/{{$t('cwod7')}}"
-                          span.new_price="{{card.raw.price.price}}₽/{{$t('cwod7')}}"
+                          span.old_price="{{card.max_price/card.period}}₽/{{$t('cwod7')}}"
+                          span.new_price="{{card.daily_price}}₽/{{$t('cwod7')}}"
                       b-col(sm="12" md="12" lg="4").py-1
-                        nuxt-link(:to="{name: $assets.prefix('long_term_rental-gosnomer', $i18n.locale), params: {gosnomer: card.cd['1cID']} }").btn.main.w-100="{{$t('ltr5')}}"
-                        b-button(@click="showModal(card.cd['1cID'])").btn.cancel.w-100="{{$t('ltr4')}}"
-                  b-modal(:id="card.cd['1cID']" hide-footer hide-header)
-                    h5.text-center="{{$t('ltr3')}} - {{card.cd.naimenovanie}}"
+                        nuxt-link(:to="{name: $assets.prefix('long_term_rental-gosnomer', $i18n.locale), params: {gosnomer: card.guid, title: card.name} }").btn.main.w-100="{{$t('ltr5')}}"
+                        b-button(@click="showModal(card.guid)").btn.cancel.w-100="{{$t('ltr4')}}"
+                  b-modal(:id="card.guid" hide-footer hide-header)
+                    h5.text-center="{{$t('ltr3')}} - {{card.name}}"
                     b-form-group.mb-0(:description="$t('cb2')")
                       b-form-input(v-model="name" :placeholder="$t('cb3')")#callback_name
                     b-form-group.mb-0( :description="$t('cb4')")
-                      vue-phone-number-input(@input="onPhoneChange(`phoneInput_${card.cd['1cID']}`)" :ref="`phoneInput_${card.cd['1cID']}`" v-model="ph" id="callback_phone" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
+                      vue-phone-number-input(@input="onPhoneChange(`phoneInput_${card.guid}`)" :ref="`phoneInput_${card.guid}`" v-model="ph" id="callback_phone" :clearable="true" :translations="{countrySelectorLabel: $t('contacts6'),countrySelectorError: $t('contacts7'),phoneNumberLabel: $t('contacts8'),example: $t('contacts9')}")
                     b-row
                       b-col(sm="12" md="6" lg="6")
-                        a(role="button" @click="hideModal(card.cd['1cID'])").btn.cancel.w-100="{{$t('ltr2')}}"
+                        a(role="button" @click="hideModal(card.guid)").btn.cancel.w-100="{{$t('ltr2')}}"
                       b-col(sm="12" md="6" lg="6")
-                        a(role="button" @click="submitModal(card.cd.naimenovanie, card.cd['1cID'])").btn.main.w-100="{{$t('ltr1')}}"
+                        a(role="button" @click="submitModal(card.name, card.guid)").btn.main.w-100="{{$t('ltr1')}}"
         div(v-else)
           loader
 </template>
@@ -192,8 +192,7 @@
     },
     computed:{
       filteredList(){
-        let data = this.$filters.monotypeLong(this.lt_cards);
-        return this.$filters.prepareLT(data, this.filter_price, this.filter);
+        return this.$filters.prepareLT(this.lt_cards, this.filter_price, this.filter);
       },
       settings(){
         let settings = this.$parent.$parent.set_data
@@ -220,12 +219,7 @@
     },
     methods:{
       showModal(id){
-        this.$bvToast.toast('На данный момент услуга не доступна', {
-          title: 'Ошибка',
-          variant: 'danger',
-          solid: true
-        });
-        // this.$bvModal.show(id)
+        this.$bvModal.show(id)
       },
       submitModal(carName, carId){
         if (this.phone !== '' && this.name !== '' && this.phone !== undefined){
@@ -254,17 +248,16 @@
         this.$bvModal.hide(id)
       },
       fetchLTRPropose(){
-        this.$axios.post('/sun/longTermList', {station: this.$config.station})
+        let data = {
+          "date_from": this.$assets.genNowSpec(1),
+          "date_to": this.$assets.genNowSpec(31),
+          "station": this.$config.station,
+          "class": 5
+        }
+        this.$axios.post('/sun/ltr/list', data)
           .then(result => {
             if (result.data.status === 'success'){
-              result.data.data.map(el => {
-                if (el.cd.naimenovanie === 'Hyundai H-1' && el.cd.stoimost < 7070){
-                  el.cd.stoimost = 7070
-                  this.lt_cards.push(el)
-                }else{
-                  this.lt_cards.push(el)
-                }
-              })
+              this.lt_cards = result.data.data
               this.loaded = true;
             }
           })
@@ -304,7 +297,7 @@
     .preview
       min-height: 300px
       background-position: center
-      background-size: contain
+      background-size: cover
       background-repeat: no-repeat
     .info-block
       display: flex

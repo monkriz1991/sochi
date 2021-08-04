@@ -39,7 +39,7 @@
               div.py-1
                 b-row.features-list-icos
                   b-col(sm="12" md="6" lg="4").features-list-block
-                    span.bag(v-html="`${$assets.getBagsData(item.cd.bags, item.cd.bigbag, $i18n.locale)}`")
+                    span.bag="{{item.cd.bags_string}}"
                   b-col(sm="12" md="6" lg="4").features-list-block
                     span.pass='{{$assets.getPassa(item.cd.passa, $i18n.locale) }}'
                   b-col(sm="12" md="6" lg="4").features-list-block
@@ -300,22 +300,17 @@
             });
             return false
           }else{
-            // this.allready = true;
-            this.$bvToast.toast('На данный момент услуга не доступна', {
-              title: 'Ошибка',
-              variant: 'danger',
-              solid: true
-            });
-            // let message = `ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.userData.surname} ${this.userData.name} ${this.userData.fathername} сделал заявку на автомобиль ${this.item.cd.naimenovanie}\nДаты:\nc - ${this.$assets.formatDate(new Date(this.df))}\nпо - ${this.$assets.formatDate(new Date(this.dt))}\nСтоимость периода - ${this.lastPrice}₽\n\nНомер телефона: ${this.userData.phone}\nE-mail: ${this.userData.email}\nКомментарий: ${this.userData.comment}`;
-            // this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
-            //   .then((res)=>{
-            //     ym(33072038,'reachGoal','sendcardlongrental')
-            //     this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
-            //       title: 'Заявка отправлена',
-            //       variant: 'success',
-            //       solid: true
-            //     });
-            //   }).catch((err)=>{console.error(err)})
+            this.allready = true;
+            let message = `ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.userData.surname} ${this.userData.name} ${this.userData.fathername} сделал заявку на автомобиль ${this.item.cd.naimenovanie}\nДаты:\nc - ${this.$assets.formatDate(new Date(this.df))}\nпо - ${this.$assets.formatDate(new Date(this.dt))}\nСтоимость периода - ${this.lastPrice}₽\n\nНомер телефона: ${this.userData.phone}\nE-mail: ${this.userData.email}\nКомментарий: ${this.userData.comment}`;
+            this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
+              .then((res)=>{
+                this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
+                  title: 'Заявка отправлена',
+                  variant: 'success',
+                  solid: true
+                });
+              }).catch((err)=>{console.error(err)})
+            this.$router.push({ name: this.$assets.prefix('status-success', this.$i18n.locale)});
           }
         }else{
           this.$bvToast.toast('Вы уже отправили заявку', {
