@@ -79,7 +79,7 @@
                       div(v-if="o.has_childs")
                         div(:class="o.value ? null : 'collapsed'" :aria-expanded="o.value ? 'true' : 'false'" :aria-controls="`ido-${o.id}`" @click="o.value = !o.value").parrent_option
                           div.info
-                            img(:src="angle" v-bind:class="{in: o.value}" alt="angle down")
+                            img(:src="angle" :class="{in: o.value}" alt="angle down")
                             p
                               |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
                           div.price
@@ -145,6 +145,11 @@
                             |{{$t('bocid19')}}
                   div.p-3.info-inside
                     h4="{{$t('bocid7')}}"
+                    div.price_string
+                      h5.text-black-50.text-uppercase="{{$t('bocid8_1')}}"
+                      h5.text-black-50.text-uppercase
+                        span(v-if="period_sum < period_sum_before_sale").old_price="{{period_sum_before_sale_per_day}}₽"
+                        |{{period_sum_per_day}}₽
                     div.price_string
                       h5.text-black-50.text-uppercase="{{$t('bocid8')}}"
                       h5.text-black-50.text-uppercase
@@ -498,6 +503,12 @@
       },
       period_sum_before_sale(){
         return parseInt(this.car_data.stoimost) * this.period;
+      },
+      period_sum_before_sale_per_day(){
+        return parseInt(this.period_sum_before_sale / this.period);
+      },
+      period_sum_per_day(){
+        return parseInt(this.period_sum / this.period);
       },
       online_sum(){
         return Math.round((this.period_sum) * 0.2);
