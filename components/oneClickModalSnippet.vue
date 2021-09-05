@@ -45,7 +45,8 @@ export default {
         link: this.link,
         title: this.title,
         station: this.$config.station,
-        price: this.price
+        price: this.price,
+        partner: localStorage.partner ? localStorage.partner : false
       }
       if (data.name === '' || data.phone === '' || !data.phone){
         this.$bvToast.toast('Форма заполнена с ошибками', {

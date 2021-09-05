@@ -195,7 +195,8 @@
               email: this.email,
               comment: this.comment,
               station: this.$config.station,
-              session_key: this.session_key
+              session_key: this.session_key,
+              partner: localStorage.partner ? localStorage.partner : false
             };
             this.$axios.post("sun/sendStaticOrder", data)
               .then((res)=>{

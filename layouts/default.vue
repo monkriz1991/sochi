@@ -24,6 +24,15 @@
         set_data: false
       }
     },
+    mounted() {
+      if (!localStorage.partner) {
+        if (this.$route.query.partner) {
+          localStorage.partner = this.$route.query.partner;
+        } else {
+          console.log('ref not presented')
+        }
+      }
+    },
     beforeCreate() {
       this.$axios(`sun/fetchSettings/${this.$config.station}`)
         .then(res => {

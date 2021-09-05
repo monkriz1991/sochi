@@ -714,7 +714,8 @@
           discount : this.promocode_valid ? this.promocode_sale : 0,
           insurance : JSON.stringify([]),
           features: this.features,
-          delivery_reverse: `\n\n${this.insuranse_string ? this.insuranse_string : ''}${payData}\n${promo}\n\nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}\n`
+          delivery_reverse: `\n\n${this.insuranse_string ? this.insuranse_string : ''}${payData}\n${promo}\n\nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}\n`,
+          partner: localStorage.partner ? localStorage.partner : false
         }
         this.$axios.post('sun/placeOrderOnPay', orderData)
           .then(res => {

@@ -157,7 +157,8 @@ export default {
     },
     submitModal(){
       if (this.callback_form.phone !== '' && this.callback_form.name !== '' && this.callback_form.phone !== undefined){
-        let message = `на сайте sochirentacar.ru Пользователь ${this.callback_form.name} заказал обратный звонок на номер телефона: ${this.callback_form.phone}`;
+        let partner = localStorage.partner ? `\n\n реферал - ${localStorage.partner}` : ""
+        let message = `на сайте sochirentacar.ru Пользователь ${this.callback_form.name} заказал обратный звонок на номер телефона: ${this.callback_form.phone}${partner}`;
         let bodyFormData = new FormData();
         bodyFormData.set('station', this.$config.station);
         bodyFormData.set('type', 'callback');

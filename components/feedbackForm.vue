@@ -43,7 +43,8 @@ export default {
         if (errors.length === 0){
           this.already = true;
           let place = this.type === 'feedback' ? 'КОНТАКТЫ' : 'RENT'
-          let message = `на сайте sochirentacar.ru заполнена форма обратной связи на странице ${place}:\nимя - ${this.feedback.name}\ne-mail - ${this.feedback.phone}\nтелефон - ${this.feedback.email}\nсообщение - ${this.feedback.message}\n`;
+          let partner = localStorage.partner ? `\n\n реферал - ${localStorage.partner}` : ""
+          let message = `на сайте sochirentacar.ru заполнена форма обратной связи на странице ${place}:\nимя - ${this.feedback.name}\ne-mail - ${this.feedback.phone}\nтелефон - ${this.feedback.email}\nсообщение - ${this.feedback.message}\n${partner}`;
           let bodyFormData = new FormData();
           bodyFormData.set('station', this.$config.station);
           bodyFormData.set('type', 'feedback');
