@@ -10,7 +10,7 @@
             b-row
               b-col(sm="12" md="6" lg="3" v-for="(ci, cidx) in conditions[$i18n.locale]" :key="cidx")
                 div.condition
-                  div(v-bind:class="ci.class_name").ico
+                  div(:class="ci.class_name").ico
                   div.text
                     h6="{{ci.title}}"
                     p="{{ci.text}}"
@@ -56,7 +56,7 @@
       return {
         title: 'Условия аренды',
         meta: [
-          {hid: 'description', name: 'description', content: 'Аренда авто в компании "Sochi Rent-a-Car": *✮* без ограничения пробега *✮* скидки до 25% *✮* 350 машин в автопарке *✮* бесплатная подача в аэропорт*✮* Бронируй онлайн!⭐'}
+          {hid: 'description', name: 'description', content: 'ℹ Условия проката автомобилей в Сочи в компании Sochi Rent-a-Car: правила аренды автомобиля, какие документы нужны для того чтобы взять машину в аренду.  Бронируй онлайн!'}
         ]
       }
     },

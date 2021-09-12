@@ -22,7 +22,7 @@
                         div.date-badge="{{$assets.t_date(n.event_date)}}"
                         b-row
                           b-col(sm="12" md="12" lg="4")
-                            div(v-bind:style="{backgroundImage:`url(https://sochirentacar.ru/storage/${n.image})`}").img
+                            div(:style="{backgroundImage:`url(https://sochirentacar.ru/storage/${n.image})`}").img
                           b-col(sm="12" md="12" lg="8")
                             b-card-text.p-2
                               nuxt-link(:to="{name: $assets.prefix('about-events-event_id', $i18n.locale), params: {event_id: n.id}}")
@@ -45,7 +45,7 @@
       return {
         title: 'Мероприятия',
         meta: [
-          {hid: 'description', name: 'description', content: 'Аренда авто в компании "Sochi Rent-a-Car": *✮* без ограничения пробега *✮* скидки до 25% *✮* 350 машин в автопарке *✮* бесплатная подача в аэропорт*✮* Бронируй онлайн!⭐'}
+          {hid: 'description', name: 'description', content: 'Мероприятия в Сочи и Адлере при поддержке компании Sochi Rent-a-Car:  ✮ 250 машин в автопарке ✮ бесплатная подача в аэропорт ✮ Бронируй онлайн!'}
         ]
       }
     },

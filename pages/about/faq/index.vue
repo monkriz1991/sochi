@@ -12,7 +12,7 @@
           b-col(sm="12" md="9" lg="9")
             article
               h1="{{$t('faq1')}}"
-              div(v-for="(i, idx) in faq[$i18n.locale]" :key="idx" v-bind:class="{active: idx === index}").colapsed_pan
+              div(v-for="(i, idx) in faq[$i18n.locale]" :key="idx" :class="{active: idx === index}").colapsed_pan
                 div(@click="index = idx").question
                   h6(v-html="i.q").mb-1
                   img(:src="angle" alt="angle down")
@@ -31,7 +31,7 @@
       return {
         title: 'Часто задаваемые вопросы и ответы об аренде автомобиля',
         meta: [
-          {hid: 'description', name: 'description', content: 'Аренда авто в компании "Sochi Rent-a-Car": *✮* без ограничения пробега *✮* скидки до 25% *✮* 350 машин в автопарке *✮* бесплатная подача в аэропорт*✮* Бронируй онлайн!⭐'}
+          {hid: 'description', name: 'description', content: 'ℹ Частые вопросы и ответы об аренде автомобиля в Сочи и Адлере.  ✮ бесплатная подача в аэропорт ✮ Бронируй онлайн! ☎ +7 (861) 205-21-76'}
         ]
       }
     },

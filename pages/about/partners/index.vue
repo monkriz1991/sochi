@@ -17,7 +17,7 @@
                   b-col(sm="6" md="4" lg="4" v-for="(p, pdx) in partners" :key="pdx")
                     div.item
                       a(:href="p.link" rel="nofollow")
-                        div(v-bind:style="{backgroundImage: `url(${p.logo})`}").media
+                        div(:style="{backgroundImage: `url(${p.logo})`}").media
                         h5.text-center.text-uppercase="{{p.name}}"
 </template>
 
@@ -30,7 +30,7 @@
       return {
         title: 'Наши партнеры',
         meta: [
-          {hid: 'description', name: 'description', content: 'Аренда авто в компании "Sochi Rent-a-Car": *✮* без ограничения пробега *✮* скидки до 25% *✮* 350 машин в автопарке *✮* бесплатная подача в аэропорт*✮* Бронируй онлайн!⭐'}
+          {hid: 'description', name: 'description', content: 'Партнеры компании Sochi Rent-a-Car: ✮ без ограничения пробега ✮ скидки до 25% ✮ 250 машин в автопарке ✮ бесплатная подача в аэропорт✮ Бронируй онлайн!'}
         ]
       }
     },
