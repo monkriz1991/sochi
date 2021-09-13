@@ -240,10 +240,14 @@
                               sup.text-red="*"
                               |{{$t('df111')}}
                       b-col(sm="12" md="12" lg="12")
-                        div(v-if="!car_data.special_price")
+                        div(v-if="!car_data.special_price && !['промо', 'promo', 'Промо', 'ПРОМО', 'Promo', 'PROMO', 'Электросамокаты', 'электросамокаты', 'Электросамокат', 'электросамокат'].includes(car_data.klassavtomobilya)")
                           div.option
                             div.option-item.my-2
                               b-form-checkbox(v-model="is_promocode").lp-checkbox="{{$t('bocid26')}}"
+                        div(v-else)
+                          div.option
+                            div.option-item.my-2
+                              b-badge(variant="danger")="{{$t('bocid26_1')}}"
                       b-col(sm="12" md="12" lg="12")
                         div(v-if="!car_data.special_price")
                           b-form-group(v-if="is_promocode")
