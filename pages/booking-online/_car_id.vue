@@ -58,6 +58,8 @@
                               p(v-html="$i18n.locale === 'ru' ? o.option_description : o.option_description_eng")
                               hr
                               b-o-image-slider(:items="o.photos")
+                              hr
+                              p.m-0.note="{{$t('t2102')}}"
                             |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
                           span(v-if="o.option_name === 'Молодой Водитель' || o.option_name === 'Дозаправка' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{$i18n.locale === 'ru' ? o.option_description : o.option_description_eng}}"
                           span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="{{$t('covid1')}} {{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}} {{$t('covid2')}}"
@@ -96,6 +98,8 @@
                                     p(v-html="$i18n.locale === 'ru' ? so.option_description : so.option_description_eng")
                                     hr
                                     b-o-image-slider(:items="so.photos")
+                                    hr
+                                    p.m-0.note="{{$t('t2102')}}"
                                   |{{$i18n.locale === 'ru' ? so.option_name : so.option_name_eng}}
                               span.text-right.position-relative
                                 b-form-select(v-model="so.quantity" v-if="so.value && so.count > 1").w-10
@@ -113,6 +117,8 @@
                               p(v-html="$i18n.locale === 'ru' ? o.option_description : o.option_description_eng")
                               hr
                               b-o-image-slider(:items="o.photos")
+                              hr
+                              p.m-0.note="{{$t('t2102')}}"
                             |{{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}}
                           span(v-if="o.option_name === 'Молодой Водитель' || o.option_name === 'Дозаправка' || o.option_name === 'Защита бронирования' || o.option_name === 'Гарантия выбранного авто' || o.option_name === 'Мойка' || o.option_name === 'Крымский мост'").inform-now-dozo="{{$i18n.locale === 'ru' ? o.option_description : o.option_description_eng}}"
                           span(v-if="$assets.checkAbhazAvailable(o.option_name, userData.df)").inform-now-dozo="{{$t('covid1')}} {{$i18n.locale === 'ru' ? o.option_name : o.option_name_eng}} {{$t('covid2')}}"

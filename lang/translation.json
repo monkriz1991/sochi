@@ -505,7 +505,8 @@
     "security4": "Deductible - if an insured event occurs, you must partially pay for repairs. An example is the situation: a hard hat with a deductible of ",
     "security5": " rubles-means that when an insured event occurs, you pay ",
     "security6": "rubles, if this money is not enough, the difference is paid by the insurance company. protect you from all costs.",
-    "sa": "Show all"
+    "sa": "Show all",
+    "t2102": "The model is presented for review, photos of available equipment of this class can be provided upon request"
   },
   "ru": {
     "op": "Онлайн оплата",
@@ -1034,6 +1035,7 @@
     "security4": "Франшиза - при наступления страхового случия Вы должны частично оплатить ремонт. Примером можно привести ситуацию: КАСКО с франшизой в ",
     "security5": "рублей - означает, что при наступлении страхового случая, Вы выплачиваете",
     "security6": "рублей, в случае если этих денег не хватит, разницу оплачивает страховая компания.",
-    "sa": "Показать все доступные"
+    "sa": "Показать все доступные",
+    "t2102": "Модель представлена для ознакомления, фото доступного оборудования данного класса может быть предоставлено по запросу"
   }
 }
