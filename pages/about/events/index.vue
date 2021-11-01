@@ -43,7 +43,7 @@
   export default {
     head () {
       return {
-        title: 'Мероприятия',
+        title: 'Мероприятия в Сочи и Адлере',
         meta: [
           {hid: 'description', name: 'description', content: 'Мероприятия в Сочи и Адлере при поддержке компании Sochi Rent-a-Car:  ✮ 250 машин в автопарке ✮ бесплатная подача в аэропорт ✮ Бронируй онлайн!'}
         ]

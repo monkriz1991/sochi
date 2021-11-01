@@ -49,7 +49,7 @@
   export default {
     head () {
       return {
-        title: 'Контактная информация',
+        title: 'Контактная информация Sochi Rent-a-Car',
         meta: [
           {hid: 'description', name: 'description', content: 'ℹ Адрес и телефон компании Sochi Rent-a-Car: Краснодарский край, г. Сочи, ул. Мира, д. 42, оф. 207; ☎ +7 (861) 205-21-76'}
         ]

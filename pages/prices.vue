@@ -30,8 +30,8 @@
                     strong="{{$t('price8')}}"
                   th(style="text-align: center")
                     strong="{{$t('price9')}}"
-                tr(v-for="(i, idx) in list" v-bind:key="i.idx")
-                  td.text-center="{{idx+1}}"
+                tr(v-for="(i, idx) in list" :key="i.idx")
+                  td(v-html="idx+1").text-center
                   td.text-center="{{i['brand-model']}}"
                   td.text-center(style="text-align: center")="{{i['loan']}}"
                   td.text-center(style="text-align: center")="{{$assets.toMoney(i['1day'])}}"
@@ -55,7 +55,7 @@
   export default {
     head () {
       return {
-        title: 'Цены на аренду авто в Сочи без водителя',
+        title: 'Цены на аренду авто в Сочи',
         meta: [
           {hid: 'description', name: 'description', content: 'Цены на аренду авто в Сочи: *✮* без ограничения пробега *✮* скидки до 25% *✮* 350 машин в автопарке *✮* бесплатная подача в аэропорт*✮* Бронируй онлайн!⭐'}
         ]

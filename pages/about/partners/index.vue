@@ -28,7 +28,7 @@
   export default {
     head () {
       return {
-        title: 'Наши партнеры',
+        title: 'Партнеры компании Sochi Rent-a-Car',
         meta: [
           {hid: 'description', name: 'description', content: 'Партнеры компании Sochi Rent-a-Car: ✮ без ограничения пробега ✮ скидки до 25% ✮ 250 машин в автопарке ✮ бесплатная подача в аэропорт✮ Бронируй онлайн!'}
         ]
