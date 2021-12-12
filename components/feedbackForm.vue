@@ -42,35 +42,30 @@ export default {
         let errors = this.$assets.validationFeedback(this.feedback);
         if (errors.length === 0){
           this.already = true;
-          let place = this.type === 'feedback' ? 'КОНТАКТЫ' : 'RENT'
-          let partner = localStorage.partner ? `\n\n реферал - ${localStorage.partner}` : ""
-          let message = `на сайте sochirentacar.ru заполнена форма обратной связи на странице ${place}:\nимя - ${this.feedback.name}\ne-mail - ${this.feedback.phone}\nтелефон - ${this.feedback.email}\nсообщение - ${this.feedback.message}\n${partner}`;
-          let bodyFormData = new FormData();
-          bodyFormData.set('station', this.$config.station);
-          bodyFormData.set('type', 'feedback');
-          bodyFormData.set('row_data', JSON.stringify({
-            name: this.feedback.name,
-            phone: this.feedback.email,
-            email: this.feedback.phone,
-            comment  : this.feedback.message,
-          }));
-          this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).then(res => {
-            this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
-              .then((res)=>{
-                ym(33072038,'reachGoal','contacts-klik otpravit')
-                this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
-                  title: 'Заявка отправлена',
-                  variant: 'success',
-                  solid: true
-                });
-                this.feedback = {
-                  name: '',
-                  phone: '',
-                  email: '',
-                  message: ''
-                }
-              }).catch((err)=>{console.error(err)})
-          }).catch(err => console.error(err));
+          let data = {
+            partner: localStorage.partner ? `\n\n реферал - ${localStorage.partner}` : false,
+            station: this.$config.station,
+            place: this.type === 'feedback' ? 'КОНТАКТЫ' : 'RENT',
+            clientName: this.feedback.name,
+            clientPhone: this.feedback.email,
+            clientEmail: this.feedback.phone,
+            comment: this.feedback.message,
+          }
+          this.$axios.post("sun/v2/feedback", data)
+            .then(()=>{
+              ym(33072038,'reachGoal','contacts-klik otpravit')
+              this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
+                title: 'Заявка отправлена',
+                variant: 'success',
+                solid: true
+              });
+              this.feedback = {
+                name: '',
+                phone: '',
+                email: '',
+                message: ''
+              }
+            }).catch((err)=>{console.error(err)})
         }else{
           errors.map(el => {
             this.$bvToast.toast(el, {

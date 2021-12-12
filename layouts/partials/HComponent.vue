@@ -141,16 +141,16 @@
       },
       submitModal(){
         if (this.callback_form.phone !== '' && this.callback_form.name !== '' && this.callback_form.phone !== undefined){
-          let message = `на сайте sochirentacar.ru Пользователь ${this.callback_form.name} заказал обратный звонок на номер телефона: ${this.callback_form.phone}`;
-          let bodyFormData = new FormData();
-          bodyFormData.set('station', this.$config.station);
-          bodyFormData.set('type', 'callback');
-          bodyFormData.set('row_data', JSON.stringify({name: this.callback_form.name, phone: this.callback_form.phone}));
-          this.$axios.post('https://booking.autopilot.rent/mail_complite.php', bodyFormData, {headers: {}}).catch(err => console.error(err));
-          this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
-            .then((res)=>{
-              ym(33072038,'reachGoal','klik zakazat')
+          let data = {
+            partner: localStorage.partner ? `\n\n реферал - ${localStorage.partner}` : false,
+            clientName: this.callback_form.name,
+            clientPhone: this.callback_form.phone,
+            station: this.$config.station,
+          }
+          this.$axios.post("sun/v2/callback", data)
+            .then(()=>{
               this.hideModal();
+              ym(33072038,'reachGoal','klik zakazat')
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                 title: 'Заявка отправлена',
                 variant: 'success',
