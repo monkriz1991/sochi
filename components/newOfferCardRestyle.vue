@@ -9,7 +9,7 @@
           span="{{item.PriceDiscount}}₽/{{$t('aoc1')}}"
         div.preview(:lazy-background="item.PrimaryImage ? $assets.prepare_url_to_local(item.PrimaryImage, $config.environment, $config.local_url) : $assets.prepare_url_to_local(item.img, $config.environment, $config.local_url)")
         div(v-if="item.features_options.length > 0").item-features.px-1
-          span(v-for="(f, fdx) in item.features_options" :key="fdx" v-bind:class="$assets.fetchFeatureClass(f.name)")="{{$t(f.name)}}"
+          span(v-for="(f, fdx) in item.features_options" :key="fdx" :class="$assets.fetchFeatureClass(f.name)")="{{$t(f.name)}}"
     div.media-info.px-4.pt-4.pb-2.text-center
       h3.m-0="{{item.naimenovanie}}"
       div.divider
@@ -45,22 +45,37 @@
       div.info_lap
         p.l="{{$t('aoc10')}}"
         p.r="{{$t(item.cvet)}}"
-    div.item-action
+    div(v-if="!lessTwelveShow").item-action
       div.p-1.px-2.w-100
         a(href="javascript:void(0)" @click="oneClickRent(item.ID)").one_click="{{$t('af0')}}"
       div.p-1.px-2.w-100
         nuxt-link(:to="{name: $assets.prefix('booking-online-car_id', $i18n.locale), params: {car_id: item.ID}}")="{{$t('aoc11')}}"
       one-click-modal-snippet(:slug="item.ID" :title="item.naimenovanie" :price="item.PriceDiscount" :is_rent="false")
+    div(v-else)
+      less-twelve-form(
+        :vehicle="item.naimenovanie"
+        :date-from="$parent.searchForm.start_date"
+        :date-to="$parent.searchForm.end_date"
+        :price="item.Special_Price ? item.Special_Price : item.PriceDiscount"
+        :guid="item.ID"
+      )
 </template>
 
 <script>
 import OneClickModalSnippet from "@/components/oneClickModalSnippet";
+import LessTwelveForm from "@/components/lessTwelveForm";
 export default {
   name: "newOfferCardRestyle",
-  components: {OneClickModalSnippet},
+  components: {LessTwelveForm, OneClickModalSnippet},
   computed: {
     item(){
       return this.loaded_item
+    },
+    lessTwelveShow(){
+      const startDate = new Date(this.$parent.searchForm.start_date).getTime();
+      const currentDate = new Date().getTime();
+      let od = 86400000/2;
+      return (startDate - currentDate) <= od
     }
   },
   methods: {

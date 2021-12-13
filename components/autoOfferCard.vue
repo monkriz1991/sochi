@@ -6,12 +6,12 @@
       div.item-header
         div.media
           div.preview(:lazy-background="item.img")
-            div.item-color(v-bind:style="{backgroundColor: item.WebColor}")
+            div.item-color(:style="{backgroundColor: item.WebColor}")
         div.media-info.px-2.pt-4.text-center
           h3.m-0="{{item.naimenovanie}}"
           div.divider
         div.item-features.px-1
-          span(v-for="(f, fdx) in item.features_options" :key="fdx" v-bind:class="$assets.fetchFeatureClass(f.name)")="{{$t(f.name)}}"
+          span(v-for="(f, fdx) in item.features_options" :key="fdx" :class="$assets.fetchFeatureClass(f.name)")="{{$t(f.name)}}"
       div(v-if="item.naimenovanie === 'Xiaomi MiJia Electric Scooter M365'").item-content
         div.info_lap
           p.l="{{$t('aoc2')}}"

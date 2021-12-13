@@ -51,7 +51,6 @@
 <script>
   import loader from "./loader";
   import { mapActions, mapGetters } from 'vuex';
-  import autoOfferCard from "./autoOfferCard";
   import newOfferCard from "./newOfferCard";
   import NewOfferCardRestyle from "@/components/newOfferCardRestyle";
   export default {
@@ -103,7 +102,7 @@
       lookUp(){
         let df_sec = (new Date(this.searchForm.start_date)).getTime();
         let now_sec = (new Date()).getTime();
-        let od = 86400000/2;
+        let od = 3600000;
         if (Date.parse(this.searchForm.start_date) > Date.parse('2019-04-05')){
           if((df_sec - now_sec) > od){
             this.loading = true;

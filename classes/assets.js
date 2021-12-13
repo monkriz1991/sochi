@@ -18,7 +18,7 @@ class Assets {
   }
 
   genMinDate = () => {
-    return this.moment().tz('Europe/Moscow').add(12, 'hours').format();
+    return this.moment().tz('Europe/Moscow').add(1, 'hours').format();
   }
 
   prepareForm = (formData) =>{
