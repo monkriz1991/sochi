@@ -69,9 +69,9 @@ class Assets {
 
   getPassa = (passa, locale) => {
     if(locale === 'ru'){
-      return `${passa} ${this.getNameCoint(parseInt(passa), 'пассажир', 'пассажира', 'пассажиров')}`;
+      return `${passa} ${this.getNameCoint(parseInt(passa), 'место', 'места', 'мест')}`;
     }else{
-      return `${passa} ${this.getNameCoint(parseInt(passa), 'passenger', 'passengers', 'passengers')}`;
+      return `${passa} ${this.getNameCoint(parseInt(passa), 'place', 'places', 'places')}`;
     }
   };
 
