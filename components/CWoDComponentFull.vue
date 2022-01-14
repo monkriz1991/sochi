@@ -12,12 +12,12 @@
             b-row
               b-col(sm="12" md="12" lg="6")
                 div.el-wrapper
-                  div.main-img(v-bind:style="{backgroundImage:`url(${$assets.check_local_env($config.local_url, $config.environment)}${i.self_data.photos[0]})`}" :alt="i.self_data.title").position-relative
+                  div.main-img(:style="{backgroundImage:`url(${$assets.check_local_env($config.local_url, $config.environment)}${i.self_data.photos[0]})`}").position-relative
                     div.price-badge(v-html="`${$t('cwd27')} ${$assets.toMoney($assets.makeItemPrice(i.car_data.stoimost, i.car_data.skidka_2, i.car_data.special_price))}₽/${$t('cwod7')}`")
                     div(v-if="i.features.length > 0").item-features.px-1
-                      span(v-for="(f, fdx) in i.features" :key="fdx" v-bind:class="$assets.fetchFeatureClass(f.name)")="{{$t(f.name)}}"
-                  div.flox-img(v-bind:style="{backgroundImage:`url(${$assets.check_local_env($config.local_url, $config.environment)}${i.self_data.photos[1]})`}" :alt="i.self_data.title")
-                  div.flox-img(v-bind:style="{backgroundImage:`url(${$assets.check_local_env($config.local_url, $config.environment)}${i.self_data.photos[2]})`}" :alt="i.self_data.title")
+                      span(v-for="(f, fdx) in i.features" :key="fdx" :class="$assets.fetchFeatureClass(f.name)")="{{$t(f.name)}}"
+                  div.flox-img(:style="{backgroundImage:`url(${$assets.check_local_env($config.local_url, $config.environment)}${i.self_data.photos[1]})`}")
+                  div.flox-img(:style="{backgroundImage:`url(${$assets.check_local_env($config.local_url, $config.environment)}${i.self_data.photos[2]})`}")
               b-col(sm="12" md="12" lg="6").pl-lg-0
                 div.el-info-wrapper.pr-lg-3.px-md-2.px-sm-2.px-2.py-3
                   div.wrao
@@ -60,6 +60,10 @@
     props:{
       items: {
         type: Array
+      },
+      defaultClass: {
+        type: String,
+        default: 'all'
       }
     },
     data(){
@@ -125,7 +129,9 @@
         return parseFloat(val).toFixed(1)
       }
     },
-    mounted() {}
+    mounted() {
+      this.filter = this.$route.query.filter ? this.$route.query.filter : this.defaultClass
+    }
   }
 </script>
 

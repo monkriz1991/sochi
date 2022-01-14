@@ -61,6 +61,12 @@ import {mapActions, mapGetters} from 'vuex';
 import { Datetime } from 'vue-datetime';
 export default {
   name: "SearchFormForRent",
+  props: {
+    defaultClass: {
+      type: Number,
+      default: 5
+    }
+  },
   components: {
     datetime: Datetime,
   },
@@ -141,12 +147,12 @@ export default {
       this.place = this.searchForm.place ? this.searchForm.place.id : this.$config.default_place;
       this.start_date = this.searchForm.start_date ? this.searchForm.start_date : this.$assets.genNowSpec(2);
       this.end_date = this.searchForm.end_date ? this.searchForm.end_date : this.$assets.genNowSpec(9);
-      this.carClass = this.searchForm.carClass ? this.searchForm.carClass : 5;
+      this.carClass = this.searchForm.carClass ? this.searchForm.carClass : this.defaultClass;
     }else{
       this.place = this.$route.query.place ? this.$route.query.place : this.$config.default_place;
       this.start_date = this.$route.query.df ? this.$route.query.df.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(2);
       this.end_date = this.$route.query.dt ? this.$route.query.dt.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(9);
-      this.carClass = this.$route.query.ac ? this.$route.query.ac : 5;
+      this.carClass = this.$route.query.ac ? this.$route.query.ac : this.defaultClass;
     }
   }
 }

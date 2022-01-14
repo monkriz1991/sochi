@@ -698,5 +698,16 @@
   { "from": "/news/?idnews=752", "to": "/news/" },
   { "from": "/news/?idnews=767", "to": "/news/" },
   { "from": "/news/?idnews=755", "to": "/news/" },
-  { "from": "/news/?idnews=800", "to": "/news/" }
+  { "from": "/news/?idnews=800", "to": "/news/" },
+  {"from":  "/arenda-avto-adler-abhaziya", "to": "/arenda-avto-adler-abhaziya/"},
+  {"from":  "/arenda-avto-bez-ogranicheniya", "to": "/arenda-avto-bez-ogranicheniya/"},
+  {"from":  "/arenda-avto-drugoi-gorod", "to": "/arenda-avto-drugoi-gorod/"},
+  {"from":  "/arenda-avto-ur-lits", "to": "/arenda-avto-ur-lits/"},
+  {"from":  "/arenda-avto-komfort-klass", "to": "/arenda-avto-komfort-klass/"},
+  {"from":  "/arenda-avto-aeroport-sochi", "to": "/arenda-avto-aeroport-sochi/"},
+  {"from":  "/arenda-avto-krasnaya-poliyana", "to": "/arenda-avto-krasnaya-poliyana/"},
+  {"from":  "/arenda-avto-bez-voditelya", "to": "/arenda-avto-bez-voditelya/"},
+  {"from":  "/arenda-avto-sutki-bez-voditelya", "to": "/arenda-avto-sutki-bez-voditelya/"},
+  {"from":  "/arenda-avto-biznes-klass", "to": "/arenda-avto-biznes-klass/"},
+  { "from": "/arenda-avto-miniven", "to": "/arenda-avto-miniven/" }
 ]
