@@ -223,11 +223,11 @@
                 span.r-text="PROTECTION"
               p(v-if="loaded")
                 |{{$t('security1')}}
-                span(v-bind:style="{'cursor':'pointer', 'color': '#ff6a28'}")#tooltip-fran
+                span(:style="{'cursor':'pointer', 'color': '#ff6a28'}")#tooltip-fran
                   |{{$t('security2')}}
                   sup="*"
                 b-tooltip(target="tooltip-fran" triggers="hover")
-                  p(v-html="`${$t('security4')} ${item.car_data.franchise > 0 ? item.car_data.franchise : '30 000'} ${$t('security5')} ${item.car_data.franchise > 0 ? item.car_data.franchise : '30 000'} ${$t('security6')}`")
+                  p="Если арендатор не является виновником дорожно-транспортного происшествия, то при наступлении страхового случая, он обязан оплатить ремонт в размере франшизы установленной договором страхования Данное условие определяется по каждому конкретному транспортному средству,  может отличаться и зависит, в том числе, от размера установленной вины в происшествии. Подробную информацию Вы можете узнать у нашего менеджера."
                 |{{$t('security3')}}
               ul.list-ok-yes.list-unstyled.mb-5
                 li(v-b-modal.mi1)="{{$t('af5')}}"
