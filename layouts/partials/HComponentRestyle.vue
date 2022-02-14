@@ -36,7 +36,6 @@
               b-nav-item.d-sm-flex.d-md-none(href="https://spbrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m8') }}"
               b-nav-item.d-sm-flex.d-md-none(href="https://ekaterinburgrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m16') }}"
               b-nav-item.d-sm-flex.d-md-none(href="https://chelyabinskrentacar.ru/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m17') }}"
-              b-nav-item.d-sm-flex.d-md-none(href="https://miami-rent-a-car.com/" rel="nofollow").text-uppercase.pt-1.bold-text="{{ $t('m19') }}"
               b-nav-item.d-sm-flex.d-md-none
                 hr.my-1
               b-nav-item.cursot-default
@@ -75,7 +74,6 @@
               b-dropdown-item(href="https://spbrentacar.ru/" rel="nofollow").text-uppercase.py-1="{{ $t('m8') }}"
               b-dropdown-item(href="https://ekaterinburgrentacar.ru/" rel="nofollow").text-uppercase.py-1="{{ $t('m16') }}"
               b-dropdown-item(href="https://chelyabinskrentacar.ru/" rel="nofollow").text-uppercase.py-1="{{ $t('m17') }}"
-              b-dropdown-item(href="https://miami-rent-a-car.com/" rel="nofollow").text-uppercase.py-1="{{ $t('m19') }}"
             nuxt-link(:to="{name: $assets.prefix('rent', $i18n.locale)}").text-uppercase.tmenu.py-1="{{ $t('m38') }}"
     b-modal(:title="$t('cb1')" hide-footer)#callback
       b-form-group.mb-0(:description="$t('cb2')")

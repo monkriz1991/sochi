@@ -55,8 +55,6 @@
                   li
                     a(href="https://chelyabinskrentacar.ru/" rel="nofollow")="{{ $t('m17') }}"
                   li
-                    a(href="https://miami-rent-a-car.com/" rel="nofollow")="{{ $t('m19') }}"
-                  li
                     a(href="https://krasnodarrentacar.ru/" rel="nofollow")="{{ $t('m20') }}"
 </template>
 
@@ -115,7 +113,7 @@
         .bottom_menu
           width: auto
           ul
-            margin: 0px
+            margin: 0
             li
               display: inline
               @media screen and (max-width: 510px)

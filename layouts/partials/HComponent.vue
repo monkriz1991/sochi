@@ -60,7 +60,6 @@
                   a(href="https://ekaterinburgrentacar.ru/" rel="nofollow").menu-item="{{ $t('m16') }}"
                 div.menu-block-cities_2
                   a(href="https://chelyabinskrentacar.ru/" rel="nofollow").menu-item="{{ $t('m17') }}"
-                  a(href="https://miami-rent-a-car.com/" rel="nofollow").menu-item="{{ $t('m19') }}"
                   a(href="https://krasnodarrentacar.ru/" rel="nofollow").menu-item="{{ $t('m20') }}"
       b-modal(:title="$t('cb1')" hide-footer)#callback
         b-form-group.mb-0(:description="$t('cb2')")
