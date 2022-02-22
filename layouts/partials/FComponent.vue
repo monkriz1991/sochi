@@ -17,6 +17,8 @@
                   nuxt-link(:to="{name: $assets.prefix('conditions', $i18n.locale)}")="{{ $t('m3')}}"
                 li
                   nuxt-link(:to="{name: $assets.prefix('about-discounts', $i18n.locale)}")="{{ $t('m4')}}"
+                li
+                  nuxt-link(:to="{name: $assets.prefix('support-doc', $i18n.locale)}")="{{ $t('m40')}}"
       div.main_footer.py-5
         div.container
           b-row
