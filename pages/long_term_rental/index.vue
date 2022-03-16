@@ -6,13 +6,7 @@
         BreadCrumbs(:items="bcItems")
         h1="{{$t('faq12')}}"
         div
-          p
-            |{{$t('af2')}}
-            nuxt-link(:to="{name: $assets.prefix('index', $i18n.locale)}")="{{$t('af3')}}"
-            br
-            br
-            |{{$t('af4')}}
-            a(:href="`tel:${$assets.cleanPhone(settings.main_phone)}`").mgo-number="{{settings.main_phone}}"
+          ltr-text
         div.conditions
           div.my-5
             b-row
@@ -40,8 +34,10 @@
             b-row
               b-col(sm="12" md="6" lg="4")
                 b-form-select(v-model="filter" :options="filterOptions")
-              b-col(sm="12" md="6" lg="4" offset-lg="4")
+              b-col(sm="12" md="6" lg="4")
                 b-form-select(v-model="filter_price" :options="filterPrice")
+              b-col(sm="12" md="12" lg="4")
+                b-input(v-model="filter_name" :placeholder="$t('aoc13')")
           div(v-for="card in filteredList" :key="card.guid").row_card
             div.badge(v-html="`${$t('ltr8')} ${card.period_price}₽/${$t('ltr7')}`")
             b-row
@@ -66,6 +62,9 @@
                     div.info_lap
                       p.l="{{$t('aoc10')}}"
                       p.r="{{$t(card.color)}}"
+                    div.info_lap
+                      p.l="{{$t('aoc12')}}"
+                      p.r="{{$t(card.meliage)}}{{$t('p3')}}"
                   div.devider
                   div.actions
                     b-row
@@ -96,6 +95,8 @@
   import devider from "../../components/devider";
   import BreadCrumbs from "../../components/BreadCrumbs";
   import loader from "../../components/loader";
+  import ltrText from "../../components/snippets/ltrText";
+
   export default {
     head () {
       return {
@@ -108,13 +109,15 @@
     components: {
       devider,
       BreadCrumbs,
-      loader
+      loader,
+      ltrText
     },
     data(){
       return {
         name: '',
         ph: '',
         phone: '',
+        filter_name: '',
         loaded: false,
         lt_cards:[],
         filterOptions: [
@@ -146,12 +149,12 @@
           en: [
             {
               title: 'Driver age',
-              text: 'from 26 y.o',
+              text: 'from 21 y.o',
               class_name: 'cond_1'
             },
             {
               title: 'Experience',
-              text: 'more then 5 years',
+              text: 'more then 3 years',
               class_name: 'cond_2'
             },
             {
@@ -161,29 +164,29 @@
             },
             {
               title: 'Meliage/OverMeliage',
-              text: '3000km / from 3₽ - 1km',
+              text: '3000km / from 10₽ - 1km',
               class_name: 'cond_4'
             },
           ],
           ru: [
             {
               title: 'Возраст водителя',
-              text: 'с 26 лет',
+              text: 'с 21 лет',
               class_name: 'cond_1'
             },
             {
               title: 'Стаж',
-              text: 'не менее 5ти лет',
+              text: 'не менее 3х лет',
               class_name: 'cond_2'
             },
             {
-              title: 'Депозит на автомобиль',
+              title: 'Депозит',
               text: 'от 5000₽',
               class_name: 'cond_3'
             },
             {
               title: 'Пробег/Перепробег',
-              text: '3000 км / от 3₽ - 1 км',
+              text: '3000 км / от 10₽ - 1 км',
               class_name: 'cond_4'
             },
           ]
@@ -192,7 +195,13 @@
     },
     computed:{
       filteredList(){
-        return this.$filters.prepareLT(this.lt_cards, this.filter_price, this.filter);
+        if (this.filter_name.trim() === ''){
+          return this.$filters.prepareLT(this.lt_cards, this.filter_price, this.filter);
+        } else {
+          return this.$filters.prepareLT(this.lt_cards, this.filter_price, this.filter).filter((vehicle) => {
+            return (vehicle.name + ' ' + vehicle.year).toLowerCase().includes(this.filter_name.toLowerCase().trim())
+          });
+        }
       },
       settings(){
         let settings = this.$parent.$parent.set_data
@@ -295,7 +304,7 @@
       align-items: center
       box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.4)
     .preview
-      min-height: 300px
+      min-height: 325px
       background-position: center
       background-size: cover
       background-repeat: no-repeat
