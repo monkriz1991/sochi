@@ -12,7 +12,7 @@
             b-row
               b-col(sm="12" md="6" lg="3" v-for="(ci, cidx) in conditions[$i18n.locale]" :key="cidx")
                 div.condition
-                  div(v-bind:class="ci.class_name").ico
+                  div(:class="ci.class_name").ico
                   div.text
                     h6="{{ci.title}}"
                     p.ci-text="{{ci.text}}"
@@ -42,7 +42,7 @@
             div.badge(v-html="`${$t('ltr8')} ${card.period_price}₽/${$t('ltr7')}`")
             b-row
               b-col(sm="12" md="6" lg="4")
-                div(v-bind:style="{backgroundImage: `url(${$assets.prepare_url_to_local(card.image, $config.environment, $config.local_url)})`}").preview
+                div(:style="{backgroundImage: `url(${$assets.prepare_url_to_local(card.image, $config.environment, $config.local_url)})`}").preview
               b-col(sm="12" md="6" lg="8")
                 div.info-block.p-2
                   h3="{{card.name}} {{card.year}}"
@@ -234,7 +234,7 @@
         if (this.phone !== '' && this.name !== '' && this.phone !== undefined){
           let message = `БЫСТРАЯ ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.name} сделал заявку на автомобиль ${carName} номер телефона: ${this.phone}`;
           this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
-            .then((res)=>{
+            .then(()=>{
               this.hideModal(carId)
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                 title: 'Заявка отправлена',
@@ -379,7 +379,7 @@
         min-height: 70px
       ul
         list-style: none
-        padding: 0px
+        padding: 0
         width: 100%
         li
           display: flex
