@@ -2,59 +2,54 @@
     div
       h4.text-uppercase="{{$t('ins1')}}"
       div(v-for="(item, idx) in sorted_items" :key="idx").option
-        div(v-bind:class="{'pl-3': item.sub}").option-item.my-2
-          b-form-checkbox(v-model="item.value" v-if="item.code === 'ins_tax_1'" @change="check($event)" :disabled="item.disabled").lp-checkbox
-            div.wtp
-              a(@click.prevent="$bvModal.show(item.code)").hidden_info
-              p(v-html="item[`name_${$i18n.locale}`]").m-0
-          b-form-checkbox(v-model="item.value" v-else-if="['ins_tax_5', 'ins_tax_2'].includes(item.code)" :disabled="item.disabled").lp-checkbox
+        div(:class="{'pl-3': item.sub}").option-item.my-2
+          b-form-checkbox(v-model="item.value" :disabled="item.disabled").lp-checkbox
             div.info
               div.wtp
                 a(@click.prevent="$bvModal.show(item.code)").hidden_info
                 p(v-html="item[`name_${$i18n.locale}`]").m-0
-          b-form-checkbox(v-model="item.value" v-else @change="check_sub($event)" :disabled="item.disabled").lp-checkbox
-            div.info
-              div.wtp
-                a(@click.prevent="$bvModal.show(item.code)").hidden_info
-                p(v-html="item[`name_${$i18n.locale}`]").m-0
-          span(v-if="item.code !== 'ins_tax_1'").text-right.position-relative
+          span.text-right.position-relative
             b="{{item.price}}₽/{{$t('aoc1')}}"
         hr(v-if="(idx+1) !== sorted_items.length")
-      b-modal(centered :title="$t('af5')" hide-footer)#ins_tax_1
-        div.py-4
-          p="{{$t('af9')}}"
-          ul
-            li="{{$t('af10')}}"
-            li="{{$t('af11')}}"
-      b-modal(centered :title="$t('af10')" hide-footer)#ins_tax_3
+      b-modal(centered title="Расширенное страховое покрытие" hide-footer)#ins_tax_1
         div.py-4
           ul.d-flex.align-items-center.justify-content-around.list-unstyled.w-100.menu-modal
-            li(v-html="$t('af10_is')" v-bind:class="{active: active_tab === 1}" @click="active_tab = 1").w-50.px-2.text-center
-            li(v-html="$t('af10_is2')" v-bind:class="{active: active_tab === 2}" @click="active_tab = 2").w-50.px-2.text-center
+            li(v-html="$t('af10_is')" :class="{active: active_tab === 1}" @click="active_tab = 1").w-50.px-2.text-center
+            li(v-html="$t('af10_is2')" :class="{active: active_tab === 2}" @click="active_tab = 2").w-50.px-2.text-center
           hr
-          p(v-if="active_tab === 1")="{{$t('af10_1')}}{{$parent.car_data.franchise}}{{$t('af10_1_1')}}{{$t('af10_2')}}"
-          p(v-if="active_tab === 2")="{{$t('af10_1')}}{{$parent.car_data.franchise}}{{$t('af10_1_1')}}{{$t('af_an10_2')}}"
-      b-modal(centered :title="$t('af6')" hide-footer)#ins_tax_4
+          div(v-if="active_tab === 1")
+            p="Данная услуга отменяет франшизу в размере {{$parent.car_data.franchise}} рублей. Также снимает с Арендатора ответственность в случае возврата автомобиля с повреждениями или невозврата, вследствие утраты или гибели, по своей вине, либо по обоюдной вине, либо если виновное лицо не установлено*."
+            p="Расширенное страховое покрытие включает в себя:\n"
+            ul
+              li="расширенную техническую помощь - это помощь в любой нестандартной ситуации, даже если она не прописана в основном страховом договоре;"
+              li="снижение рисков за повреждение стеклянных элементов, шин и дисков;"
+          div(v-if="active_tab === 2")
+            p="Финансовая ответственность Арендатора равна {{$parent.car_data.franchise}} рублей. В случае повреждения автомобиля или невозврата по своей вине, либо обоюдной вине, либо если виновное лицо не установлено: \n"
+            ul
+              li="если ущерб автомобилю не превышает франшизу {{$parent.car_data.franchise}} рублей, то Арендатор возмещает размер причиненного ущерба;"
+              li="если ущерб автомобилю превышает франшизу {{$parent.car_data.franchise}} рублей, то арендатор выплачивает сумму в размере франшизы;"
+      b-modal(centered title="Стандартное страховое покрытие" hide-footer)#ins_tax_3
         div.py-4
-          p.m-0="{{$t('af13')}}"
+          ul.d-flex.align-items-center.justify-content-around.list-unstyled.w-100.menu-modal
+            li(v-html="$t('af10_is')" :class="{active: active_tab === 1}" @click="active_tab = 1").w-50.px-2.text-center
+            li(v-html="$t('af10_is2')" :class="{active: active_tab === 2}" @click="active_tab = 2").w-50.px-2.text-center
+          hr
+          div(v-if="active_tab === 1")
+            p="Данная услуга отменяет франшизу в размере {{$parent.car_data.franchise}} рублей. Также снимает с Арендатора ответственность в случае возврата автомобиля с повреждениями или невозврата, вследствие утраты или гибели, по своей вине, либо по обоюдной вине, либо если виновное лицо не установлено*."
+            p="Стандартное страховое покрытие включает в себя расширенную техническую помощь - это помощь в любой нестандартной ситуации, даже если она не прописана в основном страховом договоре."
+          div(v-if="active_tab === 2")
+            p="Финансовая ответственность Арендатора равна {{$parent.car_data.franchise}} рублей. В случае повреждения автомобиля или невозврата по своей вине, либо обоюдной вине, либо если виновное лицо не установлено:"
+            ul
+              li="если ущерб автомобилю не превышает франшизу {{$parent.car_data.franchise}} рублей, то Арендатор возмещает размер причиненного ущерба;"
+              li="если ущерб автомобилю превышает франшизу {{$parent.car_data.franchise}} рублей, то арендатор выплачивает сумму в размере франшизы;"
+      b-modal(centered title="Снижение рисков за повреждение стеклянных элементов, шин и дисков" hide-footer)#ins_tax_2
+        div.py-4
+          p="При добавлении данной услуги Арендатор освобождается от материальной ответственности:"
           ul
-            li="{{$t('af14')}}"
-            li="{{$t('af15')}}"
-            li="{{$t('af16')}}"
-            li="{{$t('af17')}}"
-            li="{{$t('af18')}}"
-          p="{{$t('af19')}}"
-          p.m-0.text-red="{{$t('af20')}}"
-          ul
-            li="{{$t('af21')}}"
-            li="{{$t('af22')}}"
-      b-modal(centered :title="$t('af7')" hide-footer)#ins_tax_2
-        div.py-4
-          p="{{$t('af23')}}"
-          p="{{$t('af24')}}"
-      b-modal(centered :title="$t('af8')" hide-footer)#ins_tax_5
-        div.py-4
-          p="{{$t('af25')}}"
+            li="за сколы или повреждение лобового стекла, бокового стекла и стекла двери ТС"
+            li="за порезы, боковые порезы, утрату автомобильных шин;"
+            li="за вмятины, царапины, трещины, утрату автомобильных дисков."
+          p="Данная услуга подразумевает освобождение от ответственности за повреждение лобового стекла, бокового стекла и стекла двери транспортного средства в размере его стоимости и работ по замене, освобождение от ответственности за повреждение и утрату шин и дисков."
 </template>
 
 <script>
@@ -82,9 +77,7 @@
             let total = 0;
             this.sorted_items.map(el => {
               if(el.value) {
-                if (el.code !== 'ins_tax_1') {
-                  total = total + el.price * parseInt(this.$parent.period)
-                }
+                total = total + el.price * parseInt(this.$parent.period)
               }
             })
             return total
@@ -95,9 +88,7 @@
               s = `\n\nВключенные опции страхования\n`
               this.sorted_items.map(el => {
                 if(el.value) {
-                  if (el.code !== 'ins_tax_1') {
-                    s = `${s}${el.name_ru} - ${el.price * this.$parent.period}руб.\n`
-                  }
+                  s = `${s}${el.name_ru} - ${el.price * this.$parent.period}руб.\n`
                 }
               })
               s = `\n${s}ИТОГО ПО СТРАХОВКЕ - ${this.total}руб.\n\n`
@@ -117,30 +108,8 @@
           ins_tax_3(){
             return this.sorted_items[2].value
           },
-          ins_tax_4(){
-            return this.sorted_items[3].value
-          },
-          ins_tax_5(){
-            return this.sorted_items[4].value
-          },
         },
         methods: {
-          check(e){
-            if (e){
-              this.sorted_items[1].value = true
-              this.sorted_items[2].value = true
-            }else{
-              this.sorted_items[1].value = false
-              this.sorted_items[2].value = false
-            }
-          },
-          check_sub(e){
-            if (this.sorted_items[1].value && this.sorted_items[2].value){
-              this.sorted_items[0].value = true
-            }else{
-              this.sorted_items[0].value = false
-            }
-          },
           pre_load(){
             this.items.map(el => {
               this.sorted_items.push(el)
