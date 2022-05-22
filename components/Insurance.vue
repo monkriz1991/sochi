@@ -11,45 +11,45 @@
           span.text-right.position-relative
             b="{{item.price}}₽/{{$t('aoc1')}}"
         hr(v-if="(idx+1) !== sorted_items.length")
-      b-modal(centered title="Расширенное страховое покрытие" hide-footer)#ins_tax_1
+      b-modal(centered :title="$t('i1')" hide-footer)#ins_tax_1
         div.py-4
           ul.d-flex.align-items-center.justify-content-around.list-unstyled.w-100.menu-modal
             li(v-html="$t('af10_is')" :class="{active: active_tab === 1}" @click="active_tab = 1").w-50.px-2.text-center
             li(v-html="$t('af10_is2')" :class="{active: active_tab === 2}" @click="active_tab = 2").w-50.px-2.text-center
           hr
           div(v-if="active_tab === 1")
-            p="Данная услуга отменяет франшизу в размере {{$parent.car_data.franchise}} рублей. Также снимает с Арендатора ответственность в случае возврата автомобиля с повреждениями или невозврата, вследствие утраты или гибели, по своей вине, либо по обоюдной вине, либо если виновное лицо не установлено*."
-            p="Расширенное страховое покрытие включает в себя:\n"
+            p(v-html="$t('i2').replace('$$', $parent.car_data.franchise)")
+            p="{{$t('i3')}}"
             ul
-              li="расширенную техническую помощь - это помощь в любой нестандартной ситуации, даже если она не прописана в основном страховом договоре;"
-              li="снижение рисков за повреждение стеклянных элементов, шин и дисков;"
+              li="{{$t('i4')}}"
+              li="{{$t('i5')}}"
           div(v-if="active_tab === 2")
-            p="Финансовая ответственность Арендатора равна {{$parent.car_data.franchise}} рублей. В случае повреждения автомобиля или невозврата по своей вине, либо обоюдной вине, либо если виновное лицо не установлено: \n"
+            p(v-html="$t('i6').replace('$$', $parent.car_data.franchise)")
             ul
-              li="если ущерб автомобилю не превышает франшизу {{$parent.car_data.franchise}} рублей, то Арендатор возмещает размер причиненного ущерба;"
-              li="если ущерб автомобилю превышает франшизу {{$parent.car_data.franchise}} рублей, то арендатор выплачивает сумму в размере франшизы;"
-      b-modal(centered title="Стандартное страховое покрытие" hide-footer)#ins_tax_3
+              li(v-html="$t('i7').replace('$$', $parent.car_data.franchise)")
+              li(v-html="$t('i8').replace('$$', $parent.car_data.franchise)")
+      b-modal(centered :title="$t('i9')" hide-footer)#ins_tax_3
         div.py-4
           ul.d-flex.align-items-center.justify-content-around.list-unstyled.w-100.menu-modal
             li(v-html="$t('af10_is')" :class="{active: active_tab === 1}" @click="active_tab = 1").w-50.px-2.text-center
             li(v-html="$t('af10_is2')" :class="{active: active_tab === 2}" @click="active_tab = 2").w-50.px-2.text-center
           hr
           div(v-if="active_tab === 1")
-            p="Данная услуга отменяет франшизу в размере {{$parent.car_data.franchise}} рублей. Также снимает с Арендатора ответственность в случае возврата автомобиля с повреждениями или невозврата, вследствие утраты или гибели, по своей вине, либо по обоюдной вине, либо если виновное лицо не установлено*."
-            p="Стандартное страховое покрытие включает в себя расширенную техническую помощь - это помощь в любой нестандартной ситуации, даже если она не прописана в основном страховом договоре."
+            p(v-html="$t('i10').replace('$$', $parent.car_data.franchise)")
+            p="{{$t('i11')}}"
           div(v-if="active_tab === 2")
-            p="Финансовая ответственность Арендатора равна {{$parent.car_data.franchise}} рублей. В случае повреждения автомобиля или невозврата по своей вине, либо обоюдной вине, либо если виновное лицо не установлено:"
+            p(v-html="$t('i12').replace('$$', $parent.car_data.franchise)")
             ul
-              li="если ущерб автомобилю не превышает франшизу {{$parent.car_data.franchise}} рублей, то Арендатор возмещает размер причиненного ущерба;"
-              li="если ущерб автомобилю превышает франшизу {{$parent.car_data.franchise}} рублей, то арендатор выплачивает сумму в размере франшизы;"
-      b-modal(centered title="Снижение рисков за повреждение стеклянных элементов, шин и дисков" hide-footer)#ins_tax_2
+              li(v-html="$t('i13').replace('$$', $parent.car_data.franchise)")
+              li(v-html="$t('i14').replace('$$', $parent.car_data.franchise)")
+      b-modal(centered :title="$t('i15')" hide-footer)#ins_tax_2
         div.py-4
-          p="При добавлении данной услуги Арендатор освобождается от материальной ответственности:"
+          p="{{$t('i16')}}"
           ul
-            li="за сколы или повреждение лобового стекла, бокового стекла и стекла двери ТС"
-            li="за порезы, боковые порезы, утрату автомобильных шин;"
-            li="за вмятины, царапины, трещины, утрату автомобильных дисков."
-          p="Данная услуга подразумевает освобождение от ответственности за повреждение лобового стекла, бокового стекла и стекла двери транспортного средства в размере его стоимости и работ по замене, освобождение от ответственности за повреждение и утрату шин и дисков."
+            li="{{$t('i17')}}"
+            li="{{$t('i18')}}"
+            li="{{$t('i19')}}"
+          p="{{$t('i20')}}"
 </template>
 
 <script>

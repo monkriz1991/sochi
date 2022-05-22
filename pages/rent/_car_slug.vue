@@ -164,14 +164,14 @@
                   p.l="{{$t('af49')}}"
                   p.r
                     span(v-b-modal.rate).stars
-                      span(v-for="(i, key) in item.self_data.safety" :key="`f${i}`").star-f
-                      span(v-for="(i, key) in (5 - item.self_data.safety)" :key="`s${i}`").star-o
+                      span(v-for="i in item.self_data.safety" :key="`f${i}`").star-f
+                      span(v-for="i in (5 - item.self_data.safety)" :key="`s${i}`").star-o
                 div.item-info
                   p.l="{{$t('af51')}}"
                   p.r
                     span(v-b-modal.rate).stars
-                      span(v-for="(i, key) in item.self_data.comfort" :key="`f${i}`").star-f
-                      span(v-for="(i, key) in (5 - item.self_data.comfort)" :key="`s${i}`").star-o
+                      span(v-for="i in item.self_data.comfort" :key="`f${i}`").star-f
+                      span(v-for="i in (5 - item.self_data.comfort)" :key="`s${i}`").star-o
                 div.item-info
                   p.l="{{$t('af50')}}"
                   p.r="{{item.tth.passa}} {{$assets.getNameCoint(item.tth.passa, $t('af52'), $t('af53'), $t('af54'))}}"
@@ -222,45 +222,17 @@
                 span="."
                 span.r-text="PROTECTION"
               p(v-if="loaded")
-                |{{$t('security1')}}
+                |{{$t('i21')}}
                 span(:style="{'cursor':'pointer', 'color': '#ff6a28'}")#tooltip-fran
                   |{{$t('security2')}}
                   sup="*"
                 b-tooltip(target="tooltip-fran" triggers="hover")
-                  p="Если арендатор не является виновником дорожно-транспортного происшествия, то при наступлении страхового случая, он обязан оплатить ремонт в размере франшизы установленной договором страхования Данное условие определяется по каждому конкретному транспортному средству,  может отличаться и зависит, в том числе, от размера установленной вины в происшествии. Подробную информацию Вы можете узнать у нашего менеджера."
-                |{{$t('security3')}}
+                  p="{{$t('i23')}}"
+                |{{$t('i22')}}
               ul.list-ok-yes.list-unstyled.mb-5
-                li(v-b-modal.mi1)="{{$t('af5')}}"
-                li(v-b-modal.mi2)="{{$t('af6')}}"
-                li(v-b-modal.mi3)="{{$t('af7')}}"
-                li(v-b-modal.mi4)="{{$t('af8')}}"
-              b-modal(centered :title="$t('af5')" hide-footer)#mi1
-                div.py-4
-                  p="{{$t('af9')}}"
-                  ul
-                    li="{{$t('af10')}}"
-                    li="{{$t('af11')}}"
-              b-modal(centered :title="$t('af6')" hide-footer)#mi2
-                div.py-4
-                  p.m-0="{{$t('af13')}}"
-                  ul
-                    li="{{$t('af14')}}"
-                    li="{{$t('af15')}}"
-                    li="{{$t('af16')}}"
-                    li="{{$t('af17')}}"
-                    li="{{$t('af18')}}"
-                  p="{{$t('af19')}}"
-                  p.m-0.text-red="{{$t('af20')}}"
-                  ul
-                    li="{{$t('af21')}}"
-                    li="{{$t('af22')}}"
-              b-modal(centered :title="$t('af7')" hide-footer)#mi3
-                div.py-4
-                  p="{{$t('af23')}}"
-                  p="{{$t('af24')}}"
-              b-modal(centered :title="$t('af8')" hide-footer)#mi4
-                div.py-4
-                  p="{{$t('af25')}}"
+                li="{{$t('i1')}}"
+                li="{{$t('i9')}}"
+                li="{{$t('i15')}}"
             div.py-2
               h3="{{$t('bc2')}}"
               div.points
@@ -628,7 +600,7 @@
         padding: 5px 10px
         background:
         border-radius: 25px
-        margin: 5px 0px 0px
+        margin: 5px 0 0
         background-color: #2AA30C
         width: 33%
         text-align: center
