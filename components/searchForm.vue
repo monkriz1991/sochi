@@ -102,6 +102,7 @@ import {mapActions, mapGetters} from 'vuex';
           end_date: this.end_date,
           carClass: this.carClass,
         };
+
         this.setSearchForm(form).then(() => {
           this.$root.$emit('onSearch');
           if(useScroll){
@@ -141,11 +142,11 @@ import {mapActions, mapGetters} from 'vuex';
     mounted() {
       this.fetchPoints()
       if (this.searchForm){
-        this.place = this.searchForm.place ? this.searchForm.place.id : this.$config.default_place;
+        this.place = this.searchForm.place ? this.searchForm.place.id : '9';
         this.start_date = this.searchForm.start_date ? this.searchForm.start_date : this.$assets.genNowSpec(2);
         this.end_date = this.searchForm.end_date ? this.searchForm.end_date : this.$assets.genNowSpec(9);
         this.carClass = this.searchForm.carClass ? this.searchForm.carClass : 5;
-      }else{
+     }else{
         this.place = this.$route.query.place ? this.$route.query.place : this.$config.default_place;
         this.start_date = this.$route.query.df ? this.$route.query.df.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(2);
         this.end_date = this.$route.query.dt ? this.$route.query.dt.replace(' 03:00', '+03:00') : this.$assets.genNowSpec(9);

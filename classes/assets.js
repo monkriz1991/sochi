@@ -5,11 +5,13 @@ class Assets {
 
 
   genNowSpec = (time) => {
-    return this.moment().tz('Europe/Moscow').add(time, 'days').set("hour", 12).set("minute", 0).set("second", 0).format();
-  };
+     let data = this.moment().tz('Europe/Moscow').add(time, 'days').set("hour", 12).set("minute", 0).set("second", 0);
+     return data.format()
+    };
 
   genNowSpecFromDate = (date, time) => {
     let data = this.moment(date).tz('Europe/Moscow').add(time, 'days').set("hour", 12).set("minute", 0).set("second", 0);
+    console.log(data)
     return data.format()
   };
 
