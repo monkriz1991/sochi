@@ -30,6 +30,13 @@ jobs:
           command: |
             cd /var/www/www-root/data/www/bizzon-shop.by/sochi
             yarn install
+            apt-get install wget
+            wget -O cars.json https://booking.autopilot.rent/api/sun/cars/getSeo/sochi.json
+            wget -O news.json https://booking.autopilot.rent/api/sun/newsListSeo/sochi.json
+            wget -O long.json https://booking.autopilot.rent/sun/sun-long-make-seo/sochi
+            wget -O events.json https://booking.autopilot.rent/sun/sun-events-make-seo/sochi
+            wget -O static/sitemap.xml https://booking.autopilot.rent/sun/sun-sites-sitemap/sochi
+            wget -O static_booking.json https://booking.autopilot.rent/sun/sun-static-cars-sync/sochi
       - name: build
         uses: fifsky/ssh-action@master
         with:
