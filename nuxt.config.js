@@ -1,4 +1,4 @@
-const env = require('dotenv').config();
+const env = require('.env.example').config();
 
 const yaMapSettings = {
   apiKey: env.parsed.YAMAP_KEY,
