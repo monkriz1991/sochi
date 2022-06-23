@@ -1,0 +1,42 @@
+name: ci
+
+
+on:
+  push:
+    branches:
+      - realease/1.0
+
+jobs:
+  deploy-service:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: git pull
+        uses: fifsky/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          pass: ${{ secrets.SSH_PASS }}
+          command: |
+            cd /var/www/www-root/data/www/bizzon-shop.by/sochi
+            git add . && git commit -m "auto commit"
+            ${{ secrets.SCRIPT }}
+      - name: install packages
+        uses: fifsky/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          pass: ${{ secrets.SSH_PASS }}
+          command: |
+            cd /var/www/www-root/data/www/bizzon-shop.by/sochi
+            npm install
+      - name: build
+        uses: fifsky/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          pass: ${{ secrets.SSH_PASS }}
+          command: |
+            cd /var/www/www-root/data/www/bizzon-shop.by/sochi
+            npm run build && npm run generate
+            pm2 restart sochi
