@@ -140,7 +140,6 @@ import {mapActions, mapGetters} from 'vuex';
       }
     },
     mounted() {
-      console.log('ok')
       this.fetchPoints()
       if (this.searchForm){
         this.place = this.searchForm.place ? this.searchForm.place.id : '9';
