@@ -348,17 +348,17 @@
       }
     },
     updated(){
-      if (this.options_loaded){
-        if (this.options[this.viezd_v_krim_index].value){
-          this.options[this.vozvrat_avto_v_krimu_index].old_price = this.vozvrat_avto_v_krimu_original_price
-          this.options[this.vozvrat_avto_v_krimu_index].price = 4000
-        }else{
-          if(this.options[this.vozvrat_avto_v_krimu_index].old_price){
-            delete this.options[this.vozvrat_avto_v_krimu_index].old_price
-            this.options[this.vozvrat_avto_v_krimu_index].price = this.vozvrat_avto_v_krimu_original_price
-          }
-        }
-      }
+      // if (this.options_loaded){
+      //   if (this.options[this.viezd_v_krim_index].value){
+      //     this.options[this.vozvrat_avto_v_krimu_index].old_price = this.vozvrat_avto_v_krimu_original_price
+      //     this.options[this.vozvrat_avto_v_krimu_index].price = 4000
+      //   }else{
+      //     if(this.options[this.vozvrat_avto_v_krimu_index].old_price){
+      //       delete this.options[this.vozvrat_avto_v_krimu_index].old_price
+      //       this.options[this.vozvrat_avto_v_krimu_index].price = this.vozvrat_avto_v_krimu_original_price
+      //     }
+      //   }
+      // }
     },
     watch:{
       loader_step(){
