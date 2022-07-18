@@ -67,7 +67,7 @@
       }
     },
     mounted() {
-      this.$axios.post('sun/drivers', {city: this.$config.station})
+      this.$baseApi.post('sun/drivers', {city: this.$config.station})
         .then(result => {
           if (result.data.status === 'success'){
             this.drivers = result.data.data;

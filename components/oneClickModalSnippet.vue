@@ -55,7 +55,7 @@ export default {
           solid: true
         });
       } else {
-        this.$axios.post("sun/oneClickOrder", data)
+        this.$baseApi.post("sun/oneClickOrder", data)
           .then(res => {
             if (res.data.status === 'success'){
               if (this.is_rent){

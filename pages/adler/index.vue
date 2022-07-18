@@ -49,7 +49,7 @@
     },
     methods:{
       fetchCWoD(){
-        this.$axios.post('sun/carsWithoutDrivers', {city: this.$config.station})
+        this.$baseApi.post('sun/carsWithoutDrivers', {city: this.$config.station})
           .then(result => {
             if (result.data.status === 'success'){
               this.CWoD = result.data.data;

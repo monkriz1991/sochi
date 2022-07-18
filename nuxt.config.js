@@ -10,7 +10,10 @@ const yaMapSettings = {
 const  translation = require('./lang/translation');
 
 module.exports = {
-
+  publicRuntimeConfig: {
+    API_TOKEN: process.env.API_TOKEN,
+    API_BASE_URL: process.env.API_BASE_URL,
+  },
   router: {
     trailingSlash: true
   },
@@ -46,12 +49,14 @@ module.exports = {
     {src: '~/plugins/MaskPlugin', ssr: false},
     {src: '~/plugins/PhoneComponent', ssr: false},
     {src: '~/plugins/VueYouTube', ssr: false},
+    {src: '~/plugins/baseApi', ssr: true},
   ],
 
   modules: [
     '@nuxtjs/device',
     '@nuxtjs/bootstrap-vue',
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
     'nuxt-lazy-load',
     ['vue-yandex-maps/nuxt', yaMapSettings],
     'nuxt-webfontloader',
@@ -80,12 +85,8 @@ module.exports = {
   },
 
   axios: {
-    baseURL: env.parsed.API_BASE_URL,
-    timeout: 10000,
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${env.parsed.API_TOKEN}`,
-    },
+    baseURL: 'http://space.autopilotrent.ru',
+
   },
 
   loading: { color: '#ff6a28' },
@@ -112,10 +113,43 @@ module.exports = {
   },
 
   server: {
-    port: 25700, // default: 3000
+    port: 3000, // default: 3000
     host: '0.0.0.0', // default: localhost,
     timing: false
-  }
+  },
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'access_token',
+          maxAge: 60*60*24*5,
+          global: true,
+          type: 'bearer'
+        },
+        user: {
+          property: '',
+        },
+        endpoints: {
+          login: { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, url: 'http://space.autopilotrent.ru/token', method: 'post', propertyName: 'access_token' },
+          logout: false,
+          user: { url: 'http://space.autopilotrent.ru/users/get/me/', method: 'get' }
+        },
+        // tokenRequired: true,
+        tokenType: '',
+      },
+    },
+    cookie: {
+      options: {
+          sameSite: 'lax',
+      },
+    },
+    redirect: {
+      login: '/cabinet',
+      home: '/cabinet',
+      callback: '/',
+      logout: '/'
+    }
+  },
 
 };
 

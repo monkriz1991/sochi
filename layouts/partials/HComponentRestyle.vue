@@ -161,7 +161,7 @@ export default {
           clientPhone: this.callback_form.phone,
           station: this.$config.station,
         }
-        this.$axios.post("sun/v2/callback", data)
+        this.$baseApi.post("sun/v2/callback", data)
           .then(()=>{
             this.hideModal();
             ym(33072038,'reachGoal','klik zakazat')

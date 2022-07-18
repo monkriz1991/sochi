@@ -51,7 +51,7 @@ export default {
             clientEmail: this.feedback.phone,
             comment: this.feedback.message,
           }
-          this.$axios.post("sun/v2/feedback", data)
+          this.$baseApi.post("sun/v2/feedback", data)
             .then(()=>{
               ym(33072038,'reachGoal','contacts-klik otpravit')
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {

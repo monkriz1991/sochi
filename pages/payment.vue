@@ -106,7 +106,7 @@
            'fio': this.payment_form.name,
            'order_id_site': this.orderNumber
          }
-         this.$axios.post('sun/registerAnOrderOP', Data)
+         this.$baseApi.post('sun/registerAnOrderOP', Data)
            .then(res => {
              if (res.data.status === 'success'){
                this.$bvToast.toast('Заявка отправлена', {

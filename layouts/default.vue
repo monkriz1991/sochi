@@ -34,7 +34,7 @@
       }
     },
     beforeCreate() {
-      this.$axios(`sun/fetchSettings/${this.$config.station}`)
+      this.$baseApi(`sun/fetchSettings/${this.$config.station}`)
         .then(res => {
           this.set_data = res.data.data
         }).catch(err=>console.error(err))

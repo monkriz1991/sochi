@@ -121,7 +121,7 @@ import {mapActions, mapGetters} from 'vuex';
         }
       },
       fetchPoints(){
-        this.$axios(`fetchPoints/${this.$config.station}`)
+        this.$baseApi(`fetchPoints/${this.$config.station}`)
         .then(result => {
           if(result.data.status === 'success'){
             let res = [];

@@ -433,7 +433,7 @@
             solid: true
           });
         } else {
-          this.$axios.post("sun/oneClickOrder", data)
+          this.$baseApi.post("sun/oneClickOrder", data)
             .then(res => {
               if (res.data.status === 'success'){
 
@@ -466,16 +466,16 @@
         city: this.$config.station,
         slug: this.$route.params.car_slug
       };
-      this.$axios.post('sun/CWoDgetBySlug', data)
+      this.$baseApi.post('sun/CWoDgetBySlug', data)
         .then(res => {
           if (res.data.status === 'success'){
             this.item = res.data.data;
-            this.$axios(`fetchPoints/${this.$config.station}`)
+            this.$baseApi(`fetchPoints/${this.$config.station}`)
               .then(result => {
                 if(result.data.status === 'success'){
                   this.points = result.data.data;
                   this.loaded = true;
-                  this.$axios.post('sun/getUpperClassData', {
+                  this.$baseApi.post('sun/getUpperClassData', {
                     station: this.$config.station,
                     car_id_selected: this.item.self_data.car_id,
                     car_id_raw: this.item.self_data.id,

@@ -233,7 +233,7 @@
       submitModal(carName, carId){
         if (this.phone !== '' && this.name !== '' && this.phone !== undefined){
           let message = `БЫСТРАЯ ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.name} сделал заявку на автомобиль ${carName} номер телефона: ${this.phone}`;
-          this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
+          this.$baseApi.post("sendMessageToChanel", {message: message, station:this.$config.station})
             .then(()=>{
               this.hideModal(carId)
               this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
@@ -263,7 +263,7 @@
           "station": this.$config.station,
           "class": 5
         }
-        this.$axios.post('/sun/ltr/list', data)
+        this.$baseApi.post('/sun/ltr/list', data)
           .then(result => {
             if (result.data.status === 'success'){
               this.lt_cards = result.data.data

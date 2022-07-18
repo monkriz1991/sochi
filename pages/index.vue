@@ -99,14 +99,14 @@
         }
       },
       fetchElements(){
-        this.$axios.post('sun/carsWithDriverMainPage', {city:this.$config.station})
+        this.$baseApi.post('sun/carsWithDriverMainPage', {city:this.$config.station})
           .then(res => {
             if (res.data.status === 'success'){
               this.CWD = res.data.data;
             }
           })
           .catch(err => console.error(err))
-        this.$axios.post('sun/carsWithoutDriverMainPage', {city:this.$config.station})
+        this.$baseApi.post('sun/carsWithoutDriverMainPage', {city:this.$config.station})
           .then(res => {
             if (res.data.status === 'success'){
               this.CWoD = res.data.data;
