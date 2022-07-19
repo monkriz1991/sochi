@@ -130,11 +130,11 @@
         city: this.$config.station,
         slug: this.$route.params.car_slug
       };
-      this.$axios.post('sun/CWDgetBySlug', data)
+      this.$baseApi.post('sun/CWDgetBySlug', data)
         .then(res => {
           if (res.data.status === 'success'){
             this.item = res.data.data;
-            this.$axios.post(`fetchPointsForTransfer`, {station: this.$config.station, car_name: this.item.car_data.naimenovanie})
+            this.$baseApi.post(`fetchPointsForTransfer`, {station: this.$config.station, car_name: this.item.car_data.naimenovanie})
               .then(result => {
                 if(result.data.status === 'success'){
                   this.points = result.data.data;

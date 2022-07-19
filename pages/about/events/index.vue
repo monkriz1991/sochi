@@ -85,7 +85,7 @@
     },
     methods: {
       fetchEvents(){
-        this.$axios.post('sun/events/getList', {station: this.$config.station})
+        this.$baseApi.post('sun/events/getList', {station: this.$config.station})
           .then(result => {
             if(result.data.status === 'success'){
               this.events = result.data.data;

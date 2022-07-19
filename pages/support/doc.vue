@@ -141,7 +141,7 @@ export default {
       return res
     },
     async makeReq(){
-      this.$axios.get(`totalTable?city=${this.$config.station}`)
+      this.$baseApi.get(`totalTable?city=${this.$config.station}`)
         .then((result)=>{
           if (result.data.status === 'success'){
             this.arri = result.data.data;

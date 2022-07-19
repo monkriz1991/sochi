@@ -50,7 +50,7 @@ export default {
     },
     submitModal(){
       if (this.clientPhone !== '' && this.clientName !== '' && this.clientPhone !== undefined){
-        this.$axios.post("sun/v2/LessTwelve", this.formData)
+        this.$baseApi.post("sun/v2/LessTwelve", this.formData)
           .then(()=>{
             this.hideModal();
             ym(33072038,'reachGoal','less twelve')

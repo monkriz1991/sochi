@@ -75,7 +75,7 @@
     },
     methods: {
       fetchSingleEvent(){
-        this.$axios(`sun/events/getEvent/${this.$route.params.event_id}`)
+        this.$baseApi(`sun/events/getEvent/${this.$route.params.event_id}`)
           .then(res => {
             if(res.data.status === 'success'){
               this.event = res.data.data

@@ -41,7 +41,7 @@
       }
     },
     mounted() {
-      this.$axios.post('sun/options', {car_id: this.car_id, station: this.$config.station})
+      this.$baseApi.post('sun/options', {car_id: this.car_id, station: this.$config.station})
         .then(res => {
           if(res.data.status === 'success'){
             this.options = res.data.data;

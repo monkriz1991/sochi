@@ -348,17 +348,17 @@
       }
     },
     updated(){
-      if (this.options_loaded){
-        if (this.options[this.viezd_v_krim_index].value){
-          this.options[this.vozvrat_avto_v_krimu_index].old_price = this.vozvrat_avto_v_krimu_original_price
-          this.options[this.vozvrat_avto_v_krimu_index].price = 4000
-        }else{
-          if(this.options[this.vozvrat_avto_v_krimu_index].old_price){
-            delete this.options[this.vozvrat_avto_v_krimu_index].old_price
-            this.options[this.vozvrat_avto_v_krimu_index].price = this.vozvrat_avto_v_krimu_original_price
-          }
-        }
-      }
+      // if (this.options_loaded){
+      //   if (this.options[this.viezd_v_krim_index].value){
+      //     this.options[this.vozvrat_avto_v_krimu_index].old_price = this.vozvrat_avto_v_krimu_original_price
+      //     this.options[this.vozvrat_avto_v_krimu_index].price = 4000
+      //   }else{
+      //     if(this.options[this.vozvrat_avto_v_krimu_index].old_price){
+      //       delete this.options[this.vozvrat_avto_v_krimu_index].old_price
+      //       this.options[this.vozvrat_avto_v_krimu_index].price = this.vozvrat_avto_v_krimu_original_price
+      //     }
+      //   }
+      // }
     },
     watch:{
       loader_step(){
@@ -565,7 +565,7 @@
         this.promocode_loaded = false
         this.promocode_valid = false
         this.promocode_sale = 0
-        this.$axios.post('sun/promocheck', {code: this.userData.promocode, station: this.$config.station})
+        this.$baseApi.post('sun/promocheck', {code: this.userData.promocode, station: this.$config.station})
           .then(res => {
             if ((this.userData.promocode.toLowerCase() === 'summer2020' || this.userData.promocode.toLowerCase() === 'more2020') && ['ПРОМО', 'Промо', 'Электросамокаты'].includes(this.car_data.klassavtomobilya)){
               this.promocode_loaded = true
@@ -640,7 +640,7 @@
         let now_sec = (new Date()).getTime();
         let od = 86400000 / 2;
         if((df_sec - now_sec) > od){
-          this.$axios.post('checkCarAvailability', {
+          this.$baseApi.post('checkCarAvailability', {
             df: this.$assets.makeDateForRequest(this.userData.df),
             dt: this.$assets.makeDateForRequest(this.userData.dt),
             car_id: this.car_id,
@@ -727,7 +727,7 @@
           delivery_reverse: `\n\n${this.insuranse_string ? this.insuranse_string : ''}${payData}\n${promo}\n\nПодача и возврат ${this.addPlaces_str}\n${this.limit_distance_message}\n`,
           partner: localStorage.partner ? localStorage.partner : false
         }
-        this.$axios.post('sun/placeOrderOnPay', orderData)
+        this.$baseApi.post('sun/placeOrderOnPay', orderData)
           .then(res => {
             if (res.data.status === 'success'){
               callback_func(res.data.confirmation)
@@ -770,7 +770,7 @@
         }
       },
       async fetchPoints(){
-        this.$axios(`fetchPoints/${this.$config.station}`)
+        this.$baseApi(`fetchPoints/${this.$config.station}`)
           .then(result => {
             if(result.data.status === 'success'){
               let res = [];
@@ -787,7 +787,7 @@
           })
       },
       fetchData(){
-        this.$axios.post(`/sun/single/${this.car_id}`, {
+        this.$baseApi.post(`/sun/single/${this.car_id}`, {
           df: this.$assets.makeDateForRequest(this.userData.df),
           dt: this.$assets.makeDateForRequest(this.userData.dt),
           car_id: this.car_id,
@@ -797,7 +797,7 @@
             this.car_data  = result.data.data;
             this.car_data.stoimost = this.car_data.car_actual.PriceDiscount;
             this.period = this.car_data.car_actual.Period;
-            this.$axios.post('getSunPhotos',{gosnomer: result.data.data.gosnomer, sun:1, city: this.$config.station})
+            this.$baseApi.post('getSunPhotos',{gosnomer: result.data.data.gosnomer, sun:1, city: this.$config.station})
               .then((result)=>{
                 this.car_photos = result.data.data;
                 this.images = this.car_photos.length > 0 ? this.car_photos : [this.car_data.car_image];
@@ -823,7 +823,7 @@
         this.fetchData();
       },
       fetchOptions(){
-        this.$axios.post('sun/options', {car_id: this.car_id, station: this.$config.station, period: this.period})
+        this.$baseApi.post('sun/options', {car_id: this.car_id, station: this.$config.station, period: this.period})
           .then(res => {
             if(res.data.status === 'success'){
               this.loader_step = this.loader_step + 1;

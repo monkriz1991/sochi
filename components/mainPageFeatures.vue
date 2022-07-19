@@ -21,7 +21,7 @@
     },
     methods:{
       fetchFeatures(){
-        this.$axios.post('sun/fetchFeatures', {city: this.$config.station})
+        this.$baseApi.post('sun/fetchFeatures', {city: this.$config.station})
         .then(res => {
           if (res.data.status === 'success'){
             this.features = res.data.data;

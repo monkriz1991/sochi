@@ -272,7 +272,7 @@
     methods: {
       makeRequestToBaseForPrice(){
         this.priceLoading = true;
-        this.$axios.post('/sun/longTermActualPrice' , {
+        this.$baseApi.post('/sun/longTermActualPrice' , {
           car_id: this.$route.params.gosnomer,
           station: this.$config.station,
           date: this.$assets.makeDateForRequest(this.df)
@@ -302,7 +302,7 @@
           }else{
             this.allready = true;
             let message = `ЗАЯВКА НА ДОЛГОСРОЧНУЮ АРЕНДУ СОЧИ\nПользователь ${this.userData.surname} ${this.userData.name} ${this.userData.fathername} сделал заявку на автомобиль ${this.item.cd.naimenovanie}\nДаты:\nc - ${this.$assets.formatDate(new Date(this.df))}\nпо - ${this.$assets.formatDate(new Date(this.dt))}\nСтоимость периода - ${this.lastPrice}₽\n\nНомер телефона: ${this.userData.phone}\nE-mail: ${this.userData.email}\nКомментарий: ${this.userData.comment}`;
-            this.$axios.post("sendMessageToChanel", {message: message, station:this.$config.station})
+            this.$baseApi.post("sendMessageToChanel", {message: message, station:this.$config.station})
               .then((res)=>{
                 this.$bvToast.toast('Ваша заявка получена, менеджер свяжется с Вами в бижайшее время', {
                   title: 'Заявка отправлена',
@@ -330,7 +330,7 @@
         this.clearErrors()
       },
       fetchSingleItem(){
-        this.$axios.get(`/sun/longTermSingle/${this.$route.params.gosnomer}`)
+        this.$baseApi.get(`/sun/longTermSingle/${this.$route.params.gosnomer}`)
           .then(result => {
             if (result.data.status === 'success'){
               this.item = result.data.data;

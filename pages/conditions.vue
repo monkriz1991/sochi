@@ -148,7 +148,7 @@
     },
     methods: {
       fetchPoints(){
-        this.$axios(`fetchPoints/${this.$config.station}`)
+        this.$baseApi(`fetchPoints/${this.$config.station}`)
           .then(result => {
             if(result.data.status === 'success'){
               this.places = result.data.data;
@@ -157,7 +157,7 @@
           }).catch(err=>console.error(err));
       },
       fetchOptions(){
-        this.$axios.post('fetchOptionsAll', {city: this.$config.station})
+        this.$baseApi.post('fetchOptionsAll', {city: this.$config.station})
           .then((result)=>{
             if (result.data.status === 'success'){
               this.options = result.data.data;

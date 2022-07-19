@@ -60,7 +60,7 @@
       }
     },
     beforeCreate() {
-      this.$axios.get(`sun/newsList/${this.$route.params.slug}`)
+      this.$baseApi.get(`sun/newsList/${this.$route.params.slug}`)
       .then(result => {
         if(result.data.status === 'success'){
           this.news = result.data.data;

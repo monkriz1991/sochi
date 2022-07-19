@@ -198,7 +198,7 @@
               session_key: this.session_key,
               partner: localStorage.partner ? localStorage.partner : false
             };
-            this.$axios.post("sun/sendStaticOrder", data)
+            this.$baseApi.post("sun/sendStaticOrder", data)
               .then((res)=>{
                 if (res.data.status === 'success'){
                   ym(33072038,'reachGoal','rent-klik otpravit')
@@ -229,7 +229,7 @@
     },
     mounted() {
       if(!this.places.length && !this.fetchedPlaces.length){
-        this.$axios(`fetchPoints/${this.$config.station}`)
+        this.$baseApi(`fetchPoints/${this.$config.station}`)
           .then(result => {
             if(result.data.status === 'success'){
               this.fetchedPlaces = result.data.data;
